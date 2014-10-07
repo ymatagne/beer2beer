@@ -1,0 +1,11 @@
+name                               : beer2beer
+version                            : 0.0.0
+secret                             : secret-key-for-web
+author                             : BeerTeam
+
+directory-definitions              : /app/definitions/
+directory-controllers              : /app/controllers/
+directory-models                   : /app/models/
+directory-views                    : /web/views/
+directory-temp                     : /tmp/
+directory-public                   : /web/public/
