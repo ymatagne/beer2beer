@@ -1,8 +1,18 @@
 module.exports = function(grunt) {
+    grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-contrib-concat');
     
     // Project configuration.
     grunt.initConfig({
+        // Configure a mochaTest task
+        mochaTest: {
+          test: {
+            options: {
+              reporter: 'spec'
+            },
+            src: ['test/server/**/*.js']
+          }
+        },
         concat: {
             options: {
                 separator: ';'
@@ -15,5 +25,6 @@ module.exports = function(grunt) {
     });
     
     // Default task(s).
-    grunt.registerTask('default', ['concat']);  
+    grunt.registerTask('default', ['concat']);
+    grunt.registerTask('test', ['mochaTest']);  
 };
