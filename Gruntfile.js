@@ -5,13 +5,13 @@ module.exports = function(grunt) {
     grunt.initConfig({
         concat: {
             options: {
-                separator: ';',
+                separator: ';'
             },
             dist: {
-                src: ['front/public/app/app.js'],
-                dest: 'front/public/app/app.js',
-            },
-        },
+                src: ['front/public/app/src/application.js', 'front/public/app/src/controllers/*.js'],
+                dest: 'front/public/app/app.js'
+            }
+        }
     });
     
     // Default task(s).
