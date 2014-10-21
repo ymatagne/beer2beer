@@ -1,0 +1,49 @@
+section#searchBeer.searchBeer(ng-controller='searchBeerController')
+    .container
+        .section-header
+            h2.dark-text Search The Beer
+    .container
+        .container-fluid
+            .row
+                .col-xs-2
+                    form.navbar-form.navbar-left(role='search')
+                        .row
+                            input.form-control(type='text', placeholder='Beer Name', value='{{beer}}')
+                        .row
+                            .checkbox
+                                label
+                                    input(type='checkbox')
+                                    | Blonde
+                            .checkbox
+                                label
+                                    input(type='checkbox')
+                                    | Brune
+                            .checkbox
+                                label
+                                    input(type='checkbox')
+                                    | Blanche
+                            .checkbox
+                                label
+                                    input(type='checkbox')
+                                    | Ambree
+                        .row
+                            .checkbox
+                                label
+                                    input(type='checkbox')
+                                    | 25 cl
+                            .checkbox
+                                label
+                                    input(type='checkbox')
+                                    | 33 cl
+                            .checkbox
+                                label
+                                    input(type='checkbox')
+                                    | 50 cl
+                            .checkbox
+                                label
+                                    input(type='checkbox')
+                                    | 1 l
+                        .row
+                            button.btn.btn-default(type='submit') Search
+                .col-xs-10
+                    #map-canvas
