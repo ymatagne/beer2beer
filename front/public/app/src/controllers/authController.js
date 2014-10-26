@@ -1,6 +1,6 @@
 'use strict';
 
-controllers.controller('authController', function($scope,$http,ngDialog){
+controllers.controller('authController', function($scope,$http,$location, ngDialog){
     $scope.login = function () {
         ngDialog.open({ template: 'login',  plain: false, className: 'ngdialog-theme-default',showClose:true });
     };
@@ -20,6 +20,17 @@ controllers.controller('authController', function($scope,$http,ngDialog){
             });
 
     };
-
-
+    $scope.submit = function (form) {
+      $http.post('/api/auth/local', {email:$scope.user.email,password:$scope.user.password}).
+            success(function(data, status, headers, config) {
+              $scope.closeThisDialog();
+               $location.path('/');
+            }).
+            error(function(data, status, headers, config) {
+              $scope.errors = {};
+              angular.forEach(data.errors, function(error, field) {
+                $scope.errors[field] = error.type;
+              });
+            });
+    };
 });

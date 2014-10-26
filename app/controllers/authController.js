@@ -1,4 +1,5 @@
-var User = require('../models/user');
+var User = require('../models/user'),
+  passport = require('passport');
 
 /*
 	Description: Authentification in Google
@@ -64,14 +65,14 @@ module.exports.auth_create =function(req, res) {
 	Description: Save beer
 	Method: GET
 */
-module.exports.auth_local =function(req, res) {
-	console.log('callback Authentification local');
-};
-
-/*
-	Description: Delete beer
-	Method: GET
-*/
-module.exports.auth_local_callback =function(req, res) {
+module.exports.auth_local =function(req, res,next) {
 	console.log('Authentification local');
+	passport.authenticate('local', function(err, user, info) {
+    var error = err || info;
+    if (error) { return res.json(400, error); }
+    req.logIn(user, function(err) {
+      if (err) { return res.send(err); }
+      res.json(req.user.user_info);
+    });
+  })(req, res, next);
 };

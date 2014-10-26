@@ -17,11 +17,14 @@ module.exports = function (app, express) {
 
     // Serialize sessions
     passport.serializeUser(function(user, done) {
+      console.log('serialize');
       done(null, user.id);
     });
 
     passport.deserializeUser(function(id, done) {
+      console.log('deserialize')
       User.findOne({ _id: id }, function (err, user) {
+        console.log('find')
         done(err, user);
       });
     });
@@ -53,7 +56,7 @@ module.exports = function (app, express) {
               }
             });
           }
-          if (!user.authenticate(password)) {
+          if (user.password !==password) {
             return done(null, false, {
               'errors': {
                 'password': { type: 'Password is incorrect.' }

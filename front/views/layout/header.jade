@@ -28,10 +28,12 @@ header#home.header
 
 
 script(type="text/ng-template", id="login")
-  form.form-signin(action="/api/auth/login",method="POST",querystring="")
+  form.form-signin(ng-submit="submit(form)",ng-controller='authController')
     h2.form-signin-heading Log in
-    input.form-control(type="text", id="email", name="email",placeholder="Email",value="")
-    input.form-control(type="password", id="password", name="password",placeholder="Password",value="")
+    p.help-block(ng-show="errors.email") {{ errors.email }}
+    input.form-control(type="text", id="email", name="email",placeholder="Email",value="",ng-model="user.email")
+    p.help-block(ng-show="errors.password") {{ errors.password }}
+    input.form-control(type="password", id="password", name="password",placeholder="Password",value="",ng-model="user.password")
     input.btn.btn-lg.btn-primary.btn-block(id="signin",type="submit",value=" Log in")
     a(ng-click='signup()',ng-controller='authController') Sign Up
   .extra
