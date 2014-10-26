@@ -1,5 +1,5 @@
 'use strict';
 
-var app = angular.module('b2b', ['b2b.controllers']);
+var app = angular.module('b2b', ['b2b.controllers','ngDialog']);
 
 var controllers = angular.module('b2b.controllers', []);

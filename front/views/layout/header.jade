@@ -1,5 +1,5 @@
 header#home.header
-    #main-nav.navbar.navbar-inverse.bs-docs-nav.fixed(role='banner')
+    #main-nav.navbar.navbar-inverse.bs-docs-nav.fixed(role='banner', ng-controller='authController')
         .container
             .navbar-header.responsive-logo
                 button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='.bs-navbar-collapse')
@@ -20,7 +20,29 @@ header#home.header
                     li
                         a(href='#team') Team
                     li
-                        a(href='#login') Login
+                        a(href='#login', ng-click='login()') Login
     .container
         .imageHome
             img(src='images/home.png')
+
+
+
+script(type="text/ng-template", id="login")
+  form.form-signin(action="/api/auth/login",method="POST",querystring="")
+    h2.form-signin-heading Log in
+    input.form-control(type="text", id="email", name="email",placeholder="Email",value="")
+    input.form-control(type="password", id="password", name="password",placeholder="Password",value="")
+    input.btn.btn-lg.btn-primary.btn-block(id="signin",type="submit",value=" Log in")
+    a(ng-click='signup()',ng-controller='authController') Sign Up
+  .extra
+    h2.form-signin-heading Or log in with:
+    .buttons.sso
+      a(href="/api/auth/google/", class="sso-button google") Google
+
+script(type="text/ng-template", id="signup")
+  form.form-signin(ng-submit="register(form)",ng-controller='authController')
+    h2.form-signin-heading Sign up
+    h4.error {{message}}
+    input.form-control(type="text", id="email", name="email",placeholder="Email",value="",ng-model="user.email")
+    input.form-control(type="password", id="password", name="password",placeholder="Password",value="",ng-model="user.password")
+    input.btn.btn-lg.btn-primary.btn-block(id="signup",type="submit",value="Sign Up")

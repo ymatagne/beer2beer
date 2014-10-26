@@ -25,6 +25,10 @@ html{
   margin-right: 20px;
   margin-top: 20px;
 }
+
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: #279c82;
+}
 .imageLogo{
   width: 150px;
 }
@@ -125,4 +129,65 @@ html{
   width: 155px;
   margin-left: auto;
   margin-right: auto;
+}
+
+
+/****************/
+/*  Login Form  */
+/****************/
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.extra{
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+  height: 120px;
+}
+a.sso-button.google {
+  background-position: 0 0px;
+}
+a.sso-button{
+  display: block;
+  float: left;
+  width: 94px;
+  height: 40px;
+  border: #e6e6e6 solid 1px;
+  margin-right: 6px;
+  text-indent: -9999px;
+  background: url(/images/sso.png) no-repeat;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.error{
+  color:red;
 }

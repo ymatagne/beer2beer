@@ -1,10 +1,5 @@
 'use strict';
 
-var app = angular.module('b2b', ['b2b.controllers','ngDialog']);
-
-var controllers = angular.module('b2b.controllers', []);
-;'use strict';
-
 controllers.controller('authController', function($scope,$http,ngDialog){
     $scope.login = function () {
         ngDialog.open({ template: 'login',  plain: false, className: 'ngdialog-theme-default',showClose:true });
@@ -27,9 +22,4 @@ controllers.controller('authController', function($scope,$http,ngDialog){
     };
 
 
-});
-;'use strict';
-
-controllers.controller('searchBeerController', function($scope){
-	$scope.beer = 'Leffe';
 });
