@@ -34,7 +34,7 @@ html{
 }
 .header {
   background: #FFFFFF;
-  min-height: 775px;
+  min-height: 1000px;
   position: relative;
   overflow: hidden;
 }
@@ -42,7 +42,7 @@ html{
   width: 350px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 150px;
+  margin-top: 250px;
 }
 .titleHome{
   width: 450px;
@@ -56,6 +56,7 @@ html{
   overflow: hidden;
   background: #279c82;
   padding-top: 100px;
+  min-height: 1000px;
 }
 .focus h2 {
   padding-bottom: 10px;
@@ -82,7 +83,7 @@ html{
   margin-top:100px;
   padding-top: 100px;
   background: #FFFFFF;
-  min-height: 800px;
+  min-height: 1000px;
 }
 .searchBeer h2 {
   padding-bottom: 10px;
@@ -114,7 +115,7 @@ html{
   margin-top:100px;
   padding-top: 100px;
   background: #C4C4C4;
-  min-height: 800px;
+  min-height: 1000px;
 }
 .team h2 {
   padding-bottom: 10px;
