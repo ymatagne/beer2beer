@@ -12,15 +12,15 @@ header#home.header
             nav.navbar-collapse.bs-navbar-collapse.collapse(role='navigation', style='height: 1px;')
                 ul.nav.navbar-nav.navbar-right.responsive-nav.main-nav-list
                     li.current
-                        a(href='#home') Home
+                        a(ng-click="gotoAnchor('home')") Home
                     li
-                        a(href='#focus') Focus
+                        a(ng-click="gotoAnchor('focus')") Focus
                     li
-                        a(href='#searchBeer') Search The Beer
+                        a(ng-click="gotoAnchor('searchBeer')") Search The Beer
                     li
-                        a(href='#team') Team
+                        a(ng-click="gotoAnchor('team')") Team
                     li
-                        a(href='#login', ng-click='login()') Login
+                        a(ng-click='login()') Login
     .container
         .imageHome
             img(src='images/home.png')

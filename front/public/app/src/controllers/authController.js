@@ -1,6 +1,6 @@
 'use strict';
 
-controllers.controller('authController', function($scope,$http,$location, ngDialog){
+controllers.controller('authController', function($scope,$http,$location,$document,ngDialog){
     $scope.login = function () {
         ngDialog.open({ template: 'login',  plain: false, className: 'ngdialog-theme-default',showClose:true });
     };
@@ -33,4 +33,9 @@ controllers.controller('authController', function($scope,$http,$location, ngDial
               });
             });
     };
+    $scope.gotoAnchor = function(name) {
+        $document.scrollToElement(document.getElementById(name), 0, 1000);
+    };
+
+
 });

@@ -1,11 +1,11 @@
 'use strict';
 
-var app = angular.module('b2b', ['b2b.controllers','ngDialog']);
+var app = angular.module('b2b', ['b2b.controllers','ngDialog','duScroll']);
 
 var controllers = angular.module('b2b.controllers', []);
 ;'use strict';
 
-controllers.controller('authController', function($scope,$http,$location, ngDialog){
+controllers.controller('authController', function($scope,$http,$location,$document,ngDialog){
     $scope.login = function () {
         ngDialog.open({ template: 'login',  plain: false, className: 'ngdialog-theme-default',showClose:true });
     };
@@ -37,7 +37,9 @@ controllers.controller('authController', function($scope,$http,$location, ngDial
                 $scope.errors[field] = error.type;
               });
             });
-
+    };
+    $scope.gotoAnchor = function(name) {
+        $document.scrollToElement(document.getElementById(name), 0, 1000);
     };
 
 
