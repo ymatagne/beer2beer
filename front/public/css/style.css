@@ -13,7 +13,6 @@ html{
 }
 .navbar {
   background: #FFF;
-  overflow: hidden;
   border: 0;
   border-radius: 0 !important;
   text-align: left;
@@ -191,4 +190,12 @@ a.sso-button{
 }
 .error{
   color:red;
+}
+#linkToConnect{
+    position: relative;
+    display: block;
+    padding: 15px 15px;
+}
+#menu{
+    right: auto;
 }

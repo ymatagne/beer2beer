@@ -18,7 +18,7 @@ module.exports = function(grunt) {
                 separator: ';'
             },
             dist: {
-                src: ['front/public/app/src/application.js', 'front/public/app/src/controllers/*.js'],
+                src: ['front/public/app/src/application.js','front/public/app/src/services/*.js', 'front/public/app/src/controllers/*.js'],
                 dest: 'front/public/app/app.js'
             }
         }

@@ -20,7 +20,15 @@ header#home.header
                     li
                         a(ng-click="gotoAnchor('team')") Team
                     li
-                        a(ng-click='login()') Login
+                        a(ng-click='login()' ng-if="!Auth.isAuth()") Login
+                        span.dropdown(ng-if="Auth.isAuth()")
+                            a.dropdown-toggle#linkToConnect {{Auth.user.email}}
+                            ul.dropdown-menu#menu
+                                li
+                                    a(ng-click="gotoAddBeau()") Add Beersss !
+                                li
+                                    a(ng-click="exit()") Disconnect :(
+
     .container
         .imageHome
             img(src='images/home.png')

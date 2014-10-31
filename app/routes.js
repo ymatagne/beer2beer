@@ -10,11 +10,18 @@ module.exports = function(app){
     app.post('/api/auth/local',authController.auth_local);
 
     /** Beer Crud **/
-    app.get('/api/beer/', beersController.json_beer_query);
-    app.get('/api/beer/:beer_id/', beersController.json_beer_get);
-    app.post('/api/beer/:beer_id/', beersController.json_beer_save);
-    app.delete('/api/beer/:beer_id/', beersController.json_beer_delete);
+    app.get('/api/beer/', ensureAuthenticated,beersController.json_beer_query);
+    app.get('/api/beer/:beer_id/', ensureAuthenticated,beersController.json_beer_get);
+    app.post('/api/beer/:beer_id/', ensureAuthenticated,beersController.json_beer_save);
+    app.delete('/api/beer/:beer_id/', ensureAuthenticated,beersController.json_beer_delete);
 
     /** Angular Route **/
     app.get('*', site.index);
+};
+
+function ensureAuthenticated(req, res, next) {
+    console.log('authentification');
+    console.log(req.isAuthenticated());
+    if (req.isAuthenticated()) { return next(); }
+    res.status(401).end()
 };

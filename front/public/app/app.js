@@ -1,11 +1,31 @@
 'use strict';
 
-var app = angular.module('b2b', ['b2b.controllers','ngDialog','duScroll']);
+var app = angular.module('b2b', ['b2b.services','b2b.controllers','ngDialog','duScroll','ui.bootstrap']);
+
+var services = angular.module('b2b.services', []);
 
 var controllers = angular.module('b2b.controllers', []);
+
+
 ;'use strict';
 
-controllers.controller('authController', function($scope,$http,$location,$document,ngDialog){
+services.service('auth', function () {
+    var currentUser = {
+        user: null,
+        init: function (user) {
+            this.user = user;
+        },
+
+        isAuth: function () {
+            return this.user!==null;
+        }
+    };
+    return currentUser;
+});
+;'use strict';
+
+controllers.controller('authController', function($scope,$http,$location,$document,ngDialog,auth){
+    $scope.Auth=auth;
     $scope.login = function () {
         ngDialog.open({ template: 'login',  plain: false, className: 'ngdialog-theme-default',showClose:true });
     };
@@ -28,8 +48,9 @@ controllers.controller('authController', function($scope,$http,$location,$docume
     $scope.submit = function (form) {
       $http.post('/api/auth/local', {email:$scope.user.email,password:$scope.user.password}).
             success(function(data, status, headers, config) {
-              $scope.closeThisDialog();
-               $location.path('/');
+                $scope.Auth.init(data);
+                $scope.closeThisDialog();
+                $location.path('/');
             }).
             error(function(data, status, headers, config) {
               $scope.errors = {};
