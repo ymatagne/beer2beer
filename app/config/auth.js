@@ -1,18 +1,12 @@
 var passport = require('passport'),
-    GoogleStrategy = require('passport-google').Strategy,
     LocalStrategy = require('passport-local').Strategy,
-    User = require('./models/user')
-    bodyParser = require('body-parser');
+    User = require('../models/user')
+    cookieParser = require('cookie-parser')
+    session = require('express-session');
 
-module.exports = function (app, express) {
-    app.set('views', 'front/views/');
-    app.use(express.static('front/public'));
-    app.engine('jade', require('jade').__express);
-    app.set('view engine', 'jade');
-    app.set('port', 3000);
-    app.set('host', "localhost");
-    app.use(bodyParser.urlencoded({ extended: false }))
-    app.use(bodyParser.json())
+module.exports = function (app ) {
+    app.use(cookieParser());
+    app.use(session({ secret: 'securedsession' }));
 
 
     // Serialize sessions
@@ -22,23 +16,12 @@ module.exports = function (app, express) {
     });
 
     passport.deserializeUser(function(id, done) {
-      console.log('deserialize')
       User.findOne({ _id: id }, function (err, user) {
         console.log('find')
+        console.log(user)
         done(err, user);
       });
     });
-
-    passport.use(new GoogleStrategy({
-        returnURL: 'http://www.example.com/api/auth/google/callback',
-        realm: 'http://www.example.com/'
-      },
-      function(identifier, profile, done) {
-        User.findOrCreate({ openId: identifier }, function(err, user) {
-          done(err, user);
-        });
-      }
-    ));
 
     passport.use(new LocalStrategy({
         usernameField: 'email',

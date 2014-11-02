@@ -1,31 +1,38 @@
 'use strict';
 
-var app = angular.module('b2b', ['b2b.services','b2b.controllers','ngDialog','duScroll','ui.bootstrap']);
 
 var services = angular.module('b2b.services', []);
 
 var controllers = angular.module('b2b.controllers', []);
 
 
-;'use strict';
+var app = angular.module('b2b', ['b2b.services','b2b.controllers','ngRoute','ngDialog','duScroll','ui.bootstrap'])
+      .run(function ($rootScope, Auth) {
+        $rootScope.$watch('currentUser', function(currentUser) {
+          // if no currentUser and on a page that requires authorization then try to update it
+          // will trigger 401s if user does not have a valid session
+          if (!currentUser) {
+            Auth.currentUser();
+          }
+        })
+       });;'use strict';
 
-services.service('auth', function () {
-    var currentUser = {
-        user: null,
-        init: function (user) {
-            this.user = user;
-        },
+services.factory('Auth', function Auth($rootScope, $http) {
+    return {
+        currentUser: function() {
+             $http.get('/api/auth/loggedin').success(function(user){
+                if (user !== '0'){
+                   $rootScope.currentUser = user;
+                }else {
+                    $rootScope.currentUser = null;
+                }});
 
-        isAuth: function () {
-            return this.user!==null;
         }
-    };
-    return currentUser;
+    }
 });
 ;'use strict';
 
-controllers.controller('authController', function($scope,$http,$location,$document,ngDialog,auth){
-    $scope.Auth=auth;
+controllers.controller('authController', function($rootScope,$scope,$http,$location,$document,ngDialog){
     $scope.login = function () {
         ngDialog.open({ template: 'login',  plain: false, className: 'ngdialog-theme-default',showClose:true });
     };
@@ -45,10 +52,11 @@ controllers.controller('authController', function($scope,$http,$location,$docume
             });
 
     };
+
     $scope.submit = function (form) {
       $http.post('/api/auth/local', {email:$scope.user.email,password:$scope.user.password}).
             success(function(data, status, headers, config) {
-                $scope.Auth.init(data);
+                $rootScope.currentUser = data;
                 $scope.closeThisDialog();
                 $location.path('/');
             }).
@@ -59,10 +67,24 @@ controllers.controller('authController', function($scope,$http,$location,$docume
               });
             });
     };
+
     $scope.gotoAnchor = function(name) {
         $document.scrollToElement(document.getElementById(name), 0, 1000);
     };
 
+    $scope.gotoAnchor = function(name) {
+        $document.scrollToElement(document.getElementById(name), 0, 1000);
+    };
+    $scope.gotoAddBeer=function(){
+        $http.get('/api/beer').
+        success(function(data, status, headers, config) {
+            alert(data);
+        }).
+        error(function(data, status, headers, config) {
+            alert(data);
+         });
+
+    }
 
 });
 ;'use strict';

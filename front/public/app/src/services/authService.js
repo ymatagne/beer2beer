@@ -1,15 +1,15 @@
 'use strict';
 
-services.service('auth', function () {
-    var currentUser = {
-        user: null,
-        init: function (user) {
-            this.user = user;
-        },
+services.factory('Auth', function Auth($rootScope, $http) {
+    return {
+        currentUser: function() {
+             $http.get('/api/auth/loggedin').success(function(user){
+                if (user !== '0'){
+                   $rootScope.currentUser = user;
+                }else {
+                    $rootScope.currentUser = null;
+                }});
 
-        isAuth: function () {
-            return this.user!==null;
         }
-    };
-    return currentUser;
+    }
 });

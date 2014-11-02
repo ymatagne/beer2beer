@@ -62,11 +62,10 @@ module.exports.auth_create = function (req, res) {
 
 
 /*
- Description: Save beer
+ Description: Auth user in local base
  Method: GET
  */
 module.exports.auth_local = function (req, res, next) {
-    console.log('Authentification local');
     passport.authenticate('local', function (err, user, info) {
         var error = err || info;
         if (error) {
@@ -76,7 +75,15 @@ module.exports.auth_local = function (req, res, next) {
             if (err) {
                 return res.send(err);
             }
-            res.json(req.user);
+            res.send(req.user);
         });
     })(req, res, next);
 };
+
+/*
+ Description: Return User if user is auth else return 0
+ Method: GET
+ */
+module.exports.loggedin= function (req, res) {
+  res.send(req.isAuthenticated() ? req.user : '0');
+}

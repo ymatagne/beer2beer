@@ -1,7 +1,6 @@
 'use strict';
 
-controllers.controller('authController', function($scope,$http,$location,$document,ngDialog,auth){
-    $scope.Auth=auth;
+controllers.controller('authController', function($rootScope,$scope,$http,$location,$document,ngDialog){
     $scope.login = function () {
         ngDialog.open({ template: 'login',  plain: false, className: 'ngdialog-theme-default',showClose:true });
     };
@@ -21,10 +20,11 @@ controllers.controller('authController', function($scope,$http,$location,$docume
             });
 
     };
+
     $scope.submit = function (form) {
       $http.post('/api/auth/local', {email:$scope.user.email,password:$scope.user.password}).
             success(function(data, status, headers, config) {
-                $scope.Auth.init(data);
+                $rootScope.currentUser = data;
                 $scope.closeThisDialog();
                 $location.path('/');
             }).
@@ -35,9 +35,23 @@ controllers.controller('authController', function($scope,$http,$location,$docume
               });
             });
     };
+
     $scope.gotoAnchor = function(name) {
         $document.scrollToElement(document.getElementById(name), 0, 1000);
     };
 
+    $scope.gotoAnchor = function(name) {
+        $document.scrollToElement(document.getElementById(name), 0, 1000);
+    };
+    $scope.gotoAddBeer=function(){
+        $http.get('/api/beer').
+        success(function(data, status, headers, config) {
+            alert(data);
+        }).
+        error(function(data, status, headers, config) {
+            alert(data);
+         });
+
+    }
 
 });

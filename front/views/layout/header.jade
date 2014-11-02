@@ -20,12 +20,12 @@ header#home.header
                     li
                         a(ng-click="gotoAnchor('team')") Team
                     li
-                        a(ng-click='login()' ng-if="!Auth.isAuth()") Login
-                        span.dropdown(ng-if="Auth.isAuth()")
-                            a.dropdown-toggle#linkToConnect {{Auth.user.email}}
+                        a(ng-click='login()' ng-hide="currentUser") Login
+                        span.dropdown(ng-show="currentUser")
+                            a.dropdown-toggle#linkToConnect {{currentUser.email}}
                             ul.dropdown-menu#menu
                                 li
-                                    a(ng-click="gotoAddBeau()") Add Beersss !
+                                    a(ng-click="gotoAddBeer()") Add Beersss !
                                 li
                                     a(ng-click="exit()") Disconnect :(
 
