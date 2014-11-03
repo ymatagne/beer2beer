@@ -1,5 +1,7 @@
 extends layout/_layout
 
 block content
-    include templates/focus
-    include templates/searchBeer
+    div(ng-view)
+        include templates/home
+        include templates/focus
+        include templates/searchBeer

@@ -86,4 +86,4 @@ module.exports.auth_local = function (req, res, next) {
  */
 module.exports.loggedin= function (req, res) {
   res.send(req.isAuthenticated() ? req.user : '0');
-}
+};

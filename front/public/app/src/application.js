@@ -5,14 +5,21 @@ var services = angular.module('b2b.services', []);
 
 var controllers = angular.module('b2b.controllers', []);
 
+var app = angular.module('b2b', ['b2b.services', 'b2b.controllers', 'ngDialog', 'duScroll', 'ui.bootstrap']);
 
-var app = angular.module('b2b', ['b2b.services','b2b.controllers','ngDialog','duScroll','ui.bootstrap'])
-      .run(function ($rootScope, Auth) {
-        $rootScope.$watch('currentUser', function(currentUser) {
-          // if no currentUser and on a page that requires authorization then try to update it
-          // will trigger 401s if user does not have a valid session
-          if (!currentUser) {
+/*app.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/', {
+        templateUrl: '/views/index.html'
+    }).when('/beers', {
+        templateUrl: '/views/beers.html'
+    }).otherwise({ redirectTo: '/'});
+}
+]);*/
+
+app.run(function ($rootScope, Auth) {
+    $rootScope.$watch('currentUser', function (currentUser) {
+        if (!currentUser) {
             Auth.currentUser();
-          }
-        })
-       });
+        }
+    })
+});

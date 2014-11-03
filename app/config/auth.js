@@ -1,24 +1,21 @@
 var passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
-    User = require('../models/user')
-    cookieParser = require('cookie-parser')
+    User = require('../models/user'),
+    cookieParser = require('cookie-parser'),
     session = require('express-session');
 
 module.exports = function (app ) {
     app.use(cookieParser());
-    app.use(session({ secret: 'securedsession' }));
+    app.use(session({ secret: 'securedsession', saveUninitialized: true,resave: true }));
 
 
     // Serialize sessions
     passport.serializeUser(function(user, done) {
-      console.log('serialize');
       done(null, user.id);
     });
 
     passport.deserializeUser(function(id, done) {
       User.findOne({ _id: id }, function (err, user) {
-        console.log('find')
-        console.log(user)
         done(err, user);
       });
     });
@@ -46,7 +43,7 @@ module.exports = function (app ) {
               }
             });
           }
-          return done(null, user);
+          return done(null, user );
         });
       }
     ));

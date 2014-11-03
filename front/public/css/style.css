@@ -33,9 +33,11 @@ html{
 }
 .header {
   background: #FFFFFF;
-  min-height: 1000px;
   position: relative;
   overflow: hidden;
+}
+#home{
+    min-height: 1000px;
 }
 .imageHome{
   width: 350px;
