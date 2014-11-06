@@ -87,3 +87,16 @@ module.exports.auth_local = function (req, res, next) {
 module.exports.loggedin= function (req, res) {
   res.send(req.isAuthenticated() ? req.user : '0');
 };
+
+/*
+ Description: Loggout user
+ Method: GET
+ */
+module.exports.loggout= function (req, res) {
+    if(req.user) {
+        req.logout();
+        res.send(200);
+    } else {
+        res.send(400, "Not logged in");
+    }
+};

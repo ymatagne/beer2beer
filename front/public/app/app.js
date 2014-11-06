@@ -90,7 +90,11 @@ controllers.controller('authController', function($rootScope,$scope,$http,$locat
     };
 
     $scope.exit = function(){
-
+        $http.get('/api/auth/logout').
+            success(function(data, status, headers, config) {
+                $rootScope.currentUser = undefined;
+                $location.path('/');
+            });
     };
 
 });
