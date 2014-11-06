@@ -4,3 +4,4 @@
 .idea
 *.iml
 /front/public/libs/
+/target/

@@ -67,16 +67,7 @@ module.exports.auth_create = function (req, res) {
  */
 module.exports.auth_local = function (req, res, next) {
     passport.authenticate('local', function (err, user, info) {
-        var error = err || info;
-        if (error) {
-            return res.json(400, error);
-        }
-        req.logIn(user, function (err) {
-            if (err) {
-                return res.send(err);
-            }
-            res.send(req.user);
-        });
+        exports.manageAuthLocal(req, res, err, user, info);
     })(req, res, next);
 };
 
@@ -99,4 +90,22 @@ module.exports.loggout= function (req, res) {
     } else {
         res.send(400, "Not logged in");
     }
+};
+module.exports.manageAuthLocal = function(req, res, err, user, info){
+    var error = err || info;
+    if (error) {
+        return res.json(400, error);
+    }
+    req.logIn(user, function (err) {
+        exports.manageUserLogin(req, res, err);
+    });
+}
+module.exports.manageUserLogin = function(req, res, err){
+    if (err) {
+        return res.send(err);
+    }
+    res.send(req.user);
+}
+module.exports.setPassport = function (fakePassport) {
+    this.passport = fakePassport;
 };
