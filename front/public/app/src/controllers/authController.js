@@ -40,18 +40,12 @@ controllers.controller('authController', function($rootScope,$scope,$http,$locat
         $document.scrollToElement(document.getElementById(name), 0, 1000);
     };
 
-    $scope.gotoAnchor = function(name) {
-        $document.scrollToElement(document.getElementById(name), 0, 1000);
-    };
     $scope.gotoAddBeer=function(){
-        $http.get('/api/beer').
-        success(function(data, status, headers, config) {
-            alert(data);
-        }).
-        error(function(data, status, headers, config) {
-            alert(data);
-         });
+        $location.path('/controller');
+    };
 
-    }
+    $scope.exit = function(){
+
+    };
 
 });

@@ -6,10 +6,8 @@ services.factory('Auth', function Auth($rootScope, $http) {
              $http.get('/api/auth/loggedin').success(function(user){
                 if (user !== '0'){
                    $rootScope.currentUser = user;
-                }else {
-                    $rootScope.currentUser = null;
                 }});
 
-        }
+        },
     }
 });

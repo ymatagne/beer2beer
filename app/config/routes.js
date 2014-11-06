@@ -24,5 +24,6 @@ module.exports = function(app){
     app.delete('/api/beer/:beer_id/', is_authentified,beersController.json_beer_delete);
 
     /** Angular Route **/
+    app.get('/templates/:name', site.partials);
     app.get('*', site.index);
 };
