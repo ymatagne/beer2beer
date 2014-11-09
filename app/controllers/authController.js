@@ -83,10 +83,10 @@ module.exports.loggedin= function (req, res) {
  Description: Loggout user
  Method: GET
  */
-module.exports.loggout= function (req, res) {
-    if(req.user) {
+module.exports.logout= function (req, res) {
+    if(req.isAuthenticated()){
         req.logout();
-        res.send(200);
+        res.redirect('/');
     } else {
         res.send(400, "Not logged in");
     }

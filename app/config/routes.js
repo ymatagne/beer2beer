@@ -16,7 +16,7 @@ module.exports = function(app){
     app.post('/api/auth/create',authController.auth_create);
     app.post('/api/auth/local',authController.auth_local);
     app.get('/api/auth/loggedin',authController.loggedin);
-    app.del('/api/auth/loggout',authController.loggout);
+    app.get('/api/auth/logout',authController.logout);
 
     /** Beer Crud **/
     app.get('/api/beer/', is_authentified,beersController.json_beer_query);
