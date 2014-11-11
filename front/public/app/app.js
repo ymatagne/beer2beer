@@ -5,14 +5,14 @@ var controllers = angular.module('b2b.controllers', []);
 
 var services = angular.module('b2b.services', []);
 
-var app = angular.module('b2b', ['ngRoute', 'ngDialog', 'duScroll', 'ui.bootstrap', 'b2b.services', 'b2b.controllers']);
+var app = angular.module('b2b', ['ngRoute', 'ngDialog', 'duScroll', 'ui.bootstrap','google-maps'.ns(), 'b2b.services', 'b2b.controllers']);
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: '/templates/index',
         auth:false
     }).when('/controller', {
-        templateUrl: '/templates/controller',
+        templateUrl: '/templates/menuAdmin',
         auth:true
     }).otherwise({ redirectTo: '/'});
 }
@@ -82,6 +82,7 @@ controllers.controller('authController', function($rootScope,$scope,$http,$locat
     };
 
     $scope.gotoAnchor = function(name) {
+        $location.path('/');
         $document.scrollToElement(document.getElementById(name), 0, 1000);
     };
 
@@ -102,4 +103,61 @@ controllers.controller('authController', function($rootScope,$scope,$http,$locat
 
 controllers.controller('homeController', function($scope){
 	$scope.beer = 'Leffe';
+});;'use strict';
+
+controllers.controller('menuAdminController', function($scope){
+    $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+
+});
+;'use strict';
+
+controllers.controller('searchBeerController', function($scope){
+    $scope.markers = [];
+    $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 15 };
+
+    $scope.showPosition = function (position) {
+            $scope.map.center.latitude = position.coords.latitude;
+            $scope.map.center.longitude= position.coords.longitude;
+            $scope.addMarker(position.coords.latitude,position.coords.longitude);
+
+    }
+
+    $scope.addMarker = function (latitude,longitude) {
+        $scope.markers.push({
+            uid:123,
+            provider: "test",
+            name: "It's you",
+            latitude: latitude,
+            longitude: longitude
+        });
+    };
+
+    $scope.showError = function (error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                $scope.error = "User denied the request for Geolocation."
+                break;
+            case error.POSITION_UNAVAILABLE:
+                $scope.error = "Location information is unavailable."
+                break;
+            case error.TIMEOUT:
+                $scope.error = "The request to get user location timed out."
+                break;
+            case error.UNKNOWN_ERROR:
+                $scope.error = "An unknown error occurred."
+                break;
+        }
+        $scope.$apply();
+    }
+
+    $scope.getLocation = function () {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition($scope.showPosition, $scope.showError);
+                }
+                else {
+                    $scope.error = "Geolocation is not supported by this browser.";
+                }
+            }
+
+        $scope.getLocation();
 });

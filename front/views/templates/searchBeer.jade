@@ -1,4 +1,4 @@
-section#searchBeer.searchBeer
+section#searchBeer.searchBeer(ng-controller="searchBeerController")
     .container
         .section-header
             h2.dark-text Search The Beer
@@ -46,4 +46,5 @@ section#searchBeer.searchBeer
                         .row
                             button.btn.btn-default(type='submit') Search
                 .col-xs-10
-                    #map-canvas
+                    ui-gmap-google-map(center='map.center',zoom='map.zoom')
+                        ui-gmap-markers(models="markers",idKey="'uid'",icon="'image'",coords="'self'")

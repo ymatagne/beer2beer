@@ -37,6 +37,7 @@ controllers.controller('authController', function($rootScope,$scope,$http,$locat
     };
 
     $scope.gotoAnchor = function(name) {
+        $location.path('/');
         $document.scrollToElement(document.getElementById(name), 0, 1000);
     };
 
