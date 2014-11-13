@@ -1,6 +1,6 @@
-var assert = require('assert');
-var requireHelper = require('../../require_helper');
-var authController = requireHelper('app/controllers/authController');
+var assert = require('assert'),
+	requireHelper = require('../../require_helper'),
+	authController = requireHelper('app/controllers/authController');
 
 describe('authController...', function(){
 	var sinon = require('sinon'),
@@ -11,8 +11,8 @@ describe('authController...', function(){
 		fakeRes,
 		res;
 	beforeEach(function(){
-		fakeReq = {user: user, isAuthenticated: function(){}, logIn: function(){}};
-		fakeRes = {send: function(){}, json: function(){}};
+		fakeReq = {user: user, body: {}, isAuthenticated: function(){}, logIn: function(){}, logout: function(){}};
+		fakeRes = {send: function(){}, json: function(){}, redirect: function(){}};
 		res = sinon.stub(fakeRes, 'send');
 		mockPassport = sinon.mock(passport);
 		authController.setPassport(mockPassport);
@@ -67,5 +67,41 @@ describe('authController...', function(){
 		callback();
 		assert.equal(res.calledWith(user), true);
 		mockPassport.verify();
+	});
+	it('Should respond 400 error code when try to logout and not logged in.', function(){
+		authController.logout(fakeReq, fakeRes);
+
+		assert.equal(res.calledWith(400, 'Not logged in'), true);
+	});
+	it('Should redirect to "/" when calling logout and logged in.', function(){
+		var req = sinon.stub(fakeReq, 'isAuthenticated').returns(true),
+			logoutCall = sinon.stub(fakeReq, 'logout');
+		res = sinon.stub(fakeRes, 'redirect');
+
+		authController.logout(fakeReq, fakeRes);
+
+		assert.equal(req.called, true);
+		assert.equal(logoutCall.called, true);
+		assert.equal(res.calledWith('/'), true);
+	});
+	it('Should return error 400 as JSON on user save error.', function(){
+		var err = {},
+			fakeUser = {
+                save: function() {
+                	authController.manageUserSave(fakeReq, fakeRes, user, err);
+                }
+            },
+            User = (function() {
+                console.log('User instance creation');
+                return fakeUser;
+            });
+
+		authController.setUser(User);		
+
+		res = sinon.stub(fakeRes, 'json');
+
+		authController.auth_create(fakeReq, fakeRes);
+
+		assert.equal(res.calledWith(400, err), true);
 	});
 });

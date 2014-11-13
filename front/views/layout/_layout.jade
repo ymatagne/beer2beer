@@ -24,4 +24,11 @@ html
         script(src="libs/angular-scroll/angular-scroll.min.js")
         script(src="libs/lodash/dist/lodash.min.js")
         script(src="libs/angular-google-maps/dist/angular-google-maps.min.js")
-        script(src="app/app.js")
+        //<!--build:js front/public/app/app.js-->
+        script(src="app/src/application.js")
+        script(src="app/src/controllers/authController.js")
+        script(src="app/src/controllers/homeController.js")
+        script(src="app/src/controllers/menuAdminController.js")
+        script(src="app/src/controllers/searchBeerController.js")
+        script(src="app/src/services/authService.js")
+        //<!-- endbuild-->

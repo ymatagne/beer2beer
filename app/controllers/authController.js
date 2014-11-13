@@ -47,16 +47,7 @@ module.exports.auth_create = function (req, res) {
     console.log('create new User');
     var user = new User(req.body.user);
     user.save(function (err) {
-
-        if (err) {
-            console.log(err);
-            return res.json(400, err);
-        }
-
-        req.logIn(user, function (err) {
-            if (err) return next(err);
-            return res.json(user);
-        });
+        exports.manageUserSave(req, res, user, err);
     });
 };
 
@@ -91,6 +82,18 @@ module.exports.logout= function (req, res) {
         res.send(400, "Not logged in");
     }
 };
+
+module.exports.manageUserSave = function(req, res, user, err){
+    if (err) {
+        console.log(err);
+        return res.json(400, err);
+    }
+
+    req.logIn(user, function (err) {
+        if (err) return next(err);
+        return res.json(user);
+    });
+}
 module.exports.manageAuthLocal = function(req, res, err, user, info){
     var error = err || info;
     if (error) {
@@ -109,3 +112,6 @@ module.exports.manageUserLogin = function(req, res, err){
 module.exports.setPassport = function (fakePassport) {
     this.passport = fakePassport;
 };
+module.exports.setUser = function(fakeUser){
+    User = fakeUser;
+}

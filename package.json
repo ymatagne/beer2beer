@@ -35,7 +35,8 @@
     "grunt-env": "~0.4.2",
     "grunt-contrib-copy": "~0.7.0",
     "grunt-istanbul": "~0.3.0",
-    "grunt-contrib-clean": "~0.6.0"
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-usemin": "~2.6.0"
   },
   "config": {
     "blanket": {

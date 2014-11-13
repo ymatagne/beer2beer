@@ -4,12 +4,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-mocha-cov');
     grunt.loadNpmTasks('grunt-istanbul');
     grunt.loadNpmTasks('grunt-env');
+    grunt.loadNpmTasks('grunt-usemin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Project configuration.
     grunt.initConfig({
-        clean: ['target/*'],
+        clean: ['target/*', 'front/public/app/app.js'],
         // Configure a mochaTest task
         mochaTest: {
             test: {
@@ -22,7 +23,6 @@ module.exports = function(grunt) {
         mochacov: {
             options: {
                 reporter: 'xunit',
-                /*output: 'target/TEST-xunit.xml'*/
                 output: 'target/TEST-xunit.xml'
             },
             all: ['test/**/*.js']
@@ -60,6 +60,12 @@ module.exports = function(grunt) {
                 type: 'html',
                 dir: 'target/coverage/reports',
                 print: 'detail'
+            }
+        },
+        useminPrepare: {
+            html: 'front/views/layout/_layout.jade',
+            options: {
+                dest: 'target/'
             }
         },
         concat: {
