@@ -47,7 +47,16 @@ module.exports.auth_create = function (req, res) {
     console.log('create new User');
     var user = new User(req.body.user);
     user.save(function (err) {
-        exports.manageUserSave(req, res, user, err);
+        if (err) {
+            console.log(err);
+            return res.json(400, err);
+        }
+        req.logIn(user, function (err) {
+            if (err){
+                return next(err);
+            }
+            return res.json(user);
+        });
     });
 };
 
@@ -58,7 +67,16 @@ module.exports.auth_create = function (req, res) {
  */
 module.exports.auth_local = function (req, res, next) {
     passport.authenticate('local', function (err, user, info) {
-        exports.manageAuthLocal(req, res, err, user, info);
+        var error = err || info;
+        if (error) {
+            return res.json(400, error);
+        }
+        req.logIn(user, function (err) {
+            if (err) {
+                return res.send(err);
+            }
+            res.send(req.user);
+        });
     })(req, res, next);
 };
 
@@ -82,33 +100,6 @@ module.exports.logout= function (req, res) {
         res.send(400, "Not logged in");
     }
 };
-
-module.exports.manageUserSave = function(req, res, user, err){
-    if (err) {
-        console.log(err);
-        return res.json(400, err);
-    }
-
-    req.logIn(user, function (err) {
-        if (err) return next(err);
-        return res.json(user);
-    });
-}
-module.exports.manageAuthLocal = function(req, res, err, user, info){
-    var error = err || info;
-    if (error) {
-        return res.json(400, error);
-    }
-    req.logIn(user, function (err) {
-        exports.manageUserLogin(req, res, err);
-    });
-}
-module.exports.manageUserLogin = function(req, res, err){
-    if (err) {
-        return res.send(err);
-    }
-    res.send(req.user);
-}
 module.exports.setPassport = function (fakePassport) {
     this.passport = fakePassport;
 };
