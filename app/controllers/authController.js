@@ -48,7 +48,6 @@ module.exports.auth_create = function (req, res) {
     var user = new User(req.body.user);
     user.save(function (err) {
         if (err) {
-            console.log(err);
             return res.json(400, err);
         }
         req.logIn(user, function (err) {
