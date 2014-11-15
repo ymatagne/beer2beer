@@ -8,8 +8,10 @@ var Beer = require('../models/beer');
 module.exports.json_beer_query =function(req, res) {
 	console.log('query -> all');
 	Beer.find(function(err, docs) {
-        if (err)
+        if (err){
             res.send(err);
+            return null;
+		}
 		res.json(docs);
 	});
 };
@@ -22,8 +24,10 @@ module.exports.json_beer_query =function(req, res) {
 module.exports.json_beer_get =function(req, res) {
 	console.log('get ->', req.params.beer_id);
 	Beer.findById(req.params.beer_id, function(err, doc) {
-        if (err)
-            res.send(err);
+        if (err){
+			res.send(err);
+			return null;
+		}
 		res.json(doc);
 	});
 };
@@ -36,8 +40,9 @@ module.exports.json_beer_get =function(req, res) {
 module.exports.json_beer_save =function(req, res) {
 	console.log('save ->',req.params.beer_id);
 	Beer.findById(req.params.beer_id, function(err) {
-        if (err)
-            res.send(err);
+        if (err){
+			res.send(err);
+		}
 		res.json({ r: true });
 	});
 };
@@ -50,8 +55,13 @@ module.exports.json_beer_save =function(req, res) {
 module.exports.json_beer_delete =function(req, res) {
 	console.log('delete ->', req.params.beer_id);
 	Beer.findById(req.params.beer_id, function(err) {
-        if (err)
+        if (err){
             res.send(err);
+		}
 		res.json({ r: true });
 	});
 };
+
+module.exports.setBeer = function(fakeBeer){
+	Beer = fakeBeer;
+}
