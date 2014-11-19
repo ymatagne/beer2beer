@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-mocha-cov');
     grunt.loadNpmTasks('grunt-istanbul');
     grunt.loadNpmTasks('grunt-env');
-    grunt.loadNpmTasks('grunt-usemin');
+    grunt.loadNpmTasks('grunt-jade-usemin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
 
@@ -41,11 +41,31 @@ module.exports = function(grunt) {
             }
         },
         copy: {
-            main: {
+            sources: {
                 files: [{
                     expand: true,
-                    src: ['app/*'],
-                    dest: 'target/coverage/instrument/'
+                    src: ['app/**'],
+                    dest: 'target/b2b/'
+                },
+                {
+                    expand: true,
+                    src: ['front/views/**'],
+                    dest: 'target/b2b/'  
+                },
+                {
+                    expand: true,
+                    src: ['front/public/css/**'],
+                    dest: 'target/b2b/'  
+                },
+                {
+                    expand: true,
+                    src: ['front/public/images/**'],
+                    dest: 'target/b2b/'  
+                },
+                {
+                    expand: true,
+                    src: ['front/public/libs/**'],
+                    dest: 'target/b2b/'  
                 }]
             }
         },
@@ -62,19 +82,20 @@ module.exports = function(grunt) {
                 print: 'detail'
             }
         },
-        useminPrepare: {
-            html: 'front/views/layout/_layout.jade',
-            options: {
-                dest: 'target/'
-            }
-        },
-        concat: {
-            options: {
-                separator: ';'
-            },
-            dist: {
-                src: ['front/public/app/src/application.js', 'front/public/app/src/config/*.js', 'front/public/app/src/services/*.js', 'front/public/app/src/controllers/*.js'],
-                dest: 'front/public/app/app.js'
+        jadeUsemin: {
+            scripts: {
+                options: {
+                    tasks: {
+                        js: ['concat']
+                    },
+                    //dirTasks: 'target/b2b/front/public/',
+                    prefix: 'front/public/',
+                    targetPrefix: 'target/b2b/front/public/'
+                },
+                files: [{
+                    dest: 'target/b2b/front/views/layout/_layout.jade',
+                    src: 'front/views/layout/_layout.jade'
+                }]
             }
         }
     });
@@ -82,5 +103,6 @@ module.exports = function(grunt) {
     // Default task(s).
     grunt.registerTask('default', ['concat']);
     grunt.registerTask('test', ['mochaTest']);
-    grunt.registerTask('coverage', ['env:coverage', 'instrument', 'copy:main', 'mochaTest', 'mochacov', 'storeCoverage', 'makeReport']);
+    grunt.registerTask('coverage', ['env:coverage', 'instrument', 'mochaTest', 'mochacov', 'storeCoverage', 'makeReport']);
+    grunt.registerTask('buildApp', ['copy:sources', 'jadeUsemin']);
     };
