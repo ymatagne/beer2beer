@@ -113,13 +113,12 @@ controllers.controller('menuAdminController', function($scope){
 
 controllers.controller('searchBeerController', function($scope){
     $scope.markers = [];
-    $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 15 };
+    $scope.map = { center: { latitude: 0, longitude: 0 }, zoom: 15 };
 
     $scope.showPosition = function (position) {
             $scope.map.center.latitude = position.coords.latitude;
             $scope.map.center.longitude= position.coords.longitude;
             $scope.addMarker(position.coords.latitude,position.coords.longitude);
-
     }
 
     $scope.addMarker = function (latitude,longitude) {
