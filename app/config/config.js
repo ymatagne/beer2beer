@@ -10,5 +10,5 @@ module.exports = function (app, express) {
     app.set('port', 3001);
     app.set('host', "localhost");
     app.use(bodyParser.urlencoded({ extended: false }));
-    app.use(bodyParser.json())
+    app.use(bodyParser.json());
 };
