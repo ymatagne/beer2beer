@@ -8,7 +8,7 @@ controllers.controller('searchBeerController', function($scope){
             $scope.map.center.latitude = position.coords.latitude;
             $scope.map.center.longitude= position.coords.longitude;
             $scope.addMarker(position.coords.latitude,position.coords.longitude);
-    }
+    };
 
     $scope.addMarker = function (latitude,longitude) {
         $scope.markers.push({
@@ -36,7 +36,7 @@ controllers.controller('searchBeerController', function($scope){
                 break;
         }
         $scope.$apply();
-    }
+    };
 
     $scope.getLocation = function () {
                 if (navigator.geolocation) {

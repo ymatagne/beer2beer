@@ -42,12 +42,12 @@ controllers.controller('authController', function($rootScope,$scope,$http,$locat
     };
 
     $scope.gotoAddBeer=function(){
-        $location.path('/controller');
+        $location.path('/admin');
     };
 
     $scope.exit = function(){
         $http.get('/api/auth/logout').
-            success(function(data, status, headers, config) {
+            success(function() {
                 $rootScope.currentUser = undefined;
                 $location.path('/');
             });

@@ -104,4 +104,4 @@ module.exports.setPassport = function (fakePassport) {
 };
 module.exports.setUser = function(fakeUser){
     User = fakeUser;
-}
+};

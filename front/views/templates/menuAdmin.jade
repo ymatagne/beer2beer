@@ -1,4 +1,23 @@
 section#menuAdminController(ng-controller="menuAdminController")
   .container
-    ui-gmap-google-map.mapForAddBeerOrBar(center='map.center',zoom='map.zoom')
+    .row
+      .col-md-8
+        ui-gmap-google-map.mapForAddBeerOrBar(center='map.center',zoom='map.zoom')
+      .col-md-4
+        form
+          .form-group
+            label(for="nameOfBeer") Name of Beer
+            ui-select(ng-model='beer.selected', theme='bootstrap', ng-disabled='disabled', reset-search-input='false', style='width: 300px;')
+              ui-select-match(placeholder='Enter an beer...') {{$select.selected.nom}}
+              ui-select-choices(repeat='beer in beers track by $index', refresh='refreshBeers($select.search)', refresh-delay='0')
+                div(ng-bind-html='beer.nom | highlight: $select.search')
+
+          .form-group
+            label(for="typeOfBeer") Type :
+            input#typeOfBeer.form-control(ng-value="beer.selected.type",ng-disabled="true")
+          .form-group
+            label(for="alcoolInBeer") Alcool :
+            input#alcoolInBeer.form-control(ng-value="beer.selected.alcool",ng-disabled="true")
+
+
 

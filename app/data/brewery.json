@@ -1,1332 +1,1330 @@
-{
-  "brewery": [
-    {
-      "id": 1,
-      "name": " 't Hofbrouwerijke pour  De Verhuisbrouwerij"
-    },
-    {
-      "id": 2,
-      "name": " 't Hofbrouwerijke pour <i>Montaignu</i>"
-    },
-    {
-      "id": 3,
-      "name": " 't Hofbrouwerijke pour Montaigu"
-    },
-    {
-      "id": 4,
-      "name": " 't Hofbrouwerijke pour la  Brasserie Het Nest"
-    },
-    {
-      "id": 5,
-      "name": " 't Hofbrouwerijke pour la  De Verhuisbrouwerij"
-    },
-    {
-      "id": 6,
-      "name": " 't Hofbrouwerijke"
-    },
-    {
-      "id": 7,
-      "name": " AB Inbev"
-    },
-    {
-      "id": 8,
-      "name": " Abbaye Notre-Dame d'Orval"
-    },
-    {
-      "id": 9,
-      "name": " Abbaye Notre-Dame du Sacré-Cœur de Westmalle"
-    },
-    {
-      "id": 10,
-      "name": " Abbaye d'Achel"
-    },
-    {
-      "id": 11,
-      "name": " Antwerpse Brouw Compagnie"
-    },
-    {
-      "id": 12,
-      "name": " Authentique Brasserie"
-    },
-    {
-      "id": 13,
-      "name": " Brasserie 't Gaverhopke"
-    },
-    {
-      "id": 14,
-      "name": " Brasserie 't Pakhuis"
-    },
-    {
-      "id": 15,
-      "name": " Brasserie 3 Fonteinen,  Brasserie Boon, Brasserie Timmermans,  Brasserie Oud Beersel, Brasserie Lindemans,  Brasserie De Troch,  Brasserie De Cam, Brasserie Hanssens"
-    },
-    {
-      "id": 16,
-      "name": " Brasserie Alvinne"
-    },
-    {
-      "id": 17,
-      "name": " Brasserie Anders! pour <i>GIBRIT</i>"
-    },
-    {
-      "id": 18,
-      "name": " Brasserie Anders! pour Brussels Beer Project"
-    },
-    {
-      "id": 19,
-      "name": " Brasserie Angerik"
-    },
-    {
-      "id": 20,
-      "name": " Brasserie Bavik pour “Mout- en Brouwhuis De Snoek”"
-    },
-    {
-      "id": 21,
-      "name": " Brasserie Bavik"
-    },
-    {
-      "id": 22,
-      "name": " Brasserie Belle-Vue (InBev)"
-    },
-    {
-      "id": 23,
-      "name": " Brasserie Belle-Vue (Inbev)"
-    },
-    {
-      "id": 24,
-      "name": " Brasserie Bios"
-    },
-    {
-      "id": 25,
-      "name": " Brasserie Bockor"
-    },
-    {
-      "id": 26,
-      "name": " Brasserie Boelens pour VVV De Faluintjesstreek"
-    },
-    {
-      "id": 27,
-      "name": " Brasserie Boelens pour Wijnhandel De Neys-Asselman"
-    },
-    {
-      "id": 28,
-      "name": " Brasserie Boelens"
-    },
-    {
-      "id": 29,
-      "name": " Brasserie Boon"
-    },
-    {
-      "id": 30,
-      "name": " Brasserie Broeder Jacob"
-    },
-    {
-      "id": 31,
-      "name": " Brasserie Cnudde"
-    },
-    {
-      "id": 32,
-      "name": " Brasserie Contreras"
-    },
-    {
-      "id": 33,
-      "name": " Brasserie Danny pour Stichting Marcel De Bisschop"
-    },
-    {
-      "id": 34,
-      "name": " Brasserie Danny"
-    },
-    {
-      "id": 35,
-      "name": " Brasserie De Arend"
-    },
-    {
-      "id": 36,
-      "name": " Brasserie De Bie"
-    },
-    {
-      "id": 37,
-      "name": " Brasserie De Block"
-    },
-    {
-      "id": 38,
-      "name": " Brasserie De Dochter van de Korenaar"
-    },
-    {
-      "id": 39,
-      "name": " Brasserie De Glazen Toren"
-    },
-    {
-      "id": 40,
-      "name": " Brasserie De Graal pour  (T)Huisbrouwerij Odlo"
-    },
-    {
-      "id": 41,
-      "name": " Brasserie De Graal pour  De Hoevebrouwers"
-    },
-    {
-      "id": 42,
-      "name": " Brasserie De Graal pour De Hoevebrouwers"
-    },
-    {
-      "id": 43,
-      "name": " Brasserie De Graal pour Hopduvel Gent"
-    },
-    {
-      "id": 44,
-      "name": " Brasserie De Graal pour Johannes"
-    },
-    {
-      "id": 45,
-      "name": " Brasserie De Graal pour Traagwater"
-    },
-    {
-      "id": 46,
-      "name": " Brasserie De Graal pour Vacas"
-    },
-    {
-      "id": 47,
-      "name": " Brasserie De Graal pour la  (T)Huisbrouwerij Odlo"
-    },
-    {
-      "id": 48,
-      "name": " Brasserie De Graal pour la  Brasserie Het Alternatief"
-    },
-    {
-      "id": 49,
-      "name": " Brasserie De Graal pour la  De Hoevebrouwers"
-    },
-    {
-      "id": 50,
-      "name": " Brasserie De Graal pour la  De Hopjutters"
-    },
-    {
-      "id": 51,
-      "name": " Brasserie De Graal pour la  De VerhuisBrasserie"
-    },
-    {
-      "id": 52,
-      "name": " Brasserie De Graal pour la  Microbrasserie Paeleman pour Kwets vzw"
-    },
-    {
-      "id": 53,
-      "name": " Brasserie De Graal"
-    },
-    {
-      "id": 54,
-      "name": " Brasserie De Halve Maan"
-    },
-    {
-      "id": 55,
-      "name": " Brasserie De Koninck (Brasserie Duvel Moortgat)"
-    },
-    {
-      "id": 56,
-      "name": " Brasserie De Koningshoeven pour  Brasserie Urthel"
-    },
-    {
-      "id": 57,
-      "name": " Brasserie De Landtsheer"
-    },
-    {
-      "id": 58,
-      "name": " Brasserie De Leite"
-    },
-    {
-      "id": 59,
-      "name": " Brasserie De Leyerth"
-    },
-    {
-      "id": 60,
-      "name": " Brasserie De Plukker"
-    },
-    {
-      "id": 61,
-      "name": " Brasserie De Ranke pour bierwinkel Bacelle"
-    },
-    {
-      "id": 62,
-      "name": " Brasserie De Ranke"
-    },
-    {
-      "id": 63,
-      "name": " Brasserie De Regenboog"
-    },
-    {
-      "id": 64,
-      "name": " Brasserie De Rijck"
-    },
-    {
-      "id": 65,
-      "name": " Brasserie De Ryck"
-    },
-    {
-      "id": 66,
-      "name": " Brasserie De Troch"
-    },
-    {
-      "id": 67,
-      "name": " Brasserie De Vlier"
-    },
-    {
-      "id": 68,
-      "name": " Brasserie Deca pour  De Struise Brouwers"
-    },
-    {
-      "id": 69,
-      "name": " Brasserie Deca pour Verstraete"
-    },
-    {
-      "id": 70,
-      "name": " Brasserie Deca pour la  De Struise Brouwers"
-    },
-    {
-      "id": 71,
-      "name": " Brasserie Deca"
-    },
-    {
-      "id": 72,
-      "name": " Brasserie Den Herberg"
-    },
-    {
-      "id": 73,
-      "name": " Brasserie Den Hopperd"
-    },
-    {
-      "id": 74,
-      "name": " Brasserie Den Toetëlèr"
-    },
-    {
-      "id": 75,
-      "name": " Brasserie Den Tseut"
-    },
-    {
-      "id": 76,
-      "name": " Brasserie Deseveaux"
-    },
-    {
-      "id": 77,
-      "name": " Brasserie DijkWaert"
-    },
-    {
-      "id": 78,
-      "name": " Brasserie Dilewyns"
-    },
-    {
-      "id": 79,
-      "name": " Brasserie Donum Ignis"
-    },
-    {
-      "id": 80,
-      "name": " Brasserie Fantôme"
-    },
-    {
-      "id": 81,
-      "name": " Brasserie Fort Lapin"
-    },
-    {
-      "id": 82,
-      "name": " Brasserie Grain d'Orge"
-    },
-    {
-      "id": 83,
-      "name": " Brasserie Gulden Spoor pour Alain Quackelbeen"
-    },
-    {
-      "id": 84,
-      "name": " Brasserie Gulden Spoor pour Hugel"
-    },
-    {
-      "id": 85,
-      "name": " Brasserie Gulden Spoor"
-    },
-    {
-      "id": 86,
-      "name": " Brasserie Het Alternatief par la  Brasserie Alvinne"
-    },
-    {
-      "id": 87,
-      "name": " Brasserie Het Alternatief par la  Brasserie De Graal ou  Brasserie Alvinne"
-    },
-    {
-      "id": 88,
-      "name": " Brasserie Het Alternatief par la  Brasserie De Graal"
-    },
-    {
-      "id": 89,
-      "name": " Brasserie Het Gulden Spoor"
-    },
-    {
-      "id": 90,
-      "name": " Brasserie Het Sas"
-    },
-    {
-      "id": 91,
-      "name": " Brasserie Hof ten Dormaal"
-    },
-    {
-      "id": 92,
-      "name": " Brasserie Inter-Pol"
-    },
-    {
-      "id": 93,
-      "name": " Brasserie Jean Tout Seul"
-    },
-    {
-      "id": 94,
-      "name": " Brasserie Jessenhofke par la De Proefbrouwerij"
-    },
-    {
-      "id": 95,
-      "name": " Brasserie Jessenhofke"
-    },
-    {
-      "id": 96,
-      "name": " Brasserie Kerkom par la  Brasserie Sint-Jozef"
-    },
-    {
-      "id": 97,
-      "name": " Brasserie Kerkom"
-    },
-    {
-      "id": 98,
-      "name": " Brasserie Kortrijk-d’Utsel"
-    },
-    {
-      "id": 99,
-      "name": " Brasserie L'Imprimerie"
-    },
-    {
-      "id": 100,
-      "name": " Brasserie La Ferme au Chêne"
-    },
-    {
-      "id": 101,
-      "name": " Brasserie Lefèbvre"
-    },
-    {
-      "id": 102,
-      "name": " Brasserie Loterbol"
-    },
-    {
-      "id": 103,
-      "name": " Brasserie Louwaege"
-    },
-    {
-      "id": 104,
-      "name": " Brasserie Lupus pour  (T)Huisbrouwerij Odlo"
-    },
-    {
-      "id": 105,
-      "name": " Brasserie Lupus pour Paters en Prinsen"
-    },
-    {
-      "id": 106,
-      "name": " Brasserie Lupus"
-    },
-    {
-      "id": 107,
-      "name": " Brasserie Maenhout pour <i>Proefbrouwerij d'oude maalderij</i>"
-    },
-    {
-      "id": 108,
-      "name": " Brasserie Maenhout"
-    },
-    {
-      "id": 109,
-      "name": " Brasserie Mortal's Beers"
-    },
-    {
-      "id": 110,
-      "name": " Brasserie Nieuwhuys"
-    },
-    {
-      "id": 111,
-      "name": " Brasserie Oud Beersel"
-    },
-    {
-      "id": 112,
-      "name": " Brasserie Piedbœuf (InBev)"
-    },
-    {
-      "id": 113,
-      "name": " Brasserie Riva"
-    },
-    {
-      "id": 114,
-      "name": " Brasserie Rodenbach"
-    },
-    {
-      "id": 115,
-      "name": " Brasserie Sainte-Hélène"
-    },
-    {
-      "id": 116,
-      "name": " Brasserie Sint-Jozef pour Zirvest Cvba"
-    },
-    {
-      "id": 117,
-      "name": " Brasserie Sint-Jozef pour la  Brasserie Kerkom"
-    },
-    {
-      "id": 118,
-      "name": " Brasserie Sint-Jozef"
-    },
-    {
-      "id": 119,
-      "name": " Brasserie Slaapmutske"
-    },
-    {
-      "id": 120,
-      "name": " Brasserie Slaghmuylder pour VVV De Faluintjesstreek"
-    },
-    {
-      "id": 121,
-      "name": " Brasserie Slaghmuylder"
-    },
-    {
-      "id": 122,
-      "name": " Brasserie Smisje"
-    },
-    {
-      "id": 123,
-      "name": " Brasserie St. Bernardus pour <i>café Den Toerist</i>"
-    },
-    {
-      "id": 124,
-      "name": " Brasserie St. Bernardus"
-    },
-    {
-      "id": 125,
-      "name": " Brasserie St. Jean"
-    },
-    {
-      "id": 126,
-      "name": " Brasserie Strubbe pour BioFresh"
-    },
-    {
-      "id": 127,
-      "name": " Brasserie Strubbe pour Den Haene"
-    },
-    {
-      "id": 128,
-      "name": " Brasserie Strubbe pour Guldenboot nv"
-    },
-    {
-      "id": 129,
-      "name": " Brasserie Strubbe pour den Haene"
-    },
-    {
-      "id": 130,
-      "name": " Brasserie Strubbe pour la  Brasserie Crombé"
-    },
-    {
-      "id": 131,
-      "name": " Brasserie Strubbe pour la commune de  Lierre"
-    },
-    {
-      "id": 132,
-      "name": " Brasserie Strubbe pour “Mout- en Brouwhuis De Snoek”"
-    },
-    {
-      "id": 133,
-      "name": " Brasserie Strubbe"
-    },
-    {
-      "id": 134,
-      "name": " Brasserie Ter Dolen"
-    },
-    {
-      "id": 135,
-      "name": " Brasserie Van Den Bossche pour Scouts Moen 50 jaar (2011)"
-    },
-    {
-      "id": 136,
-      "name": " Brasserie Van Den Bossche"
-    },
-    {
-      "id": 137,
-      "name": " Brasserie Van Eecke pour Extremis"
-    },
-    {
-      "id": 138,
-      "name": " Brasserie Van Eecke"
-    },
-    {
-      "id": 139,
-      "name": " Brasserie Van den Bossche"
-    },
-    {
-      "id": 140,
-      "name": " Brasserie Vissenaken"
-    },
-    {
-      "id": 141,
-      "name": " Brasserie Walrave"
-    },
-    {
-      "id": 142,
-      "name": " Brasserie Wieze"
-    },
-    {
-      "id": 143,
-      "name": " Brasserie Wilderen"
-    },
-    {
-      "id": 144,
-      "name": " Brasserie d'Achouffe (Brasserie Duvel Moortgat)"
-    },
-    {
-      "id": 145,
-      "name": " Brasserie d'Écaussinnes pour <i>Vigneron des Fleurs</i>"
-    },
-    {
-      "id": 146,
-      "name": " Brasserie d'Écaussinnes"
-    },
-    {
-      "id": 147,
-      "name": " Brasserie de Bertinchamps"
-    },
-    {
-      "id": 148,
-      "name": " Brasserie de Brunehaut"
-    },
-    {
-      "id": 149,
-      "name": " Brasserie de La Gleize"
-    },
-    {
-      "id": 150,
-      "name": " Brasserie de Tubize"
-    },
-    {
-      "id": 151,
-      "name": " Brasserie de Warsage"
-    },
-    {
-      "id": 152,
-      "name": " Brasserie de l'Abbaye des Rocs"
-    },
-    {
-      "id": 153,
-      "name": " Brasserie de l'Abbaye du Val-Dieu pour la  Radermacher Distillerie"
-    },
-    {
-      "id": 154,
-      "name": " Brasserie de la Lienne"
-    },
-    {
-      "id": 155,
-      "name": " Brasserie des Carrières"
-    },
-    {
-      "id": 156,
-      "name": " Brasserie en stokerij Wilderen"
-    },
-    {
-      "id": 157,
-      "name": " Brasserie la Barbiot"
-    },
-    {
-      "id": 158,
-      "name": " Brasserie à Vapeur"
-    },
-    {
-      "id": 159,
-      "name": " Brouwerij De Dochter van de Korenaar"
-    },
-    {
-      "id": 160,
-      "name": " Brouwersverzet par la  Brasserie Gulden Spoor"
-    },
-    {
-      "id": 161,
-      "name": " De Proefbrouwerij pour  Beerdevelopment Viven"
-    },
-    {
-      "id": 162,
-      "name": " De Proefbrouwerij pour  Brasserie Pirlot"
-    },
-    {
-      "id": 163,
-      "name": " De Proefbrouwerij pour  De Kale Ridders"
-    },
-    {
-      "id": 164,
-      "name": " De Proefbrouwerij pour  De Kastelse bièrevereniging"
-    },
-    {
-      "id": 165,
-      "name": " De Proefbrouwerij pour  De Verhuisbrouwerij"
-    },
-    {
-      "id": 166,
-      "name": " De Proefbrouwerij pour  Huisbrouwerij Sint Canarus"
-    },
-    {
-      "id": 167,
-      "name": " De Proefbrouwerij pour BVG"
-    },
-    {
-      "id": 168,
-      "name": " De Proefbrouwerij pour Bas-bieren"
-    },
-    {
-      "id": 169,
-      "name": " De Proefbrouwerij pour Bla rasserie The Musketeers"
-    },
-    {
-      "id": 170,
-      "name": " De Proefbrouwerij pour Buitenlust"
-    },
-    {
-      "id": 171,
-      "name": " De Proefbrouwerij pour Captain Cooker"
-    },
-    {
-      "id": 172,
-      "name": " De Proefbrouwerij pour De Kastelse biervereniging"
-    },
-    {
-      "id": 173,
-      "name": " De Proefbrouwerij pour Den Ouden Advokaat"
-    },
-    {
-      "id": 174,
-      "name": " De Proefbrouwerij pour Half Zeven"
-    },
-    {
-      "id": 175,
-      "name": " De Proefbrouwerij pour Lesage"
-    },
-    {
-      "id": 176,
-      "name": " De Proefbrouwerij pour Oude Brasserie van Zonnegem vzw"
-    },
-    {
-      "id": 177,
-      "name": " De Proefbrouwerij pour Slaapmutske"
-    },
-    {
-      "id": 178,
-      "name": " De Proefbrouwerij pour Stepaja bvba"
-    },
-    {
-      "id": 179,
-      "name": " De Proefbrouwerij pour The House of Caulier"
-    },
-    {
-      "id": 180,
-      "name": " De Proefbrouwerij pour Trappieter"
-    },
-    {
-      "id": 181,
-      "name": " De Proefbrouwerij pour VALOCCO"
-    },
-    {
-      "id": 182,
-      "name": " De Proefbrouwerij pour Vacas"
-    },
-    {
-      "id": 183,
-      "name": " De Proefbrouwerij pour Vliegende Paard Brouwers"
-    },
-    {
-      "id": 184,
-      "name": " De Proefbrouwerij pour Zonderik Beer Company"
-    },
-    {
-      "id": 185,
-      "name": " De Proefbrouwerij pour het Zeuntcomité"
-    },
-    {
-      "id": 186,
-      "name": " De Proefbrouwerij pour la  Brasserie Cluysenaer"
-    },
-    {
-      "id": 187,
-      "name": " De Proefbrouwerij pour la  Brasserie Druïde"
-    },
-    {
-      "id": 188,
-      "name": " De Proefbrouwerij pour la  Brasserie Jessenhofke"
-    },
-    {
-      "id": 189,
-      "name": " De Proefbrouwerij pour la  Brasserie Pirlot"
-    },
-    {
-      "id": 190,
-      "name": " De Proefbrouwerij pour la  Brasserie Slaapmutske"
-    },
-    {
-      "id": 191,
-      "name": " De Proefbrouwerij pour la  Brasserie The Musketeers"
-    },
-    {
-      "id": 192,
-      "name": " De Proefbrouwerij pour la  Gueuzestekerij 3 Fonteinen"
-    },
-    {
-      "id": 193,
-      "name": " De Proefbrouwerij pour la  MicroBrasserie Achilles"
-    },
-    {
-      "id": 194,
-      "name": " De Proefbrouwerij pour la  Microbrasserie Achilles"
-    },
-    {
-      "id": 195,
-      "name": " De Proefbrouwerij pour la Brasserie The Musketeers"
-    },
-    {
-      "id": 196,
-      "name": " De Proefbrouwerij pour la commune de Zwalm"
-    },
-    {
-      "id": 197,
-      "name": " De Proefbrouwerij pour la famille Neyt"
-    },
-    {
-      "id": 198,
-      "name": " De Proefbrouwerij pour ’t Brugs bierinstituut"
-    },
-    {
-      "id": 199,
-      "name": " De Proefbrouwerij"
-    },
-    {
-      "id": 200,
-      "name": " De Scheldebrouwerij pour De Lelie"
-    },
-    {
-      "id": 201,
-      "name": " De Scheldebrouwerij pour la  Brasserie Het Nest"
-    },
-    {
-      "id": 202,
-      "name": " De Scheldebrouwerij"
-    },
-    {
-      "id": 203,
-      "name": " De Struise Brouwers par la  Brasserie Deca"
-    },
-    {
-      "id": 204,
-      "name": " De Struise Brouwers"
-    },
-    {
-      "id": 205,
-      "name": " De Verhuisbrouwerij"
-    },
-    {
-      "id": 206,
-      "name": " Dorpsbrouwerije Humulus"
-    },
-    {
-      "id": 207,
-      "name": " Gageleer"
-    },
-    {
-      "id": 208,
-      "name": " Gueuzerie Tilquin"
-    },
-    {
-      "id": 209,
-      "name": " Gueuzestekerij 3 Fonteinen"
-    },
-    {
-      "id": 210,
-      "name": " Gueuzestekerij 3 fonteinen"
-    },
-    {
-      "id": 211,
-      "name": " Gueuzestekerij De Cam"
-    },
-    {
-      "id": 212,
-      "name": " Hanssens Artisanaal"
-    },
-    {
-      "id": 213,
-      "name": " Huisbrouwerij 't Pakhuis"
-    },
-    {
-      "id": 214,
-      "name": " Huisbrouwerij Sint Canarus pour JCI Deinze en Leiestreek"
-    },
-    {
-      "id": 215,
-      "name": " Huisbrouwerij Sint Canarus pour la  De VerhuisBrasserie"
-    },
-    {
-      "id": 216,
-      "name": " Huisbrouwerij Sint Canarus"
-    },
-    {
-      "id": 217,
-      "name": " Huisbrouwerij Sint-Canarus"
-    },
-    {
-      "id": 218,
-      "name": " Huisbrouwerij de 3 vaten"
-    },
-    {
-      "id": 219,
-      "name": " Huisbrouwerij de 3 vaten|-"
-    },
-    {
-      "id": 220,
-      "name": " Huisebrouwerij Den Tseut"
-    },
-    {
-      "id": 221,
-      "name": " Les Artisans Brasseurs"
-    },
-    {
-      "id": 222,
-      "name": " Microbrasserie Achilles à  De Proefbrouwerij pour Paters en Prinsen"
-    },
-    {
-      "id": 223,
-      "name": " Microbrasserie Achilles"
-    },
-    {
-      "id": 224,
-      "name": " Microbrasserie Den Triest"
-    },
-    {
-      "id": 225,
-      "name": " Scheldebrouwerij pour la  Brasserie Het Nest"
-    },
-    {
-      "id": 226,
-      "name": " Scheldebrouwerij pour la  Hobbybrouwerij Het Nest"
-    },
-    {
-      "id": 227,
-      "name": " Scheldebrouwerij"
-    },
-    {
-      "id": 228,
-      "name": " Scottish &amp; Newcastle pour le Groupe John Martin"
-    },
-    {
-      "id": 229,
-      "name": " Stadsbrouwerij Aarschot"
-    },
-    {
-      "id": 230,
-      "name": " Stadsbrouwerij Gruut"
-    },
-    {
-      "id": 231,
-      "name": " Staminee De Garre (Brasserie Van Steenberge)"
-    },
-    {
-      "id": 232,
-      "name": "Abbaye Notre-Dame de Leffe (AB InBev)"
-    },
-    {
-      "id": 233,
-      "name": "Abbaye Notre-Dame de Saint-Rémy de Rochefort"
-    },
-    {
-      "id": 234,
-      "name": "Abbaye Notre-Dame de Scourmont"
-    },
-    {
-      "id": 235,
-      "name": "Abbaye de Saint-Sixte"
-    },
-    {
-      "id": 236,
-      "name": "Abbaye du Val-Dieu"
-    },
-    {
-      "id": 237,
-      "name": "Alken-Maes (Heineken) (Précédemment brassée dans la  Brasserie De Gouden Boom)"
-    },
-    {
-      "id": 238,
-      "name": "Alken-Maes (Heineken)"
-    },
-    {
-      "id": 239,
-      "name": "Brasserie Affligem (Heineken)"
-    },
-    {
-      "id": 240,
-      "name": "Brasserie Augrenoise"
-    },
-    {
-      "id": 241,
-      "name": "Brasserie Bosteels"
-    },
-    {
-      "id": 242,
-      "name": "Brasserie Brootcoorens"
-    },
-    {
-      "id": 243,
-      "name": "Brasserie Cantillon"
-    },
-    {
-      "id": 244,
-      "name": "Brasserie Caracole"
-    },
-    {
-      "id": 245,
-      "name": "Brasserie Caulier"
-    },
-    {
-      "id": 246,
-      "name": "Brasserie De Kluis (InBev)"
-    },
-    {
-      "id": 247,
-      "name": "Brasserie De Smedt pour Fisser"
-    },
-    {
-      "id": 248,
-      "name": "Brasserie Dubuisson"
-    },
-    {
-      "id": 249,
-      "name": "Brasserie Dupont"
-    },
-    {
-      "id": 250,
-      "name": "Brasserie Duvel Moortgat"
-    },
-    {
-      "id": 251,
-      "name": "Brasserie Elfique"
-    },
-    {
-      "id": 252,
-      "name": "Brasserie Ellezelloise"
-    },
-    {
-      "id": 253,
-      "name": "Brasserie Gigi"
-    },
-    {
-      "id": 254,
-      "name": "Brasserie Girardin"
-    },
-    {
-      "id": 255,
-      "name": "Brasserie Haacht"
-    },
-    {
-      "id": 256,
-      "name": "Brasserie Hanssens"
-    },
-    {
-      "id": 257,
-      "name": "Brasserie Het Anker (précédemment brassée par l  Brasserie Riva et la Brasserie Liefmans)"
-    },
-    {
-      "id": 258,
-      "name": "Brasserie Het Anker"
-    },
-    {
-      "id": 259,
-      "name": "Brasserie Huyghe pour  De Scheldebrouwerij"
-    },
-    {
-      "id": 260,
-      "name": "Brasserie Huyghe pour la  Brasserie Oud Beersel"
-    },
-    {
-      "id": 261,
-      "name": "Brasserie Huyghe"
-    },
-    {
-      "id": 262,
-      "name": "Brasserie La Binchoise pour la  Brasserie Belgoobeer"
-    },
-    {
-      "id": 263,
-      "name": "Brasserie La Binchoise pour la  Brasserie de Malonne"
-    },
-    {
-      "id": 264,
-      "name": "Brasserie La Binchoise"
-    },
-    {
-      "id": 265,
-      "name": "Brasserie La Botteresse de Sur-les-Bois"
-    },
-    {
-      "id": 266,
-      "name": "Brasserie La Frasnoise"
-    },
-    {
-      "id": 267,
-      "name": "Brasserie Lefebvre"
-    },
-    {
-      "id": 268,
-      "name": "Brasserie Les 3 Fourquets pour la <i>Confrérie du Tchesté de Neufchâteau</i>"
-    },
-    {
-      "id": 269,
-      "name": "Brasserie Les Trois Fourquets"
-    },
-    {
-      "id": 270,
-      "name": "Brasserie Liefmans"
-    },
-    {
-      "id": 271,
-      "name": "Brasserie Lindemans"
-    },
-    {
-      "id": 272,
-      "name": "Brasserie Martens pour Aldi"
-    },
-    {
-      "id": 273,
-      "name": "Brasserie Martens"
-    },
-    {
-      "id": 274,
-      "name": "Brasserie Millevertus"
-    },
-    {
-      "id": 275,
-      "name": "Brasserie Oxymore"
-    },
-    {
-      "id": 276,
-      "name": "Brasserie Palm (Précédemment brassée dans la  Brasserie De Gouden Boom)"
-    },
-    {
-      "id": 277,
-      "name": "Brasserie Palm (précédemment brassée dans la  Brasserie De Gouden Boom)"
-    },
-    {
-      "id": 278,
-      "name": "Brasserie Palm pour le Groupe John Martin"
-    },
-    {
-      "id": 279,
-      "name": "Brasserie Palm"
-    },
-    {
-      "id": 280,
-      "name": "Brasserie Roman"
-    },
-    {
-      "id": 281,
-      "name": "Brasserie Saint-Monon pour la Confrérie du Busson"
-    },
-    {
-      "id": 282,
-      "name": "Brasserie Saint-Monon"
-    },
-    {
-      "id": 283,
-      "name": "Brasserie St-Feuillien"
-    },
-    {
-      "id": 284,
-      "name": "Brasserie Timmermans"
-    },
-    {
-      "id": 285,
-      "name": "Brasserie Van Honsebrouck"
-    },
-    {
-      "id": 286,
-      "name": "Brasserie Van Steenberge pour BIVO Drinks"
-    },
-    {
-      "id": 287,
-      "name": "Brasserie Van Steenberge pour Hopduvel Gent"
-    },
-    {
-      "id": 288,
-      "name": "Brasserie Van Steenberge pour Paeleman"
-    },
-    {
-      "id": 289,
-      "name": "Brasserie Van Steenberge pour la  Brasserie De Cock"
-    },
-    {
-      "id": 290,
-      "name": "Brasserie Van Steenberge pour la  Brasserie Paeleman"
-    },
-    {
-      "id": 291,
-      "name": "Brasserie Van Steenberge pour la  Brasserie van Vlaanderen"
-    },
-    {
-      "id": 292,
-      "name": "Brasserie Van Steenberge pour la Brasserie Vanuxeem"
-    },
-    {
-      "id": 293,
-      "name": "Brasserie Van Steenberge pour la commune de Bierbeek"
-    },
-    {
-      "id": 294,
-      "name": "Brasserie Van Steenberge"
-    },
-    {
-      "id": 295,
-      "name": "Brasserie Verhaeghe pour la  Brasserie Clarysse"
-    },
-    {
-      "id": 296,
-      "name": "Brasserie Verhaeghe pour la Brasserie Vanuxeem"
-    },
-    {
-      "id": 297,
-      "name": "Brasserie Verhaeghe"
-    },
-    {
-      "id": 298,
-      "name": "Brasserie artisanale de Rulles"
-    },
-    {
-      "id": 299,
-      "name": "Brasserie de Bastogne par la  Brasserie du Lion à Plume"
-    },
-    {
-      "id": 300,
-      "name": "Brasserie de Bastogne par la Brasserie du Lion à Plume"
-    },
-    {
-      "id": 301,
-      "name": "Brasserie de Bastogne"
-    },
-    {
-      "id": 302,
-      "name": "Brasserie de Bellevaux"
-    },
-    {
-      "id": 303,
-      "name": "Brasserie de Blaugies"
-    },
-    {
-      "id": 304,
-      "name": "Brasserie de Bouillon"
-    },
-    {
-      "id": 305,
-      "name": "Brasserie de Cazeau"
-    },
-    {
-      "id": 306,
-      "name": "Brasserie de Jandrain-Jandrenouille"
-    },
-    {
-      "id": 307,
-      "name": "Brasserie de Silenrieux"
-    },
-    {
-      "id": 308,
-      "name": "Brasserie de Silly pour la  distillerie de Biercée"
-    },
-    {
-      "id": 309,
-      "name": "Brasserie de Silly"
-    },
-    {
-      "id": 310,
-      "name": "Brasserie de la Lesse"
-    },
-    {
-      "id": 311,
-      "name": "Brasserie de la Senne"
-    },
-    {
-      "id": 312,
-      "name": "Brasserie des Fagnes"
-    },
-    {
-      "id": 313,
-      "name": "Brasserie des Géants"
-    },
-    {
-      "id": 314,
-      "name": "Brasserie des Légendes"
-    },
-    {
-      "id": 315,
-      "name": "Brasserie du Bocq pour l'Abbaye de la Ramée"
-    },
-    {
-      "id": 316,
-      "name": "Brasserie du Bocq pour la  Brasserie Corsendonk"
-    },
-    {
-      "id": 317,
-      "name": "Brasserie du Bocq pour la  Brasserie Sterkens"
-    },
-    {
-      "id": 318,
-      "name": "Brasserie du Bocq pour la Brasserie Vanuxeem"
-    },
-    {
-      "id": 319,
-      "name": "Brasserie du Bocq"
-    },
-    {
-      "id": 320,
-      "name": "Brasserie du Brabant"
-    },
-    {
-      "id": 321,
-      "name": "Brasserie du Flo pour la Brasserie Gilbert"
-    },
-    {
-      "id": 322,
-      "name": "Brasserie du Flo"
-    },
-    {
-      "id": 323,
-      "name": "Brasserie du Val de Sambre"
-    },
-    {
-      "id": 324,
-      "name": "De Dolle Brouwers pour Kaffee Kavijaks"
-    },
-    {
-      "id": 325,
-      "name": "De Dolle Brouwers"
-    },
-    {
-      "id": 326,
-      "name": "Groupe John Martin"
-    },
-    {
-      "id": 327,
-      "name": "InBev"
-    },
-    {
-      "id": 328,
-      "name": "Inbev"
-    },
-    {
-      "id": 329,
-      "name": "Kasteelbrouwerij De Dool"
-    },
-    {
-      "id": 330,
-      "name": "Microbrasserie de la Principauté"
-    },
-    {
-      "id": 331,
-      "name": "Val-Dieu"
-    },
-    {
-      "id": 332,
-      "name": "pour Vacas"
-    }
-  ]
-}
+[
+  {
+    _id: 1,
+    "name": "'t Hofbrouwerijke pour  De Verhuisbrouwerij"
+  },
+  {
+    _id: 2,
+    "name": "'t Hofbrouwerijke pour Montaignu"
+  },
+  {
+    _id: 3,
+    "name": "'t Hofbrouwerijke pour Montaigu"
+  },
+  {
+    _id: 4,
+    "name": "'t Hofbrouwerijke pour la  Brasserie Het Nest"
+  },
+  {
+    _id: 5,
+    "name": "'t Hofbrouwerijke pour la  De Verhuisbrouwerij"
+  },
+  {
+    _id: 6,
+    "name": "'t Hofbrouwerijke"
+  },
+  {
+    _id: 7,
+    "name": "AB Inbev"
+  },
+  {
+    _id: 8,
+    "name": "Abbaye Notre-Dame d'Orval"
+  },
+  {
+    _id: 9,
+    "name": "Abbaye Notre-Dame du Sacré-Cœur de Westmalle"
+  },
+  {
+    _id: 10,
+    "name": "Abbaye d'Achel"
+  },
+  {
+    _id: 11,
+    "name": "Antwerpse Brouw Compagnie"
+  },
+  {
+    _id: 12,
+    "name": "Authentique Brasserie"
+  },
+  {
+    _id: 13,
+    "name": "Brasserie 't Gaverhopke"
+  },
+  {
+    _id: 14,
+    "name": "Brasserie 't Pakhuis"
+  },
+  {
+    _id: 15,
+    "name": "Brasserie 3 Fonteinen,  Brasserie Boon, Brasserie Timmermans,  Brasserie Oud Beersel, Brasserie Lindemans,  Brasserie De Troch,  Brasserie De Cam, Brasserie Hanssens"
+  },
+  {
+    _id: 16,
+    "name": "Brasserie Alvinne"
+  },
+  {
+    _id: 17,
+    "name": "Brasserie Anders! pour GIBRIT"
+  },
+  {
+    _id: 18,
+    "name": "Brasserie Anders! pour Brussels Beer Project"
+  },
+  {
+    _id: 19,
+    "name": "Brasserie Angerik"
+  },
+  {
+    _id: 20,
+    "name": "Brasserie Bavik pour “Mout- en Brouwhuis De Snoek”"
+  },
+  {
+    _id: 21,
+    "name": "Brasserie Bavik"
+  },
+  {
+    _id: 22,
+    "name": "Brasserie Belle-Vue (InBev)"
+  },
+  {
+    _id: 23,
+    "name": "Brasserie Belle-Vue (Inbev)"
+  },
+  {
+    _id: 24,
+    "name": "Brasserie Bios"
+  },
+  {
+    _id: 25,
+    "name": "Brasserie Bockor"
+  },
+  {
+    _id: 26,
+    "name": "Brasserie Boelens pour VVV De Faluintjesstreek"
+  },
+  {
+    _id: 27,
+    "name": "Brasserie Boelens pour Wijnhandel De Neys-Asselman"
+  },
+  {
+    _id: 28,
+    "name": "Brasserie Boelens"
+  },
+  {
+    _id: 29,
+    "name": "Brasserie Boon"
+  },
+  {
+    _id: 30,
+    "name": "Brasserie Broeder Jacob"
+  },
+  {
+    _id: 31,
+    "name": "Brasserie Cnudde"
+  },
+  {
+    _id: 32,
+    "name": "Brasserie Contreras"
+  },
+  {
+    _id: 33,
+    "name": "Brasserie Danny pour Stichting Marcel De Bisschop"
+  },
+  {
+    _id: 34,
+    "name": "Brasserie Danny"
+  },
+  {
+    _id: 35,
+    "name": "Brasserie De Arend"
+  },
+  {
+    _id: 36,
+    "name": "Brasserie De Bie"
+  },
+  {
+    _id: 37,
+    "name": "Brasserie De Block"
+  },
+  {
+    _id: 38,
+    "name": "Brasserie De Dochter van de Korenaar"
+  },
+  {
+    _id: 39,
+    "name": "Brasserie De Glazen Toren"
+  },
+  {
+    _id: 40,
+    "name": "Brasserie De Graal pour  (T)Huisbrouwerij Odlo"
+  },
+  {
+    _id: 41,
+    "name": "Brasserie De Graal pour  De Hoevebrouwers"
+  },
+  {
+    _id: 42,
+    "name": "Brasserie De Graal pour De Hoevebrouwers"
+  },
+  {
+    _id: 43,
+    "name": "Brasserie De Graal pour Hopduvel Gent"
+  },
+  {
+    _id: 44,
+    "name": "Brasserie De Graal pour Johannes"
+  },
+  {
+    _id: 45,
+    "name": "Brasserie De Graal pour Traagwater"
+  },
+  {
+    _id: 46,
+    "name": "Brasserie De Graal pour Vacas"
+  },
+  {
+    _id: 47,
+    "name": "Brasserie De Graal pour la  (T)Huisbrouwerij Odlo"
+  },
+  {
+    _id: 48,
+    "name": "Brasserie De Graal pour la  Brasserie Het Alternatief"
+  },
+  {
+    _id: 49,
+    "name": "Brasserie De Graal pour la  De Hoevebrouwers"
+  },
+  {
+    _id: 50,
+    "name": "Brasserie De Graal pour la  De Hopjutters"
+  },
+  {
+    _id: 51,
+    "name": "Brasserie De Graal pour la  De VerhuisBrasserie"
+  },
+  {
+    _id: 52,
+    "name": "Brasserie De Graal pour la  Microbrasserie Paeleman pour Kwets vzw"
+  },
+  {
+    _id: 53,
+    "name": "Brasserie De Graal"
+  },
+  {
+    _id: 54,
+    "name": "Brasserie De Halve Maan"
+  },
+  {
+    _id: 55,
+    "name": "Brasserie De Koninck (Brasserie Duvel Moortgat)"
+  },
+  {
+    _id: 56,
+    "name": "Brasserie De Koningshoeven pour  Brasserie Urthel"
+  },
+  {
+    _id: 57,
+    "name": "Brasserie De Landtsheer"
+  },
+  {
+    _id: 58,
+    "name": "Brasserie De Leite"
+  },
+  {
+    _id: 59,
+    "name": "Brasserie De Leyerth"
+  },
+  {
+    _id: 60,
+    "name": "Brasserie De Plukker"
+  },
+  {
+    _id: 61,
+    "name": "Brasserie De Ranke pour bierwinkel Bacelle"
+  },
+  {
+    _id: 62,
+    "name": "Brasserie De Ranke"
+  },
+  {
+    _id: 63,
+    "name": "Brasserie De Regenboog"
+  },
+  {
+    _id: 64,
+    "name": "Brasserie De Rijck"
+  },
+  {
+    _id: 65,
+    "name": "Brasserie De Ryck"
+  },
+  {
+    _id: 66,
+    "name": "Brasserie De Troch"
+  },
+  {
+    _id: 67,
+    "name": "Brasserie De Vlier"
+  },
+  {
+    _id: 68,
+    "name": "Brasserie Deca pour  De Struise Brouwers"
+  },
+  {
+    _id: 69,
+    "name": "Brasserie Deca pour Verstraete"
+  },
+  {
+    _id: 70,
+    "name": "Brasserie Deca pour la  De Struise Brouwers"
+  },
+  {
+    _id: 71,
+    "name": "Brasserie Deca"
+  },
+  {
+    _id: 72,
+    "name": "Brasserie Den Herberg"
+  },
+  {
+    _id: 73,
+    "name": "Brasserie Den Hopperd"
+  },
+  {
+    _id: 74,
+    "name": "Brasserie Den Toetëlèr"
+  },
+  {
+    _id: 75,
+    "name": "Brasserie Den Tseut"
+  },
+  {
+    _id: 76,
+    "name": "Brasserie Deseveaux"
+  },
+  {
+    _id: 77,
+    "name": "Brasserie DijkWaert"
+  },
+  {
+    _id: 78,
+    "name": "Brasserie Dilewyns"
+  },
+  {
+    _id: 79,
+    "name": "Brasserie Donum Ignis"
+  },
+  {
+    _id: 80,
+    "name": "Brasserie Fantôme"
+  },
+  {
+    _id: 81,
+    "name": "Brasserie Fort Lapin"
+  },
+  {
+    _id: 82,
+    "name": "Brasserie Grain d'Orge"
+  },
+  {
+    _id: 83,
+    "name": "Brasserie Gulden Spoor pour Alain Quackelbeen"
+  },
+  {
+    _id: 84,
+    "name": "Brasserie Gulden Spoor pour Hugel"
+  },
+  {
+    _id: 85,
+    "name": "Brasserie Gulden Spoor"
+  },
+  {
+    _id: 86,
+    "name": "Brasserie Het Alternatief par la  Brasserie Alvinne"
+  },
+  {
+    _id: 87,
+    "name": "Brasserie Het Alternatief par la  Brasserie De Graal ou  Brasserie Alvinne"
+  },
+  {
+    _id: 88,
+    "name": "Brasserie Het Alternatief par la  Brasserie De Graal"
+  },
+  {
+    _id: 89,
+    "name": "Brasserie Het Gulden Spoor"
+  },
+  {
+    _id: 90,
+    "name": "Brasserie Het Sas"
+  },
+  {
+    _id: 91,
+    "name": "Brasserie Hof ten Dormaal"
+  },
+  {
+    _id: 92,
+    "name": "Brasserie Inter-Pol"
+  },
+  {
+    _id: 93,
+    "name": "Brasserie Jean Tout Seul"
+  },
+  {
+    _id: 94,
+    "name": "Brasserie Jessenhofke par la De Proefbrouwerij"
+  },
+  {
+    _id: 95,
+    "name": "Brasserie Jessenhofke"
+  },
+  {
+    _id: 96,
+    "name": "Brasserie Kerkom par la  Brasserie Sint-Jozef"
+  },
+  {
+    _id: 97,
+    "name": "Brasserie Kerkom"
+  },
+  {
+    _id: 98,
+    "name": "Brasserie Kortrijk-d’Utsel"
+  },
+  {
+    _id: 99,
+    "name": "Brasserie L'Imprimerie"
+  },
+  {
+    _id: 100,
+    "name": "Brasserie La Ferme au Chêne"
+  },
+  {
+    _id: 101,
+    "name": "Brasserie Lefèbvre"
+  },
+  {
+    _id: 102,
+    "name": "Brasserie Loterbol"
+  },
+  {
+    _id: 103,
+    "name": "Brasserie Louwaege"
+  },
+  {
+    _id: 104,
+    "name": "Brasserie Lupus pour  (T)Huisbrouwerij Odlo"
+  },
+  {
+    _id: 105,
+    "name": "Brasserie Lupus pour Paters en Prinsen"
+  },
+  {
+    _id: 106,
+    "name": "Brasserie Lupus"
+  },
+  {
+    _id: 107,
+    "name": "Brasserie Maenhout pour Proefbrouwerij d'oude maalderij"
+  },
+  {
+    _id: 108,
+    "name": "Brasserie Maenhout"
+  },
+  {
+    _id: 109,
+    "name": "Brasserie Mortal's Beers"
+  },
+  {
+    _id: 110,
+    "name": "Brasserie Nieuwhuys"
+  },
+  {
+    _id: 111,
+    "name": "Brasserie Oud Beersel"
+  },
+  {
+    _id: 112,
+    "name": "Brasserie Piedbœuf (InBev)"
+  },
+  {
+    _id: 113,
+    "name": "Brasserie Riva"
+  },
+  {
+    _id: 114,
+    "name": "Brasserie Rodenbach"
+  },
+  {
+    _id: 115,
+    "name": "Brasserie Sainte-Hélène"
+  },
+  {
+    _id: 116,
+    "name": "Brasserie Sint-Jozef pour Zirvest Cvba"
+  },
+  {
+    _id: 117,
+    "name": "Brasserie Sint-Jozef pour la  Brasserie Kerkom"
+  },
+  {
+    _id: 118,
+    "name": "Brasserie Sint-Jozef"
+  },
+  {
+    _id: 119,
+    "name": "Brasserie Slaapmutske"
+  },
+  {
+    _id: 120,
+    "name": "Brasserie Slaghmuylder pour VVV De Faluintjesstreek"
+  },
+  {
+    _id: 121,
+    "name": "Brasserie Slaghmuylder"
+  },
+  {
+    _id: 122,
+    "name": "Brasserie Smisje"
+  },
+  {
+    _id: 123,
+    "name": "Brasserie St. Bernardus pour café Den Toerist"
+  },
+  {
+    _id: 124,
+    "name": "Brasserie St. Bernardus"
+  },
+  {
+    _id: 125,
+    "name": "Brasserie St. Jean"
+  },
+  {
+    _id: 126,
+    "name": "Brasserie Strubbe pour BioFresh"
+  },
+  {
+    _id: 127,
+    "name": "Brasserie Strubbe pour Den Haene"
+  },
+  {
+    _id: 128,
+    "name": "Brasserie Strubbe pour Guldenboot nv"
+  },
+  {
+    _id: 129,
+    "name": "Brasserie Strubbe pour den Haene"
+  },
+  {
+    _id: 130,
+    "name": "Brasserie Strubbe pour la  Brasserie Crombé"
+  },
+  {
+    _id: 131,
+    "name": "Brasserie Strubbe pour la commune de  Lierre"
+  },
+  {
+    _id: 132,
+    "name": "Brasserie Strubbe pour “Mout- en Brouwhuis De Snoek”"
+  },
+  {
+    _id: 133,
+    "name": "Brasserie Strubbe"
+  },
+  {
+    _id: 134,
+    "name": "Brasserie Ter Dolen"
+  },
+  {
+    _id: 135,
+    "name": "Brasserie Van Den Bossche pour Scouts Moen 50 jaar (2011)"
+  },
+  {
+    _id: 136,
+    "name": "Brasserie Van Den Bossche"
+  },
+  {
+    _id: 137,
+    "name": "Brasserie Van Eecke pour Extremis"
+  },
+  {
+    _id: 138,
+    "name": "Brasserie Van Eecke"
+  },
+  {
+    _id: 139,
+    "name": "Brasserie Van den Bossche"
+  },
+  {
+    _id: 140,
+    "name": "Brasserie Vissenaken"
+  },
+  {
+    _id: 141,
+    "name": "Brasserie Walrave"
+  },
+  {
+    _id: 142,
+    "name": "Brasserie Wieze"
+  },
+  {
+    _id: 143,
+    "name": "Brasserie Wilderen"
+  },
+  {
+    _id: 144,
+    "name": "Brasserie d'Achouffe (Brasserie Duvel Moortgat)"
+  },
+  {
+    _id: 145,
+    "name": "Brasserie d'Écaussinnes pour Vigneron des Fleurs"
+  },
+  {
+    _id: 146,
+    "name": "Brasserie d'Écaussinnes"
+  },
+  {
+    _id: 147,
+    "name": "Brasserie de Bertinchamps"
+  },
+  {
+    _id: 148,
+    "name": "Brasserie de Brunehaut"
+  },
+  {
+    _id: 149,
+    "name": "Brasserie de La Gleize"
+  },
+  {
+    _id: 150,
+    "name": "Brasserie de Tubize"
+  },
+  {
+    _id: 151,
+    "name": "Brasserie de Warsage"
+  },
+  {
+    _id: 152,
+    "name": "Brasserie de l'Abbaye des Rocs"
+  },
+  {
+    _id: 153,
+    "name": "Brasserie de l'Abbaye du Val-Dieu pour la  Radermacher Distillerie"
+  },
+  {
+    _id: 154,
+    "name": "Brasserie de la Lienne"
+  },
+  {
+    _id: 155,
+    "name": "Brasserie des Carrières"
+  },
+  {
+    _id: 156,
+    "name": "Brasserie en stokerij Wilderen"
+  },
+  {
+    _id: 157,
+    "name": "Brasserie la Barbiot"
+  },
+  {
+    _id: 158,
+    "name": "Brasserie à Vapeur"
+  },
+  {
+    _id: 159,
+    "name": "Brouwerij De Dochter van de Korenaar"
+  },
+  {
+    _id: 160,
+    "name": "Brouwersverzet par la  Brasserie Gulden Spoor"
+  },
+  {
+    _id: 161,
+    "name": "De Proefbrouwerij pour  Beerdevelopment Viven"
+  },
+  {
+    _id: 162,
+    "name": "De Proefbrouwerij pour  Brasserie Pirlot"
+  },
+  {
+    _id: 163,
+    "name": "De Proefbrouwerij pour  De Kale Ridders"
+  },
+  {
+    _id: 164,
+    "name": "De Proefbrouwerij pour  De Kastelse bièrevereniging"
+  },
+  {
+    _id: 165,
+    "name": "De Proefbrouwerij pour  De Verhuisbrouwerij"
+  },
+  {
+    _id: 166,
+    "name": "De Proefbrouwerij pour  Huisbrouwerij Sint Canarus"
+  },
+  {
+    _id: 167,
+    "name": "De Proefbrouwerij pour BVG"
+  },
+  {
+    _id: 168,
+    "name": "De Proefbrouwerij pour Bas-bieren"
+  },
+  {
+    _id: 169,
+    "name": "De Proefbrouwerij pour Bla rasserie The Musketeers"
+  },
+  {
+    _id: 170,
+    "name": "De Proefbrouwerij pour Buitenlust"
+  },
+  {
+    _id: 171,
+    "name": "De Proefbrouwerij pour Captain Cooker"
+  },
+  {
+    _id: 172,
+    "name": "De Proefbrouwerij pour De Kastelse biervereniging"
+  },
+  {
+    _id: 173,
+    "name": "De Proefbrouwerij pour Den Ouden Advokaat"
+  },
+  {
+    _id: 174,
+    "name": "De Proefbrouwerij pour Half Zeven"
+  },
+  {
+    _id: 175,
+    "name": "De Proefbrouwerij pour Lesage"
+  },
+  {
+    _id: 176,
+    "name": "De Proefbrouwerij pour Oude Brasserie van Zonnegem vzw"
+  },
+  {
+    _id: 177,
+    "name": "De Proefbrouwerij pour Slaapmutske"
+  },
+  {
+    _id: 178,
+    "name": "De Proefbrouwerij pour Stepaja bvba"
+  },
+  {
+    _id: 179,
+    "name": "De Proefbrouwerij pour The House of Caulier"
+  },
+  {
+    _id: 180,
+    "name": "De Proefbrouwerij pour Trappieter"
+  },
+  {
+    _id: 181,
+    "name": "De Proefbrouwerij pour VALOCCO"
+  },
+  {
+    _id: 182,
+    "name": "De Proefbrouwerij pour Vacas"
+  },
+  {
+    _id: 183,
+    "name": "De Proefbrouwerij pour Vliegende Paard Brouwers"
+  },
+  {
+    _id: 184,
+    "name": "De Proefbrouwerij pour Zonderik Beer Company"
+  },
+  {
+    _id: 185,
+    "name": "De Proefbrouwerij pour het Zeuntcomité"
+  },
+  {
+    _id: 186,
+    "name": "De Proefbrouwerij pour la  Brasserie Cluysenaer"
+  },
+  {
+    _id: 187,
+    "name": "De Proefbrouwerij pour la  Brasserie Druïde"
+  },
+  {
+    _id: 188,
+    "name": "De Proefbrouwerij pour la  Brasserie Jessenhofke"
+  },
+  {
+    _id: 189,
+    "name": "De Proefbrouwerij pour la  Brasserie Pirlot"
+  },
+  {
+    _id: 190,
+    "name": "De Proefbrouwerij pour la  Brasserie Slaapmutske"
+  },
+  {
+    _id: 191,
+    "name": "De Proefbrouwerij pour la  Brasserie The Musketeers"
+  },
+  {
+    _id: 192,
+    "name": "De Proefbrouwerij pour la  Gueuzestekerij 3 Fonteinen"
+  },
+  {
+    _id: 193,
+    "name": "De Proefbrouwerij pour la  MicroBrasserie Achilles"
+  },
+  {
+    _id: 194,
+    "name": "De Proefbrouwerij pour la  Microbrasserie Achilles"
+  },
+  {
+    _id: 195,
+    "name": "De Proefbrouwerij pour la Brasserie The Musketeers"
+  },
+  {
+    _id: 196,
+    "name": "De Proefbrouwerij pour la commune de Zwalm"
+  },
+  {
+    _id: 197,
+    "name": "De Proefbrouwerij pour la famille Neyt"
+  },
+  {
+    _id: 198,
+    "name": "De Proefbrouwerij pour ’t Brugs bierinstituut"
+  },
+  {
+    _id: 199,
+    "name": "De Proefbrouwerij"
+  },
+  {
+    _id: 200,
+    "name": "De Scheldebrouwerij pour De Lelie"
+  },
+  {
+    _id: 201,
+    "name": "De Scheldebrouwerij pour la  Brasserie Het Nest"
+  },
+  {
+    _id: 202,
+    "name": "De Scheldebrouwerij"
+  },
+  {
+    _id: 203,
+    "name": "De Struise Brouwers par la  Brasserie Deca"
+  },
+  {
+    _id: 204,
+    "name": "De Struise Brouwers"
+  },
+  {
+    _id: 205,
+    "name": "De Verhuisbrouwerij"
+  },
+  {
+    _id: 206,
+    "name": "Dorpsbrouwerije Humulus"
+  },
+  {
+    _id: 207,
+    "name": "Gageleer"
+  },
+  {
+    _id: 208,
+    "name": "Gueuzerie Tilquin"
+  },
+  {
+    _id: 209,
+    "name": "Gueuzestekerij 3 Fonteinen"
+  },
+  {
+    _id: 210,
+    "name": "Gueuzestekerij 3 fonteinen"
+  },
+  {
+    _id: 211,
+    "name": "Gueuzestekerij De Cam"
+  },
+  {
+    _id: 212,
+    "name": "Hanssens Artisanaal"
+  },
+  {
+    _id: 213,
+    "name": "Huisbrouwerij 't Pakhuis"
+  },
+  {
+    _id: 214,
+    "name": "Huisbrouwerij Sint Canarus pour JCI Deinze en Leiestreek"
+  },
+  {
+    _id: 215,
+    "name": "Huisbrouwerij Sint Canarus pour la  De VerhuisBrasserie"
+  },
+  {
+    _id: 216,
+    "name": "Huisbrouwerij Sint Canarus"
+  },
+  {
+    _id: 217,
+    "name": "Huisbrouwerij Sint-Canarus"
+  },
+  {
+    _id: 218,
+    "name": "Huisbrouwerij de 3 vaten"
+  },
+  {
+    _id: 219,
+    "name": "Huisbrouwerij de 3 vaten|-"
+  },
+  {
+    _id: 220,
+    "name": "Huisebrouwerij Den Tseut"
+  },
+  {
+    _id: 221,
+    "name": "Les Artisans Brasseurs"
+  },
+  {
+    _id: 222,
+    "name": "Microbrasserie Achilles à  De Proefbrouwerij pour Paters en Prinsen"
+  },
+  {
+    _id: 223,
+    "name": "Microbrasserie Achilles"
+  },
+  {
+    _id: 224,
+    "name": "Microbrasserie Den Triest"
+  },
+  {
+    _id: 225,
+    "name": "Scheldebrouwerij pour la  Brasserie Het Nest"
+  },
+  {
+    _id: 226,
+    "name": "Scheldebrouwerij pour la  Hobbybrouwerij Het Nest"
+  },
+  {
+    _id: 227,
+    "name": "Scheldebrouwerij"
+  },
+  {
+    _id: 228,
+    "name": "Scottish &amp; Newcastle pour le Groupe John Martin"
+  },
+  {
+    _id: 229,
+    "name": "Stadsbrouwerij Aarschot"
+  },
+  {
+    _id: 230,
+    "name": "Stadsbrouwerij Gruut"
+  },
+  {
+    _id: 231,
+    "name": "Staminee De Garre (Brasserie Van Steenberge)"
+  },
+  {
+    _id: 232,
+    "name": "Abbaye Notre-Dame de Leffe (AB InBev)"
+  },
+  {
+    _id: 233,
+    "name": "Abbaye Notre-Dame de Saint-Rémy de Rochefort"
+  },
+  {
+    _id: 234,
+    "name": "Abbaye Notre-Dame de Scourmont"
+  },
+  {
+    _id: 235,
+    "name": "Abbaye de Saint-Sixte"
+  },
+  {
+    _id: 236,
+    "name": "Abbaye du Val-Dieu"
+  },
+  {
+    _id: 237,
+    "name": "Alken-Maes (Heineken) (Précédemment brassée dans la  Brasserie De Gouden Boom)"
+  },
+  {
+    _id: 238,
+    "name": "Alken-Maes (Heineken)"
+  },
+  {
+    _id: 239,
+    "name": "Brasserie Affligem (Heineken)"
+  },
+  {
+    _id: 240,
+    "name": "Brasserie Augrenoise"
+  },
+  {
+    _id: 241,
+    "name": "Brasserie Bosteels"
+  },
+  {
+    _id: 242,
+    "name": "Brasserie Brootcoorens"
+  },
+  {
+    _id: 243,
+    "name": "Brasserie Cantillon"
+  },
+  {
+    _id: 244,
+    "name": "Brasserie Caracole"
+  },
+  {
+    _id: 245,
+    "name": "Brasserie Caulier"
+  },
+  {
+    _id: 246,
+    "name": "Brasserie De Kluis (InBev)"
+  },
+  {
+    _id: 247,
+    "name": "Brasserie De Smedt pour Fisser"
+  },
+  {
+    _id: 248,
+    "name": "Brasserie Dubuisson"
+  },
+  {
+    _id: 249,
+    "name": "Brasserie Dupont"
+  },
+  {
+    _id: 250,
+    "name": "Brasserie Duvel Moortgat"
+  },
+  {
+    _id: 251,
+    "name": "Brasserie Elfique"
+  },
+  {
+    _id: 252,
+    "name": "Brasserie Ellezelloise"
+  },
+  {
+    _id: 253,
+    "name": "Brasserie Gigi"
+  },
+  {
+    _id: 254,
+    "name": "Brasserie Girardin"
+  },
+  {
+    _id: 255,
+    "name": "Brasserie Haacht"
+  },
+  {
+    _id: 256,
+    "name": "Brasserie Hanssens"
+  },
+  {
+    _id: 257,
+    "name": "Brasserie Het Anker (précédemment brassée par l  Brasserie Riva et la Brasserie Liefmans)"
+  },
+  {
+    _id: 258,
+    "name": "Brasserie Het Anker"
+  },
+  {
+    _id: 259,
+    "name": "Brasserie Huyghe pour  De Scheldebrouwerij"
+  },
+  {
+    _id: 260,
+    "name": "Brasserie Huyghe pour la  Brasserie Oud Beersel"
+  },
+  {
+    _id: 261,
+    "name": "Brasserie Huyghe"
+  },
+  {
+    _id: 262,
+    "name": "Brasserie La Binchoise pour la  Brasserie Belgoobeer"
+  },
+  {
+    _id: 263,
+    "name": "Brasserie La Binchoise pour la  Brasserie de Malonne"
+  },
+  {
+    _id: 264,
+    "name": "Brasserie La Binchoise"
+  },
+  {
+    _id: 265,
+    "name": "Brasserie La Botteresse de Sur-les-Bois"
+  },
+  {
+    _id: 266,
+    "name": "Brasserie La Frasnoise"
+  },
+  {
+    _id: 267,
+    "name": "Brasserie Lefebvre"
+  },
+  {
+    _id: 268,
+    "name": "Brasserie Les 3 Fourquets pour la Confrérie du Tchesté de Neufchâteau"
+  },
+  {
+    _id: 269,
+    "name": "Brasserie Les Trois Fourquets"
+  },
+  {
+    _id: 270,
+    "name": "Brasserie Liefmans"
+  },
+  {
+    _id: 271,
+    "name": "Brasserie Lindemans"
+  },
+  {
+    _id: 272,
+    "name": "Brasserie Martens pour Aldi"
+  },
+  {
+    _id: 273,
+    "name": "Brasserie Martens"
+  },
+  {
+    _id: 274,
+    "name": "Brasserie Millevertus"
+  },
+  {
+    _id: 275,
+    "name": "Brasserie Oxymore"
+  },
+  {
+    _id: 276,
+    "name": "Brasserie Palm (Précédemment brassée dans la  Brasserie De Gouden Boom)"
+  },
+  {
+    _id: 277,
+    "name": "Brasserie Palm (précédemment brassée dans la  Brasserie De Gouden Boom)"
+  },
+  {
+    _id: 278,
+    "name": "Brasserie Palm pour le Groupe John Martin"
+  },
+  {
+    _id: 279,
+    "name": "Brasserie Palm"
+  },
+  {
+    _id: 280,
+    "name": "Brasserie Roman"
+  },
+  {
+    _id: 281,
+    "name": "Brasserie Saint-Monon pour la Confrérie du Busson"
+  },
+  {
+    _id: 282,
+    "name": "Brasserie Saint-Monon"
+  },
+  {
+    _id: 283,
+    "name": "Brasserie St-Feuillien"
+  },
+  {
+    _id: 284,
+    "name": "Brasserie Timmermans"
+  },
+  {
+    _id: 285,
+    "name": "Brasserie Van Honsebrouck"
+  },
+  {
+    _id: 286,
+    "name": "Brasserie Van Steenberge pour BIVO Drinks"
+  },
+  {
+    _id: 287,
+    "name": "Brasserie Van Steenberge pour Hopduvel Gent"
+  },
+  {
+    _id: 288,
+    "name": "Brasserie Van Steenberge pour Paeleman"
+  },
+  {
+    _id: 289,
+    "name": "Brasserie Van Steenberge pour la  Brasserie De Cock"
+  },
+  {
+    _id: 290,
+    "name": "Brasserie Van Steenberge pour la  Brasserie Paeleman"
+  },
+  {
+    _id: 291,
+    "name": "Brasserie Van Steenberge pour la  Brasserie van Vlaanderen"
+  },
+  {
+    _id: 292,
+    "name": "Brasserie Van Steenberge pour la Brasserie Vanuxeem"
+  },
+  {
+    _id: 293,
+    "name": "Brasserie Van Steenberge pour la commune de Bierbeek"
+  },
+  {
+    _id: 294,
+    "name": "Brasserie Van Steenberge"
+  },
+  {
+    _id: 295,
+    "name": "Brasserie Verhaeghe pour la  Brasserie Clarysse"
+  },
+  {
+    _id: 296,
+    "name": "Brasserie Verhaeghe pour la Brasserie Vanuxeem"
+  },
+  {
+    _id: 297,
+    "name": "Brasserie Verhaeghe"
+  },
+  {
+    _id: 298,
+    "name": "Brasserie artisanale de Rulles"
+  },
+  {
+    _id: 299,
+    "name": "Brasserie de Bastogne par la  Brasserie du Lion à Plume"
+  },
+  {
+    _id: 300,
+    "name": "Brasserie de Bastogne par la Brasserie du Lion à Plume"
+  },
+  {
+    _id: 301,
+    "name": "Brasserie de Bastogne"
+  },
+  {
+    _id: 302,
+    "name": "Brasserie de Bellevaux"
+  },
+  {
+    _id: 303,
+    "name": "Brasserie de Blaugies"
+  },
+  {
+    _id: 304,
+    "name": "Brasserie de Bouillon"
+  },
+  {
+    _id: 305,
+    "name": "Brasserie de Cazeau"
+  },
+  {
+    _id: 306,
+    "name": "Brasserie de Jandrain-Jandrenouille"
+  },
+  {
+    _id: 307,
+    "name": "Brasserie de Silenrieux"
+  },
+  {
+    _id: 308,
+    "name": "Brasserie de Silly pour la  distillerie de Biercée"
+  },
+  {
+    _id: 309,
+    "name": "Brasserie de Silly"
+  },
+  {
+    _id: 310,
+    "name": "Brasserie de la Lesse"
+  },
+  {
+    _id: 311,
+    "name": "Brasserie de la Senne"
+  },
+  {
+    _id: 312,
+    "name": "Brasserie des Fagnes"
+  },
+  {
+    _id: 313,
+    "name": "Brasserie des Géants"
+  },
+  {
+    _id: 314,
+    "name": "Brasserie des Légendes"
+  },
+  {
+    _id: 315,
+    "name": "Brasserie du Bocq pour l'Abbaye de la Ramée"
+  },
+  {
+    _id: 316,
+    "name": "Brasserie du Bocq pour la  Brasserie Corsendonk"
+  },
+  {
+    _id: 317,
+    "name": "Brasserie du Bocq pour la  Brasserie Sterkens"
+  },
+  {
+    _id: 318,
+    "name": "Brasserie du Bocq pour la Brasserie Vanuxeem"
+  },
+  {
+    _id: 319,
+    "name": "Brasserie du Bocq"
+  },
+  {
+    _id: 320,
+    "name": "Brasserie du Brabant"
+  },
+  {
+    _id: 321,
+    "name": "Brasserie du Flo pour la Brasserie Gilbert"
+  },
+  {
+    _id: 322,
+    "name": "Brasserie du Flo"
+  },
+  {
+    _id: 323,
+    "name": "Brasserie du Val de Sambre"
+  },
+  {
+    _id: 324,
+    "name": "De Dolle Brouwers pour Kaffee Kavijaks"
+  },
+  {
+    _id: 325,
+    "name": "De Dolle Brouwers"
+  },
+  {
+    _id: 326,
+    "name": "Groupe John Martin"
+  },
+  {
+    _id: 327,
+    "name": "InBev"
+  },
+  {
+    _id: 328,
+    "name": "Inbev"
+  },
+  {
+    _id: 329,
+    "name": "Kasteelbrouwerij De Dool"
+  },
+  {
+    _id: 330,
+    "name": "Microbrasserie de la Principauté"
+  },
+  {
+    _id: 331,
+    "name": "Val-Dieu"
+  },
+  {
+    _id: 332,
+    "name": "pour Vacas"
+  }
+]

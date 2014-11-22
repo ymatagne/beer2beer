@@ -5,13 +5,13 @@ var controllers = angular.module('b2b.controllers', []);
 
 var services = angular.module('b2b.services', []);
 
-var app = angular.module('b2b', ['ngRoute', 'ngDialog', 'duScroll', 'ui.bootstrap','google-maps'.ns(), 'b2b.services', 'b2b.controllers']);
+var app = angular.module('b2b', ['ngRoute', 'ngDialog', 'duScroll','ngSanitize','ui.bootstrap','ui.select','google-maps'.ns(), 'b2b.services', 'b2b.controllers']);
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: '/templates/index',
         auth:false
-    }).when('/controller', {
+    }).when('/admin', {
         templateUrl: '/templates/menuAdmin',
         auth:true
     }).otherwise({ redirectTo: '/'});

@@ -7,7 +7,8 @@ var Beer = require('../models/beer');
 */
 module.exports.json_beer_query =function(req, res) {
 	console.log('query -> all');
-	Beer.find(function(err, docs) {
+
+	Beer.find({ 'nom' :  new RegExp('^'+req.query.name, "i") },function(err, docs) {
         if (err){
             res.send(err);
             return null;
@@ -64,4 +65,4 @@ module.exports.json_beer_delete =function(req, res) {
 
 module.exports.setBeer = function(fakeBeer){
 	Beer = fakeBeer;
-}
+};
