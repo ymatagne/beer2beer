@@ -7,6 +7,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-jade-usemin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-karma');
 
     // Project configuration.
     grunt.initConfig({
@@ -17,7 +18,7 @@ module.exports = function(grunt) {
                 options: {
                     reporter: 'spec'
                 },
-                src: ['test/**/*.js']
+                src: ['test/app/**/*.js']
             }
         },
         mochacov: {
@@ -97,12 +98,17 @@ module.exports = function(grunt) {
                     src: 'front/views/layout/_layout.jade'
                 }]
             }
+        },
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js'
+            }
         }
     });
 
     // Default task(s).
     grunt.registerTask('default', ['concat']);
-    grunt.registerTask('test', ['mochaTest']);
+    grunt.registerTask('test', ['mochaTest', 'karma']);
     grunt.registerTask('coverage', ['env:coverage', 'instrument', 'mochaTest', 'mochacov', 'storeCoverage', 'makeReport']);
     grunt.registerTask('buildApp', ['copy:sources', 'jadeUsemin']);
     };

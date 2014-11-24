@@ -11,7 +11,7 @@ describe('beerController...', function(){
         findStub,
         findByIdStub;
     beforeEach(function(){
-        fakeReq = {};
+        fakeReq = {query: {name: ''}};
         fakeRes = {send: function(){}, json: function(){}};
         fakeBeer = {find: function(){}, findById: function(){}};
 
@@ -30,7 +30,7 @@ describe('beerController...', function(){
     describe('json_beer_query...', function(){
         it('Should send error when find failed.', function(){
             var error = 'error',
-                findCall = findStub.callsArgWith(0, error);
+                findCall = findStub.callsArgWith(1, error);
 
             beerController.json_beer_query(fakeReq, fakeRes);
 
@@ -39,7 +39,7 @@ describe('beerController...', function(){
         });
         it('Should return beers as JSON.', function(){
             var beers = [{name: 'Leffe'}],
-                findCall = findStub.callsArgWith(0, null, beers);
+                findCall = findStub.callsArgWith(1, null, beers);
 
             beerController.json_beer_query(fakeReq, fakeRes);
 
