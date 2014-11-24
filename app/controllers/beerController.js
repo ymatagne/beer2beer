@@ -9,7 +9,7 @@ var Brewery = require('../models/brewery');
 module.exports.json_beer_query =function(req, res) {
 	console.log('query -> all');
 
-	Beer.find({ 'nom' :  new RegExp('^'+req.query.name, "i") },function(err, docs) {
+	Beer.find({ 'nom' :  new RegExp('.*'+req.query.name+'.*', "i") },{},{limit: 100 },function(err, docs) {
         if (err){
             res.send(err);
             return null;
