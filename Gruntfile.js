@@ -26,7 +26,7 @@ module.exports = function(grunt) {
                 reporter: 'xunit',
                 output: 'target/TEST-xunit.xml'
             },
-            all: ['test/**/*.js']
+            all: ['test/*.js','test/app/**/*.js']
         },
         // start - code coverage settings
         env: {
