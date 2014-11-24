@@ -18,6 +18,9 @@ section#menuAdminController(ng-controller="menuAdminController")
           .form-group
             label(for="alcoolInBeer") Alcool :
             input#alcoolInBeer.form-control(ng-value="beer.selected.alcool",ng-disabled="true")
+          .form-group
+            label(for="breweryForBeer") Brewery :
+            input#breweryForBeer.form-control(ng-value="beer.selected.brewery_id[0].name",ng-disabled="true")
 
 
 

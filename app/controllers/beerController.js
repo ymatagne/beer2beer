@@ -1,4 +1,5 @@
 var Beer = require('../models/beer');
+var Brewery = require('../models/brewery');
 
 /*
 	Description: Get beers
@@ -14,7 +15,7 @@ module.exports.json_beer_query =function(req, res) {
             return null;
 		}
 		res.json(docs);
-	});
+	}).populate('brewery_id');
 };
 
 /*

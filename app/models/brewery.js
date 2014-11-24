@@ -1,4 +1,4 @@
 var mongoose = require('mongoose');
-var schema = mongoose.Schema({ name: String});
+var schema = mongoose.Schema({ _id:Number, name: String});
 
 module.exports = mongoose.model('Brewery', schema);
