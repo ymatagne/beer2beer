@@ -1,5 +1,6 @@
 var site = require('../controllers/siteController');
 var beersController = require('../controllers/beerController');
+var barsController = require('../controllers/barController');
 var authController = require('../controllers/authController');
 
 var is_authentified = function(req, res, next){
@@ -23,6 +24,9 @@ module.exports = function(app){
     app.get('/api/beer/:beer_id/', is_authentified,beersController.json_beer_get);
     app.post('/api/beer/:beer_id/', is_authentified,beersController.json_beer_save);
     app.delete('/api/beer/:beer_id/', is_authentified,beersController.json_beer_delete);
+
+    /** Bar Crud **/
+    app.get('/api/bar/', is_authentified,barsController.json_bar_query);
 
     /** Angular Route **/
     app.get('/templates/:name', site.partials);

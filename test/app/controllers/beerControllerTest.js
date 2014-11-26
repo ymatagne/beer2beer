@@ -13,13 +13,13 @@ describe('beerController...', function(){
     beforeEach(function(){
         fakeReq = {query: {name: ''}};
         fakeRes = {send: function(){}, json: function(){}};
-        fakeBeer = {find: function(){}, findById: function(){}};
+        fakeBeer = {find: function(){}, findById: function(){},populate: function(){}};
 
         beerController.setBeer(fakeBeer);
 
         sendStub = sinon.stub(fakeRes, 'send');
         jsonStub = sinon.stub(fakeRes, 'json');
-        findStub = sinon.stub(fakeBeer, 'find');
+        findStub = sinon.stub(fakeBeer, 'find').returnsThis();
         findByIdStub = sinon.stub(fakeBeer, 'findById');
     });
     afterEach(function(){
@@ -30,7 +30,7 @@ describe('beerController...', function(){
     describe('json_beer_query...', function(){
         it('Should send error when find failed.', function(){
             var error = 'error',
-                findCall = findStub.callsArgWith(1, error);
+                findCall = findStub.callsArgWith(3, error);
 
             beerController.json_beer_query(fakeReq, fakeRes);
 
@@ -39,7 +39,7 @@ describe('beerController...', function(){
         });
         it('Should return beers as JSON.', function(){
             var beers = [{name: 'Leffe'}],
-                findCall = findStub.callsArgWith(1, null, beers);
+                findCall = findStub.callsArgWith(3, null, beers);
 
             beerController.json_beer_query(fakeReq, fakeRes);
 
