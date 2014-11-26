@@ -2,10 +2,10 @@
 
 controllers.controller('authController', function($rootScope,$scope,$http,$location,$document,ngDialog){
     $scope.login = function () {
-        ngDialog.open({ template: 'login',  plain: false, className: 'ngdialog-theme-default',showClose:true });
+        ngDialog.open(getJsonForOpenDialog('login'));
     };
     $scope.signup = function () {
-        ngDialog.open({ template: 'signup',  plain: false, className: 'ngdialog-theme-default',showClose:true });
+        ngDialog.open(getJsonForOpenDialog('signup'));
     };
     $scope.register = function (form) {
       $http.post('/api/auth/create', {user:$scope.user}).
@@ -54,3 +54,7 @@ controllers.controller('authController', function($rootScope,$scope,$http,$locat
     };
 
 });
+
+function getJsonForOpenDialog(templateName){
+    return { template: templateName,  plain: false, className: 'ngdialog-theme-default',showClose:true };
+}

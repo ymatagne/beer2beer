@@ -1,9 +1,7 @@
 'use strict';
 
-
-var controllers = angular.module('b2b.controllers', []);
-
-var services = angular.module('b2b.services', []);
+var controllers = angular.module('b2b.controllers', []),
+    services = angular.module('b2b.services', []);
 
 var app = angular.module('b2b', ['ngRoute', 'ngDialog', 'duScroll','ngSanitize','ui.bootstrap','ui.select','uiGmapgoogle-maps', 'b2b.services', 'b2b.controllers']);
 
