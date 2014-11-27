@@ -111,4 +111,5 @@ module.exports = function(grunt) {
     grunt.registerTask('test', ['mochaTest', 'karma']);
     grunt.registerTask('coverage', ['env:coverage', 'instrument', 'mochaTest', 'mochacov', 'storeCoverage', 'makeReport']);
     grunt.registerTask('buildApp', ['copy:sources', 'jadeUsemin']);
+    grunt.registerTask('heroku:production', ['clean','copy:sources', 'jadeUsemin']);
     };
