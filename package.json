@@ -4,6 +4,7 @@
   "description": "Search and find a welcome beer",
   "main": "index.js",
   "scripts": {
+    "start": "node target/b2b/app/server.js",
     "postinstall": "bower install && grunt heroku:production"
   },
   "author": "",
