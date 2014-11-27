@@ -53,6 +53,6 @@
   },
   "scripts": {
     "start": "node app/server.js",
-    "postinstall": "bower install"
+    "postinstall": "npm install && bower install"
   }
 }
