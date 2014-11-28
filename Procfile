@@ -1,2 +1,2 @@
-web: node target/b2b/app/server.js
+web: node app/server.js
 
