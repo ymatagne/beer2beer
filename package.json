@@ -2,7 +2,7 @@
   "name": "beer2beer",
   "version": "0.0.0",
   "description": "Search and find a welcome beer",
-  "main": "index.js",
+  "main": "app/server.js",
   "scripts": {
     "start": "node app/server.js",
     "postinstall": "bower install && grunt heroku:production"
