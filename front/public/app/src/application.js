@@ -13,7 +13,6 @@ app.config(['$routeProvider', function ($routeProvider) {
         templateUrl: '/templates/menuAdmin',
         auth:true
     }).otherwise({ redirectTo: '/'});
-
 }]);
 
 app.config(function(uiGmapGoogleMapApiProvider) {
@@ -23,10 +22,12 @@ app.config(function(uiGmapGoogleMapApiProvider) {
         libraries: 'places' // Required for SearchBox.
     });
 });
-app.run(function ($rootScope,$location, Auth) {
+app.run(function ($rootScope,$location, AuthService) {
     $rootScope.$watch('currentUser', function (currentUser) {
         if (!currentUser) {
-            Auth.currentUser();
+            AuthService.currentUser().then(function(user){
+                $rootScope.currentUser = user;
+            });
         }
     });
     $rootScope.$on('$routeChangeStart', function (event,next) {

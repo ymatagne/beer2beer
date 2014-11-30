@@ -48,7 +48,7 @@ module.exports.auth_create = function (req, res) {
     var user = new User(req.body.user);
     user.save(function (err) {
         if (err) {
-            return res.json(400, err);
+            return res.status(400).json(err);
         }
         req.logIn(user, function (err) {
             if (err){
@@ -68,7 +68,7 @@ module.exports.auth_local = function (req, res, next) {
     passport.authenticate('local', function (err, user, info) {
         var error = err || info;
         if (error) {
-            return res.json(400, error);
+            return res.status(400).json(error);
         }
         req.logIn(user, function (err) {
             if (err) {

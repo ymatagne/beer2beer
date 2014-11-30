@@ -18,10 +18,10 @@ describe('authController...', function(){
 		controller = $controller('authController', {
 			$rootScope: $rootScope,
 			$scope: scope,
-			$http: sinon.stub(),
 			$location: fakeLocation,
 			$document: fakeDocument,
-			ngDialog: fakeNgDialog
+			ngDialog: fakeNgDialog,
+			AuthService: sinon.stub()
 		});
 	}));
 
