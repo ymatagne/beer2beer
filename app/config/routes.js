@@ -26,7 +26,9 @@ module.exports = function(app){
     app.delete('/api/beer/:beer_id/', is_authentified,beersController.json_beer_delete);
 
     /** Bar Crud **/
-    app.get('/api/bar/', is_authentified,barsController.json_bar_query);
+    app.get('/api/bar/', barsController.json_bar_query);
+    app.put('/api/bar/:id', is_authentified,barsController.json_bar_update);
+    app.post('/api/bar/', is_authentified,barsController.json_bar_save);
 
     /** Angular Route **/
     app.get('/templates/:name', site.partials);

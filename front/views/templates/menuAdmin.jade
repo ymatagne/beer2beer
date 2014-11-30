@@ -3,24 +3,60 @@ section#menuAdminController(ng-controller="menuAdminController")
     .row
       .col-md-8
         ui-gmap-google-map.mapForAddBeerOrBar(center='map.center',zoom='map.zoom')
+          ui-gmap-markers(models="myLocation",idKey="'uid'",icon="'icon'",coords="'self'")
+          ui-gmap-markers(models="barsLocation",idKey="'uid'",icon="'icon'",coords="'self'")
+
+
       .col-md-4
         form
-          .form-group
-            label(for="nameOfBeer") Name of Beer
-            ui-select(ng-model='beer.selected', theme='bootstrap', ng-disabled='disabled', reset-search-input='false', style='width: 300px;')
-              ui-select-match(placeholder='Enter an beer...') {{$select.selected.nom}}
-              ui-select-choices(repeat='beer in beers track by $index', refresh='refreshBeers($select.search)', refresh-delay='0')
-                div(ng-bind-html='beer.nom | highlight: $select.search')
+          div
+            h4
+              span.glyphicon.glyphicon-search
+              label Choose a Bar
+            .form-group
+              label(for="nameOBar") Name of Bar
+              ui-select(ng-model='bar.selected', theme='bootstrap', ng-disabled='addNewBeer', reset-search-input='false', style='width: 300px;')
+                ui-select-match(placeholder='Enter an bar...') {{$select.selected.nom}}
+                ui-select-choices(repeat='bar in bars track by $index', refresh='refreshBars($select.search)', refresh-delay='0')
+                  div(ng-bind-html='bar.nom | highlight: $select.search')
+              span.glyphicon.glyphicon-plus
+                a(ng-click="addNewBeer=!addNewBeer") Add a new bar
 
-          .form-group
-            label(for="typeOfBeer") Type :
-            input#typeOfBeer.form-control(ng-value="beer.selected.type",ng-disabled="true")
-          .form-group
-            label(for="alcoolInBeer") Alcool :
-            input#alcoolInBeer.form-control(ng-value="beer.selected.alcool",ng-disabled="true")
-          .form-group
-            label(for="breweryForBeer") Brewery :
-            input#breweryForBeer.form-control(ng-value="beer.selected.brewery_id[0].name",ng-disabled="true")
+            .form-group
+              label(for="nameOfBar") Name :
+              input#nameOfBar.form-control(ng-model="bar.selected.nom",ng-disabled="!addNewBeer")
 
+            .form-group
+              label(for="addressOfBar") Address :
+              input#addressOfBar.form-control(ng-model="bar.selected.adresse",ng-disabled="!addNewBeer")
+
+            .form-group
+              label(for="geolocationOfBar") Geolocation :
+              input#geolocationOfBar.form-control(ng-model="bar.selected.geolocation",ng-disabled="true")
+          div
+            h4
+              span.glyphicon.glyphicon-search
+              label Choose a Beer
+
+            .form-group
+              label(for="nameOfBeer") Name of Beer
+              ui-select(ng-model='beer.selected', theme='bootstrap', ng-disabled='disabled', reset-search-input='false', style='width: 300px;')
+                ui-select-match(placeholder='Enter an beer...') {{$select.selected.nom}}
+                ui-select-choices(repeat='beer in beers track by $index', refresh='refreshBeers($select.search)', refresh-delay='0')
+                  div(ng-bind-html='beer.nom | highlight: $select.search')
+              span.glyphicon.glyphicon-plus
+                a Add a new beer
+
+            .form-group
+              label(for="typeOfBeer") Type :
+              input#typeOfBeer.form-control(ng-value="beer.selected.type",ng-disabled="true")
+            .form-group
+              label(for="alcoolInBeer") Alcool :
+              input#alcoolInBeer.form-control(ng-value="beer.selected.alcool",ng-disabled="true")
+            .form-group
+              label(for="breweryForBeer") Brewery :
+              input#breweryForBeer.form-control(ng-value="beer.selected.brewery_id[0].name",ng-disabled="true")
+
+          button.btn.btn-primary(type="button",ng-click="saveBarAndBeer()") Save
 
 

@@ -13,8 +13,16 @@ app.config(['$routeProvider', function ($routeProvider) {
         templateUrl: '/templates/menuAdmin',
         auth:true
     }).otherwise({ redirectTo: '/'});
+
 }]);
 
+app.config(function(uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+        //    key: 'your api key',
+        v: '3.17',
+        libraries: 'places' // Required for SearchBox.
+    });
+});
 app.run(function ($rootScope,$location, Auth) {
     $rootScope.$watch('currentUser', function (currentUser) {
         if (!currentUser) {

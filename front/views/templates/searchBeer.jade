@@ -47,4 +47,5 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                             button.btn.btn-default(type='submit') Search
                 .col-xs-10
                     ui-gmap-google-map(center='map.center',zoom='map.zoom')
-                        ui-gmap-markers(models="markers",idKey="'uid'",icon="'image'",coords="'self'")
+                        ui-gmap-markers(models="myLocation",idKey="'uid'",icon="'icon'",coords="'self'")
+                        ui-gmap-markers(models="barsLocation",idKey="'uid'",icon="'icon'",coords="'self'")
