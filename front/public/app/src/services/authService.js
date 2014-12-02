@@ -1,6 +1,4 @@
-'use strict';
-
-services.service('AuthService', ['$http', function Auth($http) {
+angular.module('b2b.services').service('AuthService', ['$http', function Auth($http) {
     this.currentUser = function() {
          return $http.get('/api/auth/loggedin').then(function(res){
             if (res.data !== '0'){

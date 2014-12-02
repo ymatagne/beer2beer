@@ -1,6 +1,4 @@
-'use strict';
-
-controllers.controller('searchBeerController', function ($scope,$http) {
+angular.module('b2b.controllers').controller('searchBeerController', function ($scope,$http) {
     $scope.myLocation = [];
     $scope.barsLocation = [];
     $scope.map = {center: {latitude: 0, longitude: 0}, zoom: 15};

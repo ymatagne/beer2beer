@@ -1,6 +1,4 @@
-'use strict';
-
-controllers.controller('authController', function($rootScope, $scope, $location, $document, ngDialog, AuthService){
+angular.module('b2b.controllers').controller('authController', function($rootScope, $scope, $location, $document, ngDialog, AuthService){
     $scope.login = function () {
         ngDialog.open(getJsonForOpenDialog('login'));
     };
@@ -34,7 +32,10 @@ controllers.controller('authController', function($rootScope, $scope, $location,
 
     $scope.gotoAnchor = function(name) {
         $location.path('/');
-        $document.scrollToElement(document.getElementById(name), 0, 1000);
+        var elementToScrollOn = document.getElementById(name);
+        if(elementToScrollOn){
+            $document.scrollToElement(elementToScrollOn, 0, 1000);
+        }
     };
 
     $scope.gotoAddBeer=function(){
@@ -47,7 +48,6 @@ controllers.controller('authController', function($rootScope, $scope, $location,
             $location.path('/');
         });
     };
-
 });
 
 function getJsonForOpenDialog(templateName){
