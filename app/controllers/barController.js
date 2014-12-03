@@ -11,7 +11,7 @@ module.exports.json_bar_query = function (req, res) {
             return null;
         }
         res.json(docs);
-    });
+    }).populate('beers');;
 };
 
 /*

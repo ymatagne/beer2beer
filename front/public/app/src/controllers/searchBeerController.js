@@ -9,6 +9,8 @@ controllers.controller('searchBeerController', function ($scope,$http) {
         $scope.map.center.latitude = position.coords.latitude;
         $scope.map.center.longitude = position.coords.longitude;
         $scope.addMarker(position.coords.latitude, position.coords.longitude, 'position', 0);
+        $scope.$apply();
+
     };
 
 

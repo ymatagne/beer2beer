@@ -24,6 +24,10 @@ controllers.controller('menuAdminController', function ($scope, $http) {
             {params: params}
         ).then(function (response) {
                 $scope.bars = response.data;
+                for (var index in $scope.bars) {
+                    var bar = $scope.bars[index];
+                    $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id, bar.nom, bar);
+                }
             });
     };
 
@@ -32,8 +36,9 @@ controllers.controller('menuAdminController', function ($scope, $http) {
         $scope.map.center.latitude = position.coords.latitude;
         $scope.map.center.longitude = position.coords.longitude;
         $scope.addMarker(position.coords.latitude, position.coords.longitude, 'position', 0);
+        $scope.$apply();
     };
-    $scope.addMarker = function (latitude, longitude, type, uid) {
+    $scope.addMarker = function (latitude, longitude, type, uid, title, bar) {
         if (type === 'bar') {
             $scope.barsLocation.push({
                 uid: uid,
@@ -41,7 +46,12 @@ controllers.controller('menuAdminController', function ($scope, $http) {
                 name: "It's you",
                 icon: 'images/bar.png',
                 latitude: latitude,
-                longitude: longitude
+                longitude: longitude,
+                title: title,
+                bar: bar,
+                onClick: function (ret) {
+                    ret.show = !ret.show;
+                }
             });
         } else if (type === 'position') {
             $scope.myLocation.push({
@@ -53,6 +63,11 @@ controllers.controller('menuAdminController', function ($scope, $http) {
             });
         }
     };
+
+    $scope.toto = function () {
+        console.log('ok');
+    };
+
     $scope.getLocation = function () {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition($scope.showPosition, $scope.showError);
@@ -80,6 +95,7 @@ controllers.controller('menuAdminController', function ($scope, $http) {
         $scope.$apply();
     };
 
+
     $scope.getLocation();
 
     // Recherche des bars
@@ -87,13 +103,12 @@ controllers.controller('menuAdminController', function ($scope, $http) {
     google.maps.event.addListener(searchBox, 'places_changed', function () {
         $scope.barsLocation = [];
         var places = searchBox.getPlaces();
-        $scope.addMarker(places[0].geometry.location.k, places[0].geometry.location.B, 'bar', places[0].id);
+        $scope.addMarker(places[0].geometry.location.k, places[0].geometry.location.B, 'bar', places[0].id, places[0].nom);
         $scope.bar.selected.geolocation = places[0].geometry.location.toString();
         $scope.bar.selected.latitude = places[0].geometry.location.k;
         $scope.bar.selected.longitude = places[0].geometry.location.B;
         $scope.$apply();
     });
-
 
     // Creation du bar, de la biere et de l'emplacement
     $scope.saveBarAndBeer = function () {
@@ -103,7 +118,7 @@ controllers.controller('menuAdminController', function ($scope, $http) {
             }
             $scope.bar.selected.beers.push($scope.beer.selected._id);
             if ($scope.bar.selected._id) {
-                $http.put('/api/bar/'+$scope.bar.selected._id, {bar: $scope.bar.selected}).
+                $http.put('/api/bar/' + $scope.bar.selected._id, {bar: $scope.bar.selected}).
                     success(function (data, status, headers, config) {
                         console.log('New bar created');
                         $scope.bar.selected._id = data._id;

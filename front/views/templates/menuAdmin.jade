@@ -4,8 +4,12 @@ section#menuAdminController(ng-controller="menuAdminController")
       .col-md-8
         ui-gmap-google-map.mapForAddBeerOrBar(center='map.center',zoom='map.zoom')
           ui-gmap-markers(models="myLocation",idKey="'uid'",icon="'icon'",coords="'self'")
-          ui-gmap-markers(models="barsLocation",idKey="'uid'",icon="'icon'",coords="'self'")
-
+          ui-gmap-markers(models="barsLocation",idKey="'uid'",icon="'icon'",coords="'self'",click="'onClick'")
+            ui-gmap-windows(show="show")
+              div.ng-non-bindable
+                h5 Beers'{{title}} :
+                span(ng-repeat='beer in beers')
+                  span {{ beer.nom }}
 
       .col-md-4
         form
