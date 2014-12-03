@@ -68,7 +68,7 @@ module.exports.json_bar_update = function (req, res) {
     });
 
     bar.update({ beers: beersId }, function (err, numberAffected, raw) {
-        if (err) return handleError(err);
+        if (err) console.log(err);
         res.json(raw);
     });
 

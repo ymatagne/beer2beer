@@ -48,7 +48,8 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
                 title: title,
                 bar: bar,
                 onClick: function (ret) {
-                    ret.show = !ret.show;
+                    $scope.bar.selected=ret.model.bar;
+                    $scope.$apply();
                 }
             });
         } else if (type === 'position') {
@@ -114,7 +115,7 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
             if (!$scope.bar.selected.beers) {
                 $scope.bar.selected.beers = [];
             }
-            $scope.bar.selected.beers.push($scope.beer.selected._id);
+            $scope.bar.selected.beers.push($scope.beer.selected);
             if ($scope.bar.selected._id) {
                 $http.put('/api/bar/' + $scope.bar.selected._id, {bar: $scope.bar.selected}).
                     success(function (data, status, headers, config) {
