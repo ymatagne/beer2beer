@@ -25,7 +25,7 @@ module.exports.json_bar_save = function (req, res) {
     // recuperation des ids des beers
     var beersId=[];
     for(index in body.beers){
-        beersId.push(body.beers[index]._id)
+        beersId.push(body.beers[index])
     }
 
     var bar = new Bar({

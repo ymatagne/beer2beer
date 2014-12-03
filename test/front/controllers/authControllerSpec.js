@@ -18,10 +18,10 @@ describe('authController...', function(){
 		controller = $controller('authController', {
 			$rootScope: $rootScope,
 			$scope: scope,
-			$http: sinon.stub(),
 			$location: fakeLocation,
 			$document: fakeDocument,
-			ngDialog: fakeNgDialog
+			ngDialog: fakeNgDialog,
+			AuthService: sinon.stub()
 		});
 	}));
 
@@ -44,10 +44,19 @@ describe('authController...', function(){
 		assert.isTrue(locationCall.calledWith('/'), '$location.path() called with "/".');
 	});
 
-	it('Should call "scrollToElement(...)" on $document when calling "gotoAnchor".', function(){
+	it('Should not call "scrollToElement(...)" on $document when calling "gotoAnchor" and element by id not found.', function(){
 		scope.gotoAnchor('idElement');
 
-		assert.isTrue(scrollToElementCall.calledWith(document.getElementById('idElement'), 0, 1000), '$document.scrollToElement() called with element id.');
+		assert.isFalse(scrollToElementCall.called, '$document.scrollToElement() called with element id.');
+	});
+
+	it('Should call "scrollToElement(...)" on $document when calling "gotoAnchor".', function(){
+		var elementExpected = {},
+			getElementByIdCall = sinon.stub(document, 'getElementById').returns(elementExpected);
+
+		scope.gotoAnchor('idElement');
+
+		assert.isTrue(scrollToElementCall.calledWith(elementExpected, 0, 1000), '$document.scrollToElement() called with element found.');
 	});
 
 	it('Should call "path(\'/admin\')" on $location when calling "gotoAddBeer".', function(){

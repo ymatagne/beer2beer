@@ -8,6 +8,7 @@ html
         link(rel="stylesheet", href="libs/ngDialog/css/ngDialog-theme-default.min.css")
         link(rel="stylesheet", href="libs/ngDialog/css/ngDialog-theme-plain.min.css")
         link(rel="stylesheet", href="libs/angular-ui-select/dist/select.min.css")
+        script(src="libs/angular/angular.min.js")
 
     body(ng-app="b2b")
         include header
@@ -19,7 +20,6 @@ html
         //-<!--build:js libs/plugins.js-->
         script(src="libs/jquery/dist/jquery.min.js")
         script(src="libs/bootstrap/dist/js/bootstrap.min.js")
-        script(src="libs/angular/angular.min.js")
         script(src="libs/angular-bootstrap/ui-bootstrap.min.js")
         script(src="libs/angular-sanitize/angular-sanitize.min.js")
         script(src="libs/angular-route/angular-route.min.js")
@@ -32,7 +32,6 @@ html
         //-<!--build:js app/b2b.js-->
         script(src="app/src/application.js")
         script(src="app/src/controllers/authController.js")
-        script(src="app/src/controllers/homeController.js")
         script(src="app/src/controllers/menuAdminController.js")
         script(src="app/src/controllers/searchBeerController.js")
         script(src="app/src/services/authService.js")

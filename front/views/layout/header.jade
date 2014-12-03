@@ -19,7 +19,7 @@ header.header
                         a(ng-click="gotoAnchor('searchBeer')") Search The Beer
                     li
                         a(ng-click="gotoAnchor('team')") Team
-                    li
+                    li(ng-cloak)
                         a(ng-click='login()' ng-hide="currentUser") Login
                         span.dropdown(ng-show="currentUser")
                             a.dropdown-toggle#linkToConnect {{currentUser.email}}

@@ -13,7 +13,7 @@ describe('authController...', function(){
 	beforeEach(function(){
 		authController.setPassport(passport);
 		fakeReq = {user: user, body: {}, isAuthenticated: function(){}, logIn: function(){}, logout: function(){}};
-		fakeRes = {send: function(){}, json: function(){}, redirect: function(){}};
+		fakeRes = {send: function(){}, status: function(){}, json: function(){}, redirect: function(){}};
 		sendStub = sinon.stub(fakeRes, 'send');
 		authenticateStub = sinon.stub(passport, 'authenticate');
 	});
@@ -43,12 +43,14 @@ describe('authController...', function(){
 		it('Should return json with 400 http code on error.', function(){
 			var error = {},
 				authCall = authenticateStub.callsArgWith(1, {}, user, null),
-				authStubReturn = authenticateStub.returns(function(){});
-			jsonStub = sinon.stub(fakeRes, 'json');
+				authStubReturn = authenticateStub.returns(function(){}),
+				statusStub = sinon.stub(fakeRes, 'status').returnsThis(),
+				jsonStub = sinon.stub(fakeRes, 'json');
 
 			authController.auth_local(fakeReq, fakeRes, null);
 
-			assert.equal(jsonStub.calledWith(400, error), true);
+			assert.equal(statusStub.calledWith(400), true);
+			assert.equal(jsonStub.calledWith(error), true);
 			assert.equal(authCall.called, true);
 			assert.equal(authStubReturn.called, true);
 		});
@@ -102,26 +104,29 @@ describe('authController...', function(){
 				fakeUser = {save: function() {}},
 				User = (function() {
 					return fakeUser;
-					});
+					}),
+				statusStub = sinon.stub(fakeRes, 'status').returnsThis(),
+				jsonStub = sinon.stub(fakeRes, 'json');
 
 			authController.setUser(User);
 			saveCall = sinon.stub(fakeUser, 'save').callsArgWith(0, err);
 
-			jsonStub = sinon.stub(fakeRes, 'json');
 
 			authController.auth_create(fakeReq, fakeRes);
 
-			assert.equal(jsonStub.calledWith(400, err), true);
+			assert.equal(statusStub.calledWith(400), true);
+			assert.equal(jsonStub.calledWith(err), true);
 			assert.equal(saveCall.called, true);
 		});
 		it('Should return created user as json on creation success.', function(){
 			var fakeUser = {save: function() {}},
 				User = (function() {
 					return fakeUser;
-				});
+				}),
+				statusStub = sinon.stub(fakeRes, 'status').returnsThis(),
+				jsonStub = sinon.stub(fakeRes, 'json');
 
 			authController.setUser(User);
-			jsonStub = sinon.stub(fakeRes, 'json');
 			logInCall = sinon.stub(fakeReq, 'logIn').callsArg(1);
 			saveCall = sinon.stub(fakeUser, 'save').callsArg(0);
 

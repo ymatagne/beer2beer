@@ -1,11 +1,9 @@
-'use strict';
+angular.module('b2b.controllers', []);
+angular.module('b2b.services', []);
 
-var controllers = angular.module('b2b.controllers', []),
-    services = angular.module('b2b.services', []);
+angular.module('b2b', ['ngRoute', 'ngDialog', 'duScroll','ngSanitize','ui.bootstrap','ui.select','uiGmapgoogle-maps', 'b2b.services', 'b2b.controllers']);
 
-var app = angular.module('b2b', ['ngRoute', 'ngDialog', 'duScroll','ngSanitize','ui.bootstrap','ui.select','uiGmapgoogle-maps', 'b2b.services', 'b2b.controllers']);
-
-app.config(['$routeProvider', function ($routeProvider) {
+angular.module('b2b').config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: '/templates/index',
         auth:false
@@ -13,20 +11,21 @@ app.config(['$routeProvider', function ($routeProvider) {
         templateUrl: '/templates/menuAdmin',
         auth:true
     }).otherwise({ redirectTo: '/'});
-
 }]);
 
-app.config(function(uiGmapGoogleMapApiProvider) {
+angular.module('b2b').config(function(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
         //    key: 'your api key',
         v: '3.17',
         libraries: 'places' // Required for SearchBox.
     });
 });
-app.run(function ($rootScope,$location, Auth) {
+angular.module('b2b').run(function ($rootScope,$location, AuthService) {
     $rootScope.$watch('currentUser', function (currentUser) {
         if (!currentUser) {
-            Auth.currentUser();
+            AuthService.currentUser().then(function(user){
+                $rootScope.currentUser = user;
+            });
         }
     });
     $rootScope.$on('$routeChangeStart', function (event,next) {

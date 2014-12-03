@@ -1,6 +1,4 @@
-'use strict';
-
-controllers.controller('menuAdminController', function ($scope, $http) {
+angular.module('b2b.controllers').controller('menuAdminController', function ($scope, $http) {
     $scope.map = {center: {latitude: 0, longitude: 0}, zoom: 15};
     $scope.myLocation = [];
     $scope.barsLocation = [];

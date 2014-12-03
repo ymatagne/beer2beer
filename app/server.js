@@ -17,6 +17,6 @@ auth(app);
 require( './config/routes' )( app );
 
 // Demmarage du server
-app.listen( app.get( 'port' ),app.get( 'host' ),function () {
+app.listen( app.get( 'port' ) ,function () {
     console.log('Example app listening at port http://%s:%s',  app.get( 'host' ),  app.get( 'port' ))
 });
