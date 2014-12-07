@@ -1,10 +1,9 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema({
     nom: String,
-    type: String,
+    type_id:  [{type: Number, ref: 'Type'}],
     alcool: String,
-    brewery_id: [{type: Number, ref: 'Brewery'}],
-    bars: [{type: Number, ref: 'Bar'}]
+    brewery_id: [{type: Number, ref: 'Brewery'}]
 });
 
 module.exports = mongoose.model('Beer', schema);

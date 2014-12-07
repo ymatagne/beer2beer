@@ -5,47 +5,29 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
     .container
         .container-fluid
             .row
-                .col-xs-2
-                    form.navbar-form.navbar-left(role='search')
-                        .row
-                            input.form-control(type='text', placeholder='Beer Name', value='{{beer}}')
-                        .row
-                            .checkbox
-                                label
-                                    input(type='checkbox')
-                                    | Blonde
-                            .checkbox
-                                label
-                                    input(type='checkbox')
-                                    | Brune
-                            .checkbox
-                                label
-                                    input(type='checkbox')
-                                    | Blanche
-                            .checkbox
-                                label
-                                    input(type='checkbox')
-                                    | Ambree
-                        .row
-                            .checkbox
-                                label
-                                    input(type='checkbox')
-                                    | 25 cl
-                            .checkbox
-                                label
-                                    input(type='checkbox')
-                                    | 33 cl
-                            .checkbox
-                                label
-                                    input(type='checkbox')
-                                    | 50 cl
-                            .checkbox
-                                label
-                                    input(type='checkbox')
-                                    | 1 l
-                        .row
-                            button.btn.btn-default(type='submit') Search
-                .col-xs-10
+                form.form-inline#search-form
+                    .form-group
+                        ui-select(ng-model='bar.selected',theme='bootstrap',ng-disable="true" reset-search-input='false', style='width: 300px;')
+                                ui-select-match(placeholder='Enter an bar...') {{$select.selected.nom}}
+                                ui-select-choices(repeat='bar in bars track by $index', refresh='refreshBars($select.search)', refresh-delay='0')
+                                    div(ng-bind-html='bar.nom | highlight: $select.search')
+                    .form-group
+                        ui-select(ng-model='beer.selected', theme='bootstrap', reset-search-input='false', style='width: 300px;')
+                            ui-select-match(placeholder='Enter an beer...') {{$select.selected.nom}}
+                            ui-select-choices(repeat='beer in beers track by $index', refresh='refreshBeers($select.search)', refresh-delay='0')
+                                div(ng-bind-html='beer.nom | highlight: $select.search')
+                    .form-group
+                        ui-select(ng-model='type.selected', theme='bootstrap', reset-search-input='false', style='width: 300px;')
+                            ui-select-match(placeholder='Enter an type...') {{type.selected.name}}
+                            ui-select-choices(repeat='type in types track by $index', refresh='refreshTypes($select.search)', refresh-delay='0')
+                                div(ng-bind-html='type.name | highlight: $select.search')
+
+                    .form-group
+                        button.btn.btn-primary(type="button",ng-click="searchBeer()") Search your beer !
+
+
+    .row
+                .col-xs-12
                     ui-gmap-google-map(center='map.center',zoom='map.zoom')
                         ui-gmap-markers(models="myLocation",idKey="'uid'",icon="'icon'",coords="'self'")
                         ui-gmap-markers(models="barsLocation",idKey="'uid'",icon="'icon'",coords="'self'")

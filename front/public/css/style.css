@@ -162,8 +162,18 @@ html {
     min-height: 1000px;
     margin-top: 100px;
 }
-
-
+#search-form>div{
+    margin-right: 10px;
+}
+#search-form>div>div>button{
+    width: 100%;
+}
+#search-form>div>div>input{
+    width: 100%;
+}
+#search-form>div>div>span{
+    width: 100%;
+}
 /****************/
 /*  Login Form  */
 /****************/

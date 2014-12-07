@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema({
-    nom: String,
+    nom : String,
     adresse: String,
     latitude: Number,
     longitude: Number,
     geolocation: String,
-    beers: [{type: mongoose.Schema.Types.ObjectId, ref: 'Beer'}]
+    consumptions: [{type: mongoose.Schema.Types.ObjectId, ref: 'Consumption'}]
 });
 
 module.exports = mongoose.model('Bar', schema);

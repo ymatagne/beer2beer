@@ -16,11 +16,20 @@ section#menuAdminController(ng-controller="menuAdminController")
                   th Name
                   th Type
                   th Alcool
+                  th Price
+                  th Validate
               tbody
-                tr(ng-repeat='beer in bar.selected.beers')
-                  td {{ beer.nom }}
-                  td {{ beer.type }}
-                  td {{ beer.alcool }}
+                tr(ng-repeat='consumption in bar.selected.consumptions')
+                  td {{ consumption.beer_id[0].nom }}
+                  td {{ consumption.beer_id[0].type_id[0].name }}
+                  td {{ consumption.beer_id[0].alcool }} %
+                  td {{ consumption.price }} €
+                  td(ng-show='consumption.enable')
+                    button.btn.btn-default(ng-click="changerEtatConsumption(consumption)")
+                      span.glyphicon.glyphicon-ok-circle
+                  td(ng-hide='consumption.enable')
+                    button.btn.btn-default(ng-click="changerEtatConsumption(consumption)")
+                      span.glyphicon.glyphicon-remove-circle
 
       .col-md-4
         form
@@ -30,13 +39,14 @@ section#menuAdminController(ng-controller="menuAdminController")
               label Choose a Bar
             .form-group
               label(for="nameOBar") Name of Bar
-              ui-select(ng-model='bar.selected', theme='bootstrap', ng-disabled='addNewBar', reset-search-input='false', style='width: 300px;')
+              ui-select(ng-model='bar.selected',theme='bootstrap', ng-disabled='addNewBar', reset-search-input='false', style='width: 300px;')
                 ui-select-match(placeholder='Enter an bar...') {{$select.selected.nom}}
                 ui-select-choices(repeat='bar in bars track by $index', refresh='refreshBars($select.search)', refresh-delay='0')
                   div(ng-bind-html='bar.nom | highlight: $select.search')
               span.glyphicon.glyphicon-plus
                 a(ng-click="addNewBar=!addNewBar") Add a new bar
 
+          div(ng-show="addNewBar")
             .form-group
               label(for="nameOfBar") Name :
               input#nameOfBar.form-control(ng-model="bar.selected.nom",ng-disabled="!addNewBar")
@@ -48,6 +58,10 @@ section#menuAdminController(ng-controller="menuAdminController")
             .form-group
               label(for="geolocationOfBar") Geolocation :
               input#geolocationOfBar.form-control(ng-model="bar.selected.geolocation",ng-disabled="true")
+
+            .form-group
+             button.btn.btn-primary(type="button",ng-click="createBar()",ng-disabled="!addNewBar") Create Bar
+
           div
             h4
               span.glyphicon.glyphicon-search
@@ -62,19 +76,37 @@ section#menuAdminController(ng-controller="menuAdminController")
               span.glyphicon.glyphicon-plus
                 a(ng-click="addNewBeer=!addNewBeer") Add a new beer
 
+          div(ng-show="addNewBeer")
             .form-group
               label(for="nameOfBeer") Name :
               input#nameOfBeer.form-control(ng-model="beer.selected.nom",ng-disabled="!addNewBeer")
+
             .form-group
               label(for="typeOfBeer") Type :
-              input#typeOfBeer.form-control(ng-model="beer.selected.type",ng-disabled="!addNewBeer")
+              ui-select(ng-model='beer.selected.type_id[0]', theme='bootstrap', ng-disabled='!addNewBeer', reset-search-input='false', style='width: 300px;')
+                ui-select-match(placeholder='Enter an type...') {{beer.selected.type_id[0].name}}
+                ui-select-choices(repeat='type in types track by $index', refresh='refreshTypes($select.search)', refresh-delay='0')
+                  div(ng-bind-html='type.name | highlight: $select.search')
+
             .form-group
               label(for="alcoolInBeer") Alcool :
-              input#alcoolInBeer.form-control(ng-model="beer.selected.alcool",ng-disabled="!addNewBeer")
+              input#alcoolInBeer.form-control(type="number",ng-model="beer.selected.alcool",ng-disabled="!addNewBeer")
+
             .form-group
               label(for="breweryForBeer") Brewery :
-              input#breweryForBeer.form-control(ng-model="beer.selected.brewery_id[0].name",ng-disabled="!addNewBeer")
+                ui-select(ng-model='beer.selected.brewery_id[0]', theme='bootstrap', ng-disabled='!addNewBeer', reset-search-input='false', style='width: 300px;')
+                  ui-select-match(placeholder='Enter an Brewery...') {{beer.selected.brewery_id[0].name}}
+                  ui-select-choices(repeat='item in breweries track by $index', refresh='refreshBreweries($select.search)', refresh-delay='0')
+                    div(ng-bind-html='item.name | highlight: $select.search')
 
-          button.btn.btn-primary(type="button",ng-click="saveBarAndBeer()") Save
+            .form-group
+              button.btn.btn-primary(type="button",ng-click="createBeer()",ng-disabled="!addNewBeer") Create Beer
+
+          div
+            .form-group
+              label(for="priceOfBeer") Price :
+              input#priceOfBeer.form-control(ng-model="price",ng-disabled="!bar.selected._id || !beer.selected._id")
+
+            button.btn.btn-primary(type="button",ng-click="link()",ng-disabled="!bar.selected._id || !beer.selected._id || form.priceOfBeer.$error") Ling Beer To Bar
 
 

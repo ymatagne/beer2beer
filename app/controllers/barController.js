@@ -1,4 +1,8 @@
 var Bar = require('../models/bar');
+var Beer = require('../models/beer');
+var Type = require('../models/type');
+var Consumption = require('../models/consumption');
+
 /*
  Description: Get bars
  Method: GET
@@ -10,8 +14,19 @@ module.exports.json_bar_query = function (req, res) {
             res.send(err);
             return null;
         }
-        res.json(docs);
-    }).populate('beers');;
+    }).populate('consumptions').exec(function (err, docs) {
+        Beer.populate(docs, {
+            path: 'consumptions.beer_id'
+        }, function (err, docs) {
+            Type.populate(docs, {
+                path: 'consumptions.beer_id.type_id'
+            }, function (err, docs) {
+                res.json(docs);
+            });
+        });
+
+    })
+
 };
 
 /*
@@ -22,22 +37,16 @@ module.exports.json_bar_query = function (req, res) {
 module.exports.json_bar_save = function (req, res) {
     var body = req.body.bar;
 
-    // recuperation des ids des beers
-    var beersId=[];
-    for(index in body.beers){
-        beersId.push(body.beers[index])
-    }
 
     var bar = new Bar({
         adresse: body.adresse,
         geolocation: body.geolocation,
         latitude: body.latitude,
         longitude: body.longitude,
-        nom: body.nom,
-        beers: beersId
+        nom: body.nom
     });
 
-    bar.save(function (err,bar) {
+    bar.save(function (err, bar) {
         if (err) return console.log(err);
         res.json(bar);
     });
@@ -50,12 +59,13 @@ module.exports.json_bar_save = function (req, res) {
  */
 module.exports.json_bar_update = function (req, res) {
     var body = req.body.bar;
+    var consum = req.body.consumption;
+    var consumptions=[];
 
-    // recuperation des ids des beers
-    var beersId=[];
-    for(index in body.beers){
-        beersId.push(body.beers[index])
+    for(idx=0;idx<consum.length;idx++){
+        consumptions.push(consum[idx]._id);
     }
+
 
     var bar = new Bar({
         _id: body._id,
@@ -64,12 +74,52 @@ module.exports.json_bar_update = function (req, res) {
         latitude: body.latitude,
         longitude: body.longitude,
         nom: body.nom,
-        beers: beersId
+        consumptions: consumptions
+    });
+    bar.update({consumptions: consumptions}, function () {
+        Beer.populate(consum, {
+            path: 'beer_id'
+        }, function (err, docs) {
+            Type.populate(docs, {
+                path: 'beer_id.type_id'
+            }, function (err, docs) {
+                res.json(docs);
+            });
+        });
     });
 
-    bar.update({ beers: beersId }, function (err, numberAffected, raw) {
-        if (err) console.log(err);
-        res.json(raw);
-    });
+};
+
+/*
+ Description: Get all bars
+ Method: GET
+ Output: JSON
+ */
+module.exports.json_bar_all = function (req, res) {
+    var params=req.query;
+
+    Bar.find({'consumptions.beer_id': params.beer},{},{},function (err, docs) {
+        console.log(err);
+        console.log('_______');
+        console.log(JSON.stringify(docs));
+        if (err) {
+            res.send(err);
+            return null;
+        }
+    }).populate('consumptions').exec(function (err, docs) {
+        console.log(err);
+        console.log('_______');
+        console.log(JSON.stringify(docs));
+        Beer.populate(docs, {
+            path: 'consumptions.beer_id'
+        }, function (err, docs) {
+            Type.populate(docs, {
+                path: 'consumptions.beer_id.type_id'
+            }, function (err, docs) {
+                res.json(docs);
+            });
+        });
+
+    })
 
 };

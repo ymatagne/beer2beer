@@ -20,6 +20,7 @@ angular.module('b2b').config(function(uiGmapGoogleMapApiProvider) {
         libraries: 'places' // Required for SearchBox.
     });
 });
+
 angular.module('b2b').run(function ($rootScope,$location, AuthService) {
     $rootScope.$watch('currentUser', function (currentUser) {
         if (!currentUser) {
