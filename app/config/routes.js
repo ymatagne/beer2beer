@@ -4,7 +4,6 @@ var barsController = require('../controllers/barController');
 var typeController = require('../controllers/typeController');
 var authController = require('../controllers/authController');
 var breweryController = require('../controllers/breweryController');
-var consumptionController = require('../controllers/consumptionController');
 
 var is_authentified = function(req, res, next){
   if (!req.isAuthenticated())
@@ -33,11 +32,6 @@ module.exports = function(app){
 
     /** Type Crud **/
     app.get('/api/type/', typeController.json_type_query_all);
-
-    /** Consumption Crud **/
-    app.post('/api/consumption/',is_authentified, consumptionController.json_consumption_save);
-    app.put('/api/consumption/',is_authentified, consumptionController.json_consumption_update);
-
 
     /** Bar Crud **/
     app.get('/api/bar/', barsController.json_bar_query);

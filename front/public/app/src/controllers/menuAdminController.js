@@ -131,7 +131,7 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
                 success(function (data) {
                     console.log('New bar created');
                     $scope.bar.selected._id = data._id;
-                    $scope.addNewBar=false;
+                    $scope.addNewBar = false;
                     $scope.message = "New bar created";
                 }).
                 error(function () {
@@ -146,7 +146,7 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
                 success(function (data) {
                     console.log('New beer created');
                     $scope.beer.selected._id = data._id;
-                    $scope.addNewBeer=false;
+                    $scope.addNewBeer = false;
                     $scope.message = "New beer created";
                 }).
                 error(function () {
@@ -163,43 +163,28 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
             }
             $scope.consumption.beer_id = $scope.beer.selected._id;
             $scope.consumption.price = $scope.price;
-
-            $http.post('/api/consumption/', {consumption: $scope.consumption}).
-                success(function (data) {
-                    console.log('Consumption created');
-                    $scope.consumption._id = data._id;
-                    $scope.bar.selected.consumptions.push(data);
-                    $scope.consumption = {};
-                    $http.put('/api/bar/' + $scope.bar.selected._id, {
-                        bar: $scope.bar.selected,
-                        consumption: $scope.bar.selected.consumptions
-                    }).
-                        success(function () {
-                            console.log('Consumption add to Bar');
-                            $scope.message = "Ok ! new Consumption created for a bar";
-                        }).
-                        error(function () {
-                            console.log('Error to add new consumption to a bar');
-                            $scope.consumption = {};
-                            $scope.message = 'Error to add new consumption to a bar';
-                        });
-                }).
-                error(function () {
-                    $scope.consumption = {};
-                    console.log('Error to create Consumption');
-                    $scope.message = 'Error to create Consumption';
-                });
-
+            $http.put('/api/bar/' + $scope.bar.selected._id, {
+                bar: $scope.bar.selected,
+                consumption: $scope.bar.selected.consumptions
+            }).success(function (data) {
+                console.log('Consumption add to Bar');
+                $scope.bar.selected.consumptions.push(data);
+                $scope.message = "Ok ! new Consumption created for a bar";
+            }).error(function () {
+                console.log('Error to add new consumption to a bar');
+                $scope.consumption = {};
+                $scope.message = 'Error to add new consumption to a bar';
+            });
         }
-    }
+    };
 
-    $scope.changerEtatConsumption =function(consumption){
+    $scope.changerEtatConsumption = function (consumption) {
         $http.put('/api/consumption', {consumption: consumption}).
             success(function (data) {
                 console.log('State change for consumption');
-                for(idx=0;idx<$scope.bar.selected.consumptions.length;idx++){
-                    if(data._id===$scope.bar.selected.consumptions[idx]._id){
-                        $scope.bar.selected.consumptions[idx]=data;
+                for (idx = 0; idx < $scope.bar.selected.consumptions.length; idx++) {
+                    if (data._id === $scope.bar.selected.consumptions[idx]._id) {
+                        $scope.bar.selected.consumptions[idx] = data;
                     }
                 }
                 $scope.message = "State change for consumption";
@@ -209,4 +194,5 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
                 $scope.message = 'Error for change state of consumption';
             });
     }
-});
+})
+;

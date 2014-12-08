@@ -1,7 +1,6 @@
 var Bar = require('../models/bar');
 var Beer = require('../models/beer');
 var Type = require('../models/type');
-var Consumption = require('../models/consumption');
 
 /*
  Description: Get bars
@@ -14,18 +13,13 @@ module.exports.json_bar_query = function (req, res) {
             res.send(err);
             return null;
         }
-    }).populate('consumptions').exec(function (err, docs) {
-        Beer.populate(docs, {
-            path: 'consumptions.beer_id'
-        }, function (err, docs) {
+    }).populate('consumptions.beer_id').exec(function (err, docs) {
             Type.populate(docs, {
                 path: 'consumptions.beer_id.type_id'
             }, function (err, docs) {
                 res.json(docs);
             });
-        });
-
-    })
+    });
 
 };
 
@@ -60,12 +54,9 @@ module.exports.json_bar_save = function (req, res) {
 module.exports.json_bar_update = function (req, res) {
     var body = req.body.bar;
     var consum = req.body.consumption;
-    var consumptions=[];
 
-    for(idx=0;idx<consum.length;idx++){
-        consumptions.push(consum[idx]._id);
-    }
-
+    consum.enable=false;
+    body.consumptions.push(consum);
 
     var bar = new Bar({
         _id: body._id,
@@ -74,9 +65,10 @@ module.exports.json_bar_update = function (req, res) {
         latitude: body.latitude,
         longitude: body.longitude,
         nom: body.nom,
-        consumptions: consumptions
+        consumptions: body.consumptions
     });
-    bar.update({consumptions: consumptions}, function () {
+
+    bar.update({consumptions: body.consumptions}, function () {
         Beer.populate(consum, {
             path: 'beer_id'
         }, function (err, docs) {
@@ -98,17 +90,7 @@ module.exports.json_bar_update = function (req, res) {
 module.exports.json_bar_all = function (req, res) {
     var params=req.query;
 
-    Bar.find({'consumptions.beer_id': params.beer},{},{},function (err, docs) {
-        console.log(err);
-        console.log('_______');
-        console.log(JSON.stringify(docs));
-        if (err) {
-            res.send(err);
-            return null;
-        }
-    }).populate('consumptions').exec(function (err, docs) {
-        console.log(err);
-        console.log('_______');
+    Bar.find().populate('consumptions',{ 'beer_id[0]': params.beer }).exec(function (err, docs) {
         console.log(JSON.stringify(docs));
         Beer.populate(docs, {
             path: 'consumptions.beer_id'
