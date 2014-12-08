@@ -14,11 +14,11 @@ module.exports.json_bar_query = function (req, res) {
             return null;
         }
     }).populate('consumptions.beer_id').exec(function (err, docs) {
-            Type.populate(docs, {
-                path: 'consumptions.beer_id.type_id'
-            }, function (err, docs) {
-                res.json(docs);
-            });
+        Type.populate(docs, {
+            path: 'consumptions.beer_id.type_id'
+        }, function (err, docs) {
+            res.json(docs);
+        });
     });
 
 };
@@ -55,8 +55,26 @@ module.exports.json_bar_update = function (req, res) {
     var body = req.body.bar;
     var consum = req.body.consumption;
 
-    consum.enable=false;
+
+    consum.enable = false;
     body.consumptions.push(consum);
+    var bar = new Bar({
+        _id: body._id
+    });
+
+    bar.update({consumptions: body.consumptions}, function () {
+        res.json(body.consumptions);
+    });
+
+};
+
+/*
+ Description: Update bar
+ Method: PUT
+ Output: JSON
+ */
+module.exports.json_bar_update_consumptions = function (req, res) {
+    var body = req.body.bar;
 
     var bar = new Bar({
         _id: body._id,
@@ -69,39 +87,20 @@ module.exports.json_bar_update = function (req, res) {
     });
 
     bar.update({consumptions: body.consumptions}, function () {
-        Beer.populate(consum, {
-            path: 'beer_id'
-        }, function (err, docs) {
-            Type.populate(docs, {
-                path: 'beer_id.type_id'
-            }, function (err, docs) {
-                res.json(docs);
-            });
-        });
+        res.json(body);
     });
 
 };
-
 /*
  Description: Get all bars
  Method: GET
  Output: JSON
  */
 module.exports.json_bar_all = function (req, res) {
-    var params=req.query;
+    var params = req.query;
 
-    Bar.find().populate('consumptions',{ 'beer_id[0]': params.beer }).exec(function (err, docs) {
-        console.log(JSON.stringify(docs));
-        Beer.populate(docs, {
-            path: 'consumptions.beer_id'
-        }, function (err, docs) {
-            Type.populate(docs, {
-                path: 'consumptions.beer_id.type_id'
-            }, function (err, docs) {
-                res.json(docs);
-            });
-        });
-
-    })
+    Bar.find().populate('consumptions', {'beer_id[0]': params.beer}).exec(function (err, docs) {
+        res.json(docs);
+    });
 
 };

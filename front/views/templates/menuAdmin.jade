@@ -16,19 +16,21 @@ section#menuAdminController(ng-controller="menuAdminController")
                   th Name
                   th Type
                   th Alcool
+                  th Quantity
                   th Price
                   th Validate
               tbody
                 tr(ng-repeat='consumption in bar.selected.consumptions')
-                  td {{ consumption.beer_id[0].nom }}
-                  td {{ consumption.beer_id[0].type_id[0].name }}
-                  td {{ consumption.beer_id[0].alcool }} %
+                  td {{ consumption.beer[0].nom }}
+                  td {{ consumption.beer[0].type }}
+                  td {{ consumption.beer[0].alcool }} %
+                  td {{ consumption.quantity }}
                   td {{ consumption.price }} €
                   td(ng-show='consumption.enable')
-                    button.btn.btn-default(ng-click="changerEtatConsumption(consumption)")
+                    button.btn.btn-default(ng-click="consumption.enable=!consumption.enable;changerEtatConsumption()")
                       span.glyphicon.glyphicon-ok-circle
                   td(ng-hide='consumption.enable')
-                    button.btn.btn-default(ng-click="changerEtatConsumption(consumption)")
+                    button.btn.btn-default(ng-click="consumption.enable=!consumption.enable;changerEtatConsumption()")
                       span.glyphicon.glyphicon-remove-circle
 
       .col-md-4
@@ -94,10 +96,10 @@ section#menuAdminController(ng-controller="menuAdminController")
 
             .form-group
               label(for="breweryForBeer") Brewery :
-                ui-select(ng-model='beer.selected.brewery_id[0]', theme='bootstrap', ng-disabled='!addNewBeer', reset-search-input='false', style='width: 300px;')
-                  ui-select-match(placeholder='Enter an Brewery...') {{beer.selected.brewery_id[0].name}}
-                  ui-select-choices(repeat='item in breweries track by $index', refresh='refreshBreweries($select.search)', refresh-delay='0')
-                    div(ng-bind-html='item.name | highlight: $select.search')
+              ui-select(ng-model='beer.selected.brewery_id[0]', theme='bootstrap', ng-disabled='!addNewBeer', reset-search-input='false', style='width: 300px;')
+                ui-select-match(placeholder='Enter an Brewery...') {{beer.selected.brewery_id[0].name}}
+                ui-select-choices(repeat='item in breweries track by $index', refresh='refreshBreweries($select.search)', refresh-delay='0')
+                  div(ng-bind-html='item.name | highlight: $select.search')
 
             .form-group
               button.btn.btn-primary(type="button",ng-click="createBeer()",ng-disabled="!addNewBeer") Create Beer
@@ -106,6 +108,14 @@ section#menuAdminController(ng-controller="menuAdminController")
             .form-group
               label(for="priceOfBeer") Price :
               input#priceOfBeer.form-control(ng-model="price",ng-disabled="!bar.selected._id || !beer.selected._id")
+
+            .form-group
+              label(for="quantityOfBeer") Quantity :
+              ui-select(ng-model='quantity.selected', theme='bootstrap', ng-disabled='!bar.selected._id || !beer.selected._id', reset-search-input='false', style='width: 300px;')
+                ui-select-match(placeholder='Enter quantity...') {{$select.selected.quantity}}
+                ui-select-choices(repeat='quantity in quantities track by $index', refresh='refreshBeers($select.search)', refresh-delay='0')
+                  div(ng-bind-html='quantity.quantity | highlight: $select.search')
+
 
             button.btn.btn-primary(type="button",ng-click="link()",ng-disabled="!bar.selected._id || !beer.selected._id || form.priceOfBeer.$error") Ling Beer To Bar
 

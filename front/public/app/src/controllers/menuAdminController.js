@@ -6,9 +6,10 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
     $scope.beer = {};
     $scope.bar = {};
     $scope.type = {};
+    $scope.quantity = {};
     $scope.breweries = {};
     $scope.consumption = {};
-
+    $scope.quantities = [{quantity: "25 cl"}, {quantity: "50 cl"}, {quantity: "1 l"}];
 
     // Gestion de la position de l utilisateur
     $scope.showPosition = function (position) {
@@ -155,20 +156,29 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
                 });
         }
     };
-
     $scope.link = function () {
         if ($scope.bar.selected._id && $scope.beer.selected._id) {
             if (!$scope.bar.selected.consumptions) {
                 $scope.bar.selected.consumptions = [];
             }
-            $scope.consumption.beer_id = $scope.beer.selected._id;
+            $scope.consumption.beer = [];
+            var beer={};
+            beer.nom = $scope.beer.selected.nom;
+            beer.type = $scope.beer.selected.type_id[0].name;
+            beer.alcool = $scope.beer.selected.alcool;
+            $scope.consumption.beer.push(beer);
             $scope.consumption.price = $scope.price;
+            $scope.consumption.quantity = $scope.quantity.selected.quantity;
+
             $http.put('/api/bar/' + $scope.bar.selected._id, {
                 bar: $scope.bar.selected,
-                consumption: $scope.bar.selected.consumptions
+                consumption: $scope.consumption
             }).success(function (data) {
                 console.log('Consumption add to Bar');
-                $scope.bar.selected.consumptions.push(data);
+                $scope.bar.selected.consumptions = data;
+                $scope.consumption = {};
+                $scope.quantity = {};
+                $scope.price = "";
                 $scope.message = "Ok ! new Consumption created for a bar";
             }).error(function () {
                 console.log('Error to add new consumption to a bar');
@@ -178,15 +188,10 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
         }
     };
 
-    $scope.changerEtatConsumption = function (consumption) {
-        $http.put('/api/consumption', {consumption: consumption}).
-            success(function (data) {
+    $scope.changerEtatConsumption = function () {
+        $http.put('/api/bar/' + $scope.bar.selected._id + "/consumption", {bar: $scope.bar.selected}).
+            success(function () {
                 console.log('State change for consumption');
-                for (idx = 0; idx < $scope.bar.selected.consumptions.length; idx++) {
-                    if (data._id === $scope.bar.selected.consumptions[idx]._id) {
-                        $scope.bar.selected.consumptions[idx] = data;
-                    }
-                }
                 $scope.message = "State change for consumption";
             }).
             error(function () {
