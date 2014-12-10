@@ -8,15 +8,24 @@ var Type = require('../models/type');
  Output: JSON
  */
 module.exports.json_beer_query = function (req, res) {
-    console.log('query -> all');
 
-    Beer.find({'nom': new RegExp('.*' + req.query.name + '.*', "i")}, {}, {limit: 100}, function (err, docs) {
-        if (err) {
-            res.send(err);
-            return null;
-        }
-        res.json(docs);
-    }).populate('brewery_id').populate('type_id');
+    if (req.query.name != undefined) {
+        Beer.find({'nom': new RegExp('.*' + req.query.name + '.*', "i")}, {}, {limit: 100}, function (err, docs) {
+            if (err) {
+                res.send(err);
+                return null;
+            }
+            res.json(docs);
+        }).populate('brewery_id').populate('type_id');
+    } else if (req.query.type_id != undefined) {
+        Beer.find({'type_id': req.query.type_id}, {}, {limit: 100}, function (err, docs) {
+            if (err) {
+                res.send(err);
+                return null;
+            }
+            res.json(docs);
+        }).populate('brewery_id').populate('type_id');
+    }
 };
 
 /*
@@ -47,9 +56,12 @@ module.exports.json_beer_save = function (req, res) {
     var beer = new Beer({
         type_id: body.type_id[0]._id,
         alcool: body.alcool,
-        brewery_id: body.brewery_id[0]._id,
         nom: body.nom
     });
+    if (body.brewery_id) {
+        beer.brewery_id = body.brewery_id[0]._id;
+    }
+
 
     beer.save(function (err, beer) {
         if (err) return console.log(err);

@@ -8,7 +8,9 @@ var beerSchema = new mongoose.Schema({
 
 var consumptionSchema = new mongoose.Schema({
     beer: [beerSchema],
-    price: Number,
+    price: String,
+    beer_id: Number,
+    type_id: Number,
     enable: Boolean,
     quantity: String
 });

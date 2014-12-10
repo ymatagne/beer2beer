@@ -99,8 +99,15 @@ module.exports.json_bar_update_consumptions = function (req, res) {
 module.exports.json_bar_all = function (req, res) {
     var params = req.query;
 
-    Bar.find().populate('consumptions', {'beer_id[0]': params.beer}).exec(function (err, docs) {
-        res.json(docs);
-    });
+
+    if (req.query.beer != undefined) {
+        Bar.find({'consumptions.beer_id': req.query.beer}).exec(function (err, docs) {
+            res.json(docs);
+        });
+    } else if (req.query.type_id != undefined) {
+        Bar.find({'consumptions.type_id': req.query.type_id}).exec(function (err, docs) {
+            res.json(docs);
+        });
+    }
 
 };

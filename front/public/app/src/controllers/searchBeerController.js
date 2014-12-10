@@ -1,4 +1,4 @@
-angular.module('b2b.controllers').controller('searchBeerController', function ($scope,$http) {
+angular.module('b2b.controllers').controller('searchBeerController', function ($scope, $http) {
     $scope.myLocation = [];
     $scope.barsLocation = [];
     $scope.map = {center: {latitude: 0, longitude: 0}, zoom: 15};
@@ -105,35 +105,45 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
             });
     };
 
+
+    $scope.refreshBeersList = function ($item) {
+        var params = {type_id: $item._id};
+        return $http.get('/api/beer', {params: params}
+        ).then(function (response) {
+                $scope.beer= {};
+                $scope.beers = response.data;
+            });
+    };
+
     $http.get('/api/bar', {}).then(function (response) {
         var bars = response.data;
-        for(var index in bars){
-            var bar =bars[index];
-            $scope.addMarker(bar.latitude,bar.longitude,'bar',bar._id);
+        for (var index in bars) {
+            var bar = bars[index];
+            $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id);
         }
     });
 
-    $scope.searchBeer = function(){
+    $scope.searchBeer = function () {
         var bar;
         var beer;
         var type;
-        if($scope.bar.selected){
+        if ($scope.bar.selected) {
             bar = $scope.bar.selected._id;
         }
-        if($scope.beer.selected){
+        if ($scope.beer.selected) {
             beer = $scope.beer.selected._id;
         }
-        if($scope.type.selected){
+        if ($scope.type.selected) {
             type = $scope.type.selected._id;
         }
 
-        var params = {bar:bar,type:type,beer:beer};
+        var params = {bar: bar, type: type, beer: beer};
 
-        $http.get('/api/bar/all',  {params: params}).then(function (response) {
+        $http.get('/api/bar/all', {params: params}).then(function (response) {
             var bars = response.data;
-            $scope.barsLocation=[];
-            for(var index in bars){
-                var bar =bars[index];
+            $scope.barsLocation = [];
+            for (var index in bars) {
+                var bar = bars[index];
                 $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id, bar.nom, bar);
             }
         });

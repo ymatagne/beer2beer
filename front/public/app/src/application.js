@@ -1,7 +1,8 @@
 angular.module('b2b.controllers', []);
 angular.module('b2b.services', []);
+angular.module('b2b.directives', []);
 
-angular.module('b2b', ['ngRoute', 'ngDialog', 'duScroll','ngSanitize','ui.bootstrap','ui.select','uiGmapgoogle-maps', 'b2b.services', 'b2b.controllers']);
+angular.module('b2b', ['ngRoute', 'ngDialog', 'duScroll','ngSanitize','ui.bootstrap','ui.select','uiGmapgoogle-maps', 'b2b.services', 'b2b.controllers','b2b.directives']);
 
 angular.module('b2b').config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {

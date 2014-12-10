@@ -1,33 +1,30 @@
 section#searchBeer.searchBeer(ng-controller="searchBeerController")
     .container
-        .section-header
-            h2.dark-text Search The Beer
-    .container
         .container-fluid
             .row
-                form.form-inline#search-form
-                    .form-group
-                        ui-select(ng-model='bar.selected',theme='bootstrap',ng-disable="true" reset-search-input='false', style='width: 300px;')
-                                ui-select-match(placeholder='Enter an bar...') {{$select.selected.nom}}
-                                ui-select-choices(repeat='bar in bars track by $index', refresh='refreshBars($select.search)', refresh-delay='0')
-                                    div(ng-bind-html='bar.nom | highlight: $select.search')
-                    .form-group
-                        ui-select(ng-model='beer.selected', theme='bootstrap', reset-search-input='false', style='width: 300px;')
-                            ui-select-match(placeholder='Enter an beer...') {{$select.selected.nom}}
-                            ui-select-choices(repeat='beer in beers track by $index', refresh='refreshBeers($select.search)', refresh-delay='0')
-                                div(ng-bind-html='beer.nom | highlight: $select.search')
-                    .form-group
-                        ui-select(ng-model='type.selected', theme='bootstrap', reset-search-input='false', style='width: 300px;')
-                            ui-select-match(placeholder='Enter an type...') {{type.selected.name}}
-                            ui-select-choices(repeat='type in types track by $index', refresh='refreshTypes($select.search)', refresh-delay='0')
-                                div(ng-bind-html='type.name | highlight: $select.search')
+                .col-xs-11
+                    form.form-inline#search-form
+                        .form-group
+                            h3 Choose a type
+                            ui-select(ng-model='type.selected', theme='bootstrap',on-select="refreshBeersList($item, $model)", reset-search-input='false', style='width: 300px;')
+                                ui-select-match(placeholder='Enter an type...') {{type.selected.name}}
+                                ui-select-choices(repeat='type in types track by $index', refresh='refreshTypes($select.search)', refresh-delay='0')
+                                    div(ng-bind-html='type.name | highlight: $select.search')
+                            a(ng-click="type={};refreshBeers('')")
+                                span.glyphicon.glyphicon-remove
 
-                    .form-group
-                        button.btn.btn-primary(type="button",ng-click="searchBeer()") Search your beer !
+                        .form-group
+                            h3 Choose a beer
+                            ui-select(ng-model='beer.selected', theme='bootstrap', reset-search-input='false', style='width: 300px;')
+                                ui-select-match(placeholder='Enter an beer...') {{$select.selected.nom}}
+                                ui-select-choices(repeat='beer in beers track by $index', refresh='refreshBeers($select.search)', refresh-delay='0')
+                                    div(ng-bind-html='beer.nom | highlight: $select.search')
 
+                        .form-group
+                            button.btn.btn-primary(type="button",ng-click="searchBeer()") Search your beer !
 
-    .row
-                .col-xs-12
+            .row
+                .col-xs-11
                     ui-gmap-google-map(center='map.center',zoom='map.zoom')
                         ui-gmap-markers(models="myLocation",idKey="'uid'",icon="'icon'",coords="'self'")
                         ui-gmap-markers(models="barsLocation",idKey="'uid'",icon="'icon'",coords="'self'")
