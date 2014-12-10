@@ -23,9 +23,9 @@ module.exports = function(app){
 
     /** Beer Crud **/
     app.get('/api/beer/', beersController.json_beer_query);
-    app.get('/api/beer/:beer_id/', is_authentified,beersController.json_beer_get);
-    app.post('/api/beer/', is_authentified,beersController.json_beer_save);
-    app.delete('/api/beer/:beer_id/', is_authentified,beersController.json_beer_delete);
+    app.get('/api/beer/:beer_id/', isAuthentified,beersController.json_beer_get);
+    app.post('/api/beer/', isAdmin,beersController.json_beer_save);
+    app.delete('/api/beer/:beer_id/', isAdmin,beersController.json_beer_delete);
 
     /** Brewery Crud **/
     app.get('/api/brewery/', breweryController.json_brewery_query_all);
@@ -35,9 +35,9 @@ module.exports = function(app){
 
     /** Bar Crud **/
     app.get('/api/bar/', barsController.json_bar_query);
-    app.put('/api/bar/:id', is_authentified,barsController.json_bar_update);
-    app.post('/api/bar/', is_authentified,barsController.json_bar_save);
-    app.put('/api/bar/:id/consumption', is_authentified,barsController.json_bar_update_consumptions);
+    app.put('/api/bar/:id', isAdmin,barsController.json_bar_update);
+    app.post('/api/bar/', isAdmin,barsController.json_bar_save);
+app.put('/api/bar/:id/consumption', isAdmin,barsController.json_bar_update_consumptions);
     app.get('/api/bar/all', barsController.json_bar_all);
 
     /** Angular Route **/

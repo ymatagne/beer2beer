@@ -12,6 +12,10 @@ var schema = new mongoose.Schema({
     token: {
         type: String,
         required: false
+    },
+    role: {
+        type: String,
+        required: true
     }
 });
 
