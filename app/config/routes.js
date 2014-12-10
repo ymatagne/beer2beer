@@ -5,12 +5,23 @@ var typeController = require('../controllers/typeController');
 var authController = require('../controllers/authController');
 var breweryController = require('../controllers/breweryController');
 
-var is_authentified = function(req, res, next){
-  if (!req.isAuthenticated())
-    res.status(401).end();
-  else
-  	next();
-};
+function isAuthentified(req, res, next){
+    if (!req.isAuthenticated()) {
+        res.status(401).end();
+    }else {
+        next();
+    }
+}
+
+function isAdmin(req, res, next){
+    if(!req.isAuthenticated()){
+        res.status(401).end();
+    } else if(req.user.role !== 'ADMIN'){
+        res.status(403).end();
+    } else {
+        next();
+    }
+}
 
 module.exports = function(app){
     /** Authentification **/

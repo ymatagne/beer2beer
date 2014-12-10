@@ -40,6 +40,8 @@ section#menuAdminController(ng-controller="menuAdminController")
       .col-md-4
         form
           div
+            h3.error(ng-show="error") {{error}}
+            h3.text-success(ng-show="message") {{message}}
             h4
               span.glyphicon.glyphicon-search
               label Choose a Bar

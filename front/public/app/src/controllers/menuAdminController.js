@@ -58,24 +58,25 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
     $scope.getLocation = function () {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition($scope.showPosition, $scope.showError);
-        }
-        else {
-            $scope.message = "Geolocation is not supported by this browser.";
+        } else {
+            $scope.message = undefined;
+            $scope.error = "Geolocation is not supported by this browser.";
         }
     };
     $scope.showError = function (error) {
+        $scope.message = undefined;
         switch (error.code) {
             case error.PERMISSION_DENIED:
-                $scope.message = "User denied the request for Geolocation.";
+                $scope.error = "User denied the request for Geolocation.";
                 break;
             case error.POSITION_UNAVAILABLE:
-                $scope.message = "Location information is unavailable.";
+                $scope.error = "Location information is unavailable.";
                 break;
             case error.TIMEOUT:
-                $scope.message = "The request to get user location timed out.";
+                $scope.error = "The request to get user location timed out.";
                 break;
             case error.UNKNOWN_ERROR:
-                $scope.message = "An unknown error occurred.";
+                $scope.error = "An unknown error occurred.";
                 break;
         }
         $scope.$apply();
@@ -148,10 +149,12 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
                     $scope.refreshBars('');
                     $scope.addNewBar = false;
                     $scope.searchLocation=[];
+                    $scope.error = undefined;
                     $scope.message = 'You have added a new bar !';
                 }).
                 error(function () {
-                    $scope.message = 'Error when adding a new bar :(';
+                    $scope.message = undefined;
+                    $scope.error = 'Error when adding a new bar :(';
                 });
         }
     };
@@ -162,13 +165,16 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
                 success(function () {
                     $scope.refreshBeers('');
                     $scope.addNewBeer = false;
+                    $scope.error = undefined;
                     $scope.message = "You have added a new beer !";
                 }).
                 error(function () {
-                    $scope.message = 'Error when adding a new beer :(';
+                    $scope.message = undefined;
+                    $scope.error = 'Error when adding a new beer :(';
                 });
         }
     };
+
     $scope.link = function () {
         if ($scope.bar.selected._id && $scope.beer.selected._id) {
             if (!$scope.bar.selected.consumptions) {
@@ -197,7 +203,7 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
                 $scope.message = "Ok ! new Consumption created for a bar";
             }).error(function () {
                 $scope.consumption = {};
-                $scope.message = 'Error to add new consumption to a bar';
+                $scope.error = 'Error to add new consumption to a bar';
             });
         }
     };
@@ -215,10 +221,12 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
     $scope.changerEtatConsumption = function () {
         $http.put('/api/bar/' + $scope.bar.selected._id + "/consumption", {bar: $scope.bar.selected}).
             success(function () {
+                $scope.error = undefined;
                 $scope.message = 'Consumption has changed state';
             }).
             error(function () {
-                $scope.message = 'Error status of consumption change';
+                $scope.message = undefined;
+                    $scope.error = 'Error status of consumption change';
             });
     }
 })
