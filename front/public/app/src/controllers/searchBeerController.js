@@ -15,8 +15,6 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
         $scope.$apply();
 
     };
-
-
     $scope.showError = function (error) {
         switch (error.code) {
             case error.PERMISSION_DENIED:
@@ -34,7 +32,6 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
         }
         $scope.$apply();
     };
-
     $scope.addMarker = function (latitude, longitude, type, uid, title, bar) {
         if (type === 'bar') {
             $scope.barsLocation.push({
@@ -61,8 +58,6 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
             });
         }
     };
-
-
     $scope.getLocation = function () {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition($scope.showPosition, $scope.showError);
@@ -119,7 +114,7 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
         var bars = response.data;
         for (var index in bars) {
             var bar = bars[index];
-            $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id);
+            $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id,bar.nom,bar);
         }
     });
 
@@ -142,6 +137,7 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
         $http.get('/api/bar/all', {params: params}).then(function (response) {
             var bars = response.data;
             $scope.barsLocation = [];
+            $scope.bar={};
             for (var index in bars) {
                 var bar = bars[index];
                 $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id, bar.nom, bar);

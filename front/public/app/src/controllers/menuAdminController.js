@@ -81,6 +81,10 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
         $scope.$apply();
     };
     $scope.getLocation();
+    $scope.gotoBar= function ($item, $model){
+        $scope.map.center.latitude = $item.latitude;
+        $scope.map.center.longitude = $item.longitude;
+    };
 
     // Gestion des listes
     $scope.refreshBeers = function (beer) {

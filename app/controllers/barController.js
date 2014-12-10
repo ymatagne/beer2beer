@@ -104,8 +104,8 @@ module.exports.json_bar_all = function (req, res) {
         Bar.find({'consumptions.beer_id': req.query.beer}).exec(function (err, docs) {
             res.json(docs);
         });
-    } else if (req.query.type_id != undefined) {
-        Bar.find({'consumptions.type_id': req.query.type_id}).exec(function (err, docs) {
+    } else if (req.query.type != undefined) {
+        Bar.find({'consumptions.type_id': req.query.type}).exec(function (err, docs) {
             res.json(docs);
         });
     }

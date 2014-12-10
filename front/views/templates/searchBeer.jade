@@ -27,4 +27,24 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                 .col-xs-11
                     ui-gmap-google-map(center='map.center',zoom='map.zoom')
                         ui-gmap-markers(models="myLocation",idKey="'uid'",icon="'icon'",coords="'self'")
-                        ui-gmap-markers(models="barsLocation",idKey="'uid'",icon="'icon'",coords="'self'")
+                        ui-gmap-markers(models="barsLocation",idKey="'uid'",icon="'icon'",coords="'self'",click="'onClick'")
+            .row
+                .col-xs-11
+                    div#infoBar(ng-show="bar.selected")
+                        h3 List of Beer here : {{bar.selected.nom}}
+                        table.table.table-striped
+                            thead
+                                tr
+                                    th Name
+                                    th Type
+                                    th Alcool
+                                    th Quantity
+                                    th Price
+                            tbody
+                                tr(ng-repeat='consumption in bar.selected.consumptions')
+                                    td {{ consumption.beer[0].nom }}
+                                    td {{ consumption.beer[0].type }}
+                                    td {{ consumption.beer[0].alcool }} %
+                                    td {{ consumption.quantity }}
+                                    td {{ consumption.price }} €
+

@@ -45,7 +45,7 @@ section#menuAdminController(ng-controller="menuAdminController")
               label Choose a Bar
             .form-group
               label(for="nameOBar") Name of Bar
-              ui-select(ng-model='bar.selected',theme='bootstrap', ng-disabled='addNewBar', reset-search-input='false', style='width: 300px;')
+              ui-select(ng-model='bar.selected',theme='bootstrap', ng-disabled='addNewBar',on-select="gotoBar($item, $model)", reset-search-input='false', style='width: 300px;')
                 ui-select-match(placeholder='Enter an bar...') {{$select.selected.nom}}
                 ui-select-choices(repeat='bar in bars track by $index', refresh='refreshBars($select.search)', refresh-delay='0')
                   div(ng-bind-html='bar.nom | highlight: $select.search')
