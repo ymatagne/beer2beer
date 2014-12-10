@@ -10,7 +10,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                                 ui-select-match(placeholder='Enter an type...') {{type.selected.name}}
                                 ui-select-choices(repeat='type in types track by $index', refresh='refreshTypes($select.search)', refresh-delay='0')
                                     div(ng-bind-html='type.name | highlight: $select.search')
-                            a(ng-click="type={};refreshBeers('')")
+                            a(ng-click="removeType()")
                                 span.glyphicon.glyphicon-remove
 
                         .form-group
@@ -47,4 +47,3 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                                     td {{ consumption.beer[0].alcool }} %
                                     td {{ consumption.quantity }}
                                     td {{ consumption.price }} €
-

@@ -1,4 +1,4 @@
-angular.module('b2b.controllers').controller('searchBeerController', function ($scope, $http) {
+angular.module('b2b.controllers').controller('searchBeerController', function ($scope,$location, $document, $http) {
     $scope.myLocation = [];
     $scope.barsLocation = [];
     $scope.map = {center: {latitude: 0, longitude: 0}, zoom: 15};
@@ -11,7 +11,7 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
     $scope.showPosition = function (position) {
         $scope.map.center.latitude = position.coords.latitude;
         $scope.map.center.longitude = position.coords.longitude;
-        $scope.addMarker(position.coords.latitude, position.coords.longitude, 'position', 0);
+        $scope.addMarker(position.coords.latitude, position.coords.longitude, 'position', 0,null,null);
         $scope.$apply();
 
     };
@@ -77,19 +77,6 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
                 $scope.beers = response.data;
             });
     };
-    $scope.refreshBars = function (bar) {
-        var params = {name: bar};
-        return $http.get(
-            '/api/bar',
-            {params: params}
-        ).then(function (response) {
-                $scope.bars = response.data;
-                for (var index in $scope.bars) {
-                    var bar = $scope.bars[index];
-                    $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id, bar.nom, bar);
-                }
-            });
-    };
     $scope.refreshTypes = function (type) {
         var params = {name: type};
         return $http.get(
@@ -99,8 +86,6 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
                 $scope.types = response.data;
             });
     };
-
-
     $scope.refreshBeersList = function ($item) {
         var params = {type_id: $item._id};
         return $http.get('/api/beer', {params: params}
@@ -109,7 +94,10 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
                 $scope.beers = response.data;
             });
     };
-
+    $scope.removeType = function(){
+        $scope.type={};
+        $scope.refreshBeers('');
+    };
     $http.get('/api/bar', {}).then(function (response) {
         var bars = response.data;
         for (var index in bars) {
@@ -119,12 +107,9 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
     });
 
     $scope.searchBeer = function () {
-        var bar;
         var beer;
         var type;
-        if ($scope.bar.selected) {
-            bar = $scope.bar.selected._id;
-        }
+
         if ($scope.beer.selected) {
             beer = $scope.beer.selected._id;
         }
@@ -132,7 +117,7 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
             type = $scope.type.selected._id;
         }
 
-        var params = {bar: bar, type: type, beer: beer};
+        var params = {type: type, beer: beer};
 
         $http.get('/api/bar/all', {params: params}).then(function (response) {
             var bars = response.data;
