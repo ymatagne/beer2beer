@@ -1,831 +1,294 @@
 [
   {
-    _id: 0,
-    "name": "Other"
+    "_id": 0,
+    "name": ""
   },
   {
-    _id: 1,
+    "_id": 1,
     "name": "(Bière-étiquette)"
   },
   {
-    _id: 2,
+    "_id": 2,
     "name": "Abbaye Fermentation haute"
   },
   {
-    _id: 3,
+    "_id": 3,
     "name": "Abbaye"
   },
   {
-    _id: 4,
-    "name": "Abbaye,  Ambrée"
-  },
-  {
-    _id: 5,
-    "name": "Abbaye,  Blanche"
-  },
-  {
-    _id: 6,
-    "name": "Abbaye,  Blonde"
-  },
-  {
-    _id: 7,
-    "name": "Abbaye,  Brune"
-  },
-  {
-    _id: 8,
-    "name": "Abbaye,  Double"
-  },
-  {
-    _id: 9,
-    "name": "Abbaye,  Triple"
-  },
-  {
-    _id: 10,
-    "name": "Abbaye,  Triple,  Blonde"
-  },
-  {
-    _id: 11,
-    "name": "Abbaye,  Triple,  Brune"
-  },
-  {
-    _id: 12,
-    "name": "Abbaye, Ale"
-  },
-  {
-    _id: 13,
-    "name": "Abbaye, Bière de Noël"
-  },
-  {
-    _id: 14,
-    "name": "Abbaye, Fermentation haute"
-  },
-  {
-    _id: 15,
-    "name": "Ale"
-  },
-  {
-    _id: 16,
-    "name": "Ale,  Ambrée, Fermentation haute"
-  },
-  {
-    _id: 17,
-    "name": "Ale,  Blonde"
-  },
-  {
-    _id: 18,
-    "name": "Ale, (Bière-étiquette)"
-  },
-  {
-    _id: 19,
+    "_id": 4,
     "name": "Ambrée"
   },
   {
-    _id: 20,
-    "name": "Ambrée,  Saison"
-  },
-  {
-    _id: 21,
-    "name": "Ambrée,  Spéciale, Fermentation haute"
-  },
-  {
-    _id: 22,
-    "name": "Ambrée,  Triple"
-  },
-  {
-    _id: 23,
-    "name": "Ambrée, Bière de Noël"
-  },
-  {
-    _id: 24,
-    "name": "Ambrée, Fermentation haute"
-  },
-  {
-    _id: 25,
-    "name": "Ambrée, Fermentation haute, Bière au sarrasin, Bio"
-  },
-  {
-    _id: 26,
-    "name": "Ambrée- rouge, Fermentation haute"
-  },
-  {
-    _id: 27,
-    "name": "Barley wine"
-  },
-  {
-    _id: 28,
-    "name": "Bio"
-  },
-  {
-    _id: 29,
-    "name": "Bio,  Blanche"
-  },
-  {
-    _id: 30,
-    "name": "Bio,  Blonde"
-  },
-  {
-    _id: 31,
-    "name": "Bio,  Brune"
-  },
-  {
-    _id: 32,
-    "name": "Bio,  Rouge- brune"
-  },
-  {
-    _id: 33,
-    "name": "Bio,  Saison"
-  },
-  {
-    _id: 34,
-    "name": "Bio,  Triple"
-  },
-  {
-    _id: 35,
-    "name": "Bio,  Triple,  Blonde dorée"
-  },
-  {
-    _id: 36,
-    "name": "Bio, Bière au miel"
-  },
-  {
-    _id: 37,
-    "name": "Bière au miel"
-  },
-  {
-    _id: 38,
-    "name": "Bière de Noël"
-  },
-  {
-    _id: 39,
-    "name": "Bière de Noël,  Abbaye"
-  },
-  {
-    _id: 40,
-    "name": "Bière de Noël,  Triple"
-  },
-  {
-    _id: 41,
-    "name": "Bière de Noël, Stout"
-  },
-  {
-    _id: 42,
-    "name": "Bière de saison,  Brune"
-  },
-  {
-    _id: 43,
-    "name": "Bière de table"
-  },
-  {
-    _id: 44,
-    "name": "Bière à la moutarde"
-  },
-  {
-    _id: 45,
-    "name": "Blanche (Bière-étiquette)"
-  },
-  {
-    _id: 46,
-    "name": "Blanche NA"
-  },
-  {
-    _id: 47,
+    "_id": 5,
     "name": "Blanche"
   },
   {
-    _id: 48,
-    "name": "Blanche,  Abbaye"
-  },
-  {
-    _id: 49,
-    "name": "Blanche,  Fruitée"
-  },
-  {
-    _id: 50,
-    "name": "Blanche,  Saison"
-  },
-  {
-    _id: 51,
-    "name": "Blanche, Bio"
-  },
-  {
-    _id: 52,
-    "name": "Blonde  Saison"
-  },
-  {
-    _id: 53,
-    "name": "Blonde (Bière-étiquette)"
-  },
-  {
-    _id: 54,
-    "name": "Blonde Fermentation haute"
-  },
-  {
-    _id: 55,
-    "name": "Blonde dirée, Fermentation haute"
-  },
-  {
-    _id: 56,
-    "name": "Blonde dorée"
-  },
-  {
-    _id: 57,
-    "name": "Blonde dorée,  Triple"
-  },
-  {
-    _id: 58,
-    "name": "Blonde dorée, Fermentation haute"
-  },
-  {
-    _id: 59,
+    "_id": 6,
     "name": "Blonde"
   },
   {
-    _id: 60,
-    "name": "Blonde,  Abbaye"
-  },
-  {
-    _id: 61,
-    "name": "Blonde,  Bière de table"
-  },
-  {
-    _id: 62,
-    "name": "Blonde,  Saison"
-  },
-  {
-    _id: 63,
-    "name": "Blonde,  Spéciale"
-  },
-  {
-    _id: 64,
-    "name": "Blonde,  Triple"
-  },
-  {
-    _id: 65,
-    "name": "Blonde,  Triple,  Abbaye"
-  },
-  {
-    _id: 66,
-    "name": "Blonde, Bio"
-  },
-  {
-    _id: 67,
-    "name": "Blonde, Bière au miel"
-  },
-  {
-    _id: 68,
-    "name": "Blonde, Bière de Noël"
-  },
-  {
-    _id: 69,
-    "name": "Blonde, Fermentation basse"
-  },
-  {
-    _id: 70,
-    "name": "Blonde, Fermentation haute"
-  },
-  {
-    _id: 71,
-    "name": "Blonde, Fermentation haute,  Triple"
-  },
-  {
-    _id: 72,
-    "name": "Blonde, IPA"
-  },
-  {
-    _id: 73,
-    "name": "Blonde, Lager"
-  },
-  {
-    _id: 74,
-    "name": "Blonde- ambrée, Fermentation haute"
-  },
-  {
-    _id: 75,
-    "name": "Bock"
-  },
-  {
-    _id: 76,
-    "name": "Bock, Bière au miel"
-  },
-  {
-    _id: 77,
+    "_id": 7,
     "name": "Brune"
   },
   {
-    _id: 78,
-    "name": "Brune,  Abbaye"
-  },
-  {
-    _id: 79,
-    "name": "Brune,  Bière de table"
-  },
-  {
-    _id: 80,
-    "name": "Brune,  Double"
-  },
-  {
-    _id: 81,
-    "name": "Brune,  Spéciale"
-  },
-  {
-    _id: 82,
-    "name": "Brune,  Spéciale, Bock"
-  },
-  {
-    _id: 83,
-    "name": "Brune,  Triple"
-  },
-  {
-    _id: 84,
-    "name": "Brune, Ale"
-  },
-  {
-    _id: 85,
-    "name": "Brune, Bio"
-  },
-  {
-    _id: 86,
-    "name": "Brune, Bière de Noël"
-  },
-  {
-    _id: 87,
-    "name": "Brune, Fermentation haute"
-  },
-  {
-    _id: 88,
-    "name": "Brune, Fermentation haute, Bière au sarrasin"
-  },
-  {
-    _id: 89,
-    "name": "Brune, Fermentation haute, Bière au sarrasin, Bio"
-  },
-  {
-    _id: 90,
-    "name": "Brune- rouge"
-  },
-  {
-    _id: 91,
+    "_id": 8,
     "name": "Double"
   },
   {
-    _id: 92,
-    "name": "Double,  Brune"
-  },
-  {
-    _id: 93,
-    "name": "Double,  Spéciale"
-  },
-  {
-    _id: 94,
-    "name": "Double, IPA"
-  },
-  {
-    _id: 95,
-    "name": "Faro"
-  },
-  {
-    _id: 96,
-    "name": "Fermentation basse"
-  },
-  {
-    _id: 97,
-    "name": "Fermentation basse,  Blonde"
-  },
-  {
-    _id: 98,
-    "name": "Fermentation basse,  Pils"
-  },
-  {
-    _id: 99,
-    "name": "Fermentation haute (Bière-étiquette)"
-  },
-  {
-    _id: 100,
-    "name": "Fermentation haute"
-  },
-  {
-    _id: 101,
-    "name": "Fermentation haute,  Abbaye"
-  },
-  {
-    _id: 102,
-    "name": "Fermentation haute,  Abbaye,  Triple"
-  },
-  {
-    _id: 103,
-    "name": "Fermentation haute,  Ambrée"
-  },
-  {
-    _id: 104,
-    "name": "Fermentation haute,  Ambrée- blonde"
-  },
-  {
-    _id: 105,
-    "name": "Fermentation haute,  Ambrée- brune"
-  },
-  {
-    _id: 106,
-    "name": "Fermentation haute,  Bière de Saint-Louis"
-  },
-  {
-    _id: 107,
-    "name": "Fermentation haute,  Bière de saison"
-  },
-  {
-    _id: 108,
-    "name": "Fermentation haute,  Blanche"
-  },
-  {
-    _id: 109,
-    "name": "Fermentation haute,  Blanche,  Fruitée"
-  },
-  {
-    _id: 110,
-    "name": "Fermentation haute,  Blonde dorée"
-  },
-  {
-    _id: 111,
-    "name": "Fermentation haute,  Blonde"
-  },
-  {
-    _id: 112,
-    "name": "Fermentation haute,  Blonde, Ale"
-  },
-  {
-    _id: 113,
-    "name": "Fermentation haute,  Blonde, Bière de Noël"
-  },
-  {
-    _id: 114,
-    "name": "Fermentation haute,  Blonde- ambrée"
-  },
-  {
-    _id: 115,
-    "name": "Fermentation haute,  Brune"
-  },
-  {
-    _id: 116,
-    "name": "Fermentation haute,  Brune- rouge"
-  },
-  {
-    _id: 117,
-    "name": "Fermentation haute,  Fruitée"
-  },
-  {
-    _id: 118,
-    "name": "Fermentation haute,  Pils"
-  },
-  {
-    _id: 119,
-    "name": "Fermentation haute,  Quadruple"
-  },
-  {
-    _id: 120,
-    "name": "Fermentation haute,  Rouge"
-  },
-  {
-    _id: 121,
-    "name": "Fermentation haute,  Spéciale"
-  },
-  {
-    _id: 122,
-    "name": "Fermentation haute,  Triple"
-  },
-  {
-    _id: 123,
-    "name": "Fermentation haute,  Triple, Bière de Noël"
-  },
-  {
-    _id: 124,
-    "name": "Fermentation haute, Ale"
-  },
-  {
-    _id: 125,
-    "name": "Fermentation haute, Bio"
-  },
-  {
-    _id: 126,
-    "name": "Fermentation haute, Bio,  Triple"
-  },
-  {
-    _id: 127,
-    "name": "Fermentation haute, Bio, Bière au miel"
-  },
-  {
-    _id: 128,
-    "name": "Fermentation haute, Bière au chocolat"
-  },
-  {
-    _id: 129,
-    "name": "Fermentation haute, Bière au miel"
-  },
-  {
-    _id: 130,
-    "name": "Fermentation haute, Bière de Noël"
-  },
-  {
-    _id: 131,
-    "name": "Fermentation haute, Bock"
-  },
-  {
-    _id: 132,
-    "name": "Fermentation haute, IPA"
-  },
-  {
-    _id: 133,
-    "name": "Fermentation haute, Kriek"
-  },
-  {
-    _id: 134,
-    "name": "Fermentation haute, Rauchbier"
-  },
-  {
-    _id: 135,
-    "name": "Fermentation haute, Rauchbier,  Ambrée"
-  },
-  {
-    _id: 136,
-    "name": "Fermentation haute, ale"
-  },
-  {
-    _id: 137,
-    "name": "Fermentation mixte"
-  },
-  {
-    _id: 138,
-    "name": "Fruitée NA"
-  },
-  {
-    _id: 139,
-    "name": "Fruitée à base de Lambic"
-  },
-  {
-    _id: 140,
-    "name": "Fruitée"
-  },
-  {
-    _id: 141,
-    "name": "Fruitée,  Abbaye"
-  },
-  {
-    _id: 142,
-    "name": "Fruitée,  Blanche"
-  },
-  {
-    _id: 143,
-    "name": "Fruitée,  Pils"
-  },
-  {
-    _id: 144,
-    "name": "Fruitée,  Rouge"
-  },
-  {
-    _id: 145,
-    "name": "Fruitée,  Rouge- brune"
-  },
-  {
-    _id: 146,
-    "name": "Fruitée, Fermentation basse"
-  },
-  {
-    _id: 147,
-    "name": "Fruitée, Fermentation haute, Bio"
-  },
-  {
-    _id: 148,
-    "name": "Fruitée, Lambic"
-  },
-  {
-    _id: 149,
-    "name": "Gueuze"
-  },
-  {
-    _id: 150,
-    "name": "Gueuze,  Ambrée"
-  },
-  {
-    _id: 151,
-    "name": "Gueuze, Bière de Noël"
-  },
-  {
-    _id: 152,
-    "name": "IPA"
-  },
-  {
-    _id: 153,
-    "name": "India Pale Ale"
-  },
-  {
-    _id: 154,
-    "name": "Kriek"
-  },
-  {
-    _id: 155,
-    "name": "Lager"
-  },
-  {
-    _id: 156,
-    "name": "Lambic"
-  },
-  {
-    _id: 157,
-    "name": "Lambic,  Fruitée"
-  },
-  {
-    _id: 158,
-    "name": "Lambic, Kriek"
-  },
-  {
-    _id: 159,
-    "name": "NA"
-  },
-  {
-    _id: 160,
-    "name": "Noire"
-  },
-  {
-    _id: 161,
-    "name": "Panaché"
-  },
-  {
-    _id: 162,
-    "name": "Pils NA"
-  },
-  {
-    _id: 163,
-    "name": "Pils"
-  },
-  {
-    _id: 164,
-    "name": "Pils, Bio"
-  },
-  {
-    _id: 165,
-    "name": "Pils, Fermentation basse"
-  },
-  {
-    _id: 166,
-    "name": "Porter"
-  },
-  {
-    _id: 167,
-    "name": "Quadruple"
-  },
-  {
-    _id: 168,
-    "name": "Rouge Spéciale"
-  },
-  {
-    _id: 169,
-    "name": "Rouge"
-  },
-  {
-    _id: 170,
-    "name": "Rouge,  Fruitée"
-  },
-  {
-    _id: 171,
-    "name": "Rouge, Fermentation haute"
-  },
-  {
-    _id: 172,
-    "name": "Rouge- brune  Abbaye"
-  },
-  {
-    _id: 173,
-    "name": "Rouge- brune (Bière-étiquette)"
-  },
-  {
-    _id: 174,
-    "name": "Rouge- brune"
-  },
-  {
-    _id: 175,
-    "name": "Rouge- brune,  Double"
-  },
-  {
-    _id: 176,
-    "name": "Rouge- brune, Ale"
-  },
-  {
-    _id: 177,
-    "name": "Rouge- brune, Fermentation haute"
-  },
-  {
-    _id: 178,
-    "name": "Rousse"
-  },
-  {
-    _id: 179,
-    "name": "Saison"
-  },
-  {
-    _id: 180,
-    "name": "Saison,  Ambrée"
-  },
-  {
-    _id: 181,
-    "name": "Saison,  Brune"
-  },
-  {
-    _id: 182,
-    "name": "Saison,  Brune, Fermentation haute"
-  },
-  {
-    _id: 183,
-    "name": "Saison, Bio"
-  },
-  {
-    _id: 184,
-    "name": "Spéciale"
-  },
-  {
-    _id: 185,
-    "name": "Spéciale,  Blonde"
-  },
-  {
-    _id: 186,
-    "name": "Spéciale, Fermentation haute"
-  },
-  {
-    _id: 187,
-    "name": "Stout"
-  },
-  {
-    _id: 188,
-    "name": "Stout, Bière de Noël"
-  },
-  {
-    _id: 189,
-    "name": "Trappiste"
-  },
-  {
-    _id: 190,
-    "name": "Trappiste,  Blonde"
-  },
-  {
-    _id: 191,
-    "name": "Trappiste,  Brune"
-  },
-  {
-    _id: 192,
-    "name": "Triple (Bière-étiquette)"
-  },
-  {
-    _id: 193,
-    "name": "Triple Bière de Noël"
-  },
-  {
-    _id: 194,
+    "_id": 9,
     "name": "Triple"
   },
   {
-    _id: 195,
-    "name": "Triple,  Abbaye"
+    "_id": 10,
+    "name": "Ale"
   },
   {
-    _id: 196,
-    "name": "Triple,  Ambrée"
+    "_id": 11,
+    "name": "Bière de Noël"
   },
   {
-    _id: 197,
-    "name": "Triple,  Blonde"
+    "_id": 12,
+    "name": "Fermentation haute"
   },
   {
-    _id: 198,
-    "name": "Triple, Bio"
+    "_id": 13,
+    "name": "Saison"
   },
   {
-    _id: 199,
-    "name": "Triple, Bière au miel"
+    "_id": 14,
+    "name": "Spéciale"
   },
   {
-    _id: 200,
-    "name": "Triple, Bière de Noël"
+    "_id": 15,
+    "name": "Bière au sarrasin"
   },
   {
-    _id: 201,
-    "name": "Triple, Gueuze"
+    "_id": 16,
+    "name": "Bio"
   },
   {
-    _id: 202,
-    "name": "Triple, IPA"
+    "_id": 17,
+    "name": "Ambrée- rouge"
   },
   {
-    _id: 203,
+    "_id": 18,
+    "name": "Barley wine"
+  },
+  {
+    "_id": 19,
+    "name": "Rouge- brune"
+  },
+  {
+    "_id": 20,
+    "name": "Blonde dorée"
+  },
+  {
+    "_id": 21,
+    "name": "Bière au miel"
+  },
+  {
+    "_id": 22,
+    "name": "Stout"
+  },
+  {
+    "_id": 23,
+    "name": "Bière de saison"
+  },
+  {
+    "_id": 24,
+    "name": "Bière de table"
+  },
+  {
+    "_id": 25,
+    "name": "Bière à la moutarde"
+  },
+  {
+    "_id": 26,
+    "name": "Blanche (Bière-étiquette)"
+  },
+  {
+    "_id": 27,
+    "name": "Blanche NA"
+  },
+  {
+    "_id": 28,
+    "name": "Fruitée"
+  },
+  {
+    "_id": 29,
+    "name": "Blonde  Saison"
+  },
+  {
+    "_id": 30,
+    "name": "Blonde (Bière-étiquette)"
+  },
+  {
+    "_id": 31,
+    "name": "Blonde Fermentation haute"
+  },
+  {
+    "_id": 32,
+    "name": "Blonde dirée"
+  },
+  {
+    "_id": 33,
+    "name": "Fermentation basse"
+  },
+  {
+    "_id": 34,
+    "name": "IPA"
+  },
+  {
+    "_id": 35,
+    "name": "Lager"
+  },
+  {
+    "_id": 36,
+    "name": "Blonde- ambrée"
+  },
+  {
+    "_id": 37,
+    "name": "Bock"
+  },
+  {
+    "_id": 38,
+    "name": "Brune- rouge"
+  },
+  {
+    "_id": 39,
+    "name": "Faro"
+  },
+  {
+    "_id": 40,
+    "name": "Pils"
+  },
+  {
+    "_id": 41,
+    "name": "Fermentation haute (Bière-étiquette)"
+  },
+  {
+    "_id": 42,
+    "name": "Ambrée- blonde"
+  },
+  {
+    "_id": 43,
+    "name": "Ambrée- brune"
+  },
+  {
+    "_id": 44,
+    "name": "Bière de Saint-Louis"
+  },
+  {
+    "_id": 45,
+    "name": "Quadruple"
+  },
+  {
+    "_id": 46,
+    "name": "Rouge"
+  },
+  {
+    "_id": 47,
+    "name": "Bière au chocolat"
+  },
+  {
+    "_id": 48,
+    "name": "Kriek"
+  },
+  {
+    "_id": 49,
+    "name": "Rauchbier"
+  },
+  {
+    "_id": 50,
+    "name": "ale"
+  },
+  {
+    "_id": 51,
+    "name": "Fermentation mixte"
+  },
+  {
+    "_id": 52,
+    "name": "Fruitée NA"
+  },
+  {
+    "_id": 53,
+    "name": "Fruitée à base de Lambic"
+  },
+  {
+    "_id": 54,
+    "name": "Lambic"
+  },
+  {
+    "_id": 55,
+    "name": "Gueuze"
+  },
+  {
+    "_id": 56,
+    "name": "India Pale Ale"
+  },
+  {
+    "_id": 57,
+    "name": "NA"
+  },
+  {
+    "_id": 58,
+    "name": "Noire"
+  },
+  {
+    "_id": 59,
+    "name": "Panaché"
+  },
+  {
+    "_id": 60,
+    "name": "Pils NA"
+  },
+  {
+    "_id": 61,
+    "name": "Porter"
+  },
+  {
+    "_id": 62,
+    "name": "Rouge Spéciale"
+  },
+  {
+    "_id": 63,
+    "name": "Rouge- brune  Abbaye"
+  },
+  {
+    "_id": 64,
+    "name": "Rouge- brune (Bière-étiquette)"
+  },
+  {
+    "_id": 65,
+    "name": "Rousse"
+  },
+  {
+    "_id": 66,
+    "name": "Trappiste"
+  },
+  {
+    "_id": 67,
+    "name": "Triple (Bière-étiquette)"
+  },
+  {
+    "_id": 68,
+    "name": "Triple Bière de Noël"
+  },
+  {
+    "_id": 69,
     "name": "Vieille Gueuze"
   },
   {
-    _id: 204,
+    "_id": 70,
     "name": "Vieille brune"
   },
   {
-    _id: 205,
+    "_id": 71,
     "name": "blonde"
   },
   {
-    _id: 206,
+    "_id": 72,
     "name": "brune"
   }
 ]
-

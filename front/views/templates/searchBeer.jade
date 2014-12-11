@@ -6,9 +6,9 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                     form.form-inline#search-form
                         .form-group
                             h3 Choose a type
-                            ui-select(ng-model='type.selected', theme='bootstrap',on-select="refreshBeersList($item, $model)", reset-search-input='false', style='width: 300px;')
-                                ui-select-match(placeholder='Enter an type...') {{type.selected.name}}
-                                ui-select-choices(repeat='type in types track by $index', refresh='refreshTypes($select.search)', refresh-delay='0')
+                            ui-select(multiple,ng-model="multipleChoose.selectedTypes", theme='bootstrap',on-select="refreshBeersList($item)",on-remove="refreshBeersListAfterDelete($item)", reset-search-input='true', style='width: 300px;')
+                                ui-select-match(placeholder='Enter an type...') {{$item.name}}
+                                ui-select-choices(repeat='type in types', refresh='refreshTypes($select.search)', refresh-delay='0')
                                     div(ng-bind-html='type.name | highlight: $select.search')
                             a(ng-click="removeType()")
                                 span.glyphicon.glyphicon-remove

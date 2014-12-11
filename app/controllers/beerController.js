@@ -18,15 +18,13 @@ module.exports.json_beer_query = function (req, res) {
             res.json(docs);
         }).populate('brewery_id').populate('type_id');
     } else if (req.query.type_id != undefined) {
-        Beer.find({'type_id': req.query.type_id}, {}, {limit: 100}, function (err, docs) {
-            if (err) {
-                res.send(err);
-                return null;
-            }
+        Beer.find().where('type_id').in(req.query.type_id).limit(100).populate('brewery_id').populate('type_id').exec(function (err, docs) {
             res.json(docs);
-        }).populate('brewery_id').populate('type_id');
+        });
+
     }
-};
+}
+
 
 /*
  Description: Get beer

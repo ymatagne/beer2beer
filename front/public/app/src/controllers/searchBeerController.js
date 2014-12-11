@@ -1,4 +1,4 @@
-angular.module('b2b.controllers').controller('searchBeerController', function ($scope,$location, $document, $http) {
+angular.module('b2b.controllers').controller('searchBeerController', function ($scope, $location, $document, $http) {
     $scope.myLocation = [];
     $scope.barsLocation = [];
     $scope.map = {center: {latitude: 0, longitude: 0}, zoom: 15};
@@ -6,12 +6,13 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
 
     $scope.beer = {};
     $scope.bar = {};
-    $scope.type = {};
+    $scope.multipleChoose = {};
+    $scope.multipleChoose.selectedTypes = [];
 
     $scope.showPosition = function (position) {
         $scope.map.center.latitude = position.coords.latitude;
         $scope.map.center.longitude = position.coords.longitude;
-        $scope.addMarker(position.coords.latitude, position.coords.longitude, 'position', 0,null,null);
+        $scope.addMarker(position.coords.latitude, position.coords.longitude, 'position', 0, null, null);
         $scope.$apply();
 
     };
@@ -87,22 +88,43 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
             });
     };
     $scope.refreshBeersList = function ($item) {
-        var params = {type_id: $item._id};
+        var type_id = [$item._id,];
+        for (idx in $scope.multipleChoose.selectedTypes) {
+            type_id.push($scope.multipleChoose.selectedTypes[idx]._id);
+
+        }
+        var params = {type_id: type_id};
         return $http.get('/api/beer', {params: params}
         ).then(function (response) {
-                $scope.beer= {};
+                $scope.beer = {};
                 $scope.beers = response.data;
             });
     };
-    $scope.removeType = function(){
-        $scope.type={};
+    $scope.refreshBeersListAfterDelete = function ($item) {
+        var type_id = [];
+        for (idx in $scope.multipleChoose.selectedTypes) {
+            if ($item._id !==$scope.multipleChoose.selectedTypes[idx]._id) {
+                type_id.push($scope.multipleChoose.selectedTypes[idx]._id);
+            }
+
+        }
+        var params = {type_id: type_id};
+        return $http.get('/api/beer', {params: params}
+        ).then(function (response) {
+                $scope.beer = {};
+                $scope.beers = response.data;
+            });
+    };
+    $scope.removeType = function () {
+        $scope.multipleChoose.selectedTypes = [];
+        $scope.$apply();
         $scope.refreshBeers('');
     };
     $http.get('/api/bar', {}).then(function (response) {
         var bars = response.data;
         for (var index in bars) {
             var bar = bars[index];
-            $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id,bar.nom,bar);
+            $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id, bar.nom, bar);
         }
     });
 
@@ -122,7 +144,7 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
         $http.get('/api/bar/all', {params: params}).then(function (response) {
             var bars = response.data;
             $scope.barsLocation = [];
-            $scope.bar={};
+            $scope.bar = {};
             for (var index in bars) {
                 var bar = bars[index];
                 $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id, bar.nom, bar);
