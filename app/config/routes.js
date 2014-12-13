@@ -47,8 +47,8 @@ module.exports = function(app){
 
     /** Bar Crud **/
     app.get('/api/bar/', barsController.json_bar_query);
-    app.put('/api/bar/:id', isAdmin,barsController.json_bar_update);
-    app.post('/api/bar/', isAdmin,barsController.json_bar_save);
+    app.put('/api/bar/:id', isAuthentified,barsController.json_bar_update);
+    app.post('/api/bar/', isAuthentified,barsController.json_bar_save);
     app.put('/api/bar/:id/consumption', isAdmin,barsController.json_bar_update_consumptions);
     app.get('/api/bar/all', barsController.json_bar_all);
     app.get('/api/bar/beers',barsController.json_bar_with_beer)

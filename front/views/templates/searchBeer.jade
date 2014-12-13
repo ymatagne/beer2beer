@@ -41,7 +41,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                                     th Quantity
                                     th Price
                             tbody
-                                tr(ng-repeat='consumption in beerShow.consumptions')
+                                tr(ng-repeat='consumption in (filteredItems=beerShow.consumptions | filter:enable===true)')
                                     td {{ consumption.beer_id[0].nom }}
                                     td
                                         p(ng-repeat="type in consumption.type_id") {{type.name}}

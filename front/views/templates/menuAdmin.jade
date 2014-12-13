@@ -20,7 +20,7 @@ section#menuAdminController(ng-controller="menuAdminController")
                   th Alcool
                   th Quantity
                   th Price
-                  th Validate
+                  th(ng-show='currentUser.role=="ADMIN"') Validate
               tbody
                 tr(ng-repeat='consumption in beerShow.consumptions')
                   td {{ consumption.beer_id[0].nom }}
@@ -29,10 +29,10 @@ section#menuAdminController(ng-controller="menuAdminController")
                   td {{ consumption.beer_id[0].alcool }} %
                   td {{ consumption.quantity }}
                   td {{ consumption.price }} €
-                  td(ng-show='consumption.enable')
+                  td(ng-show='consumption.enable && currentUser.role=="ADMIN"')
                     button.btn.btn-default(ng-click="changerEtatConsumption(consumption)")
                       span.glyphicon.glyphicon-ok-circle
-                  td(ng-hide='consumption.enable')
+                  td(ng-show='!consumption.enable && currentUser.role=="ADMIN"')
                     button.btn.btn-default(ng-click="changerEtatConsumption(consumption)")
                       span.glyphicon.glyphicon-remove-circle
 
@@ -81,7 +81,7 @@ section#menuAdminController(ng-controller="menuAdminController")
                 ui-select-choices(repeat='beer in beers track by $index', refresh='refreshBeers($select.search)', refresh-delay='0')
                   div(ng-bind-html='beer.nom | highlight: $select.search')
               span.glyphicon.glyphicon-plus
-                a(ng-click="showFormNewBeer()") Add a new beer
+                a(ng-click="showFormNewBeer()",ng-show='currentUser.role=="ADMIN"') Add a new beer
 
           div(ng-show="addNewBeer")
             .form-group

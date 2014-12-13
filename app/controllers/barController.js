@@ -69,20 +69,6 @@ module.exports.json_bar_update = function (req, res) {
             res.json(found);
         });
     });
-
-
-    /*
-     Bar.where({ _id: bar._id }).update({consumptions : found.consumptions}, function () {});
-
-     if (err) return handleError(err);
-        if (kitten) {
-            // doc may be null if no document matched
-        }
-
-    Bar.findOneAndUpdate({_id: bar._id},bar, {}, function () {
-        res.json(bar);
-    });*/
-
 };
 
 /*
@@ -106,8 +92,6 @@ module.exports.json_bar_update_consumptions = function (req, res) {
  Output: JSON
  */
 module.exports.json_bar_all = function (req, res) {
-    var params = req.query;
-
 
     if (req.query.beer != undefined) {
         Bar.find({'consumptions.beer_id': req.query.beer}).exec(function (err, docs) {
