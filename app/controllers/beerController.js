@@ -8,23 +8,34 @@ var Type = require('../models/type');
  Output: JSON
  */
 module.exports.json_beer_query = function (req, res) {
+    Beer.find({'nom': new RegExp('.*' + req.query.name + '.*', "i")}).limit(100).populate('brewery_id').populate('type_id').exec(function (err, docs) {
+        res.json(docs);
+    });
+};
 
-    if (req.query.name != undefined) {
-        Beer.find({'nom': new RegExp('.*' + req.query.name + '.*', "i")}, {}, {limit: 100}, function (err, docs) {
-            if (err) {
-                res.send(err);
-                return null;
-            }
-            res.json(docs);
-        }).populate('brewery_id').populate('type_id');
-    } else if (req.query.type_id != undefined) {
-        Beer.find().where('type_id').in(req.query.type_id).limit(100).populate('brewery_id').populate('type_id').exec(function (err, docs) {
-            res.json(docs);
-        });
-
+/*
+ Description: Get beers
+ Method: GET
+ Output: JSON
+ */
+module.exports.json_beer_query_with_params = function (req, res) {
+    if(req.query.type_id){
+    Beer.find()
+            .where('nom',new RegExp('.*' + req.query.name + '.*', "i"))
+            .where('type_id').all(req.query.type_id)
+            .limit(100)
+            .exec(function (err, docs) {
+                res.json(docs);
+            });
+    }else{
+        Beer.find()
+            .where('nom',new RegExp('.*' + req.query.name + '.*', "i"))
+            .limit(100)
+            .exec(function (err, docs) {
+                res.json(docs);
+            });
     }
-}
-
+};
 
 /*
  Description: Get beer
@@ -52,7 +63,7 @@ module.exports.json_beer_save = function (req, res) {
 
 
     var beer = new Beer({
-        type_id: body.type_id[0]._id,
+        type_id: body.type_id,
         alcool: body.alcool,
         nom: body.nom
     });

@@ -1,16 +1,9 @@
 var mongoose = require('mongoose');
 
-var beerSchema = new mongoose.Schema({
-    nom: String,
-    type: String,
-    alcool: String
-});
-
 var consumptionSchema = new mongoose.Schema({
-    beer: [beerSchema],
     price: String,
-    beer_id: String,
-    type_id: Number,
+    beer_id: [{type: mongoose.Schema.Types.ObjectId, ref: 'Beer'}],
+    type_id: [{type: Number, ref: 'Type'}],
     enable: Boolean,
     quantity: String
 });

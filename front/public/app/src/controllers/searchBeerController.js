@@ -70,9 +70,9 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
 
     // Gestion des listes
     $scope.refreshBeers = function (beer) {
-        var params = {name: beer};
+        var params = {name: beer, type_id: []};
         return $http.get(
-            '/api/beer',
+            '/api/beer/search',
             {params: params}
         ).then(function (response) {
                 $scope.beers = response.data;
@@ -88,13 +88,14 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
             });
     };
     $scope.refreshBeersList = function ($item) {
-        var type_id = [$item._id,];
+        var type_id = [];
+        type_id.push($item._id);
         for (idx in $scope.multipleChoose.selectedTypes) {
             type_id.push($scope.multipleChoose.selectedTypes[idx]._id);
 
         }
-        var params = {type_id: type_id};
-        return $http.get('/api/beer', {params: params}
+        var params = {name: '', type_id: type_id};
+        return $http.get('/api/beer/search', {params: params}
         ).then(function (response) {
                 $scope.beer = {};
                 $scope.beers = response.data;
@@ -103,13 +104,13 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
     $scope.refreshBeersListAfterDelete = function ($item) {
         var type_id = [];
         for (idx in $scope.multipleChoose.selectedTypes) {
-            if ($item._id !==$scope.multipleChoose.selectedTypes[idx]._id) {
+            if ($item._id !== $scope.multipleChoose.selectedTypes[idx]._id) {
                 type_id.push($scope.multipleChoose.selectedTypes[idx]._id);
             }
 
         }
-        var params = {type_id: type_id};
-        return $http.get('/api/beer', {params: params}
+        var params = {name: '', type_id: type_id};
+        return $http.get('/api/beer/search', {params: params}
         ).then(function (response) {
                 $scope.beer = {};
                 $scope.beers = response.data;
@@ -130,13 +131,14 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
 
     $scope.searchBeer = function () {
         var beer;
-        var type;
+        var type = [];
 
         if ($scope.beer.selected) {
             beer = $scope.beer.selected._id;
-        }
-        if ($scope.type.selected) {
-            type = $scope.type.selected._id;
+        } else if ($scope.multipleChoose.selectedTypes) {
+            for (idx in $scope.multipleChoose.selectedTypes) {
+                type.push($scope.multipleChoose.selectedTypes[idx]._id);
+            }
         }
 
         var params = {type: type, beer: beer};

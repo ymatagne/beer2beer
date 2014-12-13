@@ -1,7 +1,5 @@
 section#menuAdminController(ng-controller="menuAdminController")
   .container
-    .row
-      div.alert.alert-info(role="alert",ng-show="message") {{message}}
 
     .row
       .col-md-8
@@ -12,8 +10,8 @@ section#menuAdminController(ng-controller="menuAdminController")
             ui-gmap-markers(models="searchLocation",idKey="'uid'",icon="'icon'",coords="'self'")
 
         .row
-          div#infoBar(ng-show="!addNewBar && bar.selected")
-            h3 List of Beer here : {{bar.selected.nom}}
+          div#infoBar(ng-show="beerShow")
+            h3 List of Beer here : {{beerShow.nom}}
             table.table.table-striped
               thead
                 tr
@@ -24,17 +22,18 @@ section#menuAdminController(ng-controller="menuAdminController")
                   th Price
                   th Validate
               tbody
-                tr(ng-repeat='consumption in bar.selected.consumptions')
-                  td {{ consumption.beer[0].nom }}
-                  td {{ consumption.beer[0].type }}
-                  td {{ consumption.beer[0].alcool }} %
+                tr(ng-repeat='consumption in beerShow.consumptions')
+                  td {{ consumption.beer_id[0].nom }}
+                  td
+                   p(ng-repeat="type in consumption.type_id") {{type.name}}
+                  td {{ consumption.beer_id[0].alcool }} %
                   td {{ consumption.quantity }}
                   td {{ consumption.price }} €
                   td(ng-show='consumption.enable')
-                    button.btn.btn-default(ng-click="consumption.enable=!consumption.enable;changerEtatConsumption()")
+                    button.btn.btn-default(ng-click="changerEtatConsumption(consumption)")
                       span.glyphicon.glyphicon-ok-circle
                   td(ng-hide='consumption.enable')
-                    button.btn.btn-default(ng-click="consumption.enable=!consumption.enable;changerEtatConsumption()")
+                    button.btn.btn-default(ng-click="changerEtatConsumption(consumption)")
                       span.glyphicon.glyphicon-remove-circle
 
       .col-md-4
@@ -91,9 +90,9 @@ section#menuAdminController(ng-controller="menuAdminController")
 
             .form-group
               label(for="typeOfBeer") Type :
-              ui-select(ng-model='newBeer.type_id[0]', theme='bootstrap', ng-disabled='!addNewBeer', reset-search-input='false', style='width: 300px;')
-                ui-select-match(placeholder='Enter an type...') {{newBeer.type_id[0].name}}
-                ui-select-choices(repeat='type in types track by $index', refresh='refreshTypes($select.search)', refresh-delay='0')
+              ui-select(multiple,ng-model='multipleChoose.selectedTypes', theme='bootstrap', ng-disabled='!addNewBeer', reset-search-input='true', style='width: 300px;')
+                ui-select-match(placeholder='Enter an type...') {{$item.name}}
+                ui-select-choices(repeat='type in types', refresh='refreshTypes($select.search)', refresh-delay='0')
                   div(ng-bind-html='type.name | highlight: $select.search')
 
             .form-group

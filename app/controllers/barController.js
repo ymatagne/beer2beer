@@ -13,12 +13,20 @@ module.exports.json_bar_query = function (req, res) {
             res.send(err);
             return null;
         }
-    }).populate('consumptions.beer_id').exec(function (err, docs) {
-        Type.populate(docs, {
-            path: 'consumptions.beer_id.type_id'
-        }, function (err, docs) {
-            res.json(docs);
-        });
+    }).exec(function (err, docs) {
+        res.json(docs);
+    });
+
+};
+
+/*
+ Description: Get bars
+ Method: GET
+ Output: JSON
+ */
+module.exports.json_bar_with_beer = function (req, res) {
+    Bar.findById(req.query.id).populate('consumptions.beer_id').populate('consumptions.type_id').exec(function (err, docs) {
+        res.json(docs);
     });
 
 };
@@ -52,19 +60,28 @@ module.exports.json_bar_save = function (req, res) {
  Output: JSON
  */
 module.exports.json_bar_update = function (req, res) {
-    var body = req.body.bar;
-    var consum = req.body.consumption;
+    var bar = new Bar(req.body.bar);
 
-
-    consum.enable = false;
-    body.consumptions.push(consum);
-    var bar = new Bar({
-        _id: body._id
+    Bar.findById(bar._id, function (err, found) {
+        req.body.consumption.enable=false;
+        found.consumptions.push(req.body.consumption);
+        Bar.update({_id:found._id},{consumptions : found.consumptions},{},function(err,doc){
+            res.json(found);
+        });
     });
 
-    bar.update({consumptions: body.consumptions}, function () {
-        res.json(body.consumptions);
-    });
+
+    /*
+     Bar.where({ _id: bar._id }).update({consumptions : found.consumptions}, function () {});
+
+     if (err) return handleError(err);
+        if (kitten) {
+            // doc may be null if no document matched
+        }
+
+    Bar.findOneAndUpdate({_id: bar._id},bar, {}, function () {
+        res.json(bar);
+    });*/
 
 };
 
@@ -74,21 +91,13 @@ module.exports.json_bar_update = function (req, res) {
  Output: JSON
  */
 module.exports.json_bar_update_consumptions = function (req, res) {
-    var body = req.body.bar;
 
-    var bar = new Bar({
-        _id: body._id,
-        adresse: body.adresse,
-        geolocation: body.geolocation,
-        latitude: body.latitude,
-        longitude: body.longitude,
-        nom: body.nom,
-        consumptions: body.consumptions
-    });
+    Bar.update({_id: req.body.bar_id, "consumptions._id": req.body.consumption._id},
+        {$set:  {'consumptions.$.enable': !req.body.consumption.enable}},
+        function(err, numAffected) {
+            res.json(req.body.consumption.enable);
 
-    bar.update({consumptions: body.consumptions}, function () {
-        res.json(body);
-    });
+        });
 
 };
 /*
@@ -105,9 +114,13 @@ module.exports.json_bar_all = function (req, res) {
             res.json(docs);
         });
     } else if (req.query.type != undefined) {
-        Bar.find({'consumptions.type_id': req.query.type}).exec(function (err, docs) {
-            res.json(docs);
-        });
+        Bar.find()
+            .where('consumptions.type_id').all(req.query.type)
+            .limit(100)
+            .exec(function (err, docs) {
+                res.json(docs);
+            });
+
     }
 
 };
