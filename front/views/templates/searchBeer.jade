@@ -41,10 +41,10 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                                     th Quantity
                                     th Price
                             tbody
-                                tr(ng-repeat='consumption in (filteredItems=beerShow.consumptions | filter:enable===true)')
-                                    td {{ consumption.beer_id[0].nom }}
-                                    td
+                                tr(ng-repeat='consumption in (filteredItems=beerShow.consumptions)')
+                                    td(ng-show="consumption.enable") {{ consumption.beer_id[0].nom }}
+                                    td(ng-show="consumption.enable")
                                         p(ng-repeat="type in consumption.type_id") {{type.name}}
-                                    td {{ consumption.beer_id[0].alcool }} %
-                                    td {{ consumption.quantity }}
-                                    td {{ consumption.price }} €
+                                    td(ng-show="consumption.enable") {{ consumption.beer_id[0].alcool }} %
+                                    td(ng-show="consumption.enable") {{ consumption.quantity }}
+                                    td(ng-show="consumption.enable") {{ consumption.price }} €
