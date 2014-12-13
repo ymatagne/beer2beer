@@ -45,8 +45,7 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
                 title: title,
                 bar: bar,
                 onClick: function (ret) {
-                    $scope.bar.selected = ret.model.bar;
-                    $scope.$apply();
+                    $scope.showBeerInBar(ret.model.bar._id);
                 }
             });
         } else if (type === 'position') {
@@ -153,5 +152,15 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
             }
         });
     };
+    $scope.showBeerInBar = function (id) {
+        var params = {id: id};
+        $http.get(
+            '/api/bar/beers',
+            {params: params}
+        ).then(function (response) {
+                $scope.beerShow = response.data;
+            });
+    };
+
     $scope.getLocation();
 });

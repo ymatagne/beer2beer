@@ -30,8 +30,8 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                         ui-gmap-markers(models="barsLocation",idKey="'uid'",icon="'icon'",coords="'self'",click="'onClick'")
             .row
                 .col-xs-11
-                    div#infoBar(ng-show="bar.selected")
-                        h3 List of Beer here : {{bar.selected.nom}}
+                    div#infoBar(ng-show="beerShow")
+                        h3 List of Beer here : {{beerShow.nom}}
                         table.table.table-striped
                             thead
                                 tr
@@ -41,9 +41,10 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                                     th Quantity
                                     th Price
                             tbody
-                                tr(ng-repeat='consumption in bar.selected.consumptions')
-                                    td {{ consumption.beer[0].nom }}
-                                    td {{ consumption.beer[0].type }}
-                                    td {{ consumption.beer[0].alcool }} %
+                                tr(ng-repeat='consumption in beerShow.consumptions')
+                                    td {{ consumption.beer_id[0].nom }}
+                                    td
+                                        p(ng-repeat="type in consumption.type_id") {{type.name}}
+                                    td {{ consumption.beer_id[0].alcool }} %
                                     td {{ consumption.quantity }}
                                     td {{ consumption.price }} €
