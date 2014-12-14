@@ -1,4 +1,4 @@
-angular.module('b2b.controllers').controller('searchBeerController', function ($scope, $location, $document,$http, BarService, BeerService) {
+angular.module('b2b.controllers').controller('searchBeerController', function ($scope, $location, $document, BarService, BeerService,TypeService) {
     $scope.myLocation = [];
     $scope.barsLocation = [];
     $scope.map = {center: {latitude: 0, longitude: 0}, zoom: 15};
@@ -70,22 +70,22 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
     // Gestion des listes
     $scope.refreshBeers = function (beer) {
         var params = {name: beer, type_id: []};
-        return $http.get(
-            '/api/beer/search',
-            {params: params}
-        ).then(function (response) {
-                $scope.beers = response.data;
-            });
+        BeerService.getBeersByTypeOrName(params).then(
+            function (data) {
+                $scope.beers = data;
+            }
+        );
     };
+
     $scope.refreshTypes = function (type) {
         var params = {name: type};
-        return $http.get(
-            '/api/type',
-            {params: params}
-        ).then(function (response) {
-                $scope.types = response.data;
-            });
+        TypeService.getAllTypes(params).then(
+            function (data) {
+                $scope.types = data;
+            }
+        );
     };
+
     $scope.refreshBeersList = function ($item) {
         var type_id = [];
         type_id.push($item._id);
@@ -94,11 +94,12 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
 
         }
         var params = {name: '', type_id: type_id};
-        return $http.get('/api/beer/search', {params: params}
-        ).then(function (response) {
+        BeerService.getBeersByTypeOrName(params).then(
+            function (data) {
                 $scope.beer = {};
-                $scope.beers = response.data;
-            });
+                $scope.beers = data;
+            }
+        );
     };
     $scope.refreshBeersListAfterDelete = function ($item) {
         var type_id = [];
@@ -109,19 +110,22 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
 
         }
         var params = {name: '', type_id: type_id};
-        return $http.get('/api/beer/search', {params: params}
-        ).then(function (response) {
+
+        BeerService.getBeersByTypeOrName(params).then(
+            function (data) {
                 $scope.beer = {};
-                $scope.beers = response.data;
-            });
+                $scope.beers = data;
+            }
+        );
     };
     $scope.removeType = function () {
         $scope.multipleChoose.selectedTypes = [];
         $scope.$apply();
         $scope.refreshBeers('');
     };
-    $http.get('/api/bar', {}).then(function (response) {
-        var bars = response.data;
+
+    BarService.getAllBars({}).then(function (data) {
+        var bars = data;
         for (var index in bars) {
             var bar = bars[index];
             $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id, bar.nom, bar);
@@ -141,24 +145,28 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
         }
 
         var params = {type: type, beer: beer};
-
-        $http.get('/api/bar/all', {params: params}).then(function (response) {
-            var bars = response.data;
-            $scope.barsLocation = [];
-            $scope.bar = {};
-            for (var index in bars) {
-                var bar = bars[index];
-                $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id, bar.nom, bar);
-            }
-        });
+        BarService.getBarsByBeers(params).then(
+            function (data) {
+                var bars = data;
+                $scope.barsLocation = [];
+                $scope.bar = {};
+                for (var index in bars) {
+                    var bar = bars[index];
+                    $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id, bar.nom, bar);
+                }
+            });
     };
+
     $scope.showBeerInBar = function (id) {
         var params = {id: id};
-        $http.get(
-            '/api/bar/beers',
-            {params: params}
-        ).then(function (response) {
-                $scope.beerShow = response.data;
+        BeerService.getBeerByParams(params).then(
+            function (data) {
+                $scope.beerShow = data;
+            }, function (res) {
+                $scope.errors = {};
+                angular.forEach(res.data.errors, function (error, field) {
+                    $scope.errors[field] = error.type;
+                });
             });
     };
 
