@@ -37,7 +37,7 @@ module.exports.json_bar_with_beer = function (req, res) {
  Output: JSON
  */
 module.exports.json_bar_save = function (req, res) {
-    var body = req.body.bar;
+    var body = req.body.params.bar;
 
 
     var bar = new Bar({
