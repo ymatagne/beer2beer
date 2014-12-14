@@ -60,11 +60,11 @@ module.exports.json_bar_save = function (req, res) {
  Output: JSON
  */
 module.exports.json_bar_update = function (req, res) {
-    var bar = new Bar(req.body.bar);
+    var bar = new Bar(req.body.params.bar);
 
     Bar.findById(bar._id, function (err, found) {
-        req.body.consumption.enable=false;
-        found.consumptions.push(req.body.consumption);
+        req.body.params.consumption.enable=false;
+        found.consumptions.push(req.body.params.consumption);
         Bar.update({_id:found._id},{consumptions : found.consumptions},{},function(err,doc){
             res.json(found);
         });
@@ -78,10 +78,10 @@ module.exports.json_bar_update = function (req, res) {
  */
 module.exports.json_bar_update_consumptions = function (req, res) {
 
-    Bar.update({_id: req.body.bar_id, "consumptions._id": req.body.consumption._id},
-        {$set:  {'consumptions.$.enable': !req.body.consumption.enable}},
+    Bar.update({_id: req.body.params.bar_id, "consumptions._id": req.body.params.consumption._id},
+        {$set:  {'consumptions.$.enable': !req.body.params.consumption.enable}},
         function(err, numAffected) {
-            res.json(req.body.consumption.enable);
+            res.json(req.body.params.consumption.enable);
 
         });
 

@@ -1,4 +1,4 @@
-angular.module('b2b.controllers').controller('menuAdminController', function ($scope, $http) {
+angular.module('b2b.controllers').controller('menuAdminController', function ($scope, BarService, BeerService, TypeService, BreweryService) {
     $scope.map = {center: {latitude: 0, longitude: 0}, zoom: 15};
     $scope.myLocation = [];
     $scope.barsLocation = [];
@@ -92,42 +92,55 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
     // Gestion des listes
     $scope.refreshBeers = function (beer) {
         var params = {name: beer};
-        return $http.get(
-            '/api/beer',
-            {params: params}
-        ).then(function (response) {
-                $scope.beers = response.data;
+        BeerService.getAllBeers(params).then(
+            function (data) {
+                $scope.beers = data;
+            }, function (res) {
+                $scope.errors = {};
+                angular.forEach(res.data.errors, function (error, field) {
+                    $scope.errors[field] = error.type;
+                });
             });
     };
-    $scope.refreshBars = function (bar) {
-        var params = {name: bar};
-        return $http.get(
-            '/api/bar',
-            {params: params}
-        ).then(function (response) {
-                $scope.bars = response.data;
+
+    $scope.refreshBars = function (nameOfBar) {
+        var params = {name: nameOfBar};
+        BarService.getAllBars(params).then(
+            function (data) {
+                $scope.bars = data;
                 for (var index in $scope.bars) {
                     var bar = $scope.bars[index];
                     $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id, bar.nom, bar);
                 }
+            }, function (res) {
+                $scope.errors = {};
+                angular.forEach(res.data.errors, function (error, field) {
+                    $scope.errors[field] = error.type;
+                });
             });
     };
     $scope.refreshTypes = function (type) {
         var params = {name: type};
-        return $http.get(
-            '/api/type',
-            {params: params}
-        ).then(function (response) {
-                $scope.types = response.data;
+        TypeService.getAllTypes(params).then(
+            function (data) {
+                $scope.types = data;
+            }, function (res) {
+                $scope.errors = {};
+                angular.forEach(res.data.errors, function (error, field) {
+                    $scope.errors[field] = error.type;
+                });
             });
     };
     $scope.refreshBreweries = function (brewery) {
         var params = {name: brewery};
-        return $http.get(
-            '/api/brewery',
-            {params: params}
-        ).then(function (response) {
-                $scope.breweries = response.data;
+        BreweryService.getAllBreweries(params).then(
+            function (data) {
+                $scope.breweries = data;
+            }, function (res) {
+                $scope.errors = {};
+                angular.forEach(res.data.errors, function (error, field) {
+                    $scope.errors[field] = error.type;
+                });
             });
     };
 
@@ -146,18 +159,20 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
     // Creation du bar, de la biere et de l'emplacement
     $scope.createBar = function () {
         if ($scope.newBar) {
-            $http.post('/api/bar', {bar: $scope.newBar}).
-                success(function () {
+            var params = {bar: $scope.newBar};
+            BarService.createBar(params).then(
+                function () {
                     $scope.refreshBars('');
                     $scope.addNewBar = false;
                     $scope.newBar = {};
                     $scope.searchLocation = [];
                     $scope.error = undefined;
                     $scope.message = 'You have added a new bar !';
-                }).
-                error(function () {
-                    $scope.message = undefined;
-                    $scope.error = 'Error when adding a new bar :(';
+                }, function (res) {
+                    $scope.errors = {};
+                    angular.forEach(res.data.errors, function (error, field) {
+                        $scope.errors[field] = error.type;
+                    });
                 });
         }
     };
@@ -165,16 +180,18 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
     $scope.createBeer = function () {
         if ($scope.newBeer) {
             $scope.newBeer.type_id = $scope.multipleChoose.selectedTypes;
-            $http.post('/api/beer', {beer: $scope.newBeer}).
-                success(function () {
+            var params = {beer: $scope.newBeer};
+            BeerService.createBeer(params).then(
+                function () {
                     $scope.refreshBeers('');
                     $scope.addNewBeer = false;
-                    $scope.error = undefined;
+                    $scope.newBeer = {};
                     $scope.message = "You have added a new beer !";
-                }).
-                error(function () {
-                    $scope.message = undefined;
-                    $scope.error = 'Error when adding a new beer :(';
+                }, function (res) {
+                    $scope.errors = {};
+                    angular.forEach(res.data.errors, function (error, field) {
+                        $scope.errors[field] = error.type;
+                    });
                 });
         }
     };
@@ -187,20 +204,23 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
             $scope.consumption.price = $scope.price;
             $scope.consumption.quantity = $scope.quantity.selected.quantity;
 
-            $http.put('/api/bar/' + $scope.bar.selected._id, {
-                bar: $scope.bar.selected,
-                consumption: $scope.consumption
-            }).success(function () {
-                $scope.consumption = {};
-                $scope.showBeerInBar($scope.bar.selected._id);
-                $scope.beer = {};
-                $scope.quantity = {};
-                $scope.price = "";
-                $scope.message = "Ok ! new Consumption created for a bar";
-            }).error(function () {
-                $scope.consumption = {};
-                $scope.error = 'Error to add new consumption to a bar';
-            });
+            var params = {bar: $scope.bar.selected, consumption: $scope.consumption};
+
+            BarService.addConsumption($scope.bar.selected._id, params).then(
+                function () {
+                    $scope.consumption = {};
+                    $scope.showBeerInBar($scope.bar.selected._id);
+                    $scope.beer = {};
+                    $scope.quantity = {};
+                    $scope.price = "";
+                    $scope.message = "Ok ! new Consumption created for a bar";
+                }, function (res) {
+                    $scope.errors = {};
+                    $scope.consumption = {};
+                    angular.forEach(res.data.errors, function (error, field) {
+                        $scope.errors[field] = error.type;
+                    });
+                });
         }
     };
 
@@ -217,26 +237,30 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
 
     $scope.showBeerInBar = function (id) {
         var params = {id: id};
-        $http.get(
-            '/api/bar/beers',
-            {params: params}
-        ).then(function (response) {
-                $scope.beerShow = response.data;
-                $scope.bar.selected = response.data;
+        BeerService.getBeerByParams(params).then(
+            function (data) {
+                $scope.beerShow = data;
+                $scope.bar.selected = data;
+            }, function (res) {
+                $scope.errors = {};
+                angular.forEach(res.data.errors, function (error, field) {
+                    $scope.errors[field] = error.type;
+                });
             });
     };
 
     $scope.changerEtatConsumption = function (consumption) {
-        $http.put('/api/bar/' + $scope.bar.selected._id + "/consumption", {bar_id:$scope.bar.selected._id,consumption: consumption}).
-            success(function (data) {
-                $scope.bar.selected = data;
-                $scope.error = undefined;
-                consumption.enable=!consumption.enable;
+        var params = {bar_id: $scope.bar.selected._id, consumption: consumption};
+        BarService.updateConsumption($scope.bar.selected._id, params).then(
+            function () {
+                $scope.errors = {};
+                consumption.enable = !consumption.enable;
                 $scope.message = 'Consumption has changed state';
-            }).
-            error(function () {
-                $scope.message = undefined;
-                $scope.error = 'Error status of consumption change';
+            }, function (res) {
+                $scope.errors = {};
+                angular.forEach(res.data.errors, function (error, field) {
+                    $scope.errors[field] = error.type;
+                });
             });
     }
 })

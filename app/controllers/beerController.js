@@ -59,7 +59,7 @@ module.exports.json_beer_get = function (req, res) {
  Output: JSON
  */
 module.exports.json_beer_save = function (req, res) {
-    var body = req.body.beer;
+    var body = req.body.params.beer;
 
 
     var beer = new Beer({

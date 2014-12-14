@@ -1,4 +1,4 @@
-angular.module('b2b.controllers').controller('searchBeerController', function ($scope, $location, $document, $http) {
+angular.module('b2b.controllers').controller('searchBeerController', function ($scope, $location, $document,$http, BarService, BeerService) {
     $scope.myLocation = [];
     $scope.barsLocation = [];
     $scope.map = {center: {latitude: 0, longitude: 0}, zoom: 15};
