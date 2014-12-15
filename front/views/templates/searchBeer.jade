@@ -2,7 +2,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
     .container
         .container-fluid
             .row
-                .col-xs-11
+                .col-xs-12
                     form.form-inline#search-form
                         .form-group
                             h3 Choose a type
@@ -24,12 +24,12 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                             button.btn.btn-primary(type="button",ng-click="searchBeer()") Search your beer !
 
             .row
-                .col-xs-11
+                .col-xs-12
                     ui-gmap-google-map(center='map.center',zoom='map.zoom')
                         ui-gmap-markers(models="myLocation",idKey="'uid'",icon="'icon'",coords="'self'")
                         ui-gmap-markers(models="barsLocation",idKey="'uid'",icon="'icon'",coords="'self'",click="'onClick'")
             .row
-                .col-xs-11
+                .col-xs-12
                     div#infoBar(ng-show="beerShow")
                         h3 List of Beer here : {{beerShow.nom}}
                         table.table.table-striped

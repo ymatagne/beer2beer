@@ -2,6 +2,9 @@ html {
     color: #404040;
 }
 
+body{
+    font-family: 'Raleway', sans-serif;
+}
 #main-nav.fixed {
     position: fixed !important;
     top: 0;
@@ -36,7 +39,13 @@ html {
 .imageLogo {
     width: 150px;
 }
-
+.title-accroche{
+    text-align: center;
+}
+.title-first-word{
+    color: #279c82;
+    font-size: 40px;
+}
 .header {
     background: #FFFFFF;
     position: relative;
@@ -203,7 +212,6 @@ html {
     padding-top: 100px;
     background: #279c82;
     color:white;
-    min-height: 1000px;
 }
 
 .team h2 {
@@ -315,19 +323,28 @@ a.sso-button {
 }
 
 .img-circle{
-    width: 200px;
+    width: 150px;
 }
 
 .user_team{
     text-align: center;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 #menu {
     right: auto;
 }
 .title-footer{
     text-align: center;
+    color:#777;
 }
 .social-network{
-    color: white;
+    color: #279c82;
+}
+.social-row{
+    text-align: center;
+}
+
+.inc{
+    text-align: center;
+    color:#777;
 }
