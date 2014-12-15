@@ -78,21 +78,6 @@ module.exports.json_beer_save = function (req, res) {
     });
 };
 
-/*
- Description: Delete beer
- Method: DELETE
- Output: JSON
- */
-module.exports.json_beer_delete = function (req, res) {
-    console.log('delete ->', req.params.beer_id);
-    Beer.findById(req.params.beer_id, function (err) {
-        if (err) {
-            res.send(err);
-        }
-        res.json({r: true});
-    });
-};
-
 module.exports.setBeer = function (fakeBeer) {
     Beer = fakeBeer;
 };

@@ -37,7 +37,6 @@ module.exports = function(app){
     app.get('/api/beer/search', beersController.json_beer_query_with_params);
     app.get('/api/beer/:beer_id/', isAuthentified,beersController.json_beer_get);
     app.post('/api/beer/', isAdmin,beersController.json_beer_save);
-    app.delete('/api/beer/:beer_id/', isAdmin,beersController.json_beer_delete);
 
     /** Brewery Crud **/
     app.get('/api/brewery/', breweryController.json_brewery_query_all);
@@ -52,6 +51,7 @@ module.exports = function(app){
     app.put('/api/bar/:id/consumption', isAdmin,barsController.json_bar_update_consumptions);
     app.get('/api/bar/all', barsController.json_bar_all);
     app.get('/api/bar/beers',barsController.json_bar_with_beer)
+
     /** Angular Route **/
     app.get('/templates/:name', site.partials);
     app.get('*', site.index);

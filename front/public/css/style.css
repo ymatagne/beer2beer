@@ -202,6 +202,7 @@ html {
     margin-top: 100px;
     padding-top: 100px;
     background: #279c82;
+    color:white;
     min-height: 1000px;
 }
 
@@ -323,4 +324,10 @@ a.sso-button {
 }
 #menu {
     right: auto;
+}
+.title-footer{
+    text-align: center;
+}
+.social-network{
+    color: white;
 }
