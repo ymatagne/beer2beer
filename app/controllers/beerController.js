@@ -9,6 +9,10 @@ var Type = require('../models/type');
  */
 module.exports.json_beer_query = function (req, res) {
     Beer.find({'nom': new RegExp('.*' + req.query.name + '.*', "i")}).limit(100).populate('brewery_id').populate('type_id').exec(function (err, docs) {
+        if(err){
+            res.send(err);
+            return;
+        }
         res.json(docs);
     });
 };

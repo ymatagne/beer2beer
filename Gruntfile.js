@@ -8,10 +8,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
     // Project configuration.
     grunt.initConfig({
-        clean: ['target/*', 'front/public/app/app.js'],
+        clean: ['target/*'],
         // Configure a mochaTest task
         mochaTest: {
             test: {
@@ -89,7 +90,6 @@ module.exports = function(grunt) {
                     tasks: {
                         js: ['concat']
                     },
-                    //dirTasks: 'target/b2b/front/public/',
                     prefix: 'front/public/',
                     targetPrefix: 'target/b2b/front/public/'
                 },
@@ -103,11 +103,21 @@ module.exports = function(grunt) {
             unit: {
                 configFile: 'karma.conf.js'
             }
+        },
+        connect: {
+            server: {
+                options: {
+                    hostname: 'localhost',
+                    port: 3001,
+                    base: 'target/b2b',
+                    keepalive: true
+                }
+            }
         }
     });
 
     // Default task(s).
-    grunt.registerTask('default', ['concat']);
+    grunt.registerTask('default', ['clean', 'coverage', 'buildApp']);
     grunt.registerTask('test', ['mochaTest', 'karma']);
     grunt.registerTask('coverage', ['env:coverage', 'instrument', 'mochaTest', 'mochacov', 'storeCoverage', 'makeReport', 'karma']);
     grunt.registerTask('buildApp', ['copy:sources', 'jadeUsemin']);

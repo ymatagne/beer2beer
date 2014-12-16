@@ -1,5 +1,4 @@
 angular.module('b2b.controllers', []);
-angular.module('b2b.factory', []);
 angular.module('b2b.services', []);
 angular.module('b2b.directives', []);
 

@@ -51,8 +51,8 @@ describe('authController...', function(){
 	});
 
 	it('Should call "scrollToElement(...)" on $document when calling "gotoAnchor".', function(){
-		var elementExpected = {},
-			getElementByIdCall = sinon.stub(document, 'getElementById').returns(elementExpected);
+		var elementExpected = {};
+		sinon.stub(document, 'getElementById').returns(elementExpected);
 
 		scope.gotoAnchor('idElement');
 

@@ -9,17 +9,23 @@ describe('beerController...', function(){
         sendStub,
         jsonStub,
         findStub,
-        findByIdStub;
+        findByIdStub,
+        limitStub,
+        populateStub,
+        execStub;
     beforeEach(function(){
         fakeReq = {query: {name: ''}};
         fakeRes = {send: function(){}, json: function(){}};
-        fakeBeer = {find: function(){}, findById: function(){},populate: function(){}};
+        fakeBeer = {find: function(){}, findById: function(){},populate: function(){}, exec: function(){}, limit: function(){}};
 
         beerController.setBeer(fakeBeer);
 
         sendStub = sinon.stub(fakeRes, 'send');
         jsonStub = sinon.stub(fakeRes, 'json');
         findStub = sinon.stub(fakeBeer, 'find').returnsThis();
+        limitStub = sinon.stub(fakeBeer, 'limit').returnsThis();
+        populateStub = sinon.stub(fakeBeer, 'populate').returnsThis();
+        execStub = sinon.stub(fakeBeer, 'exec');
         findByIdStub = sinon.stub(fakeBeer, 'findById');
     });
     afterEach(function(){
@@ -30,20 +36,20 @@ describe('beerController...', function(){
     describe('json_beer_query...', function(){
         it('Should send error when find failed.', function(){
             var error = 'error',
-                findCall = findStub.callsArgWith(3, error);
+                execCall = execStub.callsArgWith(0, error);
 
             beerController.json_beer_query(fakeReq, fakeRes);
 
-            assert.equal(findCall.called, true);
+            assert.equal(execCall.called, true);
             assert.equal(sendStub.calledWith(error), true);
         });
         it('Should return beers as JSON.', function(){
             var beers = [{name: 'Leffe'}],
-                findCall = findStub.callsArgWith(3, null, beers);
+                execCall = execStub.callsArgWith(0, null, beers);
 
             beerController.json_beer_query(fakeReq, fakeRes);
 
-            assert.equal(findCall.called, true);
+            assert.equal(execCall.called, true);
             assert.equal(jsonStub.calledWith(beers), true);
         });
     });
