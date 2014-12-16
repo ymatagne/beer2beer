@@ -23,8 +23,8 @@ angular.module('b2b.controllers').controller('rechercheController', function($sc
                 longitude: longitude,
                 title: title,
                 bar: bar,
-                onClick: function (ret) {
-                    $scope.showBeerInBar(ret.model.bar._id);
+                onClick: function (retour,event,model) {
+                    $scope.showBeerInBar(model.bar._id);
                 }
             });
         } else if (type === 'position') {
