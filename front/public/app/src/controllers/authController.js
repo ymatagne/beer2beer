@@ -30,7 +30,7 @@ angular.module('b2b.controllers').controller('authController', function($rootSco
             });
     };
 
-    $scope.gotoAnchor = function(name) {
+    $rootScope.gotoAnchor = function(name) {
         $location.path('/');
         var elementToScrollOn = document.getElementById(name);
         if(elementToScrollOn){

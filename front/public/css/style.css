@@ -39,8 +39,37 @@ body{
 .imageLogo {
     width: 150px;
 }
+.rowCompass{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+}
+.compassHome{
+    bottom: 0;
+    margin-bottom: 40px;
+    position: absolute;
+    color:#279c82;
+}
+.compassHome>a{
+    color:#279c82;
+}.compassHome>a>i{
+     color:#279c82;
+ }
+.compassHome>a{
+    -webkit-animation: translate 1s linear infinite;
+}
+@-webkit-keyframes translate {
+    from{
+        -webkit-transform: translateY(0px);
+    }
+    to{
+        -webkit-transform: translateY(20px);
+    }
+}
+
 .title-accroche{
     text-align: center;
+    margin-top: 70px;
 }
 .title-first-word{
     color: #279c82;
@@ -137,13 +166,14 @@ body{
     margin-left: auto;
     margin-right: auto;
     margin-top: 150px;
+    padding-left: 40px;
 }
 
 .titleHome {
     width: 450px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 70px;
+    margin-top: 100px;
 }
 
 .focus {

@@ -10,6 +10,7 @@ section#home
             h1
                 span.title-first-word Beer2Beer
                 span , the best place to find your beer.
-        .row
+        .row.rowCompass
             .compassHome
-                img(src='images/compass.png')
+                a(ng-click="gotoAnchor('focus')")
+                    i.fa.fa-chevron-down.fa-4x
