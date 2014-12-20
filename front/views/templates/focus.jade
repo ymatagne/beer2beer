@@ -1,5 +1,62 @@
 section#focus.focus
-    .imageProcess
-        h1 Looking for unique beer ?
-        img(src='images/choose_1.jpg')
+    .container
+        div.section-header.titleFocus
+            h2.dark-text Why ?
+        .row
+            .col-sm-6.col-md-3
+                .thumbnail
+                    img(src='images/holliday.jpg')
+                    .caption
+                        h3 White Beer
+                        p It's hot, you're exhausted, you want to refresh yourself but you do not know where to go?
+            .col-sm-6.col-md-3
+                .thumbnail
+                    img(src='images/sport.jpeg')
+                    .caption
+                        h3 Lager Beer
+                        p You just run a marathon and want to see a beautiful blonde ?
+            .col-sm-6.col-md-3
+                .thumbnail
+                    img(src='images/white.jpg')
+                    .caption
+                        h3 Tempare Beer
+                        p Snow, cold and wind can not help you to drink a beer with character ... unless you do not know or drink ...
+            .col-sm-6.col-md-3
+                .thumbnail
+                    img(src='images/fruits.jpeg')
+                    .caption
+                        h3 Kierk Beer
+                        p Feel like strawberry? It's complicated but Beer2Beer can find it!
 
+        .row
+            .col-sm-6.col-md-3
+                .thumbnail
+                    img(src='images/choose_1.jpg')
+                    .caption
+                        h3
+                            span.title-first-word Beer2Beer
+                        p This website is looking for these beers in bars turn to you. In addition to the research beer, it allows you to watch your money by showing you the price of beer!
+            .col-sm-6.col-md-3.emptyBlockTwo
+                .thumbnail
+                    img(src='images/love.jpeg')
+                    .caption
+                        h3 I Love Beer
+                        p Share the same passion : Beer
+
+            .col-sm-6.col-md-3
+                .thumbnail
+                    img(src='images/team.png')
+                    .caption
+                        h3 Cheaper Beer
+                        p You can simply go boir a drink with friends without too much money dépencer
+            .col-sm-6.col-md-3
+                .thumbnail
+                    img(src='images/community.jpg')
+                    .caption
+                        h3
+                            span.title-first-word Beer2Beer
+                        p Is a community site. We need you to improve the offered services and above all indexed beers.
+        .row.rowFocus
+            .compassFocus
+                a(ng-click="gotoAnchor('searchBeer')")
+                    i.fa.fa-chevron-down.fa-4x

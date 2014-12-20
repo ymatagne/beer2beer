@@ -1,27 +1,27 @@
 section#searchBeer.searchBeer(ng-controller="searchBeerController")
     .container
         .container-fluid
-            .row
-                .col-xs-12
-                    form.form-inline#search-form
-                        .form-group
-                            h3 Choose a type
-                            ui-select(multiple,ng-model="multipleChoose.selectedTypes", theme='bootstrap',on-select="refreshBeersList($item)",on-remove="refreshBeersListAfterDelete($item)", reset-search-input='true', style='width: 300px;')
-                                ui-select-match(placeholder='Enter an type...') {{$item.name}}
-                                ui-select-choices(repeat='type in types', refresh='refreshTypes($select.search)', refresh-delay='0')
-                                    div(ng-bind-html='type.name | highlight: $select.search')
-                            a(ng-click="removeType()")
-                                span.glyphicon.glyphicon-remove
-
-                        .form-group
-                            h3 Choose a beer
-                            ui-select(ng-model='beer.selected', theme='bootstrap', reset-search-input='false', style='width: 300px;')
-                                ui-select-match(placeholder='Enter an beer...') {{$select.selected.nom}}
-                                ui-select-choices(repeat='beer in beers track by $index', refresh='refreshBeers($select.search)', refresh-delay='0')
-                                    div(ng-bind-html='beer.nom | highlight: $select.search')
-
-                        .form-group
-                            button.btn.btn-primary(type="button",ng-click="searchBeer()") Search your beer !
+            .row.cadre
+                .col-xs-6
+                    .row.ligne-search
+                        .circle 1
+                        h3 Choose a type
+                    .row
+                        ui-select(multiple,ng-model="multipleChoose.selectedTypes", theme='bootstrap',on-select="refreshBeersList($item)",on-remove="refreshBeersListAfterDelete($item)", reset-search-input='true', style='width: 300px;')
+                            ui-select-match(placeholder='Enter an type...') {{$item.name}}
+                            ui-select-choices(repeat='type in types', refresh='refreshTypes($select.search)', refresh-delay='0')
+                                div(ng-bind-html='type.name | highlight: $select.search')
+                .col-xs-6
+                    .row.ligne-search
+                        .circle 2
+                        h3 Choose a Beer
+                    .row
+                        ui-select(ng-model='beer.selected', theme='bootstrap', reset-search-input='false', style='width: 300px;')
+                            ui-select-match(placeholder='Enter an beer...') {{$select.selected.nom}}
+                            ui-select-choices(repeat='beer in beers track by $index', refresh='refreshBeers($select.search)', refresh-delay='0')
+                                div(ng-bind-html='beer.nom | highlight: $select.search')
+            .row.rowSearch
+                button.btn.btn-primary.btn-search(type="button",ng-click="searchBeer()") Search your beer !
 
             .row
                 .col-xs-12
@@ -48,3 +48,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                                     td(ng-show="consumption.enable") {{ consumption.beer_id[0].alcool }} %
                                     td(ng-show="consumption.enable") {{ consumption.quantity }}
                                     td(ng-show="consumption.enable") {{ consumption.price }} €
+            .row.rowFocus
+                .compassFocus
+                    a(ng-click="gotoAnchor('team')")
+                        i.fa.fa-chevron-down.fa-4x
