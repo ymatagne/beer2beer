@@ -348,3 +348,7 @@ a.sso-button {
     float: right;
     margin-bottom: 20px;
 }
+.thumbnailFocus{
+    min-height: 360px;
+    border-color: #279c82;
+}
