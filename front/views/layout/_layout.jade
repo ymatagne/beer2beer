@@ -31,10 +31,14 @@ html
         script(src="libs/angular-scroll/angular-scroll.min.js")
         script(src="libs/lodash/dist/lodash.min.js")
         script(src="libs/angular-google-maps/dist/angular-google-maps.min.js")
+        script(src="libs/angular-translate/angular-translate.min.js")
+        script(src = "libs/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js")
         //-<!-- endbuild-->
+
         //-<!--build:js app/b2b.js-->
         script(src="app/src/application.js")
         script(src="app/src/controllers/authController.js")
+        script(src = "app/src/controllers/footerController.js")
         script(src="app/src/controllers/menuAdminController.js")
         script(src="app/src/controllers/searchBeerController.js")
         script(src ="app/src/controllers/rechercheController.js")
@@ -44,5 +48,6 @@ html
         script(src = "app/src/services/beerService.js")
         script(src = "app/src/services/typeService.js")
         script(src = "app/src/services/breweryService.js")
-
+        script(src = "app/src/i18n/messages-en.json")
+        script(src = "app/src/i18n/messages-fr.json")
         //-<!-- endbuild-->

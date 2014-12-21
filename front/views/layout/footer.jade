@@ -1,29 +1,38 @@
-footer#footer.footer
+footer#footer.footer(ng-controller='footerController')
         .row
             .col-md-12
                 .row
-                    h4.row-space-4.hide-sm.title-footer Join or contact us !
-                .row.social-row
-                    a.social-network
-                        span.fa-stack.fa-lg
-                            i.fa.fa-square-o.fa-stack-2x
-                            i.fa.fa-twitter.fa-stack-1x
-                    a.social-network
-                        span.fa-stack.fa-lg
-                            i.fa.fa-square-o.fa-stack-2x
-                            i.fa.fa-google-plus.fa-stack-1x
-                    a.social-network
-                        span.fa-stack.fa-lg
-                            i.fa.fa-square-o.fa-stack-2x
-                            i.fa.fa-facebook.fa-stack-1x
-                    a.social-network
-                        span.fa-stack.fa-lg
-                            i.fa.fa-square-o.fa-stack-2x
-                            i.fa.fa-instagram.fa-stack-1x
-                    a.social-network
-                        span.fa-stack.fa-lg
-                            i.fa.fa-square-o.fa-stack-2x
-                            i.fa.fa-github.fa-stack-1x
+                    .col-md-6
+                        .row
+                            h4.row-space-4.hide-sm.title-footer {{ 'FOOTER_CONTACT' | translate }}
+                        .row.social-row
+                            a.social-network
+                                span.fa-stack.fa-lg
+                                    i.fa.fa-square-o.fa-stack-2x
+                                    i.fa.fa-twitter.fa-stack-1x
+                            a.social-network
+                                span.fa-stack.fa-lg
+                                    i.fa.fa-square-o.fa-stack-2x
+                                    i.fa.fa-google-plus.fa-stack-1x
+                            a.social-network
+                                span.fa-stack.fa-lg
+                                    i.fa.fa-square-o.fa-stack-2x
+                                    i.fa.fa-facebook.fa-stack-1x
+                            a.social-network
+                                span.fa-stack.fa-lg
+                                    i.fa.fa-square-o.fa-stack-2x
+                                    i.fa.fa-instagram.fa-stack-1x
+                            a.social-network
+                                span.fa-stack.fa-lg
+                                    i.fa.fa-square-o.fa-stack-2x
+                                    i.fa.fa-github.fa-stack-1x
+                    .col-md-6
+                        .row
+                            h4.row-space-4.hide-sm.title-footer {{ 'FOOTER_LANG' | translate }}
+                        .row.social-row
+                            div.btn-group
+                                label.btn.btn-default(ng-model="radioModel",btn-radio="'fr'",ng-click="changeLanguage('fr')") Fr
+                                label.btn.btn-default(ng-model="radioModel",btn-radio="'en'",ng-click="changeLanguage('en')") En
 
                 .row.inc
                     p © Beer2Beer

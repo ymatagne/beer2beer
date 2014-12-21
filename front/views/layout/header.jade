@@ -12,22 +12,22 @@ header.header
             nav.navbar-collapse.bs-navbar-collapse.collapse(role='navigation', style='height: 1px;')
                 ul.nav.navbar-nav.navbar-right.responsive-nav.main-nav-list
                     li.current
-                        a(ng-click="gotoAnchor('home')") Home
+                        a(ng-click="gotoAnchor('home')") {{ 'MENU_TITLE_1' | translate }}
                     li
-                        a(ng-click="gotoAnchor('focus')") Focus
+                        a(ng-click="gotoAnchor('focus')") {{ 'MENU_TITLE_2' | translate }}
                     li
-                        a(ng-click="gotoAnchor('searchBeer')") Search The Beer
+                        a(ng-click="gotoAnchor('searchBeer')") {{ 'MENU_TITLE_3' | translate }}
                     li
-                        a(ng-click="gotoAnchor('team')") Team
+                        a(ng-click="gotoAnchor('team')") {{ 'MENU_TITLE_4' | translate }}
                     li(ng-cloak)
-                        a(ng-click='login()' ng-hide="currentUser") Login
+                        a(ng-click='login()' ng-hide="currentUser") {{ 'MENU_TITLE_5' | translate }}
                         span.dropdown(ng-show="currentUser")
                             a.dropdown-toggle#linkToConnect {{currentUser.email}}
                             ul.dropdown-menu#menu
                                 li
-                                    a(ng-click="gotoAddBeer()") Add Beersss !
+                                    a(ng-click="gotoAddBeer()") {{ 'MENU_TITLE_6' | translate }}
                                 li
-                                    a(ng-click="exit()") Disconnect :(
+                                    a(ng-click="exit()") {{ 'MENU_TITLE_7' | translate }}
 
 
 

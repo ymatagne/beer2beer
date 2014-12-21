@@ -5,7 +5,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                 .col-xs-6
                     .row.ligne-search
                         .circle 1
-                        h3 Choose a type
+                        h3 {{ 'TITLE_CRITERE_1' | translate }}
                     .row
                         ui-select(multiple,ng-model="multipleChoose.selectedTypes", theme='bootstrap',on-select="refreshBeersList($item)",on-remove="refreshBeersListAfterDelete($item)", reset-search-input='true', style='width: 300px;')
                             ui-select-match(placeholder='Enter an type...') {{$item.name}}
@@ -14,14 +14,14 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                 .col-xs-6
                     .row.ligne-search
                         .circle 2
-                        h3 Choose a Beer
+                        h3 {{ 'TITLE_CRITERE_2' | translate }}
                     .row
                         ui-select(ng-model='beer.selected', theme='bootstrap', reset-search-input='false', style='width: 300px;')
                             ui-select-match(placeholder='Enter an beer...') {{$select.selected.nom}}
                             ui-select-choices(repeat='beer in beers track by $index', refresh='refreshBeers($select.search)', refresh-delay='0')
                                 div(ng-bind-html='beer.nom | highlight: $select.search')
             .row.rowSearch
-                button.btn.btn-primary.btn-search(type="button",ng-click="searchBeer()") Search your beer !
+                button.btn.btn-primary.btn-search(type="button",ng-click="searchBeer()") {{ 'LABEL_SEARCH_BTN' | translate }}
 
             .row
                 .col-xs-12
@@ -31,15 +31,15 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
             .row
                 .col-xs-12
                     div#infoBar(ng-show="beerShow")
-                        h3 List of Beer here : {{beerShow.nom}}
+                        h3 {{ 'TABLEAU_TITLE' | translate }} {{beerShow.nom}}
                         table.table.table-striped
                             thead
                                 tr
-                                    th Name
-                                    th Type
-                                    th Alcool
-                                    th Quantity
-                                    th Price
+                                    th {{ 'TABLEAU_DESC_1' | translate }}
+                                    th {{ 'TABLEAU_DESC_2' | translate }}
+                                    th {{ 'TABLEAU_DESC_3' | translate }}
+                                    th {{ 'TABLEAU_DESC_4' | translate }}
+                                    th {{ 'TABLEAU_DESC_5' | translate }}
                             tbody
                                 tr(ng-repeat='consumption in (filteredItems=beerShow.consumptions)')
                                     td(ng-show="consumption.enable") {{ consumption.beer_id[0].nom }}
