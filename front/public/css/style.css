@@ -45,10 +45,9 @@ body{
     width: 50px;
 }
 .compassHome{
-    bottom: 0;
-    margin-bottom: 40px;
-    position: absolute;
+    text-align: center;
     color:#279c82;
+    index:9999;
 }
 .compassFocus{
     text-align: center;
@@ -117,7 +116,6 @@ body{
 .focus {
     padding-top: 100px;
     margin-bottom:50px;
-    overflow: hidden;
     min-height: 900px;
 }
 
@@ -349,6 +347,6 @@ a.sso-button {
     margin-bottom: 20px;
 }
 .thumbnailFocus{
-    min-height: 360px;
+    min-height: 380px;
     border-color: #279c82;
 }
