@@ -350,3 +350,7 @@ a.sso-button {
     min-height: 380px;
     border-color: #279c82;
 }
+
+.thumbnailFocus img{
+    height: 170px;
+}
