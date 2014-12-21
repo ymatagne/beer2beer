@@ -55,5 +55,15 @@
   "ADMIN_LABEL_BTN_BEER" : "Créez la bière",
   "ADMIN_LABEL_PRICE" : "Prix : ",
   "ADMIN_LABEL_QUANTITY" : "Quantité : ",
-  "ADMIN_BTN_LINK" : "Ajoutez la bière au bar"
+  "ADMIN_BTN_LINK" : "Ajoutez la bière au bar",
+  "LOGIN_TITRE" : "Connexion",
+  "LOGIN_EMAIL" : "Adresse Mail : ",
+  "LOGIN_PASSWORD" : "Mot de passe : ",
+  "LOGIN_LOG_WITH" : "Connectez vous avec : ",
+  "LOGIN_BTN" : "Connexion",
+  "LOGIN_SIGNUP" : "Enregistrez vous !",
+  "LOGIN_SIGNUP_PSEUDO" : "Pseudo :",
+  "LOGIN_SIGNUP_EMAIL" : "Adresse Mail : ",
+  "LOGIN_SIGNUP_PASS" : "Mot de passe :",
+  "LOGIN_SIGNUP_CREATE" : "Créer le compte"
 }

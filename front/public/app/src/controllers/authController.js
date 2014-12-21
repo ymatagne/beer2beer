@@ -1,4 +1,4 @@
-angular.module('b2b.controllers').controller('authController', function ($rootScope, $scope, $location, $document, ngDialog, AuthService) {
+angular.module('b2b.controllers').controller('authController', function ($rootScope, $scope,$window, $location, $document, ngDialog, AuthService) {
     $scope.login = function () {
         ngDialog.open(getJsonForOpenDialog('login'));
     };
@@ -8,15 +8,15 @@ angular.module('b2b.controllers').controller('authController', function ($rootSc
     $scope.register = function (form) {
         AuthService.register($scope.user).then(function () {
             console.log('create user OK');
-            $scope.message = "Created Users";
             $scope.closeThisDialog();
+            $window.location.href='/';
         }, function () {
             console.log('create user KO');
             $scope.message = 'Error';
         });
     };
 
-    $scope.submit = function (form) {
+    $scope.submit = function () {
         AuthService.login($scope.user.email, $scope.user.password).then(
             function (user) {
                 $rootScope.currentUser = user;

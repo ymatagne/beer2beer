@@ -55,5 +55,16 @@
   "ADMIN_LABEL_BTN_BEER" : "Create Beer",
   "ADMIN_LABEL_PRICE" : "Price : ",
   "ADMIN_LABEL_QUANTITY" : "Quantity : ",
-  "ADMIN_BTN_LINK" : "Link Beer To Bar"
+  "ADMIN_BTN_LINK" : "Link Beer To Bar",
+  "LOGIN_TITRE" : "Log In",
+  "LOGIN_EMAIL" : "Email Addess : ",
+  "LOGIN_PASSWORD" : "Password : ",
+  "LOGIN_LOG_WITH" : "Or log in with : ",
+  "LOGIN_BTN" : "Log In",
+  "LOGIN_SIGNUP" : "Sign Up",
+  "LOGIN_SIGNUP_PSEUDO" : "Pseudo :",
+  "LOGIN_SIGNUP_EMAIL" : "Email Addess :",
+  "LOGIN_SIGNUP_PASS" : "Password :",
+  "LOGIN_SIGNUP_CREATE" : "Create user"
+
 }
