@@ -1,6 +1,6 @@
 var passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
-    GoogleStrategy = require('passport-google').Strategy,
+    GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
     User = require('../models/user'),
     cookieParser = require('cookie-parser'),
     session = require('express-session');
@@ -22,10 +22,11 @@ module.exports = function (app) {
     });
 
     passport.use(new GoogleStrategy({
-            returnURL: 'https://beer2beer.herokuapp.com/api/auth/google/callback',
-            realm: 'https://beer2beer.herokuapp.com/'
+            clientID: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            callbackURL: 'http://localhost:5000/oauth2callback'
         },
-        function (accessToken, profile, done) {
+        function (accessToken, token,profile,done) {
             User.findOne({email: profile.emails[0].value}, function (err, user) {
                 if (err) {
                     console.log(err);
@@ -35,12 +36,13 @@ module.exports = function (app) {
                 } else {
                     var mail=profile.emails[0].value;
                     var pseudo=profile.displayName;
+                    var provider=profile.provider;
 
                     var user = new User({
                         email: mail,
                         pseudo : pseudo,
                         role: 'USER',
-                        type: 'google'
+                        type: provider
                     });
                     user.save(function (err) {
                         if (err) {

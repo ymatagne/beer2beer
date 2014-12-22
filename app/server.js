@@ -1,11 +1,7 @@
 var express = require('express'),
-    mongoose = require('mongoose'),
     config = require( './config/config.js'),
     auth = require( './config/auth.js'),
     app = express();
-
-// Configuration de la base de donnees
-mongoose.connect('mongodb://b2b:b2b@ds039950.mongolab.com:39950/beer2beer');
 
 // Configuration du server
 config(app, express);

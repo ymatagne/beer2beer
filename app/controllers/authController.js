@@ -6,7 +6,7 @@ var User = require('../models/user'),
  Method: GET
  */
 module.exports.auth_google = function () {
-    return passport.authenticate('google')
+    return passport.authenticate('google',{ scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'] })
 };
 
 /*
