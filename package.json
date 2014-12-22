@@ -48,7 +48,6 @@
     "grunt-mocha-cov": "~0.3.0",
     "grunt-mocha-test": "^0.12.1",
     "grunt-istanbul": "~0.3.0"
-
   },
   "config": {
     "blanket": {

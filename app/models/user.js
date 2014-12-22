@@ -12,11 +12,15 @@ var schema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: false
     },
     token: {
         type: String,
         required: false
+    },
+    type: {
+        type: String,
+        required: true
     },
     role: {
         type: String,

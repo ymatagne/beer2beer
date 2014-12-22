@@ -65,6 +65,7 @@
   "LOGIN_SIGNUP_PSEUDO" : "Pseudo :",
   "LOGIN_SIGNUP_EMAIL" : "Email Addess :",
   "LOGIN_SIGNUP_PASS" : "Password :",
-  "LOGIN_SIGNUP_CREATE" : "Create user"
+  "LOGIN_SIGNUP_CREATE" : "Create user",
+  "LOGIN_BACK" : "Back to sign up"
 
 }

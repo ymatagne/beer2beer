@@ -32,35 +32,37 @@ header.header
 
 
 script(type="text/ng-template", id="login")
-  form.form-signin(ng-submit="submit(form)",ng-controller='authController')
-    h2.form-signin-heading {{ 'LOGIN_TITRE' | translate }}
-    div.form-group
-        p.help-block(ng-show="errors.email") {{ errors.email }}
-        label {{ 'LOGIN_EMAIL' | translate }}
-        input.form-control(type="email", id="email", name="email",placeholder="Enter email ...",value="",ng-model="user.email",required)
-      div.form-group
-        p.help-block(ng-show="errors.password") {{ errors.password }}
-        label {{ 'LOGIN_PASSWORD' | translate }}
-        input.form-control(type="password", id="password", name="password",placeholder="Enter password ...",value="",ng-model="user.password",required)
-    button.btn.btn-lg.btn-primary.btn-block.btnLogin(id="signin",type="submit") {{ 'LOGIN_BTN' | translate }}
-    a.signUp(ng-click='signup()',ng-controller='authController') {{ 'LOGIN_SIGNUP' | translate }}
-  hr.hrLogin
-  .extra
-    h2.form-signin-heading {{ 'LOGIN_LOG_WITH' | translate }}
-    .buttons.sso
-      a(href="/api/auth/google/", class="sso-button google") Google
-
-script(type="text/ng-template", id="signup")
-  form.form-signin(ng-submit="register(form)",ng-controller='authController')
-    h2.form-signin-heading {{ 'LOGIN_SIGNUP' | translate }}
-    h4.error {{message}}
-    div.form-group
-        label {{ 'LOGIN_SIGNUP_PSEUDO' | translate }}
-        input.form-control(type="text", id="pseudo", name="pseudo",placeholder="Enter pseudo ...",value="",ng-model="user.pseudo",required)
-    div.form-group
-            label {{ 'LOGIN_SIGNUP_EMAIL' | translate }}
-            input.form-control(type="email", id="email", name="email",placeholder="Enter email ...",value="",ng-model="user.email",required)
-    div.form-group
-        label {{ 'LOGIN_SIGNUP_PASS' | translate }}
-        input.form-control(type="password", id="password", name="password",placeholder="Enter password ",value="",ng-model="user.password",required)
-    button.btn.btn-lg.btn-primary.btn-block.btnLogin(id="signup",type="submit") {{ 'LOGIN_SIGNUP_CREATE' | translate }}
+    div(ng-controller='authController')
+      div(ng-show="showSignup")
+          form.form-signin(ng-submit="submit(form)")
+            h2.form-signin-heading {{ 'LOGIN_TITRE' | translate }}
+            div.form-group
+                p.help-block(ng-show="errors.email") {{ errors.email }}
+                label {{ 'LOGIN_EMAIL' | translate }}
+                input.form-control(type="email", id="email", name="email",placeholder="Enter email ...",value="",ng-model="user.email",required)
+              div.form-group
+                p.help-block(ng-show="errors.password") {{ errors.password }}
+                label {{ 'LOGIN_PASSWORD' | translate }}
+                input.form-control(type="password", id="password", name="password",placeholder="Enter password ...",value="",ng-model="user.password",required)
+            button.btn.btn-lg.btn-primary.btn-block.btnLogin(id="signin",type="submit") {{ 'LOGIN_BTN' | translate }}
+            a.signUp(ng-click='signup()') {{ 'LOGIN_SIGNUP' | translate }}
+          hr.hrLogin
+          .extra
+            h2.form-signin-heading {{ 'LOGIN_LOG_WITH' | translate }}
+            .buttons.sso
+              a(href="/api/auth/google/", class="sso-button google") Google
+      div(ng-hide="showSignup")
+          form.form-signin(ng-submit="register(form)")
+            h2.form-signin-heading {{ 'LOGIN_SIGNUP' | translate }}
+            h4.error {{message}}
+            div.form-group
+                label {{ 'LOGIN_SIGNUP_PSEUDO' | translate }}
+                input.form-control(type="text", id="pseudo", name="pseudo",placeholder="Enter pseudo ...",value="",ng-model="user.pseudo",required)
+            div.form-group
+                    label {{ 'LOGIN_SIGNUP_EMAIL' | translate }}
+                    input.form-control(type="email", id="email", name="email",placeholder="Enter email ...",value="",ng-model="user.email",required)
+            div.form-group
+                label {{ 'LOGIN_SIGNUP_PASS' | translate }}
+                input.form-control(type="password", id="password", name="password",placeholder="Enter password ",value="",ng-model="user.password",required)
+            button.btn.btn-lg.btn-primary.btn-block.btnLogin(id="signup",type="submit") {{ 'LOGIN_SIGNUP_CREATE' | translate }}
+            a.signUp(ng-click='signup()') {{ 'LOGIN_BACK' | translate }}
