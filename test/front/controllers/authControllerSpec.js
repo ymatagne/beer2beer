@@ -31,12 +31,6 @@ describe('authController...', function(){
 		assert.isTrue(ngDialogOpenCall.called, 'ngDialog.open has been called');
         assert.isTrue(ngDialogOpenCall.calledWith(getJsonForOpenDialog('login')), 'ngDialog.open has been called with correct args');
 	});
-	it('Should open "ngDialog" when call "signup" method.', function(){
-		scope.signup();
-
-		assert.isTrue(ngDialogOpenCall.called, 'ngDialog.open has been called');
-        assert.isTrue(ngDialogOpenCall.calledWith(getJsonForOpenDialog('signup')), 'ngDialog.open has been called with correct args');
-	});
 
 	it('Should call "path(\'/\')" on $location when calling "gotoAnchor".', function(){
 		scope.gotoAnchor();
