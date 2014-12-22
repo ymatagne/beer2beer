@@ -22,8 +22,8 @@ module.exports = function (app) {
     });
 
     passport.use(new GoogleStrategy({
-            returnURL: 'http://localhost:5000/api/auth/google/callback',
-            realm: 'http://localhost:5000/'
+            returnURL: 'https://beer2beer.herokuapp.com/api/auth/google/callback',
+            realm: 'https://beer2beer.herokuapp.com/'
         },
         function (accessToken, profile, done) {
             User.findOne({email: profile.emails[0].value}, function (err, user) {
