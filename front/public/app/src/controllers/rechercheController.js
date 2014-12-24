@@ -18,7 +18,7 @@ angular.module('b2b.controllers').controller('rechercheController', function($sc
                 uid: uid,
                 provider: "test",
                 name: "It's you",
-                icon: 'http://beer2beer.herokuapp.com/images/bar.png',
+                icon: 'images/bar-location.png',
                 latitude: latitude,
                 longitude: longitude,
                 title: title,
