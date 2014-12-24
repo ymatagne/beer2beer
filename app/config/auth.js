@@ -23,8 +23,7 @@ module.exports = function (app) {
 
     passport.use(new GoogleStrategy({
             clientID: process.env.GOOGLE_CLIENT_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            callbackURL: 'http://localhost:5000/oauth2callback'
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET
         },
         function (accessToken, token,profile,done) {
             User.findOne({email: profile.emails[0].value}, function (err, user) {
