@@ -81,10 +81,10 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
     google.maps.event.addListener(searchBox, 'places_changed', function () {
         var places = searchBox.getPlaces();
         $scope.searchLocation = [];
-        $scope.addMarker(places[0].geometry.location.k, places[0].geometry.location.B, 'search', places[0].id, places[0].nom, $scope.newBar);
+        $scope.addMarker(places[0].geometry.location.lat(), places[0].geometry.location.lng(), 'search', places[0].id, places[0].nom, $scope.newBar);
         $scope.newBar.geolocation = places[0].geometry.location.toString();
-        $scope.newBar.latitude = places[0].geometry.location.k;
-        $scope.newBar.longitude = places[0].geometry.location.B;
+        $scope.newBar.latitude = places[0].geometry.location.lat();
+        $scope.newBar.longitude = places[0].geometry.location.lng();
         $scope.$apply();
     });
 
