@@ -1330,5 +1330,37 @@
   {
     _id: 333,
     "name": "Other"
+  },
+  {
+    _id: 334,
+    "name": "Brasserie de Gayant"
+  },
+  {
+    _id: 335,
+    "name": "Brasserie Thiriez"
+  },
+  {
+    _id: 336,
+    "name": "Brasserie La Choulette"
+  },
+  {
+    _id: 337,
+    "name": "Brasserie d'Annœullin"
+  },
+  {
+    _id: 338,
+    "name": "Brasserie des Sources"
+  },
+  {
+    _id: 339,
+    "name": "Brasserie de Saint-Omer"
+  },
+  {
+    _id: 340,
+    "name": "Brasserie artisanale Moulins d'Ascq"
+  },
+  {
+    _id: 341,
+    "name": "Brasserie Castelain"
   }
 ]
