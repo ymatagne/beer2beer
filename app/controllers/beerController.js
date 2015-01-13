@@ -47,7 +47,6 @@ module.exports.json_beer_query_with_params = function (req, res) {
  Output: JSON
  */
 module.exports.json_beer_get = function (req, res) {
-    console.log('get ->', req.params.beer_id);
     Beer.findById(req.params.beer_id, function (err, doc) {
         if (err) {
             res.send(err);
