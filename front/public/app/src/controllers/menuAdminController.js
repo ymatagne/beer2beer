@@ -130,10 +130,13 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
 
     $scope.link = function () {
         if ($scope.bar.selected._id && $scope.beer.selected._id) {
+            var date = new Date();
 
             $scope.consumption.beer_id = $scope.beer.selected._id;
             $scope.consumption.type_id = $scope.beer.selected.type_id;
             $scope.consumption.price = $scope.price;
+            $scope.consumption.pression = $scope.pression?$scope.pression:false;
+            $scope.consumption.date = date.getDate()+'/'+ (date.getMonth()+1) +'/'+date.getFullYear();
             $scope.consumption.quantity = $scope.quantity.selected.quantity;
 
             var params = {bar: $scope.bar.selected, consumption: $scope.consumption};
@@ -145,6 +148,7 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
                     $scope.beer = {};
                     $scope.quantity = {};
                     $scope.price = "";
+                    $scope.pression = false;
                     $scope.message = "Ok ! new Consumption created for a bar";
                 }, function (res) {
                     $scope.errors = {};

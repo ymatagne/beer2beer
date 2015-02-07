@@ -1,6 +1,7 @@
 var assert = require('assert'),
 	requireHelper = require('../../require_helper'),
 	siteController = requireHelper('app/controllers/siteController');
+
 describe('siteControllerTest...', function(){
     var sinon = require('sinon'),
         fakeReq,

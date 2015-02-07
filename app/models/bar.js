@@ -5,7 +5,9 @@ var consumptionSchema = new mongoose.Schema({
     beer_id: [{type: mongoose.Schema.Types.ObjectId, ref: 'Beer'}],
     type_id: [{type: Number, ref: 'Type'}],
     enable: Boolean,
-    quantity: String
+    quantity: String,
+    date: String,
+    pression: Boolean
 });
 
 
@@ -15,6 +17,7 @@ var schema = mongoose.Schema({
     latitude: Number,
     longitude: Number,
     geolocation: String,
+    happyhours: String,
     consumptions: [consumptionSchema]
 });
 

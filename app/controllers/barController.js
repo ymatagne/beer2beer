@@ -45,6 +45,7 @@ module.exports.json_bar_save = function (req, res) {
         geolocation: body.geolocation,
         latitude: body.latitude,
         longitude: body.longitude,
+        happyhours: body.happyhours,
         nom: body.nom
     });
 

@@ -30,8 +30,9 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                         ui-gmap-markers(models="barsLocation",idKey="'uid'",icon="'icon'",coords="'self'",click="'onClick'")
             .row
                 .col-xs-12
+                    h3 {{ 'TABLEAU_TITLE' | translate }} {{beerShow.nom}}
                     div#infoBar(ng-show="beerShow")
-                        h3 {{ 'TABLEAU_TITLE' | translate }} {{beerShow.nom}}
+                        h3 {{ 'TITLE_PRESSION_BEER' | translate }}
                         table.table.table-striped
                             thead
                                 tr
@@ -41,13 +42,41 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                                     th {{ 'TABLEAU_DESC_4' | translate }}
                                     th {{ 'TABLEAU_DESC_5' | translate }}
                             tbody
-                                tr(ng-repeat='consumption in (filteredItems=beerShow.consumptions)')
+                                tr(ng-repeat='consumption in (filteredItems=beerShow.consumptions) | filter:{ pression: true }')
                                     td(ng-show="consumption.enable") {{ consumption.beer_id[0].nom }}
                                     td(ng-show="consumption.enable")
                                         p(ng-repeat="type in consumption.type_id") {{type.name}}
                                     td(ng-show="consumption.enable") {{ consumption.beer_id[0].alcool }} %
                                     td(ng-show="consumption.enable") {{ consumption.quantity }}
                                     td(ng-show="consumption.enable") {{ consumption.price }} €
+
+            .row
+                .col-xs-12
+                    div#infoBar(ng-show="beerShow")
+                        h3 {{ 'TITLE_BOTLE_BEER' | translate }}
+                        table.table.table-striped
+                            thead
+                                tr
+                                    th {{ 'TABLEAU_DESC_1' | translate }}
+                                    th {{ 'TABLEAU_DESC_2' | translate }}
+                                    th {{ 'TABLEAU_DESC_3' | translate }}
+                                    th {{ 'TABLEAU_DESC_4' | translate }}
+                                    th {{ 'TABLEAU_DESC_5' | translate }}
+                            tbody
+                                tr(ng-repeat='consumption in (filteredItems=beerShow.consumptions) | filter:{ pression: false }')
+                                    td(ng-show="consumption.enable") {{ consumption.beer_id[0].nom }}
+                                    td(ng-show="consumption.enable")
+                                        p(ng-repeat="type in consumption.type_id") {{type.name}}
+                                    td(ng-show="consumption.enable") {{ consumption.beer_id[0].alcool }} %
+                                    td(ng-show="consumption.enable") {{ consumption.quantity }}
+                                    td(ng-show="consumption.enable") {{ consumption.price }} €
+
+            .row
+                div#infoBar(ng-show="beerShow")
+                    h3 {{ 'TITLE_HAPPY_HOUR' | translate }}
+                    label {{ beerShow.happyhours }}
+
+
             .row.rowFocus
                 .compassFocus
                     a(ng-click="gotoAnchor('team')")

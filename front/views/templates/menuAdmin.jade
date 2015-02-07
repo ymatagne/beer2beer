@@ -9,33 +9,6 @@ section#menuAdminController(ng-controller="menuAdminController")
             ui-gmap-markers(models="barsLocation",idKey="'uid'",icon="'icon'",coords="'self'",click="'onClick'")
             ui-gmap-markers(models="searchLocation",idKey="'uid'",icon="'icon'",coords="'self'")
 
-        .row
-          div#infoBar(ng-show="beerShow")
-            h3 {{ 'TABLEAU_TITLE' | translate }} {{beerShow.nom}}
-            table.table.table-striped
-              thead
-                tr
-                  th {{ 'TABLEAU_DESC_1' | translate }}
-                  th {{ 'TABLEAU_DESC_2' | translate }}
-                  th {{ 'TABLEAU_DESC_3' | translate }}
-                  th {{ 'TABLEAU_DESC_4' | translate }}
-                  th {{ 'TABLEAU_DESC_5' | translate }}
-                  th(ng-show='currentUser.role=="ADMIN"') {{ 'TABLEAU_DESC_6' | translate }}
-              tbody
-                tr(ng-repeat='consumption in beerShow.consumptions')
-                  td {{ consumption.beer_id[0].nom }}
-                  td
-                   p(ng-repeat="type in consumption.type_id") {{type.name}}
-                  td {{ consumption.beer_id[0].alcool }} %
-                  td {{ consumption.quantity }}
-                  td {{ consumption.price }} €
-                  td(ng-show='consumption.enable && currentUser.role=="ADMIN"')
-                    button.btn.btn-default(ng-click="changerEtatConsumption(consumption)")
-                      span.glyphicon.glyphicon-ok-circle
-                  td(ng-show='!consumption.enable && currentUser.role=="ADMIN"')
-                    button.btn.btn-default(ng-click="changerEtatConsumption(consumption)")
-                      span.glyphicon.glyphicon-remove-circle
-
       .col-md-4
         form
           div
@@ -65,6 +38,10 @@ section#menuAdminController(ng-controller="menuAdminController")
             .form-group
               label(for="geolocationOfBar") {{ 'ADMIN_LABEL_GEO' | translate }}
               input#geolocationOfBar.form-control(ng-model="newBar.geolocation",ng-disabled="true")
+
+            .form-group
+              label {{ 'ADMIN_LABEL_HAPPY_HOURS' | translate }}
+              textarea.form-control(rows='3',ng-model="newBar.happyhours",ng-disabled="!addNewBar")
 
             .form-group
              button.btn.btn-primary(type="button",ng-click="createBar()",ng-disabled="!addNewBar") {{ 'ADMIN_LABEL_BTN' | translate }}
@@ -125,7 +102,74 @@ section#menuAdminController(ng-controller="menuAdminController")
                 ui-select-choices(repeat='quantity in quantities track by $index', refresh='refreshBeers($select.search)', refresh-delay='0')
                   div(ng-bind-html='quantity.quantity | highlight: $select.search')
 
+            .form-group
+              .checkbox
+                label
+                  input(type='checkbox',ng-model="pression",ng-value=false,ng-disabled='!bar.selected._id || !beer.selected._id')
+                  |     {{ 'ADMIN_LABEL_PRESSION' | translate }}
 
             button.btn.btn-primary(type="button",ng-click="link()",ng-disabled="!bar.selected._id || !beer.selected._id || form.priceOfBeer.$error") {{ 'ADMIN_BTN_LINK' | translate }}
 
+    .row
+      h3(ng-show="beerShow") {{ 'TABLEAU_TITLE' | translate }} {{beerShow.nom}}
+      div#infoBar(ng-show="beerShow")
+        h3 {{ 'TITLE_PRESSION_BEER' | translate }}
+        table.table.table-striped
+          thead
+            tr
+              th {{ 'TABLEAU_DESC_1' | translate }}
+              th {{ 'TABLEAU_DESC_2' | translate }}
+              th {{ 'TABLEAU_DESC_3' | translate }}
+              th {{ 'TABLEAU_DESC_4' | translate }}
+              th {{ 'TABLEAU_DESC_5' | translate }}
+              th {{ 'TABLEAU_DESC_7' | translate }}
+              th(ng-show='currentUser.role=="ADMIN"') {{ 'TABLEAU_DESC_6' | translate }}
+          tbody
+            tr(ng-repeat='consumption in beerShow.consumptions | filter:{ pression: true }')
+              td {{ consumption.beer_id[0].nom }}
+              td
+                p(ng-repeat="type in consumption.type_id") {{type.name}}
+              td {{ consumption.beer_id[0].alcool }} %
+              td {{ consumption.quantity }}
+              td {{ consumption.price }} €
+              td {{ consumption.date }}
+              td(ng-show='consumption.enable && currentUser.role=="ADMIN"')
+                button.btn.btn-default(ng-click="changerEtatConsumption(consumption)")
+                  span.glyphicon.glyphicon-ok-circle
+              td(ng-show='!consumption.enable && currentUser.role=="ADMIN"')
+                button.btn.btn-default(ng-click="changerEtatConsumption(consumption)")
+                  span.glyphicon.glyphicon-remove-circle
 
+    .row
+      div#infoBar(ng-show="beerShow")
+        h3 {{ 'TITLE_BOTLE_BEER' | translate }}
+        table.table.table-striped
+          thead
+            tr
+              th {{ 'TABLEAU_DESC_1' | translate }}
+              th {{ 'TABLEAU_DESC_2' | translate }}
+              th {{ 'TABLEAU_DESC_3' | translate }}
+              th {{ 'TABLEAU_DESC_4' | translate }}
+              th {{ 'TABLEAU_DESC_5' | translate }}
+              th {{ 'TABLEAU_DESC_7' | translate }}
+              th(ng-show='currentUser.role=="ADMIN"') {{ 'TABLEAU_DESC_6' | translate }}
+          tbody
+            tr(ng-repeat='consumption in beerShow.consumptions | filter:{ pression: false }')
+              td {{ consumption.beer_id[0].nom }}
+              td
+                p(ng-repeat="type in consumption.type_id") {{type.name}}
+              td {{ consumption.beer_id[0].alcool }} %
+              td {{ consumption.quantity }}
+              td {{ consumption.price }} €
+              td {{ consumption.date }}
+              td(ng-show='consumption.enable && currentUser.role=="ADMIN"')
+                button.btn.btn-default(ng-click="changerEtatConsumption(consumption)")
+                  span.glyphicon.glyphicon-ok-circle
+              td(ng-show='!consumption.enable && currentUser.role=="ADMIN"')
+                button.btn.btn-default(ng-click="changerEtatConsumption(consumption)")
+                  span.glyphicon.glyphicon-remove-circle
+
+    .row
+      div#infoBar(ng-show="beerShow")
+        h3 {{ 'TITLE_HAPPY_HOUR' | translate }}
+        label {{ beerShow.happyhours }}
