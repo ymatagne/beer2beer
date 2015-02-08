@@ -77,6 +77,27 @@ module.exports.json_bar_update = function (req, res) {
  Method: PUT
  Output: JSON
  */
+module.exports.json_delete_consumption = function (req, res) {
+    var consumption_id = req.query.consumption_id;
+
+    Bar.findOne({'_id': req.params.id}).exec(function (err, doc) {
+        //var index = doc.consumptions.indexOf(consumption);
+        for (var index = 0; index < doc.consumptions.length; index++) {
+            if(doc.consumptions[index]._id.toString()===consumption_id){
+                doc.consumptions.splice(index,1);
+            }
+        }
+        doc.save(function (err, bar) {
+            if (err) return console.log(err);
+            res.json(bar);
+        });
+    });
+};
+/*
+ Description: Update bar
+ Method: PUT
+ Output: JSON
+ */
 module.exports.json_bar_update_all = function (req, res) {
     var bar = new Bar(req.body.params.bar);
     var date = new Date();
@@ -101,21 +122,6 @@ module.exports.json_bar_update_all = function (req, res) {
                     index_a_conserver.push(i);
                 }
             }
-        }
-
-        //Suppression des consommations
-        var index_a_supprimer = [];
-
-        for (var i = 0; i < doc.consumptions.length; i++) {
-            for (var j = 0; j < index_a_conserver.length; j++) {
-                if (index_a_conserver[j] !== doc.consumptions[i]._id.id) {
-                    index_a_supprimer.push(i);
-                }
-            }
-        }
-
-        for (var j = 0; j < index_a_conserver.length; j++) {
-            doc.consumptions.splice(j,1);
         }
 
         doc.save(function (err, bar) {

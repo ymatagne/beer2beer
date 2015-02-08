@@ -21,6 +21,5 @@ var schema = mongoose.Schema({
     consumptions: [consumptionSchema]
 });
 
-
 module.exports = mongoose.model('Bar', schema);
 

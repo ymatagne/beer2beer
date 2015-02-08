@@ -24,6 +24,11 @@ angular.module('b2b.services').service('BarService', ['$http', function BarServi
             return response.data;
         });
     };
+    this.deleteConsumption = function (idBar, params) {
+        return $http.delete('/api/bar/' + idBar, {params: params}).then(function (response) {
+            return response.data;
+        });
+    };
     this.updateConsumption = function (idBar, params) {
         return $http.put('/api/bar/' + idBar + '/consumption', {params: params}).then(function (response) {
             return response.data;

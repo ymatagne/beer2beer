@@ -1,4 +1,4 @@
-angular.module('b2b.controllers').controller('menuBarController', function ($scope,$route, BarService, BeerService, TypeService, BreweryService, $controller) {
+angular.module('b2b.controllers').controller('menuBarController', function ($scope, $route, BarService, BeerService, TypeService, BreweryService, $controller) {
     $.extend(this, $controller('rechercheController', {$scope: $scope}));
     $scope.getLocation();
 
@@ -52,12 +52,33 @@ angular.module('b2b.controllers').controller('menuBarController', function ($sco
     });
 
     $scope.changerEtatConsumption = function (consumption) {
-        consumption.enable = !consumption.enable;
-    };
+        var params = {bar_id: $scope.bar._id, consumption: consumption};
+        BarService.updateConsumption($scope.bar._id, params).then(
+            function () {
+                $scope.errors = {};
+                consumption.enable = !consumption.enable;
+                $scope.message = 'Consumption has changed state';
+            }, function (res) {
+                $scope.errors = {};
+                angular.forEach(res.data.errors, function (error, field) {
+                    $scope.errors[field] = error.type;
+                });
+            });
+    }
 
     $scope.deleteConsumption = function (consumption) {
-        var index = $scope.bar.consumptions.indexOf(consumption)
-        $scope.bar.consumptions.splice(index, 1);
+        var params = {consumption_id: consumption._id};
+
+        BarService.deleteConsumption($scope.bar._id, params).then(
+            function (data) {
+                var index = $scope.bar.consumptions.indexOf(consumption);
+                $scope.bar.consumptions.splice(index, 1);
+            }, function (res) {
+                $scope.errors = {};
+                angular.forEach(res.data.errors, function (error, field) {
+                    $scope.errors[field] = error.type;
+                });
+            });
     };
 
     $scope.updateBar = function (bar) {
