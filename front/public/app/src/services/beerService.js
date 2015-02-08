@@ -19,4 +19,5 @@ angular.module('b2b.services').service('BeerService', ['$http', function BeerSer
             return response.data;
         });
     };
+
 }]);

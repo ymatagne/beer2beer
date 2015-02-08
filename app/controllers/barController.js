@@ -64,10 +64,63 @@ module.exports.json_bar_update = function (req, res) {
     var bar = new Bar(req.body.params.bar);
 
     Bar.findById(bar._id, function (err, found) {
-        req.body.params.consumption.enable=false;
+        req.body.params.consumption.enable = false;
         found.consumptions.push(req.body.params.consumption);
-        Bar.update({_id:found._id},{consumptions : found.consumptions},{},function(err,doc){
+        Bar.update({_id: found._id}, {consumptions: found.consumptions}, {}, function (err, doc) {
             res.json(found);
+        });
+    });
+};
+
+/*
+ Description: Update bar
+ Method: PUT
+ Output: JSON
+ */
+module.exports.json_bar_update_all = function (req, res) {
+    var bar = new Bar(req.body.params.bar);
+    var date = new Date();
+
+    Bar.findOne({'_id': bar._id}).populate('consumptions.beer_id').populate('consumptions.type_id').exec(function (err, doc) {
+        doc.nom = bar.nom;
+        doc.adresse = bar.adresse;
+        doc.latitude = bar.latitude;
+        doc.longitude = bar.longitude;
+        doc.geolocation = bar.geolocation;
+        doc.happyhours = bar.happyhours;
+
+        var index_a_conserver = [];
+
+        //Mise a jour des consommations
+        for (var i = 0; i < doc.consumptions.length; i++) {
+            for (var j = 0; j < bar.consumptions.length; j++) {
+                if (doc.consumptions[i]._id.id === bar.consumptions[j]._id.id) {
+                    doc.consumptions[i].price = bar.consumptions[j].price;
+                    doc.consumptions[i].pression = bar.consumptions[j].pression;
+                    doc.consumptions[i].date = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+                    index_a_conserver.push(i);
+                }
+            }
+        }
+
+        //Suppression des consommations
+        var index_a_supprimer = [];
+
+        for (var i = 0; i < doc.consumptions.length; i++) {
+            for (var j = 0; j < index_a_conserver.length; j++) {
+                if (index_a_conserver[j] !== doc.consumptions[i]._id.id) {
+                    index_a_supprimer.push(i);
+                }
+            }
+        }
+
+        for (var j = 0; j < index_a_conserver.length; j++) {
+            doc.consumptions.splice(j,1);
+        }
+
+        doc.save(function (err, bar) {
+            if (err) return console.log(err);
+            res.json(bar);
         });
     });
 };
@@ -80,8 +133,8 @@ module.exports.json_bar_update = function (req, res) {
 module.exports.json_bar_update_consumptions = function (req, res) {
 
     Bar.update({_id: req.body.params.bar_id, "consumptions._id": req.body.params.consumption._id},
-        {$set:  {'consumptions.$.enable': !req.body.params.consumption.enable}},
-        function(err, numAffected) {
+        {$set: {'consumptions.$.enable': !req.body.params.consumption.enable}},
+        function (err, numAffected) {
             res.json(req.body.params.consumption.enable);
 
         });

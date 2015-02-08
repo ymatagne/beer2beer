@@ -12,6 +12,9 @@ angular.module('b2b').config(['$routeProvider', function ($routeProvider) {
     }).when('/admin', {
         templateUrl: '/templates/menuAdmin',
         auth: true
+    }).when('/bar', {
+        templateUrl: '/templates/menuBar',
+        auth: true
     }).otherwise({redirectTo: '/'});
 }]);
 

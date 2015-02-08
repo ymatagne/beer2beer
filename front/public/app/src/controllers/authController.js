@@ -43,6 +43,10 @@ angular.module('b2b.controllers').controller('authController', function ($rootSc
         $location.path('/admin');
     };
 
+    $scope.gotoEditBar = function () {
+        $location.path('/bar');
+    };
+
     $scope.exit = function () {
         AuthService.logout().then(function () {
             $rootScope.currentUser = undefined;

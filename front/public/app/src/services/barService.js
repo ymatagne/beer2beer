@@ -14,6 +14,11 @@ angular.module('b2b.services').service('BarService', ['$http', function BarServi
             return response.data;
         });
     };
+    this.updateBar = function (params) {
+        return $http.put('/api/bar', {params: params}).then(function (response) {
+            return response.data;
+        });
+    };
     this.addConsumption = function (idBar, params) {
         return $http.put('/api/bar/' + idBar, {params: params}).then(function (response) {
             return response.data;
