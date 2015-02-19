@@ -15,6 +15,7 @@
     "angular-bootstrap": "latest",
     "angular-route": "latest",
     "angular-google-maps": "latest",
+    "lodash": "latest",
     "angular-ui-select": "latest",
     "angular-sanitize": "latest",
     "angular-mocks": "latest",
