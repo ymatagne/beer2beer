@@ -2,7 +2,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
     .container
         .container-fluid
             .row.cadre
-                .col-xs-12.col-md-4
+                .col-xs-12.col-sd-4.col-md-4
                     .row.ligne-search
                         .circle 1
                         h3 {{ 'TITLE_CRITERE_1' | translate }}
@@ -11,7 +11,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                             ui-select-match(placeholder='Enter an type...') {{$item.name}}
                             ui-select-choices(repeat='type in types', refresh='refreshTypes($select.search)', refresh-delay='0')
                                 div(ng-bind-html='type.name | highlight: $select.search')
-                .col-xs-12.col-md-4
+                .col-xs-12.col-sd-4.col-md-4
                     .row.ligne-search
                         .circle 2
                         h3 {{ 'TITLE_CRITERE_2' | translate }}
@@ -20,7 +20,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                             ui-select-match(placeholder='Enter an beer...') {{$select.selected.nom}}
                             ui-select-choices(repeat='beer in beers track by $index', refresh='refreshBeers($select.search)', refresh-delay='0')
                                 div(ng-bind-html='beer.nom | highlight: $select.search')
-                .col-xs-12.col-md-4
+                .col-xs-12.col-sd-4.col-md-4
                     .row.ligne-search
                         .circle 3
                         h3 {{ 'TITLE_CRITERE_3' | translate }}
