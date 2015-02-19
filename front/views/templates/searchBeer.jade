@@ -2,7 +2,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
     .container
         .container-fluid
             .row.cadre
-                .col-xs-4
+                .col-xs-12.col-md-4
                     .row.ligne-search
                         .circle 1
                         h3 {{ 'TITLE_CRITERE_1' | translate }}
@@ -11,7 +11,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                             ui-select-match(placeholder='Enter an type...') {{$item.name}}
                             ui-select-choices(repeat='type in types', refresh='refreshTypes($select.search)', refresh-delay='0')
                                 div(ng-bind-html='type.name | highlight: $select.search')
-                .col-xs-4
+                .col-xs-12.col-md-4
                     .row.ligne-search
                         .circle 2
                         h3 {{ 'TITLE_CRITERE_2' | translate }}
@@ -20,7 +20,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                             ui-select-match(placeholder='Enter an beer...') {{$select.selected.nom}}
                             ui-select-choices(repeat='beer in beers track by $index', refresh='refreshBeers($select.search)', refresh-delay='0')
                                 div(ng-bind-html='beer.nom | highlight: $select.search')
-                .col-xs-4
+                .col-xs-12.col-md-4
                     .row.ligne-search
                         .circle 3
                         h3 {{ 'TITLE_CRITERE_3' | translate }}
@@ -36,12 +36,12 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                 button.btn.btn-primary.btn-search(type="button",ng-click="searchBeer()") {{ 'LABEL_SEARCH_BTN' | translate }}
 
             .row
-                .col-xs-12
+                .col-xs-12.col-md-12
                     ui-gmap-google-map(center='map.center',zoom='map.zoom')
                         ui-gmap-markers(models="myLocation",idKey="'uid'",icon="'icon'",coords="'self'")
                         ui-gmap-markers(models="barsLocation",idKey="'uid'",icon="'icon'",coords="'self'",click="'onClick'")
             .row
-                .col-xs-12
+                .col-xs-12..col-md-12
                     h3(ng-show="beerShow") {{ 'TABLEAU_TITLE' | translate }} {{beerShow.nom}}
                     div#infoBar(ng-show="beerShow")
                         h3 {{ 'TITLE_PRESSION_BEER' | translate }}
@@ -63,7 +63,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                                     td(ng-show="consumption.enable") {{ consumption.price }} €
 
             .row
-                .col-xs-12
+                .col-xs-12..col-md-12
                     div#infoBar(ng-show="beerShow")
                         h3 {{ 'TITLE_BOTLE_BEER' | translate }}
                         table.table.table-striped
@@ -89,7 +89,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                     label {{ beerShow.happyhours }}
 
 
-            .row.rowFocus
+            .row.rowFocus.hidden-xs
                 .compassFocus
                     a(ng-click="gotoAnchor('team')")
                         i.fa.fa-chevron-down.fa-4x
