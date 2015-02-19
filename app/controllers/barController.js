@@ -83,8 +83,8 @@ module.exports.json_delete_consumption = function (req, res) {
     Bar.findOne({'_id': req.params.id}).exec(function (err, doc) {
         //var index = doc.consumptions.indexOf(consumption);
         for (var index = 0; index < doc.consumptions.length; index++) {
-            if(doc.consumptions[index]._id.toString()===consumption_id){
-                doc.consumptions.splice(index,1);
+            if (doc.consumptions[index]._id.toString() === consumption_id) {
+                doc.consumptions.splice(index, 1);
             }
         }
         doc.save(function (err, bar) {
@@ -154,17 +154,47 @@ module.exports.json_bar_update_consumptions = function (req, res) {
 module.exports.json_bar_all = function (req, res) {
 
     if (req.query.beer != undefined) {
-        Bar.find({'consumptions.beer_id': req.query.beer}).exec(function (err, docs) {
-            res.json(docs);
-        });
+
+        if (req.query.prices != undefined)
+            Bar.find({'consumptions.beer_id': req.query.beer}).exec(function (err, docs) {
+                res.json(docs);
+            });
+        else {
+            Bar.find({'consumptions.beer_id': req.query.beer}).where('consumptions.price').gt(req.query.prices[0]).lt(req.query.prices[1]).exec(function (err, docs) {
+                res.json(docs);
+            });
+        }
     } else if (req.query.type != undefined) {
+        if (req.query.prices != undefined)
+            Bar.find()
+                .where('consumptions.type_id').all(req.query.type)
+                .limit(100)
+                .exec(function (err, docs) {
+                    res.json(docs);
+                });
+        else {
+            Bar.find()
+                .where('consumptions.type_id').all(req.query.type)
+                .where('consumptions.price').gt(req.query.prices[0]).lt(req.query.prices[1])
+                .limit(100)
+                .exec(function (err, docs) {
+                    res.json(docs);
+                });
+        }
+
+    } else if (req.query.prices != undefined) {
         Bar.find()
-            .where('consumptions.type_id').all(req.query.type)
+            .where('consumptions.price').gt(req.query.prices[0]).lt(req.query.prices[1])
             .limit(100)
             .exec(function (err, docs) {
                 res.json(docs);
             });
-
+    } else {
+        Bar.find()
+            .limit(100)
+            .exec(function (err, docs) {
+                res.json(docs);
+            });
     }
 
 };

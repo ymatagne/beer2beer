@@ -2,7 +2,7 @@ angular.module('b2b.controllers', []);
 angular.module('b2b.services', []);
 angular.module('b2b.directives', []);
 
-angular.module('b2b', ['ngRoute', 'ngDialog', 'duScroll', 'ngSanitize', 'ui.bootstrap', 'ui.select', 'pascalprecht.translate', 'uiGmapgoogle-maps', 'b2b.directives', 'b2b.services', 'b2b.controllers']);
+angular.module('b2b', ['ngRoute', 'ngDialog', 'duScroll', 'ngSanitize', 'ui.bootstrap', 'ui.select','ui.bootstrap-slider','pascalprecht.translate', 'uiGmapgoogle-maps', 'b2b.directives', 'b2b.services', 'b2b.controllers']);
 
 
 angular.module('b2b').config(['$routeProvider', function ($routeProvider) {

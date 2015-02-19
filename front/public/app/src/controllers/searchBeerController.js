@@ -1,14 +1,21 @@
 angular.module('b2b.controllers').controller('searchBeerController', function ($scope, $location, $document, BarService, BeerService,TypeService,$controller) {
     $.extend(this, $controller('rechercheController', {$scope: $scope}));
     $scope.getLocation();
-
-
-
     $scope.beer = {};
     $scope.bar = {};
     $scope.multipleChoose = {};
     $scope.multipleChoose.selectedTypes = [];
 
+    $scope.slider = {
+        value: [1,30],
+        min: 1,
+        max: 30,
+        step: 0.5,
+        precision: 0.5,
+        range: true,
+        tooltipseparator: '>',
+        tooltipsplit: false
+    };
 
     // Gestion des listes
     $scope.refreshBeers = function (beer) {
@@ -87,7 +94,12 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
             }
         }
 
-        var params = {type: type, beer: beer};
+        if ($scope.slider.value[0]!== 1 || $scope.slider.value[1]!== 30) {
+            var prices = $scope.slider.value;
+        }
+
+        var params = {type: type, beer: beer,prices: prices};
+
         BarService.getBarsByBeers(params).then(
             function (data) {
                 var bars = data;
