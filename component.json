@@ -7,8 +7,8 @@
     "components"
   ],
   "dependencies": {
-    "angular": "last",
-    "bootstrap": "last",
+    "angular": "latest",
+    "bootstrap": "latest",
     "jquery": "~2.1.1-beta1",
     "ngDialog": "~0.3.2",
     "angular-scroll": "~0.6.2",
