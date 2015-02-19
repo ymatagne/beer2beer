@@ -5,7 +5,7 @@ angular.module('b2b.directives').directive('isNumber', function () {
             modelCtrl.$parsers.push(function (inputValue) {
                 if (inputValue == undefined)
                     return '';
-                var transformedInput = inputValue.replace(/[^0-9+.,]/g, '');
+                var transformedInput = inputValue.replace(/[^0-9+.]/g, '');
                 if (transformedInput != inputValue) {
                     modelCtrl.$setViewValue(transformedInput);
                     modelCtrl.$render();

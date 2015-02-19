@@ -5,6 +5,7 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
     $scope.bar = {};
     $scope.multipleChoose = {};
     $scope.multipleChoose.selectedTypes = [];
+    $scope.beerShow = undefined;
 
     $scope.slider = {
         value: [1,30],
@@ -105,7 +106,7 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
                 var bars = data;
                 $scope.barsLocation = [];
                 $scope.bar = {};
-                $scope.beerShow = {};
+                $scope.beerShow = undefined;
                 for (var index in bars) {
                     var bar = bars[index];
                     $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id, bar.nom, bar);
