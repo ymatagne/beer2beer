@@ -21,8 +21,9 @@ header.header
                         a(ng-click="gotoAnchor('team')") {{ 'MENU_TITLE_4' | translate }}
                     li(ng-cloak)
                         a(ng-click='login()' ng-hide="currentUser") {{ 'MENU_TITLE_5' | translate }}
-                        span.dropdown(ng-show="currentUser")
-                            a.dropdown-toggle#linkToConnect {{currentUser.pseudo}}
+                        span.dropdown(dropdown='', on-toggle='toggled(open)')
+                            a.dropdown-toggle#linkToConnect(href='', dropdown-toggle='')
+                                | {{currentUser.pseudo}}
                             ul.dropdown-menu#menu
                                 li
                                     a(ng-click="gotoEditBar()",ng-show="currentUser.role==='ADMIN'") {{ 'MENU_TITLE_8' | translate }}
@@ -30,7 +31,6 @@ header.header
                                     a(ng-click="gotoAddBeer()") {{ 'MENU_TITLE_6' | translate }}
                                 li
                                     a(ng-click="exit()") {{ 'MENU_TITLE_7' | translate }}
-
 
 
 script(type="text/ng-template", id="login")
