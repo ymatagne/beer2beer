@@ -105,6 +105,7 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
                 var bars = data;
                 $scope.barsLocation = [];
                 $scope.bar = {};
+                $scope.beerShow = {};
                 for (var index in bars) {
                     var bar = bars[index];
                     $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id, bar.nom, bar);
