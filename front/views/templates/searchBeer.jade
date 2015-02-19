@@ -41,7 +41,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                         ui-gmap-markers(models="myLocation",idKey="'uid'",icon="'icon'",coords="'self'")
                         ui-gmap-markers(models="barsLocation",idKey="'uid'",icon="'icon'",coords="'self'",click="'onClick'")
             .row
-                .col-xs-12..col-md-12
+                .col-xs-12.col-md-12
                     h3(ng-show="beerShow") {{ 'TABLEAU_TITLE' | translate }} {{beerShow.nom}}
                     div#infoBar(ng-show="beerShow")
                         h3 {{ 'TITLE_PRESSION_BEER' | translate }}
@@ -63,7 +63,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                                     td(ng-show="consumption.enable") {{ consumption.price }} €
 
             .row
-                .col-xs-12..col-md-12
+                .col-xs-12.col-md-12
                     div#infoBar(ng-show="beerShow")
                         h3 {{ 'TITLE_BOTLE_BEER' | translate }}
                         table.table.table-striped
