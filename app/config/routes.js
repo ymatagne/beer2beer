@@ -3,6 +3,7 @@ var site = require('../controllers/siteController'),
     barsController = require('../controllers/barController'),
     typeController = require('../controllers/typeController'),
     authController = require('../controllers/authController'),
+    userController = require('../controllers/userController'),
     breweryController = require('../controllers/breweryController');
 
 
@@ -55,6 +56,11 @@ module.exports = function (app) {
     app.put('/api/bar/:id/consumption', isAdmin, barsController.json_bar_update_consumptions);
     app.get('/api/bar/all', barsController.json_bar_all);
     app.get('/api/bar/beers', barsController.json_bar_with_beer);
+
+    /** User Crud **/
+    app.get('/api/user', isAdmin, userController.get_users);
+    app.delete('/api/user', isAdmin, userController.delete_user);
+    app.put('/api/user', isAdmin, userController.update_user);
 
     /** Angular Route **/
     app.get('/templates/:name', site.partials);

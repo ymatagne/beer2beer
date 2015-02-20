@@ -2,7 +2,7 @@ angular.module('b2b.controllers', []);
 angular.module('b2b.services', []);
 angular.module('b2b.directives', []);
 
-angular.module('b2b', ['ngRoute', 'ngDialog', 'duScroll', 'ngSanitize', 'ui.bootstrap', 'ui.select','ui.bootstrap-slider','pascalprecht.translate', 'uiGmapgoogle-maps', 'b2b.directives', 'b2b.services', 'b2b.controllers']);
+angular.module('b2b', ['ngRoute', 'ngDialog','ngTable','duScroll', 'ngSanitize', 'ui.bootstrap', 'ui.select','ui.bootstrap-slider','pascalprecht.translate', 'uiGmapgoogle-maps', 'b2b.directives', 'b2b.services', 'b2b.controllers']);
 
 
 angular.module('b2b').config(['$routeProvider', function ($routeProvider) {
@@ -14,6 +14,9 @@ angular.module('b2b').config(['$routeProvider', function ($routeProvider) {
         auth: true
     }).when('/bar', {
         templateUrl: '/templates/menuBar',
+        auth: true
+    }).when('/users', {
+        templateUrl: '/templates/users',
         auth: true
     }).otherwise({redirectTo: '/'});
 }]);

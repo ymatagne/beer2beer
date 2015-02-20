@@ -1,0 +1,26 @@
+section#menuAdminController(ng-controller="usersController")
+    .container
+        .row
+            h3 {{ 'TITLE_ADMIN_USERS' | translate }}
+        .row
+            h3.error(ng-show="error") {{error}}
+            h3.text-success(ng-show="message") {{message}}
+        .row
+            div(loading-container='tableParams.settings().$loading')
+                table.table(ng-table='tableParams', show-filter='true')
+                    tbody
+                        tr(ng-repeat='user in $data')
+                            td(data-title="'Pseudo'", filter="{ 'pseudo': 'text' }")
+                                | {{user.pseudo}}
+                            td(data-title="'Email'", filter="{ 'email': 'text' }")
+                                | {{user.email}}
+                            td(data-title="'Type'", filter="{ 'type': 'text' }")
+                                | {{user.type}}
+                            td(data-title="'Role'", filter="{ 'role': 'text' }")
+                                ui-select(ng-model="user.role", theme='bootstrap',on-select="updateRoleOfUser(user,$item)", reset-search-input='true', style='width: 300px;')
+                                    ui-select-match(placeholder='Enter an type...') {{user.role}}
+                                    ui-select-choices(repeat='role in roles track by $index')
+                                        div(ng-bind-html='role | highlight: $select.search')
+                            td(data-title="'Actions'")
+                                button.btn.btn-default(ng-click="deleteUser(user._id)")
+                                    span.glyphicon.glyphicon-trash

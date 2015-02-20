@@ -25,7 +25,6 @@ module.exports.auth_google_callback = function () {
  */
 module.exports.auth_create = function (req, res) {
     var user = new User(req.body.user);
-    // Par defaut, role "USER". Le role "ADMIN" est attribué directement en base, pour le moment.
     user.role = 'USER';
     user.type='local';
     user.save(function (err) {

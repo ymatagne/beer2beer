@@ -10,6 +10,7 @@ html
         link(rel="stylesheet", href="libs/angular-ui-select/dist/select.min.css")
         link(rel="stylesheet", href="libs/components-font-awesome/css/font-awesome.min.css")
         link(rel="stylesheet", href="libs/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css")
+        link(rel="stylesheet", href="libs/ng-table/ng-table.min.css")
         link(href='http://fonts.googleapis.com/css?family=Raleway',rel='stylesheet',type='text/css')
 
         script(src="libs/angular/angular.min.js")
@@ -36,6 +37,7 @@ html
         script(src="libs/angular-google-maps/dist/angular-google-maps.min.js")
         script(src="libs/angular-translate/angular-translate.min.js")
         script(src = "libs/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js")
+        script(src = "libs/ng-table/dist/ng-table.min.js")
         //-<!-- endbuild-->
 
         //-<!--build:js app/b2b.js-->
@@ -46,8 +48,11 @@ html
         script(src = "app/src/controllers/menuBarController.js")
         script(src="app/src/controllers/searchBeerController.js")
         script(src ="app/src/controllers/rechercheController.js")
+        script(src = "app/src/controllers/usersController.js")
         script(src="app/src/directives/isNumber.js")
+        script(src = "app/src/directives/loadingContainer.js")
         script(src="app/src/services/authService.js")
+        script(src = "app/src/services/userService.js")
         script(src = "app/src/services/barService.js")
         script(src = "app/src/services/beerService.js")
         script(src = "app/src/services/typeService.js")

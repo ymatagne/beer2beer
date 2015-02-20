@@ -27,6 +27,10 @@ header.header
                             ul.dropdown-menu#menu
                                 li
                                     a(ng-click="gotoEditBar()",ng-show="currentUser.role==='ADMIN'") {{ 'MENU_TITLE_8' | translate }}
+
+                                li
+                                    a(ng-click="goEditUsers()",ng-show="currentUser.role==='ADMIN'") {{ 'MENU_TITLE_9' | translate }}
+                                li.divider
                                 li
                                     a(ng-click="gotoAddBeer()") {{ 'MENU_TITLE_6' | translate }}
                                 li
