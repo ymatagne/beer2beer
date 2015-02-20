@@ -44,7 +44,7 @@ module.exports = function (app) {
     app.get('/api/brewery/', breweryController.getBreweries);
 
     /** Type Crud **/
-    app.get('/api/type/', typeController.json_type_query_all);
+    app.get('/api/type/', typeController.getTypes);
 
     /** Bar Crud **/
     app.get('/api/bar/', barsController.getBars);
