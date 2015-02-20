@@ -27,8 +27,8 @@ function isAdmin(req, res, next) {
 
 module.exports = function (app) {
     /** Authentification **/
-    app.get('/api/auth/google/', authController.authGoogle);
-    app.get('/api/oauth2callback', authController.authGoogleCallback);
+    app.get('/api/auth/google/', authController.authGoogle());
+    app.get('/api/oauth2callback', authController.authGoogleCallback());
     app.post('/api/auth/create', authController.createUser);
     app.post('/api/auth/local', authController.authLocal);
     app.get('/api/auth/loggedin', authController.loggedin);

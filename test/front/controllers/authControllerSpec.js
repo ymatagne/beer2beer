@@ -24,7 +24,7 @@ describe('authController...', function(){
 			AuthService: sinon.stub()
 		});
 	}));
-	
+
 	it('Should call "path(\'/\')" on $location when calling "gotoAnchor".', function(){
 		scope.gotoAnchor();
 
