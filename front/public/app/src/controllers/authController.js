@@ -1,6 +1,11 @@
 angular.module('b2b.controllers').controller('authController', function ($rootScope, $scope,$window, $location, $document, ngDialog, AuthService) {
     $scope.showSignup=true;
 
+
+    function getJsonForOpenDialog(templateName) {
+        return {template: templateName, plain: false, className: 'ngdialog-theme-default', showClose: true};
+    };
+
     $scope.login = function () {
         ngDialog.open(getJsonForOpenDialog('login'));
     };
@@ -58,7 +63,3 @@ angular.module('b2b.controllers').controller('authController', function ($rootSc
         });
     };
 });
-
-function getJsonForOpenDialog(templateName) {
-    return {template: templateName, plain: false, className: 'ngdialog-theme-default', showClose: true};
-}

@@ -3,10 +3,10 @@ angular.module('b2b.directives').directive('isNumber', function () {
         require: 'ngModel',
         link: function (scope, element, attrs, modelCtrl) {
             modelCtrl.$parsers.push(function (inputValue) {
-                if (inputValue == undefined)
+                if (inputValue === undefined)
                     return '';
                 var transformedInput = inputValue.replace(/[^0-9+.]/g, '');
-                if (transformedInput != inputValue) {
+                if (transformedInput !== inputValue) {
                     modelCtrl.$setViewValue(transformedInput);
                     modelCtrl.$render();
                 }
