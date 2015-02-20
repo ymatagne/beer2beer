@@ -156,11 +156,11 @@ module.exports.json_bar_all = function (req, res) {
     if (req.query.beer != undefined) {
 
         if (req.query.prices != undefined)
-            Bar.find({'consumptions.beer_id': req.query.beer}).exec(function (err, docs) {
+            Bar.find({'consumptions.beer_id': req.query.beer}).where('consumptions.price').gt(req.query.prices[0]).lt(req.query.prices[1]).exec(function (err, docs) {
                 res.json(docs);
             });
         else {
-            Bar.find({'consumptions.beer_id': req.query.beer}).where('consumptions.price').gt(req.query.prices[0]).lt(req.query.prices[1]).exec(function (err, docs) {
+            Bar.find({'consumptions.beer_id': req.query.beer}).exec(function (err, docs) {
                 res.json(docs);
             });
         }
