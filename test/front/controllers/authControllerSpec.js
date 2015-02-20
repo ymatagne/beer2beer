@@ -24,14 +24,7 @@ describe('authController...', function(){
 			AuthService: sinon.stub()
 		});
 	}));
-
-	it('Should open "ngDialog" when call "login" method.', function(){
-		scope.login();
-
-		assert.isTrue(ngDialogOpenCall.called, 'ngDialog.open has been called');
-        assert.isTrue(ngDialogOpenCall.calledWith(getJsonForOpenDialog('login')), 'ngDialog.open has been called with correct args');
-	});
-
+	
 	it('Should call "path(\'/\')" on $location when calling "gotoAnchor".', function(){
 		scope.gotoAnchor();
 
