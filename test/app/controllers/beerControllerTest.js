@@ -38,7 +38,7 @@ describe('beerController...', function(){
             var error = 'error',
                 execCall = execStub.callsArgWith(0, error);
 
-            beerController.json_beer_query(fakeReq, fakeRes);
+            beerController.getBeers(fakeReq, fakeRes);
 
             assert.equal(execCall.called, true);
             assert.equal(sendStub.calledWith(error), true);
@@ -47,7 +47,7 @@ describe('beerController...', function(){
             var beers = [{name: 'Leffe'}],
                 execCall = execStub.callsArgWith(0, null, beers);
 
-            beerController.json_beer_query(fakeReq, fakeRes);
+            beerController.getBeers(fakeReq, fakeRes);
 
             assert.equal(execCall.called, true);
             assert.equal(jsonStub.calledWith(beers), true);
@@ -60,7 +60,7 @@ describe('beerController...', function(){
                 findCall = findByIdStub.callsArgWith(1, error);
             fakeReq.params = {beer_id: beerId};
 
-            beerController.json_beer_get(fakeReq, fakeRes);
+            beerController.getBeerById(fakeReq, fakeRes);
 
             assert.equal(sendStub.calledWith(error), true);
             assert.equal(findCall.calledWith(beerId), true);
@@ -71,7 +71,7 @@ describe('beerController...', function(){
                 findCall = findByIdStub.callsArgWith(1, null, beer);
             fakeReq.params = {beer_id: beerId};
 
-            beerController.json_beer_get(fakeReq, fakeRes);
+            beerController.getBeerById(fakeReq, fakeRes);
 
             assert.equal(jsonStub.calledWith(beer), true);
             assert.equal(findCall.calledWith(beerId), true);

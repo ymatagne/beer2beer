@@ -39,7 +39,7 @@ describe('authController...', function(){
 			assert.equal(sendStub.calledWith('0'), true);
 		});
 	});
-	describe('auth_local...', function(){
+	describe('authLocal...', function(){
 		it('Should return json with 400 http code on error.', function(){
 			var error = {},
 				authCall = authenticateStub.callsArgWith(1, {}, user, null),
@@ -47,7 +47,7 @@ describe('authController...', function(){
 				statusStub = sinon.stub(fakeRes, 'status').returnsThis(),
 				jsonStub = sinon.stub(fakeRes, 'json');
 
-			authController.auth_local(fakeReq, fakeRes, null);
+			authController.authLocal(fakeReq, fakeRes, null);
 
 			assert.equal(statusStub.calledWith(400), true);
 			assert.equal(jsonStub.calledWith(error), true);
@@ -60,7 +60,7 @@ describe('authController...', function(){
 				authStubReturn = authenticateStub.returns(function(){});
 			req = sinon.stub(fakeReq, 'logIn').callsArgWith(1, error);
 
-			authController.auth_local(fakeReq, fakeRes, null);
+			authController.authLocal(fakeReq, fakeRes, null);
 
 			assert.equal(req.called, true);
 			assert.equal(sendStub.calledWith(error), true);
@@ -72,7 +72,7 @@ describe('authController...', function(){
 				authStubReturn = authenticateStub.returns(function(){});
 			req = sinon.stub(fakeReq, 'logIn').callsArg(1);
 
-			authController.auth_local(fakeReq, fakeRes, null);
+			authController.authLocal(fakeReq, fakeRes, null);
 
 			assert.equal(req.called, true);
 			assert.equal(sendStub.calledWith(user), true);
@@ -112,7 +112,7 @@ describe('authController...', function(){
 			saveCall = sinon.stub(fakeUser, 'save').callsArgWith(0, err);
 
 
-			authController.auth_create(fakeReq, fakeRes);
+			authController.createUser(fakeReq, fakeRes);
 
 			assert.equal(statusStub.calledWith(400), true);
 			assert.equal(jsonStub.calledWith(err), true);
@@ -130,7 +130,7 @@ describe('authController...', function(){
 			logInCall = sinon.stub(fakeReq, 'logIn').callsArg(1);
 			saveCall = sinon.stub(fakeUser, 'save').callsArg(0);
 
-			authController.auth_create(fakeReq, fakeRes);
+			authController.createUser(fakeReq, fakeRes);
 
 			assert.equal(jsonStub.calledWith(fakeUser), true);
 			assert.equal(logInCall.called, true);
