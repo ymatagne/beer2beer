@@ -1,7 +1,4 @@
 var Bar = require('../models/bar');
-var Beer = require('../models/beer');
-var Type = require('../models/type');
-
 /*
  Description: Get bars
  Method: GET

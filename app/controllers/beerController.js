@@ -1,6 +1,4 @@
 var Beer = require('../models/beer');
-var Brewery = require('../models/brewery');
-var Type = require('../models/type');
 
 /*
  Description: Get beers

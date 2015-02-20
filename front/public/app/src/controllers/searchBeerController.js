@@ -84,8 +84,9 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
     });
 
     $scope.searchBeer = function () {
-        var beer;
-        var type = [];
+        var beer,
+            type = [],
+            prices;
 
         if ($scope.beer.selected) {
             beer = $scope.beer.selected._id;
@@ -96,7 +97,7 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
         }
 
         if ($scope.slider.value[0]!== 1 || $scope.slider.value[1]!== 30) {
-            var prices = $scope.slider.value;
+            prices = $scope.slider.value;
         }
 
         var params = {type: type, beer: beer,prices: prices};

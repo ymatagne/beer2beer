@@ -1,5 +1,4 @@
-var User = require('../models/user'),
-    bodyParser = require('body-parser'),
+var bodyParser = require('body-parser'),
     mongoose = require('mongoose');
 
 module.exports = function (app, express) {
