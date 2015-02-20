@@ -4,7 +4,7 @@ var User = require('../models/user');
  Method: GET
  Output: JSON
  */
-module.exports.get_users = function (req, res) {
+module.exports.getUsers = function (req, res) {
     var perPage = req.query.perPage
         , page = req.query.page - 1 > 0 ? req.query.page - 1 : 0
         , filters = JSON.parse(req.query.filters);
@@ -55,7 +55,7 @@ module.exports.get_users = function (req, res) {
  Method: DELETE
  Output: JSON
  */
-module.exports.delete_user = function (req, res) {
+module.exports.deleteUser = function (req, res) {
     User.findOneAndRemove({'_id':req.query._id}).exec(function (err) {
         if (err) {
             res.send(err);
@@ -70,7 +70,7 @@ module.exports.delete_user = function (req, res) {
  Method: DELETE
  Output: JSON
  */
-module.exports.update_user = function (req, res) {
+module.exports.updateUser = function (req, res) {
     User.update({_id: req.body.params._id}, {role: req.body.params.role}, {}, function (err, doc) {
         if (err) {
             res.send(err);

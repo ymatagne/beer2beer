@@ -5,7 +5,7 @@ var User = require('../models/user'),
  Description: Authentification in Google
  Method: GET
  */
-module.exports.auth_google = function () {
+module.exports.authGoogle = function () {
     return passport.authenticate('google',{ scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'] })
 };
 
@@ -14,7 +14,7 @@ module.exports.auth_google = function () {
  Method: GET
  Output: JSON
  */
-module.exports.auth_google_callback = function () {
+module.exports.authGoogleCallback = function () {
     return passport.authenticate('google', { failureRedirect: '/',successRedirect:'/#/' })
 };
 
@@ -23,7 +23,7 @@ module.exports.auth_google_callback = function () {
  Method: POST
  Output: JSON
  */
-module.exports.auth_create = function (req, res) {
+module.exports.createUser = function (req, res) {
     var user = new User(req.body.user);
     user.role = 'USER';
     user.type='local';
@@ -45,7 +45,7 @@ module.exports.auth_create = function (req, res) {
  Description: Auth user in local base
  Method: GET
  */
-module.exports.auth_local = function (req, res, next) {
+module.exports.authLocal = function (req, res, next) {
     passport.authenticate('local', function (err, user, info) {
         var error = err || info;
         if (error) {

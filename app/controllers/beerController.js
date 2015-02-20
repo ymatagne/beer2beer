@@ -5,9 +5,9 @@ var Beer = require('../models/beer');
  Method: GET
  Output: JSON
  */
-module.exports.json_beer_query = function (req, res) {
+module.exports.getBeers = function (req, res) {
     Beer.find({'nom': new RegExp('.*' + req.query.name + '.*', "i")}).limit(100).populate('brewery_id').populate('type_id').exec(function (err, docs) {
-        if(err){
+        if (err) {
             res.send(err);
             return;
         }
@@ -20,18 +20,18 @@ module.exports.json_beer_query = function (req, res) {
  Method: GET
  Output: JSON
  */
-module.exports.json_beer_query_with_params = function (req, res) {
-    if(req.query.type_id){
-    Beer.find()
-            .where('nom',new RegExp('.*' + req.query.name + '.*', "i"))
+module.exports.getBeerWithParams = function (req, res) {
+    if (req.query.type_id) {
+        Beer.find()
+            .where('nom', new RegExp('.*' + req.query.name + '.*', "i"))
             .where('type_id').all(req.query.type_id)
             .limit(100)
             .exec(function (err, docs) {
                 res.json(docs);
             });
-    }else{
+    } else {
         Beer.find()
-            .where('nom',new RegExp('.*' + req.query.name + '.*', "i"))
+            .where('nom', new RegExp('.*' + req.query.name + '.*', "i"))
             .limit(100)
             .exec(function (err, docs) {
                 res.json(docs);
@@ -44,7 +44,7 @@ module.exports.json_beer_query_with_params = function (req, res) {
  Method: GET
  Output: JSON
  */
-module.exports.json_beer_get = function (req, res) {
+module.exports.getBeerById = function (req, res) {
     Beer.findById(req.params.beer_id, function (err, doc) {
         if (err) {
             res.send(err);
@@ -59,7 +59,7 @@ module.exports.json_beer_get = function (req, res) {
  Method: POST
  Output: JSON
  */
-module.exports.json_beer_save = function (req, res) {
+module.exports.saveBeer = function (req, res) {
     var body = req.body.params.beer;
 
 

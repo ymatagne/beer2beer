@@ -27,40 +27,39 @@ function isAdmin(req, res, next) {
 
 module.exports = function (app) {
     /** Authentification **/
-    app.get('/api/auth/google/', authController.auth_google());
-    app.get('/api/oauth2callback', authController.auth_google_callback());
-    app.post('/api/auth/create', authController.auth_create);
-    app.post('/api/auth/local', authController.auth_local);
+    app.get('/api/auth/google/', authController.authGoogle);
+    app.get('/api/oauth2callback', authController.authGoogleCallback);
+    app.post('/api/auth/create', authController.createUser);
+    app.post('/api/auth/local', authController.authLocal);
     app.get('/api/auth/loggedin', authController.loggedin);
     app.get('/api/auth/logout', authController.logout);
 
     /** Beer Crud **/
-    app.get('/api/beer/', beersController.json_beer_query);
-    app.get('/api/beer/search', beersController.json_beer_query_with_params);
-    app.get('/api/beer/:beer_id/', isAuthentified, beersController.json_beer_get);
-    app.post('/api/beer/', isAdmin, beersController.json_beer_save);
+    app.get('/api/beer/', beersController.getBeers);
+    app.get('/api/beer/search', beersController.getBeerWithParams);
+    app.get('/api/beer/:beer_id/', isAuthentified, beersController.getBeerById);
+    app.post('/api/beer/', isAdmin, beersController.saveBeer);
 
     /** Brewery Crud **/
-    app.get('/api/brewery/', breweryController.json_brewery_query_all);
+    app.get('/api/brewery/', breweryController.getBreweries);
 
     /** Type Crud **/
     app.get('/api/type/', typeController.json_type_query_all);
 
     /** Bar Crud **/
-    app.get('/api/bar/', barsController.json_bar_query);
-    app.put('/api/bar/:id', isAuthentified, barsController.json_bar_update);
-    app.delete('/api/bar/:id', isAuthentified, barsController.json_delete_consumption);
-
-    app.put('/api/bar/', isAuthentified, barsController.json_bar_update_all);
-    app.post('/api/bar/', isAuthentified, barsController.json_bar_save);
-    app.put('/api/bar/:id/consumption', isAdmin, barsController.json_bar_update_consumptions);
-    app.get('/api/bar/all', barsController.json_bar_all);
-    app.get('/api/bar/beers', barsController.json_bar_with_beer);
+    app.get('/api/bar/', barsController.getBars);
+    app.put('/api/bar/:id', isAuthentified, barsController.updateBar);
+    app.delete('/api/bar/:id', isAuthentified, barsController.deleteConsumption);
+    app.put('/api/bar/', isAuthentified, barsController.updateFullBar);
+    app.post('/api/bar/', isAuthentified, barsController.saveBar);
+    app.put('/api/bar/:id/consumption', isAdmin, barsController.updateConsumption);
+    app.get('/api/bar/all', barsController.getAllBar);
+    app.get('/api/bar/beers', barsController.getBarByIdwithBeer);
 
     /** User Crud **/
-    app.get('/api/user', isAdmin, userController.get_users);
-    app.delete('/api/user', isAdmin, userController.delete_user);
-    app.put('/api/user', isAdmin, userController.update_user);
+    app.get('/api/user', isAdmin, userController.getUsers);
+    app.delete('/api/user', isAdmin, userController.deleteUser);
+    app.put('/api/user', isAdmin, userController.updateUser);
 
     /** Angular Route **/
     app.get('/templates/:name', site.partials);

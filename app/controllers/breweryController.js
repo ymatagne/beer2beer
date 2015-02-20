@@ -5,7 +5,7 @@ var Brewery = require('../models/brewery');
  Method: GET
  Output: JSON
  */
-module.exports.json_brewery_query_all = function (req, res) {
+module.exports.getBreweries = function (req, res) {
     Brewery.find({'name': new RegExp('.*' + req.query.name + '.*', "i")}, {}, {limit: 100}, function (err, docs) {
         if (err) {
             res.send(err);
