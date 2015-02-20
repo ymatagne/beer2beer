@@ -340,6 +340,7 @@ a.sso-button {
 .btn-search{
     background-color: #279c82;
     height: 50px;
+    padding-top: 15px;
 }
 .rowSearch{
     float: right;
