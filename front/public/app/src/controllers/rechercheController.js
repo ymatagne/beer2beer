@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('b2b.controllers').controller('rechercheController', ["$scope", function($scope){
+angular.module('b2b.controllers').controller('rechercheController', ["$scope","BarService", function($scope,BarService){
 
     $scope.map = {center: {latitude: 0, longitude: 0}, zoom: 15};
     $scope.myLocation = [];
@@ -11,6 +11,15 @@ angular.module('b2b.controllers').controller('rechercheController', ["$scope", f
         $scope.map.center.latitude = position.coords.latitude;
         $scope.map.center.longitude = position.coords.longitude;
         $scope.addMarker(position.coords.latitude, position.coords.longitude, 'position', 0);
+        BarService.getAllBars({}).then(function (data) {
+            var bars = data;
+            $scope.barsLocation = [];
+            for (var index in bars) {
+                var bar = bars[index];
+                $scope.addMarker(bar.localisation.coordinates[0], bar.localisation.coordinates[1], 'bar', bar._id, bar.nom, bar);
+
+            }
+        });
         $scope.$apply();
     };
 

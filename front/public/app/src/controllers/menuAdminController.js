@@ -3,8 +3,6 @@
 angular.module('b2b.controllers').controller('menuAdminController', ["$scope", "BarService", "BeerService", "TypeService", "BreweryService", "$controller", function ($scope, BarService, BeerService, TypeService, BreweryService, $controller) {
     $.extend(this, $controller('rechercheController', {$scope: $scope}));
     $scope.getLocation();
-
-
     $scope.beer = {};
     $scope.bar = {};
     $scope.type = {};
@@ -36,7 +34,6 @@ angular.module('b2b.controllers').controller('menuAdminController', ["$scope", "
                 });
             });
     };
-
     $scope.refreshBars = function (nameOfBar) {
         var params = {name: nameOfBar};
         BarService.getAllBars(params).then(

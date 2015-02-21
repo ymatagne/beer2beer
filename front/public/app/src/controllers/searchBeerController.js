@@ -53,6 +53,7 @@ angular.module('b2b.controllers').controller('searchBeerController', ["$scope", 
             }
         );
     };
+
     $scope.refreshBeersListAfterDelete = function ($item) {
         var type_id = [];
         for (var idx in $scope.multipleChoose.selectedTypes) {
@@ -70,20 +71,12 @@ angular.module('b2b.controllers').controller('searchBeerController', ["$scope", 
             }
         );
     };
+
     $scope.removeType = function () {
         $scope.multipleChoose.selectedTypes = [];
         $scope.$apply();
         $scope.refreshBeers('');
     };
-
-    BarService.getAllBars({}).then(function (data) {
-        var bars = data;
-        for (var index in bars) {
-            var bar = bars[index];
-            $scope.addMarker(bar.localisation.coordinates[0], bar.localisation.coordinates[1], 'bar', bar._id, bar.nom, bar);
-
-        }
-    });
 
     $scope.searchBeer = function () {
         var beer,
