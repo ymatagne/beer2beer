@@ -1,4 +1,6 @@
-angular.module('b2b.controllers').controller('usersController', function ($rootScope, $scope, ngTableParams, UserService) {
+'use strict';
+
+angular.module('b2b.controllers').controller('usersController', ["$rootScope", "$scope", "ngTableParams", "UserService", function ($rootScope, $scope, ngTableParams, UserService) {
 
     $scope.roles = ["USER", "ADMIN"];
 
@@ -56,4 +58,4 @@ angular.module('b2b.controllers').controller('usersController', function ($rootS
             });
     };
 
-});
+}]);

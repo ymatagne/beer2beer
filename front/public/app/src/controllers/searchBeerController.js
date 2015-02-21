@@ -1,4 +1,6 @@
-angular.module('b2b.controllers').controller('searchBeerController', function ($scope, $location, $document, BarService, BeerService,TypeService,$controller) {
+'use strict';
+
+angular.module('b2b.controllers').controller('searchBeerController', ["$scope", "$location", "$document", "BarService", "BeerService", "TypeService", "$controller", function ($scope, $location, $document, BarService, BeerService,TypeService,$controller) {
     $.extend(this, $controller('rechercheController', {$scope: $scope}));
     $scope.getLocation();
     $scope.beer = {};
@@ -39,7 +41,7 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
     $scope.refreshBeersList = function ($item) {
         var type_id = [];
         type_id.push($item._id);
-        for (idx in $scope.multipleChoose.selectedTypes) {
+        for (var idx in $scope.multipleChoose.selectedTypes) {
             type_id.push($scope.multipleChoose.selectedTypes[idx]._id);
 
         }
@@ -53,7 +55,7 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
     };
     $scope.refreshBeersListAfterDelete = function ($item) {
         var type_id = [];
-        for (idx in $scope.multipleChoose.selectedTypes) {
+        for (var idx in $scope.multipleChoose.selectedTypes) {
             if ($item._id !== $scope.multipleChoose.selectedTypes[idx]._id) {
                 type_id.push($scope.multipleChoose.selectedTypes[idx]._id);
             }
@@ -90,7 +92,7 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
         if ($scope.beer.selected) {
             beer = $scope.beer.selected._id;
         } else if ($scope.multipleChoose.selectedTypes) {
-            for (idx in $scope.multipleChoose.selectedTypes) {
+            for (var idx in $scope.multipleChoose.selectedTypes) {
                 type.push($scope.multipleChoose.selectedTypes[idx]._id);
             }
         }
@@ -127,4 +129,4 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
             });
     };
 
-});
+}]);

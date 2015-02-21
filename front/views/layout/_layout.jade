@@ -29,6 +29,7 @@ html
         include footer
 
         //-<!-- build:js libs/plugins.js -->
+        script(src="libs/angular-loader/angular-loader.min.js")
         script(src="libs/jquery/dist/jquery.min.js")
         script(src="libs/bootstrap/dist/js/bootstrap.min.js")
         script(src="libs/angular-bootstrap/ui-bootstrap.min.js")
@@ -47,6 +48,8 @@ html
         //-<!-- endbuild -->
 
 
+
+        //-<!-- build:js libs/b2b.js -->
         script(src="app/src/application.js")
         script(src="app/src/directives/isNumber.js")
         script(src = "app/src/directives/loadingContainer.js")
@@ -56,13 +59,14 @@ html
         script(src = "app/src/services/beerService.js")
         script(src = "app/src/services/typeService.js")
         script(src = "app/src/services/breweryService.js")
-        script(src="app/src/controllers/authController.js")
         script(src = "app/src/controllers/footerController.js")
+        script(src="app/src/controllers/authController.js")
         script(src="app/src/controllers/menuAdminController.js")
         script(src = "app/src/controllers/menuBarController.js")
         script(src="app/src/controllers/searchBeerController.js")
         script(src ="app/src/controllers/rechercheController.js")
         script(src = "app/src/controllers/usersController.js")
+        //-<!-- endbuild -->
 
         script(src = "app/src/i18n/messages-en.json")
         script(src = "app/src/i18n/messages-fr.json")

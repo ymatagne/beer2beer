@@ -1,4 +1,6 @@
-angular.module('b2b.controllers').controller('menuAdminController', function ($scope, BarService, BeerService, TypeService, BreweryService, $controller) {
+'use strict';
+
+angular.module('b2b.controllers').controller('menuAdminController', ["$scope", "BarService", "BeerService", "TypeService", "BreweryService", "$controller", function ($scope, BarService, BeerService, TypeService, BreweryService, $controller) {
     $.extend(this, $controller('rechercheController', {$scope: $scope}));
     $scope.getLocation();
 
@@ -199,5 +201,5 @@ angular.module('b2b.controllers').controller('menuAdminController', function ($s
                 });
             });
     }
-})
+}])
 ;

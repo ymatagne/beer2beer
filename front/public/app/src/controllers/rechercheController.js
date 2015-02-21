@@ -1,4 +1,6 @@
-angular.module('b2b.controllers').controller('rechercheController', function($scope){
+'use strict';
+
+angular.module('b2b.controllers').controller('rechercheController', ["$scope", function($scope){
 
     $scope.map = {center: {latitude: 0, longitude: 0}, zoom: 15};
     $scope.myLocation = [];
@@ -73,4 +75,4 @@ angular.module('b2b.controllers').controller('rechercheController', function($sc
                 break;
         }
     };
-});
+}]);

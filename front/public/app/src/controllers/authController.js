@@ -1,4 +1,6 @@
-angular.module('b2b.controllers').controller('authController', function ($rootScope, $scope,$window, $location, $document, ngDialog, AuthService) {
+'use strict';
+
+angular.module('b2b.controllers').controller('authController', ["$rootScope", "$scope", "$window", "$location", "$document", "ngDialog", "AuthService", function ($rootScope, $scope,$window, $location, $document, ngDialog, AuthService) {
     $scope.showSignup=true;
 
 
@@ -62,4 +64,4 @@ angular.module('b2b.controllers').controller('authController', function ($rootSc
             $location.path('/');
         });
     };
-});
+}]);

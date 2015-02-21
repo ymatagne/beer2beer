@@ -24,6 +24,7 @@
     "angular-translate-loader-static-files": "latest",
     "angular-bootstrap-slider": "latest",
     "seiyria-bootstrap-slider": "~3.1.0",
-    "ng-table": "~0.5.1"
+    "ng-table": "~0.5.1",
+    "angular-loader": "~1.4.0-beta.4"
   }
 }

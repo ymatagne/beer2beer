@@ -11,6 +11,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-ng-annotate');
 
     // Project configuration.
     grunt.initConfig({
@@ -65,13 +66,19 @@ module.exports = function (grunt) {
                         expand: true,
                         src: ['front/public/images/**'],
                         dest: 'target/b2b/'
-                    }, {
+                    },
+                    {
                         expand: true,
-                        src: ['front/public/app/**'],
+                        src: ['front/public/app/src/i18n/**'],
                         dest: 'target/b2b/'
                     }, {
                         expand: true,
-                        cwd:'front/public/libs/components-font-awesome/',
+                        cwd: 'front/public/libs/bootstrap/',
+                        src: ['fonts/**'],
+                        dest: 'target/b2b/front/public/'
+                    },{
+                        expand: true,
+                        cwd: 'front/public/libs/components-font-awesome/',
                         src: ['fonts/**'],
                         dest: 'target/b2b/front/public/'
                     }]
@@ -88,6 +95,20 @@ module.exports = function (grunt) {
                 type: ['html', 'lcov'],
                 dir: 'target/coverage/reports',
                 print: 'detail'
+            }
+        },
+        ngAnnotate: {
+            b2b: {
+                files: [
+                    {
+                        expand: true,
+                        src: ['front/public/app/src/*.js']
+                    },
+                    {
+                        expand: true,
+                        src: ['front/public/app/src/controllers/*.js']
+                    }
+                ]
             }
         },
         jadeUsemin: {
@@ -127,6 +148,6 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['clean', 'coverage', 'buildApp']);
     grunt.registerTask('test', ['mochaTest', 'karma']);
     grunt.registerTask('coverage', ['env:coverage', 'instrument', 'mochaTest', 'mochacov', 'storeCoverage', 'makeReport', 'karma']);
-    grunt.registerTask('buildApp', ['clean', 'copy:sources', 'jadeUsemin']);
+    grunt.registerTask('buildApp', ['clean', 'ngAnnotate', 'copy:sources', 'jadeUsemin']);
     grunt.registerTask('heroku:production', ['clean', 'copy:sources', 'jadeUsemin']);
 };
