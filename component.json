@@ -26,5 +26,8 @@
     "seiyria-bootstrap-slider": "~3.1.0",
     "ng-table": "~0.5.1",
     "angular-loader": "~1.4.0-beta.4"
+  },
+  "resolutions": {
+    "angular": "1.4.0-build.3848+sha.16f12c8"
   }
 }

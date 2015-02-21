@@ -40,9 +40,8 @@ module.exports.saveBar = function (req, res) {
     var bar = new Bar({
         adresse: body.adresse,
         geolocation: body.geolocation,
-        latitude: body.latitude,
-        longitude: body.longitude,
         happyhours: body.happyhours,
+        localisation: body.localisation,
         nom: body.nom
     });
 
@@ -102,11 +101,9 @@ module.exports.updateFullBar = function (req, res) {
     Bar.findOne({'_id': bar._id}).populate('consumptions.beer_id').populate('consumptions.type_id').exec(function (err, doc) {
         doc.nom = bar.nom;
         doc.adresse = bar.adresse;
-        doc.latitude = bar.latitude;
-        doc.longitude = bar.longitude;
         doc.geolocation = bar.geolocation;
+        doc.localisation= bar.localisation;
         doc.happyhours = bar.happyhours;
-
         var index_a_conserver = [];
 
         //Mise a jour des consommations

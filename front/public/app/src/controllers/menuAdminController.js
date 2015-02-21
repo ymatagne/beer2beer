@@ -19,8 +19,8 @@ angular.module('b2b.controllers').controller('menuAdminController', ["$scope", "
 
     $scope.gotoBar = function ($item, $model) {
         $scope.showBeerInBar($item._id);
-        $scope.map.center.latitude = $item.latitude;
-        $scope.map.center.longitude = $item.longitude;
+        $scope.map.center.latitude = $item.localisation.coordinates[0];
+        $scope.map.center.longitude = $item.localisation.coordinates[1];
     };
 
     // Gestion des listes
@@ -44,7 +44,7 @@ angular.module('b2b.controllers').controller('menuAdminController', ["$scope", "
                 $scope.bars = data;
                 for (var index in $scope.bars) {
                     var bar = $scope.bars[index];
-                    $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id, bar.nom, bar);
+                    $scope.addMarker(bar.localisation.coordinates[0], bar.localisation.coordinates[1], 'bar', bar._id, bar.nom, bar);
                 }
             }, function (res) {
                 $scope.errors = {};
@@ -85,8 +85,11 @@ angular.module('b2b.controllers').controller('menuAdminController', ["$scope", "
         $scope.searchLocation = [];
         $scope.addMarker(places[0].geometry.location.lat(), places[0].geometry.location.lng(), 'search', places[0].id, places[0].nom, $scope.newBar);
         $scope.newBar.geolocation = places[0].geometry.location.toString();
-        $scope.newBar.latitude = places[0].geometry.location.lat();
-        $scope.newBar.longitude = places[0].geometry.location.lng();
+        $scope.newBar.adresse=places[0].formatted_address;
+        $scope.newBar.localisation = {
+            type: 'Point',
+            coordinates: [parseFloat(places[0].geometry.location.lat()),parseFloat(places[0].geometry.location.lng())]
+        };
         $scope.$apply();
     });
 
@@ -137,8 +140,8 @@ angular.module('b2b.controllers').controller('menuAdminController', ["$scope", "
             $scope.consumption.beer_id = $scope.beer.selected._id;
             $scope.consumption.type_id = $scope.beer.selected.type_id;
             $scope.consumption.price = $scope.price;
-            $scope.consumption.pression = $scope.pression?$scope.pression:false;
-            $scope.consumption.date = date.getDate()+'/'+ (date.getMonth()+1) +'/'+date.getFullYear();
+            $scope.consumption.pression = $scope.pression ? $scope.pression : false;
+            $scope.consumption.date = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
             $scope.consumption.quantity = $scope.quantity.selected.quantity;
 
             var params = {bar: $scope.bar.selected, consumption: $scope.consumption};

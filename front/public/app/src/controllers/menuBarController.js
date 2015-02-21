@@ -11,7 +11,7 @@ angular.module('b2b.controllers').controller('menuBarController', ["$scope", "$r
                 $scope.bars = data;
                 for (var index in $scope.bars) {
                     var bar = $scope.bars[index];
-                    $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id, bar.nom, bar);
+                    $scope.addMarker(bar.localisation.coordinates[0], bar.localisation.coordinates[1], 'bar', bar._id, bar.nom, bar);
                 }
             }, function (res) {
                 $scope.errors = {};
@@ -23,8 +23,8 @@ angular.module('b2b.controllers').controller('menuBarController', ["$scope", "$r
 
     $scope.gotoBar = function ($item, $model) {
         $scope.showBeerInBar($item._id);
-        $scope.map.center.latitude = $item.latitude;
-        $scope.map.center.longitude = $item.longitude;
+        $scope.map.center.latitude = $item.localisation.coordinates[0];
+        $scope.map.center.longitude = $item.localisation.coordinates[1];
     };
 
 
@@ -47,9 +47,12 @@ angular.module('b2b.controllers').controller('menuBarController', ["$scope", "$r
         var places = searchBox.getPlaces();
         $scope.searchLocation = [];
         $scope.addMarker(places[0].geometry.location.lat(), places[0].geometry.location.lng(), 'search', places[0].id, places[0].nom, $scope.bar);
+        $scope.bar.adresse=places[0].formatted_address;
         $scope.bar.geolocation = places[0].geometry.location.toString();
-        $scope.bar.latitude = places[0].geometry.location.lat();
-        $scope.bar.longitude = places[0].geometry.location.lng();
+        $scope.bar.localisation = {
+            type: 'Point',
+            coordinates: [parseFloat(places[0].geometry.location.lat()),parseFloat(places[0].geometry.location.lng())]
+        };
         $scope.$apply();
     });
 

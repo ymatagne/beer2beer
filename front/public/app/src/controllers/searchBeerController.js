@@ -80,7 +80,8 @@ angular.module('b2b.controllers').controller('searchBeerController', ["$scope", 
         var bars = data;
         for (var index in bars) {
             var bar = bars[index];
-            $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id, bar.nom, bar);
+            $scope.addMarker(bar.localisation.coordinates[0], bar.localisation.coordinates[1], 'bar', bar._id, bar.nom, bar);
+
         }
     });
 
@@ -111,7 +112,7 @@ angular.module('b2b.controllers').controller('searchBeerController', ["$scope", 
                 $scope.beerShow = undefined;
                 for (var index in bars) {
                     var bar = bars[index];
-                    $scope.addMarker(bar.latitude, bar.longitude, 'bar', bar._id, bar.nom, bar);
+                    $scope.addMarker(bar.localisation.coordinates[0], bar.localisation.coordinates[1], 'bar', bar._id, bar.nom, bar);
                 }
             });
     };
