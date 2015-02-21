@@ -35,19 +35,20 @@
     "passport": "^0.2.1",
     "passport-google": "^0.3.0",
     "passport-google-oauth": "^0.1.5",
-    "passport-local": "^1.0.0"
-  },
-  "devDependencies": {
-    "asserts": "~4.0.2",
+    "passport-local": "^1.0.0",
     "grunt-contrib-cssmin": "^0.12.2",
     "grunt-contrib-imagemin": "^0.9.3",
     "grunt-contrib-uglify": "^0.6.0",
+    "grunt-istanbul": "~0.3.0",
+    "imagemin-mozjpeg": "^4.0.0"	
+  },
+  "devDependencies": {
+    "asserts": "~4.0.2",
     "grunt-istanbul": "~0.3.0",
     "grunt-jade-usemin": "^0.11.1",
     "grunt-karma": "~0.9.0",
     "grunt-mocha-cov": "~0.3.0",
     "grunt-mocha-test": "^0.12.1",
-    "imagemin-mozjpeg": "^4.0.0",
     "karma": "~0.12.25",
     "karma-coverage": "~0.2.6",
     "karma-jasmine": "~0.3.2",
