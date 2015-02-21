@@ -4,7 +4,7 @@ angular.module('b2b.controllers').controller('authController', function ($rootSc
 
     function getJsonForOpenDialog(templateName) {
         return {template: templateName, plain: false, className: 'ngdialog-theme-default', showClose: true};
-    };
+    }
 
     $scope.login = function () {
         ngDialog.open(getJsonForOpenDialog('login'));

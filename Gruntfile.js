@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-mocha-cov');
@@ -9,6 +9,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     // Project configuration.
     grunt.initConfig({
@@ -27,7 +29,7 @@ module.exports = function(grunt) {
                 reporter: 'xunit',
                 output: 'target/TEST-xunit.xml'
             },
-            all: ['test/*.js','test/app/**/*.js']
+            all: ['test/*.js', 'test/app/**/*.js']
         },
         // start - code coverage settings
         env: {
@@ -49,26 +51,30 @@ module.exports = function(grunt) {
                     src: ['app/**'],
                     dest: 'target/b2b/'
                 },
-                {
-                    expand: true,
-                    src: ['front/views/**'],
-                    dest: 'target/b2b/'  
-                },
-                {
-                    expand: true,
-                    src: ['front/public/css/**'],
-                    dest: 'target/b2b/'  
-                },
-                {
-                    expand: true,
-                    src: ['front/public/images/**'],
-                    dest: 'target/b2b/'  
-                },
-                {
-                    expand: true,
-                    src: ['front/public/libs/**'],
-                    dest: 'target/b2b/'  
-                }]
+                    {
+                        expand: true,
+                        src: ['front/views/**'],
+                        dest: 'target/b2b/'
+                    },
+                    {
+                        expand: true,
+                        src: ['front/public/css/**'],
+                        dest: 'target/b2b/'
+                    },
+                    {
+                        expand: true,
+                        src: ['front/public/images/**'],
+                        dest: 'target/b2b/'
+                    }, {
+                        expand: true,
+                        src: ['front/public/app/**'],
+                        dest: 'target/b2b/'
+                    }, {
+                        expand: true,
+                        cwd:'front/public/libs/components-font-awesome/',
+                        src: ['fonts/**'],
+                        dest: 'target/b2b/front/public/'
+                    }]
             }
         },
         storeCoverage: {
@@ -88,7 +94,8 @@ module.exports = function(grunt) {
             scripts: {
                 options: {
                     tasks: {
-                        js: ['concat']
+                        js: ['concat', 'uglify'],
+                        css: ['concat', 'cssmin']
                     },
                     prefix: 'front/public/',
                     targetPrefix: 'target/b2b/front/public/'
@@ -120,6 +127,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['clean', 'coverage', 'buildApp']);
     grunt.registerTask('test', ['mochaTest', 'karma']);
     grunt.registerTask('coverage', ['env:coverage', 'instrument', 'mochaTest', 'mochacov', 'storeCoverage', 'makeReport', 'karma']);
-    grunt.registerTask('buildApp', ['copy:sources', 'jadeUsemin']);
-    grunt.registerTask('heroku:production', ['clean','copy:sources', 'jadeUsemin']);
-    };
+    grunt.registerTask('buildApp', ['clean', 'copy:sources', 'jadeUsemin']);
+    grunt.registerTask('heroku:production', ['clean', 'copy:sources', 'jadeUsemin']);
+};

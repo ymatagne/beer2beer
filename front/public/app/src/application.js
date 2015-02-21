@@ -1,6 +1,6 @@
-angular.module('b2b.controllers', []);
-angular.module('b2b.services', []);
 angular.module('b2b.directives', []);
+angular.module('b2b.services', []);
+angular.module('b2b.controllers', []);
 
 angular.module('b2b', ['ngRoute', 'ngDialog','ngTable','duScroll', 'ngSanitize', 'ui.bootstrap', 'ui.select','ui.bootstrap-slider','pascalprecht.translate', 'uiGmapgoogle-maps', 'b2b.directives', 'b2b.services', 'b2b.controllers']);
 
@@ -23,9 +23,8 @@ angular.module('b2b').config(['$routeProvider', function ($routeProvider) {
 
 angular.module('b2b').config(function (uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
-        //    key: 'your api key',
         v: '3.17',
-        libraries: 'places' // Required for SearchBox.
+        libraries: 'places'
     });
 });
 

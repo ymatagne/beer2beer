@@ -10,7 +10,6 @@ angular.module('b2b.directives').directive('isNumber', function () {
                     modelCtrl.$setViewValue(transformedInput);
                     modelCtrl.$render();
                 }
-
                 return transformedInput;
             });
         }

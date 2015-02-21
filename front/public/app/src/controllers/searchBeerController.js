@@ -18,7 +18,6 @@ angular.module('b2b.controllers').controller('searchBeerController', function ($
         tooltipsplit: false
     };
 
-    // Gestion des listes
     $scope.refreshBeers = function (beer) {
         var params = {name: beer, type_id: []};
         BeerService.getBeersByTypeOrName(params).then(

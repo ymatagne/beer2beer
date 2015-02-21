@@ -2,6 +2,8 @@ html
     head
         title="Beer2beer - The road of beer"
         link(rel="shortcut icon",href="images/favicon.ico")
+
+        //-<!-- build:css css/b2b.css -->
         link(rel="stylesheet", href="libs/bootstrap/dist/css/bootstrap.min.css")
         link(rel="stylesheet", href="css/style.css")
         link(rel="stylesheet", href="libs/ngDialog/css/ngDialog.min.css")
@@ -10,10 +12,14 @@ html
         link(rel="stylesheet", href="libs/angular-ui-select/dist/select.min.css")
         link(rel="stylesheet", href="libs/components-font-awesome/css/font-awesome.min.css")
         link(rel="stylesheet", href="libs/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css")
-        link(rel="stylesheet", href="libs/ng-table/ng-table.min.css")
+        link(rel="stylesheet", href="libs/ng-table/dist/ng-table.min.css")
+        //-<!-- endbuild -->
+
         link(href='http://fonts.googleapis.com/css?family=Raleway',rel='stylesheet',type='text/css')
 
+        //-<!-- build:js libs/angular.js -->
         script(src="libs/angular/angular.min.js")
+        //-<!-- endbuild -->
 
     body(ng-app="b2b")
         include header
@@ -22,7 +28,7 @@ html
 
         include footer
 
-        //-<!--build:js libs/plugins.js-->
+        //-<!-- build:js libs/plugins.js -->
         script(src="libs/jquery/dist/jquery.min.js")
         script(src="libs/bootstrap/dist/js/bootstrap.min.js")
         script(src="libs/angular-bootstrap/ui-bootstrap.min.js")
@@ -38,17 +44,10 @@ html
         script(src="libs/angular-translate/angular-translate.min.js")
         script(src = "libs/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js")
         script(src = "libs/ng-table/dist/ng-table.min.js")
-        //-<!-- endbuild-->
+        //-<!-- endbuild -->
 
-        //-<!--build:js app/b2b.js-->
+
         script(src="app/src/application.js")
-        script(src="app/src/controllers/authController.js")
-        script(src = "app/src/controllers/footerController.js")
-        script(src="app/src/controllers/menuAdminController.js")
-        script(src = "app/src/controllers/menuBarController.js")
-        script(src="app/src/controllers/searchBeerController.js")
-        script(src ="app/src/controllers/rechercheController.js")
-        script(src = "app/src/controllers/usersController.js")
         script(src="app/src/directives/isNumber.js")
         script(src = "app/src/directives/loadingContainer.js")
         script(src="app/src/services/authService.js")
@@ -57,6 +56,13 @@ html
         script(src = "app/src/services/beerService.js")
         script(src = "app/src/services/typeService.js")
         script(src = "app/src/services/breweryService.js")
+        script(src="app/src/controllers/authController.js")
+        script(src = "app/src/controllers/footerController.js")
+        script(src="app/src/controllers/menuAdminController.js")
+        script(src = "app/src/controllers/menuBarController.js")
+        script(src="app/src/controllers/searchBeerController.js")
+        script(src ="app/src/controllers/rechercheController.js")
+        script(src = "app/src/controllers/usersController.js")
+
         script(src = "app/src/i18n/messages-en.json")
         script(src = "app/src/i18n/messages-fr.json")
-        //-<!-- endbuild-->
