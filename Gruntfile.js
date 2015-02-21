@@ -12,6 +12,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-ng-annotate');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    var mozjpeg = require('imagemin-mozjpeg');
 
     // Project configuration.
     grunt.initConfig({
@@ -45,6 +47,34 @@ module.exports = function (grunt) {
                 basePath: 'target/coverage/instrument/'
             }
         },
+        imagemin: {
+            static: {
+                options: {
+                    optimizationLevel: 3,
+                    svgoPlugins: [{ removeViewBox: false }],
+                    use: [mozjpeg()]
+                },
+                files: {
+                    'target/b2b/front/public/images/bar-location.png': 'front/public/images/bar-location.png',
+                    'target/b2b/front/public/images/charmant.jpg': 'front/public/images/charmant.jpg',
+                    'target/b2b/front/public/images/choose_1.jpg': 'front/public/images/choose_1.jpg',
+                    'target/b2b/front/public/images/community.jpg': 'front/public/images/community.jpg',
+                    'target/b2b/front/public/images/compass.png': 'front/public/images/compass.png',
+                    'target/b2b/front/public/images/favicon.ico': 'front/public/images/favicon.ico',
+                    'target/b2b/front/public/images/fruits.jpeg': 'front/public/images/fruits.jpeg',
+                    'target/b2b/front/public/images/holliday.jpg': 'front/public/images/holliday.jpg',
+                    'target/b2b/front/public/images/jedi1.jpg': 'front/public/images/jedi1.jpg',
+                    'target/b2b/front/public/images/team.jpg': 'front/public/images/team.jpg',
+                    'target/b2b/front/public/images/white.jpg': 'front/public/images/white.jpg',
+                    'target/b2b/front/public/images/home.png': 'front/public/images/home.png',
+                    'target/b2b/front/public/images/logo.png': 'front/public/images/logo.png',
+                    'target/b2b/front/public/images/search.png': 'front/public/images/search.png',
+                    'target/b2b/front/public/images/sso.png': 'front/public/images/sso.png',
+                    'target/b2b/front/public/images/sport.jpeg': 'front/public/images/sport.jpeg',
+                    'target/b2b/front/public/images/love.jpeg': 'front/public/images/love.jpeg'
+                }
+            }
+        },
         copy: {
             sources: {
                 files: [{
@@ -60,11 +90,6 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         src: ['front/public/css/**'],
-                        dest: 'target/b2b/'
-                    },
-                    {
-                        expand: true,
-                        src: ['front/public/images/**'],
                         dest: 'target/b2b/'
                     },
                     {
@@ -148,6 +173,6 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['clean', 'coverage', 'buildApp']);
     grunt.registerTask('test', ['mochaTest', 'karma']);
     grunt.registerTask('coverage', ['env:coverage', 'instrument', 'mochaTest', 'mochacov', 'storeCoverage', 'makeReport', 'karma']);
-    grunt.registerTask('buildApp', ['clean', 'ngAnnotate', 'copy:sources', 'jadeUsemin']);
+    grunt.registerTask('buildApp', ['clean', 'ngAnnotate', 'copy:sources', 'jadeUsemin','imagemin']);
     grunt.registerTask('heroku:production', ['clean', 'copy:sources', 'jadeUsemin']);
 };
