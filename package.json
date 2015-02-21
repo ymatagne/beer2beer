@@ -4,7 +4,7 @@
   "description": "Search and find a welcome beer",
   "main": "app/server.js",
   "scripts": {
-    "start": "node app/server.js",
+    "start": "cd target/b2b/ ; node app/server.js",
     "postinstall": "bower install --force-latest && grunt heroku:production"
   },
   "engines": {
