@@ -13,11 +13,11 @@ header.header
                 ul.nav.navbar-nav.navbar-right.responsive-nav.main-nav-list
                     li.current
                         a(ng-click="gotoAnchor('home')") {{ 'MENU_TITLE_1' | translate }}
-                    li.hidden-xs
+                    li.hidden-xs.hidden-sm
                         a(ng-click="gotoAnchor('focus')") {{ 'MENU_TITLE_2' | translate }}
                     li
                         a(ng-click="gotoAnchor('searchBeer')") {{ 'MENU_TITLE_3' | translate }}
-                    li.hidden-xs
+                    li.hidden-xs.hidden-sm
                         a(ng-click="gotoAnchor('team')") {{ 'MENU_TITLE_4' | translate }}
                     li(ng-cloak)
                         a(ng-click='login()' ng-hide="currentUser") {{ 'MENU_TITLE_5' | translate }}

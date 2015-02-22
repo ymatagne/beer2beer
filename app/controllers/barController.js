@@ -5,12 +5,18 @@ var Bar = require('../models/bar');
  Output: JSON
  */
 module.exports.getBars = function (req, res) {
-    Bar.find(function (err, docs) {
-        if (err) {
-            res.send(err);
-            return null;
-        }
-    }).exec(function (err, docs) {
+    var query = Bar.find();
+    if (req.query.location) {
+        query.where('localisation').near({
+            center: {
+                coordinates: [JSON.parse(req.query.location).lat, JSON.parse(req.query.location).long],
+                type: 'Point'
+            },
+            maxDistance: JSON.parse(req.query.location).distance
+        });
+    }
+
+    query.exec(function (err, docs) {
         res.json(docs);
     });
 
@@ -102,7 +108,7 @@ module.exports.updateFullBar = function (req, res) {
         doc.nom = bar.nom;
         doc.adresse = bar.adresse;
         doc.geolocation = bar.geolocation;
-        doc.localisation= bar.localisation;
+        doc.localisation = bar.localisation;
         doc.happyhours = bar.happyhours;
         var index_a_conserver = [];
 

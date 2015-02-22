@@ -40,6 +40,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                     ui-gmap-google-map(center='map.center',zoom='map.zoom')
                         ui-gmap-markers(models="myLocation",idKey="'uid'",icon="'icon'",coords="'self'")
                         ui-gmap-markers(models="barsLocation",idKey="'uid'",icon="'icon'",coords="'self'",click="'onClick'")
+
             .row
                 .col-xs-12.col-md-12
                     h3(ng-show="beerShow") {{ 'TABLEAU_TITLE' | translate }} {{beerShow.nom}}
@@ -89,7 +90,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                     label {{ beerShow.happyhours }}
 
 
-            .row.rowFocus.hidden-xs
+            .row.rowFocus.hidden-xs.hidden-sm
                 .compassFocus
                     a(ng-click="gotoAnchor('team')")
                         i.fa.fa-chevron-down.fa-4x

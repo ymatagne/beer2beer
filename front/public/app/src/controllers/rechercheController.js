@@ -1,17 +1,24 @@
 'use strict';
 
-angular.module('b2b.controllers').controller('rechercheController', ["$scope","BarService", function($scope,BarService){
+angular.module('b2b.controllers').controller('rechercheController', ["$scope", "BarService", function ($scope, BarService) {
 
     $scope.map = {center: {latitude: 0, longitude: 0}, zoom: 15};
     $scope.myLocation = [];
     $scope.barsLocation = [];
     $scope.searchLocation = [];
+    $scope.controlText = 'I\'m a custom control';
 
     var showPosition = function (position) {
         $scope.map.center.latitude = position.coords.latitude;
         $scope.map.center.longitude = position.coords.longitude;
         $scope.addMarker(position.coords.latitude, position.coords.longitude, 'position', 0);
-        BarService.getAllBars({}).then(function (data) {
+        BarService.getAllBars({
+            location: {
+                lat: position.coords.latitude,
+                long: position.coords.longitude,
+                distance: 5000
+            }
+        }).then(function (data) {
             var bars = data;
             $scope.barsLocation = [];
             for (var index in bars) {
@@ -34,7 +41,7 @@ angular.module('b2b.controllers').controller('rechercheController', ["$scope","B
                 longitude: longitude,
                 title: title,
                 bar: bar,
-                onClick: function (retour,event,model) {
+                onClick: function (retour, event, model) {
                     $scope.showBeerInBar(model.bar._id);
                 }
             });
