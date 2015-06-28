@@ -1,5 +1,5 @@
 
-Github du site www.beer-2-beer.com
+Github de  www.beertoobeer.com
 
 ### Import des donnes d'initialisation
 mongoimport -h <URL:PORT> -d <BDD_NAME> -c breweries -u <USER> -p <MDP> --file app/data/brewery.json --jsonArray
