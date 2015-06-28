@@ -27,7 +27,7 @@ angular.module('b2b').config(['$routeProvider', function ($routeProvider) {
         libraries: 'places'
     });
 }]).config(['$translateProvider', function ($translateProvider) {
-    $translateProvider.useSanitizeValueStrategy('sanitize');
+    $translateProvider.useSanitizeValueStrategy('escaped');
     $translateProvider.useStaticFilesLoader({
         prefix: 'app/src/i18n/messages-',
         suffix: '.json'
