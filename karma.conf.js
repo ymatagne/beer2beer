@@ -16,7 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'front/public/libs/angular/angular.min.js',
-      'front/public/libs/lodash/dist/lodash.min.js',
+      'front/public/libs/lodash/lodash.min.js',
       'front/public/libs/angular-google-maps/dist/angular-google-maps.min.js',
       'front/public/libs/angular-mocks/angular-mocks.js',
       'front/public/app/src/**/*.js',
