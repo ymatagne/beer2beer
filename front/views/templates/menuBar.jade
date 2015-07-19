@@ -40,7 +40,7 @@ section#menuAdminController(ng-controller="menuBarController")
                     ui-gmap-markers(models="searchLocation",icon="'icon'",coords="'self'")
 
         .row
-            h3(ng-show="bar") {{ 'TABLEAU_TITLE' | translate=bar }}
+            h3(ng-show="bar") {{ 'TABLEAU_TITLE' | translate:bar }}
             div#infoBar(ng-show="bar")
                 table.table.table-striped
                     thead
