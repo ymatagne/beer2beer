@@ -34,10 +34,10 @@ section#menuAdminController(ng-controller="menuBarController")
 
 
             .col-md-6
-                ui-gmap-google-map.mapForAddBeerOrBar(center='map.center',zoom='map.zoom')
-                    ui-gmap-markers(models="myLocation",idKey="'uid'",icon="'icon'",coords="'self'")
-                    ui-gmap-markers(models="barsLocation",idKey="'uid'",icon="'icon'",coords="'self'",click="'onClick'")
-                    ui-gmap-markers(models="searchLocation",idKey="'uid'",icon="'icon'",coords="'self'")
+                ui-gmap-google-map.mapForAddBeerOrBar(center="map.center",zoom="map.zoom",draggable="true",options="options",bounds="map.bounds")
+                    ui-gmap-markers(models="myLocation",icon="'icon'",coords="'self'")
+                    ui-gmap-markers(models="barsLocation",icon="'icon'",coords="'self'",click="markerClick")
+                    ui-gmap-markers(models="searchLocation",icon="'icon'",coords="'self'")
 
         .row
             h3(ng-show="bar") {{ 'TABLEAU_TITLE' | translate }} {{bar.nom}}

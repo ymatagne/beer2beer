@@ -165,7 +165,7 @@ module.exports.getAllBar = function (req, res) {
             });
         }
     } else if (req.query.type != undefined) {
-        if (req.query.prices != undefined)
+        if (req.query.prices === undefined)
             Bar.find()
                 .where('consumptions.type_id').all(req.query.type)
                 .limit(100)

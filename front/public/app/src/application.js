@@ -24,7 +24,7 @@ angular.module('b2b').config(['$routeProvider', function ($routeProvider) {
 }]).config(["uiGmapGoogleMapApiProvider", function (uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
         v: '3.17',
-        libraries: 'places'
+        libraries: 'places,geometry,visualization'
     });
 }]).config(['$translateProvider', function ($translateProvider) {
     $translateProvider.useSanitizeValueStrategy('escaped');

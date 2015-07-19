@@ -12,13 +12,7 @@ angular.module('b2b.controllers').controller('rechercheController', ["$scope", "
         $scope.map.center.latitude = position.coords.latitude;
         $scope.map.center.longitude = position.coords.longitude;
         $scope.addMarker(position.coords.latitude, position.coords.longitude, 'position', 0);
-        BarService.getAllBars({
-            location: {
-                lat: position.coords.latitude,
-                long: position.coords.longitude,
-                distance: 5000
-            }
-        }).then(function (data) {
+        BarService.getAllBars().then(function (data) {
             var bars = data;
             $scope.barsLocation = [];
             for (var index in bars) {
@@ -33,7 +27,7 @@ angular.module('b2b.controllers').controller('rechercheController', ["$scope", "
     $scope.addMarker = function (latitude, longitude, type, uid, title, bar) {
         if (type === 'bar') {
             $scope.barsLocation.push({
-                uid: uid,
+                id: uid,
                 provider: "test",
                 name: "It's you",
                 icon: 'images/bar-location.png',
@@ -41,13 +35,13 @@ angular.module('b2b.controllers').controller('rechercheController', ["$scope", "
                 longitude: longitude,
                 title: title,
                 bar: bar,
-                onClick: function (retour, event, model) {
+                markerClick: function (retour, event, model) {
                     $scope.showBeerInBar(model.bar._id);
                 }
             });
         } else if (type === 'position') {
             $scope.myLocation.push({
-                uid: uid,
+                id: uid,
                 provider: "test",
                 name: "It's you",
                 latitude: latitude,
@@ -55,7 +49,7 @@ angular.module('b2b.controllers').controller('rechercheController', ["$scope", "
             });
         } else if (type === 'search') {
             $scope.searchLocation.push({
-                uid: uid,
+                id: uid,
                 provider: "test",
                 name: "It's you",
                 icon: 'images/search.png',
