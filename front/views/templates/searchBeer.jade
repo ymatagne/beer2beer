@@ -5,7 +5,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                 .col-xs-12.col-sm-12.col-md-4
                     .row.ligne-search
                         .circle 1
-                        h3 {{ 'TITLE_CRITERE_1' | translate }}
+                        h3(translate="TITLE_CRITERE_1")
                     .row
                         ui-select(multiple,ng-model="multipleChoose.selectedTypes", theme='bootstrap',on-select="refreshBeersList($item)",on-remove="refreshBeersListAfterDelete($item)", reset-search-input='true', style='width: 300px;')
                             ui-select-match(placeholder='Enter an type...') {{$item.name}}
@@ -14,7 +14,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                 .col-xs-12.col-sm-12.col-md-4
                     .row.ligne-search
                         .circle 2
-                        h3 {{ 'TITLE_CRITERE_2' | translate }}
+                        h3(translate="TITLE_CRITERE_2")
                     .row
                         ui-select(ng-model='beer.selected', theme='bootstrap', reset-search-input='false', style='width: 300px;')
                             ui-select-match(placeholder='Enter an beer...') {{$select.selected.nom}}
@@ -23,7 +23,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                 .col-xs-12.col-sm-12.col-md-4
                     .row.ligne-search
                         .circle 3
-                        h3 {{ 'TITLE_CRITERE_3' | translate }}
+                        h3(translate="LABEL_SEARCH_BTN")
                     .row
                         .col-xs-2
                             b &euro; 1
@@ -33,7 +33,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
                         .col-xs-2
                             b &euro; 30
             .row.rowSearch
-                a.btn.btn-primary.btn-search(type="button",ng-click="searchBeer()") {{ 'LABEL_SEARCH_BTN' | translate }}
+                a.btn.btn-primary.btn-search(type="button",ng-click="searchBeer()",translate="LABEL_SEARCH_BTN")
 
             .row
                 .col-xs-12.col-md-12
@@ -43,17 +43,17 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
 
             .row
                 .col-xs-12.col-md-12
-                    h3(ng-show="beerShow") {{ 'TABLEAU_TITLE' | translate }} {{beerShow.nom}}
+                    h3(ng-show="beerShow") {{ 'TABLEAU_TITLE' | translate:beerShow }}
                     div#infoBar(ng-show="beerShow")
-                        h3 {{ 'TITLE_PRESSION_BEER' | translate }}
+                        h3(translate="TITLE_PRESSION_BEER")
                         table.table.table-striped
                             thead
                                 tr
-                                    th {{ 'TABLEAU_DESC_1' | translate }}
-                                    th {{ 'TABLEAU_DESC_2' | translate }}
-                                    th {{ 'TABLEAU_DESC_3' | translate }}
-                                    th {{ 'TABLEAU_DESC_4' | translate }}
-                                    th {{ 'TABLEAU_DESC_5' | translate }}
+                                    th(translate="TABLEAU_DESC_1")
+                                    th(translate="TABLEAU_DESC_2")
+                                    th(translate="TABLEAU_DESC_3")
+                                    th(translate="TABLEAU_DESC_4")
+                                    th(translate="TABLEAU_DESC_5")
                             tbody
                                 tr(ng-repeat='consumption in (filteredItems=beerShow.consumptions) | filter:{ pression: true }')
                                     td(ng-show="consumption.enable") {{ consumption.beer_id[0].nom }}
@@ -66,15 +66,15 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
             .row
                 .col-xs-12.col-md-12
                     div#infoBar(ng-show="beerShow")
-                        h3 {{ 'TITLE_BOTLE_BEER' | translate }}
+                        h3(translate="TITLE_BOTLE_BEER")
                         table.table.table-striped
                             thead
                                 tr
-                                    th {{ 'TABLEAU_DESC_1' | translate }}
-                                    th {{ 'TABLEAU_DESC_2' | translate }}
-                                    th {{ 'TABLEAU_DESC_3' | translate }}
-                                    th {{ 'TABLEAU_DESC_4' | translate }}
-                                    th {{ 'TABLEAU_DESC_5' | translate }}
+                                    th(translate="TABLEAU_DESC_1")
+                                    th(translate="TABLEAU_DESC_2")
+                                    th(translate="TABLEAU_DESC_3")
+                                    th(translate="TABLEAU_DESC_4")
+                                    th(translate="TABLEAU_DESC_5")
                             tbody
                                 tr(ng-repeat='consumption in (filteredItems=beerShow.consumptions) | filter:{ pression: false }')
                                     td(ng-show="consumption.enable") {{ consumption.beer_id[0].nom }}
@@ -86,7 +86,7 @@ section#searchBeer.searchBeer(ng-controller="searchBeerController")
 
             .row
                 div#infoBar(ng-show="beerShow")
-                    h3 {{ 'TITLE_HAPPY_HOUR' | translate }}
+                    h3(translate="TITLE_HAPPY_HOUR")
                     label {{ beerShow.happyhours }}
 
 

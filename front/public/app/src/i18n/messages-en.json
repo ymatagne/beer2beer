@@ -35,7 +35,7 @@
   "TITLE_HAPPY_HOUR":"Happy Hours :",
   "ADMIN_LABEL_HAPPY_HOURS" :"Description happy hour :",
   "LABEL_SEARCH_BTN" :"Search your beer !",
-  "TABLEAU_TITLE" :"List of beer here : ",
+  "TABLEAU_TITLE" :"List of beer here : {{nom}}",
   "TABLEAU_DESC_1" :"Name",
   "TABLEAU_DESC_2" :"Type",
   "TABLEAU_DESC_3" :"Alcool",

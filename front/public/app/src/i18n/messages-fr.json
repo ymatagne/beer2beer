@@ -35,7 +35,7 @@
   "TITLE_BOTLE_BEER" : "Bière à la bouteille",
   "ADMIN_LABEL_HAPPY_HOURS" :"Description de l'happy hour :",
   "LABEL_SEARCH_BTN" :"Cherchez votre bière !",
-  "TABLEAU_TITLE" :"Liste des bières présentes ici : ",
+  "TABLEAU_TITLE" :"Liste des bières présentes ici : {{nom}}",
   "TABLEAU_DESC_1" :"Nom",
   "TABLEAU_DESC_2" :"Type",
   "TABLEAU_DESC_3" :"Alcool",

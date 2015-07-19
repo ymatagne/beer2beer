@@ -12,63 +12,63 @@ header.header
             nav.navbar-collapse.bs-navbar-collapse.collapse(role='navigation', style='height: 1px;')
                 ul.nav.navbar-nav.navbar-right.responsive-nav.main-nav-list
                     li.current
-                        a(ng-click="gotoAnchor('home')") {{ 'MENU_TITLE_1' | translate }}
+                        a(ng-click="gotoAnchor('home')",translate="MENU_TITLE_1")
                     li.hidden-xs.hidden-sm
-                        a(ng-click="gotoAnchor('focus')") {{ 'MENU_TITLE_2' | translate }}
+                        a(ng-click="gotoAnchor('focus')",translate="MENU_TITLE_2")
                     li
-                        a(ng-click="gotoAnchor('searchBeer')") {{ 'MENU_TITLE_3' | translate }}
+                        a(ng-click="gotoAnchor('searchBeer')",translate="MENU_TITLE_3")
                     li.hidden-xs.hidden-sm
-                        a(ng-click="gotoAnchor('team')") {{ 'MENU_TITLE_4' | translate }}
+                        a(ng-click="gotoAnchor('team')",translate="MENU_TITLE_4")
                     li(ng-cloak)
-                        a(ng-click='login()' ng-hide="currentUser") {{ 'MENU_TITLE_5' | translate }}
+                        a(ng-click='login()' ng-hide="currentUser",translate="MENU_TITLE_5")
                         span.dropdown(dropdown='', on-toggle='toggled(open)')
                             a.dropdown-toggle#linkToConnect(href='', dropdown-toggle='')
                                 | {{currentUser.pseudo}}
                             ul.dropdown-menu#menu
                                 li
-                                    a(ng-click="gotoEditBar()",ng-show="currentUser.role==='ADMIN'") {{ 'MENU_TITLE_8' | translate }}
+                                    a(ng-click="gotoEditBar()",ng-show="currentUser.role==='ADMIN'",translate="MENU_TITLE_8")
 
                                 li
-                                    a(ng-click="goEditUsers()",ng-show="currentUser.role==='ADMIN'") {{ 'MENU_TITLE_9' | translate }}
+                                    a(ng-click="goEditUsers()",ng-show="currentUser.role==='ADMIN'",translate="MENU_TITLE_9")
                                 li.divider
                                 li
-                                    a(ng-click="gotoAddBeer()") {{ 'MENU_TITLE_6' | translate }}
+                                    a(ng-click="gotoAddBeer()",translate="MENU_TITLE_6")
                                 li
-                                    a(ng-click="exit()") {{ 'MENU_TITLE_7' | translate }}
+                                    a(ng-click="exit()",translate="MENU_TITLE_7")
 
 
 script(type="text/ng-template", id="login")
     div(ng-controller='authController')
       div(ng-show="showSignup")
           form.form-signin(ng-submit="submit(form)")
-            h2.form-signin-heading {{ 'LOGIN_TITRE' | translate }}
+            h2.form-signin-heading(translate="LOGIN_TITRE")
             div.form-group
                 p.help-block(ng-show="errors.email") {{ errors.email }}
-                label {{ 'LOGIN_EMAIL' | translate }}
+                label(translate="LOGIN_EMAIL")
                 input.form-control(type="email", id="email", name="email",placeholder="Enter email ...",value="",ng-model="user.email",required)
               div.form-group
                 p.help-block(ng-show="errors.password") {{ errors.password }}
-                label {{ 'LOGIN_PASSWORD' | translate }}
+                label(translate="LOGIN_PASSWORD")
                 input.form-control(type="password", id="password", name="password",placeholder="Enter password ...",value="",ng-model="user.password",required)
-            button.btn.btn-lg.btn-primary.btn-block.btnLogin(id="signin",type="submit") {{ 'LOGIN_BTN' | translate }}
-            a.signUp(ng-click='signup()') {{ 'LOGIN_SIGNUP' | translate }}
+            button.btn.btn-lg.btn-primary.btn-block.btnLogin(id="signin",type="submit",translate="LOGIN_BTN")
+            a.signUp(ng-click='signup()',translate="LOGIN_SIGNUP")
           hr.hrLogin
           .extra
-            h2.form-signin-heading {{ 'LOGIN_LOG_WITH' | translate }}
+            h2.form-signin-heading(translate="LOGIN_LOG_WITH")
             .buttons.sso
               a(href="/api/auth/google/", class="sso-button google") Google
       div(ng-hide="showSignup")
           form.form-signin(ng-submit="register(form)")
-            h2.form-signin-heading {{ 'LOGIN_SIGNUP' | translate }}
+            h2.form-signin-heading(translate="LOGIN_SIGNUP")
             h4.error {{message}}
             div.form-group
-                label {{ 'LOGIN_SIGNUP_PSEUDO' | translate }}
+                label(translate="LOGIN_SIGNUP_PSEUDO")
                 input.form-control(type="text", id="pseudo", name="pseudo",placeholder="Enter pseudo ...",value="",ng-model="user.pseudo",required)
             div.form-group
-                    label {{ 'LOGIN_SIGNUP_EMAIL' | translate }}
+                    label(translate="LOGIN_SIGNUP_EMAIL")
                     input.form-control(type="email", id="email", name="email",placeholder="Enter email ...",value="",ng-model="user.email",required)
             div.form-group
-                label {{ 'LOGIN_SIGNUP_PASS' | translate }}
+                label(translate="LOGIN_SIGNUP_PASS")
                 input.form-control(type="password", id="password", name="password",placeholder="Enter password ",value="",ng-model="user.password",required)
-            button.btn.btn-lg.btn-primary.btn-block.btnLogin(id="signup",type="submit") {{ 'LOGIN_SIGNUP_CREATE' | translate }}
-            a.signUp(ng-click='signup()') {{ 'LOGIN_BACK' | translate }}
+            button.btn.btn-lg.btn-primary.btn-block.btnLogin(id="signup",type="submit",translate="LOGIN_SIGNUP_CREATE")
+            a.signUp(ng-click='signup()',translate="LOGIN_BACK")

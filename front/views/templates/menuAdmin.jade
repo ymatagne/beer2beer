@@ -16,87 +16,87 @@ section#menuAdminController(ng-controller="menuAdminController")
             h3.text-success(ng-show="message") {{message}}
             h4
               span.glyphicon.glyphicon-search
-              label {{ 'ADMIN_TITRE_BAR' | translate }}
+              label(translate="ADMIN_TITRE_BAR")
             .form-group
-              label(for="nameOBar") {{ 'ADMIN_LIST_NAME' | translate }}
+              label(for="nameOBar",translate="ADMIN_LIST_NAME")
               ui-select(ng-model='bar.selected',theme='bootstrap', ng-disabled='addNewBar',on-select="gotoBar($item, $model)", reset-search-input='false', style='width: 300px;')
                 ui-select-match(placeholder='Enter an bar...') {{$select.selected.nom}}
                 ui-select-choices(repeat='bar in bars track by $index', refresh='refreshBars($select.search)', refresh-delay='0')
                   div(ng-bind-html='bar.nom | highlight: $select.search')
               span.glyphicon.glyphicon-plus
-                a(ng-click="showFormNewBar()") {{ 'ADMIN_LINK_ADD' | translate }}
+                a(ng-click="showFormNewBar()",translate="ADMIN_LINK_ADD")
 
           div(ng-show="addNewBar")
             .form-group
-              label(for="nameOfBar") {{ 'ADMIN_LABEL_NAME' | translate }}
+              label(for="nameOfBar",translate="ADMIN_LABEL_NAME")
               input#nameOfBar.form-control(ng-model="newBar.nom",ng-disabled="!addNewBar")
 
             .form-group
-              label(for="addressOfBar") {{ 'ADMIN_LABEL_ADDR' | translate }}
+              label(for="addressOfBar",translate="ADMIN_LABEL_ADDR")
               input#addressOfBar.form-control(ng-model="newBar.adresse",ng-disabled="!addNewBar")
 
             .form-group
-              label(for="geolocationOfBar") {{ 'ADMIN_LABEL_GEO' | translate }}
+              label(for="geolocationOfBar",translate="ADMIN_LABEL_GEO")
               input#geolocationOfBar.form-control(ng-model="newBar.geolocation",ng-disabled="true")
 
             .form-group
-              label {{ 'ADMIN_LABEL_HAPPY_HOURS' | translate }}
+              label(translate="ADMIN_LABEL_HAPPY_HOURS")
               textarea.form-control(rows='3',ng-model="newBar.happyhours",ng-disabled="!addNewBar")
 
             .form-group
-             button.btn.btn-primary(type="button",ng-click="createBar()",ng-disabled="!addNewBar") {{ 'ADMIN_LABEL_BTN' | translate }}
+             button.btn.btn-primary(type="button",ng-click="createBar()",ng-disabled="!addNewBar",translate="ADMIN_LABEL_BTN")
 
           div
             h4
               span.glyphicon.glyphicon-search
-              label {{ 'ADMIN_TITRE_BEER' | translate }}
+              label(translate="ADMIN_TITRE_BEER")
 
             .form-group
-              label(for="nameOfBeer") {{ 'ADMIN_LIST_NAME_BEER' | translate }}
+              label(for="nameOfBeer",translate="ADMIN_LIST_NAME_BEER")
               ui-select(ng-model='beer.selected', theme='bootstrap', ng-disabled='addNewBeer', reset-search-input='false', style='width: 300px;')
                 ui-select-match(placeholder='Enter an beer...') {{$select.selected.nom}}
                 ui-select-choices(repeat='beer in beers track by $index', refresh='refreshBeers($select.search)', refresh-delay='0')
                   div(ng-bind-html='beer.nom | highlight: $select.search')
               span.glyphicon.glyphicon-plus
-                a(ng-click="showFormNewBeer()",ng-show='currentUser.role=="ADMIN"') {{ 'ADMIN_LINK_ADD_BEER' | translate }}
+                a(ng-click="showFormNewBeer()",ng-show='currentUser.role=="ADMIN"',translate="ADMIN_LINK_ADD_BEER")
 
           div(ng-show="addNewBeer")
             .form-group
-              label(for="nameOfBeer") {{ 'ADMIN_LABEL_NAME_BEER' | translate }}
+              label(for="nameOfBeer",translate="ADMIN_LABEL_NAME_BEER")
               input#nameOfBeer.form-control(ng-model="newBeer.nom",ng-disabled="!addNewBeer")
 
             .form-group
-              label(for="typeOfBeer") {{ 'ADMIN_LABEL_TYPE_BEER' | translate }}
+              label(for="typeOfBeer",translate="ADMIN_LABEL_TYPE_BEER")
               ui-select(multiple,ng-model='multipleChoose.selectedTypes', theme='bootstrap', ng-disabled='!addNewBeer', reset-search-input='true', style='width: 300px;')
                 ui-select-match(placeholder='Enter an type...') {{$item.name}}
                 ui-select-choices(repeat='type in types', refresh='refreshTypes($select.search)', refresh-delay='0')
                   div(ng-bind-html='type.name | highlight: $select.search')
 
             .form-group
-              label(for="alcoolInBeer") {{ 'ADMIN_LABEL_ALCOOL' | translate }}
+              label(for="alcoolInBeer",translate="ADMIN_LABEL_ALCOOL")
               div#alcoolInBeer.input-group
                 input.form-control(type="text",ng-model="newBeer.alcool",ng-disabled="!addNewBeer",is-number)
                 span.input-group-addon %
 
             .form-group
-              label(for="breweryForBeer") {{ 'ADMIN_LABEL_BREWERY' | translate }}
+              label(for="breweryForBeer",translate="ADMIN_LABEL_BREWERY")
               ui-select(ng-model='newBeer.brewery_id[0]', theme='bootstrap', ng-disabled='!addNewBeer', reset-search-input='false', style='width: 300px;')
                 ui-select-match(placeholder='Enter an Brewery...') {{newBeer.brewery_id[0].name}}
                 ui-select-choices(repeat='brewery in breweries track by $index', refresh='refreshBreweries($select.search)', refresh-delay='0')
                   div(ng-bind-html='brewery.name | highlight: $select.search')
 
             .form-group
-              button.btn.btn-primary(type="button",ng-click="createBeer()",ng-disabled="!addNewBeer") {{ 'ADMIN_LABEL_BTN_BEER' | translate }}
+              button.btn.btn-primary(type="button",ng-click="createBeer()",ng-disabled="!addNewBeer",translate="ADMIN_LABEL_BTN_BEER")
 
           div
             .form-group
-              label(for="priceOfBeer") {{ 'ADMIN_LABEL_PRICE' | translate }}
+              label(for="priceOfBeer",translate="ADMIN_LABEL_PRICE")
               div#priceOfBeer.input-group
                 input.form-control(type="text",ng-model="price",ng-disabled="!bar.selected._id || !beer.selected._id",is-number)
                 span.input-group-addon €
 
             .form-group
-              label(for="quantityOfBeer") {{ 'ADMIN_LABEL_QUANTITY' | translate }}
+              label(for="quantityOfBeer",translate="ADMIN_LABEL_QUANTITY")
               ui-select(ng-model='quantity.selected', theme='bootstrap', ng-disabled='!bar.selected._id || !beer.selected._id', reset-search-input='false', style='width: 300px;')
                 ui-select-match(placeholder='Enter quantity...') {{$select.selected.quantity}}
                 ui-select-choices(repeat='quantity in quantities track by $index', refresh='refreshBeers($select.search)', refresh-delay='0')
@@ -105,25 +105,24 @@ section#menuAdminController(ng-controller="menuAdminController")
             .form-group
               .checkbox
                 label
-                  input(type='checkbox',ng-model="pression",ng-value=false,ng-disabled='!bar.selected._id || !beer.selected._id')
-                  |     {{ 'ADMIN_LABEL_PRESSION' | translate }}
+                  input(type='checkbox',ng-model="pression",ng-value=false,ng-disabled='!bar.selected._id || !beer.selected._id',translate="ADMIN_LABEL_PRESSION")
 
-            button.btn.btn-primary(type="button",ng-click="link()",ng-disabled="!bar.selected._id || !beer.selected._id || form.priceOfBeer.$error") {{ 'ADMIN_BTN_LINK' | translate }}
+            button.btn.btn-primary(type="button",ng-click="link()",ng-disabled="!bar.selected._id || !beer.selected._id || form.priceOfBeer.$error",translate="ADMIN_BTN_LINK")
 
     .row
-      h3(ng-show="beerShow") {{ 'TABLEAU_TITLE' | translate }} {{beerShow.nom}}
+      h3(ng-show="beerShow") {{ 'TABLEAU_TITLE' | translate:beerShow }}
       div#infoBar(ng-show="beerShow")
-        h3 {{ 'TITLE_PRESSION_BEER' | translate }}
+        h3(translate="TITLE_PRESSION_BEER")
         table.table.table-striped
           thead
             tr
-              th {{ 'TABLEAU_DESC_1' | translate }}
-              th {{ 'TABLEAU_DESC_2' | translate }}
-              th {{ 'TABLEAU_DESC_3' | translate }}
-              th {{ 'TABLEAU_DESC_4' | translate }}
-              th {{ 'TABLEAU_DESC_5' | translate }}
-              th {{ 'TABLEAU_DESC_7' | translate }}
-              th(ng-show='currentUser.role=="ADMIN"') {{ 'TABLEAU_DESC_6' | translate }}
+              th(translate="TABLEAU_DESC_1")
+              th(translate="TABLEAU_DESC_2")
+              th(translate="TABLEAU_DESC_3")
+              th(translate="TABLEAU_DESC_4")
+              th(translate="TABLEAU_DESC_5")
+              th(translate="TABLEAU_DESC_7")
+              th(ng-show='currentUser.role=="ADMIN"',translate="TABLEAU_DESC_6")
           tbody
             tr(ng-repeat='consumption in beerShow.consumptions | filter:{ pression: true }')
               td {{ consumption.beer_id[0].nom }}
@@ -142,17 +141,17 @@ section#menuAdminController(ng-controller="menuAdminController")
 
     .row
       div#infoBar(ng-show="beerShow")
-        h3 {{ 'TITLE_BOTLE_BEER' | translate }}
+        h3(translate="TITLE_BOTLE_BEER")
         table.table.table-striped
           thead
             tr
-              th {{ 'TABLEAU_DESC_1' | translate }}
-              th {{ 'TABLEAU_DESC_2' | translate }}
-              th {{ 'TABLEAU_DESC_3' | translate }}
-              th {{ 'TABLEAU_DESC_4' | translate }}
-              th {{ 'TABLEAU_DESC_5' | translate }}
-              th {{ 'TABLEAU_DESC_7' | translate }}
-              th(ng-show='currentUser.role=="ADMIN"') {{ 'TABLEAU_DESC_6' | translate }}
+              th(translate="TABLEAU_DESC_1")
+              th(translate="TABLEAU_DESC_2")
+              th(translate="TABLEAU_DESC_3")
+              th(translate="TABLEAU_DESC_4")
+              th(translate="TABLEAU_DESC_5")
+              th(translate="TABLEAU_DESC_7")
+              th(ng-show='currentUser.role=="ADMIN"',translate="TABLEAU_DESC_6")
           tbody
             tr(ng-repeat='consumption in beerShow.consumptions | filter:{ pression: false }')
               td {{ consumption.beer_id[0].nom }}
@@ -171,5 +170,5 @@ section#menuAdminController(ng-controller="menuAdminController")
 
     .row
       div#infoBar(ng-show="beerShow")
-        h3 {{ 'TITLE_HAPPY_HOUR' | translate }}
+        h3(translate="TITLE_HAPPY_HOUR") {{ 'TITLE_HAPPY_HOUR' | translate }}
         label {{ beerShow.happyhours }}

@@ -9,27 +9,27 @@ section#menuAdminController(ng-controller="menuBarController")
                     div
                         h4
                             span.glyphicon.glyphicon-search
-                            label {{ 'ADMIN_TITRE_BAR' | translate }}
+                            label(translate="ADMIN_TITRE_BAR")
                         .form-group
-                            label(for="nameOBar") {{ 'ADMIN_LIST_NAME' | translate }}
+                            label(for="nameOBar",translate="ADMIN_LIST_NAME")
                             ui-select(ng-model='bar.selected',theme='bootstrap', ng-disabled='addNewBar',on-select="gotoBar($item, $model)", reset-search-input='true', style='width: 300px;')
                                 ui-select-match(placeholder='Enter an bar...') {{$select.selected.nom}}
                                 ui-select-choices(repeat='bar in bars track by $index', refresh='refreshBars($select.search)', refresh-delay='0')
                                     div(ng-bind-html='bar.nom | highlight: $select.search')
                         .form-group
-                            label(for="nameOfBar") {{ 'ADMIN_LABEL_NAME' | translate }}
+                            label(for="nameOfBar",translate="ADMIN_LABEL_NAME")
                             input#nameOfBar.form-control(ng-model="bar.nom",ng-disabled="!bar")
 
                         .form-group
-                            label(for="addressOfBar") {{ 'ADMIN_LABEL_ADDR' | translate }}
+                            label(for="addressOfBar",translate="ADMIN_LABEL_ADDR")
                             input#addressOfBar.form-control(ng-model="bar.adresse",ng-disabled="!bar")
 
                         .form-group
-                            label(for="geolocationOfBar") {{ 'ADMIN_LABEL_GEO' | translate }}
+                            label(for="geolocationOfBar",translate="ADMIN_LABEL_GEO")
                             input#geolocationOfBar.form-control(ng-model="bar.geolocation",ng-disabled="true")
 
                         .form-group
-                            label {{ 'ADMIN_LABEL_HAPPY_HOURS' | translate }}
+                            label(translate="ADMIN_LABEL_HAPPY_HOURS")
                             textarea.form-control(rows='3',ng-model="bar.happyhours",ng-disabled="!bar")
 
 
@@ -40,19 +40,19 @@ section#menuAdminController(ng-controller="menuBarController")
                     ui-gmap-markers(models="searchLocation",icon="'icon'",coords="'self'")
 
         .row
-            h3(ng-show="bar") {{ 'TABLEAU_TITLE' | translate }} {{bar.nom}}
+            h3(ng-show="bar") {{ 'TABLEAU_TITLE' | translate=bar }}
             div#infoBar(ng-show="bar")
                 table.table.table-striped
                     thead
                         tr
-                            th {{ 'TABLEAU_DESC_1' | translate }}
-                            th {{ 'TABLEAU_DESC_2' | translate }}
-                            th {{ 'TABLEAU_DESC_3' | translate }}
-                            th {{ 'TABLEAU_DESC_4' | translate }}
-                            th {{ 'TABLEAU_DESC_5' | translate }}
-                            th {{ 'TABLEAU_DESC_7' | translate }}
-                            th {{ 'TABLEAU_DESC_9' | translate }}
-                            th(ng-show='currentUser.role=="ADMIN"') {{ 'TABLEAU_DESC_6' | translate }}
+                            th(translate="TABLEAU_DESC_1")
+                            th(translate="TABLEAU_DESC_2")
+                            th(translate="TABLEAU_DESC_3")
+                            th(translate="TABLEAU_DESC_4")
+                            th(translate="TABLEAU_DESC_5")
+                            th(translate="TABLEAU_DESC_7")
+                            th(translate="TABLEAU_DESC_9")
+                            th(ng-show='currentUser.role=="ADMIN"',translate="TABLEAU_DESC_6")
                     tbody
                         tr(ng-repeat='consumption in bar.consumptions')
                             td {{ consumption.beer_id[0].nom }}
@@ -78,4 +78,4 @@ section#menuAdminController(ng-controller="menuBarController")
                                 button.btn.btn-default(ng-click="deleteConsumption(consumption)")
                                     span.glyphicon.glyphicon-trash
         .row
-            button.btn.btn-primary(type="button",ng-show="bar",ng-click="updateBar(bar)") {{ 'LABEL_ADMIN_BAR' | translate }}
+            button.btn.btn-primary(type="button",ng-show="bar",ng-click="updateBar(bar)",translate="LABEL_ADMIN_BAR")

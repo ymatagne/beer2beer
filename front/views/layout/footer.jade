@@ -4,7 +4,7 @@ footer#footer.footer(ng-controller='footerController')
                 .row
                     .col-md-6
                         .row
-                            h4.row-space-4.hide-sm.title-footer {{ 'FOOTER_CONTACT' | translate }}
+                            h4.row-space-4.hide-sm.title-footer(translate="FOOTER_CONTACT")
                         .row.social-row
                             a.social-network(href="https://twitter.com/Beer2BeerInc")
                                 span.fa-stack.fa-lg
@@ -20,7 +20,7 @@ footer#footer.footer(ng-controller='footerController')
                                     i.fa.fa-github.fa-stack-1x
                     .col-md-6
                         .row
-                            h4.row-space-4.hide-sm.title-footer {{ 'FOOTER_LANG' | translate }}
+                            h4.row-space-4.hide-sm.title-footer(translate="FOOTER_LANG")
                         .row.social-row
                             div.btn-group
                                 label.btn.btn-default(ng-model="radioModel",btn-radio="'fr'",ng-click="changeLanguage('fr')") Fr
